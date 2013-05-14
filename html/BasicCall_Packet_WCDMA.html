@@ -1,0 +1,369 @@
+<html>
+
+<head>
+<title>Frame Structure - Downlink</title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897"><b><font face="Verdana"><span style="font-size:14pt;">WCDMA/HSPA Packet Call</span></font></b></td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+<font face="Verdana"><span style="font-size:10pt;">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_UMTS_PacketCall_01 */
+google_ad_slot = "3600034378";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1) <a href="BasicCall_Voice_WCDMA.html#1_MIB">MIB</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2) <a href="BasicCall_Voice_WCDMA.html#2_SIB">SIB</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">RACH Preamble</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">AICH</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">RACH Message</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6) <a href="BasicCall_Voice_WCDMA.html#6_RRC_Connection_Request">RRC: RRC Connection Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">7) <a href="BasicCall_Voice_WCDMA.html#7_RRC_Connection_Setup">RRC: RRC Connection Setup</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8) <a href="BasicCall_Voice_WCDMA.html#8_RRC_Connection_Setup_Complete">RRC: RRC Connection Setup Complete</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">9) <a href="BasicCall_Voice_WCDMA.html#9_Location_Updating_Request">RRC: initialDirectTransfer + MM: Location Updating Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10) <a href="BasicCall_Voice_WCDMA.html#10_Authentication_Request">RRC : downlinkDirectTransfer + MM:Authentication Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11) <a href="BasicCall_Voice_WCDMA.html#11_Attach_Request">RRC: initialDirectTransfer + GMM: Attach&nbsp;Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">12) <a href="BasicCall_Voice_WCDMA.html#12_AuthenticationResponse">RRC : uplinkDirectTransfer + MM:Authentication Response</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">13) <a href="BasicCall_Voice_WCDMA.html#13_Security_Mode_Command">RRC : Security Mode Command</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">14) <a href="BasicCall_Voice_WCDMA.html#14_Security_Mode_Complete">RRC : Security Mode Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">15) <a href="BasicCall_Voice_WCDMA.html#15_Identity_Request">RRC : downlinkDirectTransfer + MM:Identity Request</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">16) <a href="BasicCall_Voice_WCDMA.html#16_Identity_Response">RRC : uplinkDirectTransfer + MM:Identity Response</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">17) <a href="BasicCall_Voice_WCDMA.html#17_Location_Updating_Accept">RRC : downlinkDirectTransfer + MM:Location Updating Accept</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">18) <a href="BasicCall_Voice_WCDMA.html#18_TMSI_ReallocationComplete">RRC : uplinkDirectTransfer + MM:TMSI Reallocation Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">19) <a href="BasicCall_Voice_WCDMA.html#19_AuthentionAndCipheringRequest">RRC : downlinkDirectTransfer + GMM: AuthenticationAndCipheringRequest</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">20) <a href="BasicCall_Voice_WCDMA.html#20_AuthentionAndCipheringResponse">RRC : uplinkDirectTransfer + GMM: AuthenticationAndCipheringResponse</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">21) <a href="BasicCall_Voice_WCDMA.html#21_Security_Mode_Command">RRC : Security Mode Command</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">22) <a href="BasicCall_Voice_WCDMA.html#22_Security_Mode_Complete">RRC : Security Mode Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">23) <a href="BasicCall_Voice_WCDMA.html#23_Identity_Request">RRC : downlinkDirectTransfer + GMM:Identity Request</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">24) <a href="BasicCall_Voice_WCDMA.html#24_Identity_Response">RRC : uplinkDirectTransfer + GMM:Identity Response</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">25) <a href="BasicCall_Voice_WCDMA.html#25_Attach_Accept">RRC : downlinkDirectTransfer + GMM:Attach Accept</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">26) <a href="BasicCall_Voice_WCDMA.html#26_Attach_Complete">RRC : uplinkDirectTransfer + GMM:Attach Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">27) <a href="BasicCall_Voice_WCDMA.html#27_RRC_Connection_Release">RRC : RRC Connection Release</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">28) <a href="BasicCall_Voice_WCDMA.html#28_RRC_Connection_Release_Complete">RRC : RRC Connection Release Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">29) <a href="BasicCall_Voice_WCDMA.html#29_In_Idle_Mode">&lt; In Idle Mode &gt;</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">30) --- User Makes a Packet Call (e.g, Browsing) ---</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">31) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">RACH Preamble</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">32) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">AICH</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">33) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">RACH Message</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">34) </span></font><span style="font-size:10pt;"><a href="#34_RRC_Connection_Request"><font face="Verdana" color="#00CC00"><b>RRC : RRC Connection Request</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">35) <a href="BasicCall_Voice_WCDMA.html#35_RRC_Connection_Setup">RRC : RRC Connection Setup</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36) <a href="BasicCall_Voice_WCDMA.html#36_RRC_Connection_Setup_Complete">RRC : RRC Connection Setup Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">37) </span></font><span style="font-size:10pt;"><a href="#37_GMM_Service_Request"><font face="Verdana" color="#00CC00"><b>RRC: initialDirectTransfer + GMM :&nbsp;Service&nbsp;Request</b></font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">38) </span></font><span style="font-size:10pt;"><a href="#38_GMM_AuthenticationAndCipheringRequest"><font face="Verdana" color="#00CC00"><b>RRC : downlinkDirectTransfer + GMM:AuthenticationAndCipheringRequest</b></font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">39) </span></font><span style="font-size:10pt;"><a href="#39_GMM_AuthenticationAndCipheringResponse"><font face="Verdana" color="#00CC00"><b>RRC : uplinkDirectTransfer + GMM:AuthenticationAndCipheringResponse</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">40) </span></font><span style="font-size:10pt;"><a href="#40_RRC_Security_Mode_Command"><font face="Verdana" color="#00CC00"><b>RRC : Security Mode Command</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">41) </span></font><span style="font-size:10pt;"><a href="#41_RRC_Security_Mode_Complete"><font face="Verdana" color="#00CC00"><b>RRC : Security Mode Complete</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">42) </span></font><span style="font-size:10pt;"><a href="#42_SM_Activate_PDP_Context_Request"><font face="Verdana" color="#00CC00"><b>RRC : uplinkDirectTransfer + SM&nbsp;: Activate PDP Context Request</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">43) </span></font><span style="font-size:10pt;"><a href="#43_Radio_Bearer_Setup"><font face="Verdana" color="#00CC00"><b>RRC : Radio Bearer Setup</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">44) </span></font><span style="font-size:10pt;"><a href="#44_Radio_Bearer_Setup_Complete"><font face="Verdana" color="#00CC00"><b>RRC : Radio Bearer Setup Complete</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">45) </span></font><span style="font-size:10pt;"><a href="#45_SM_Activate_PDP_Context_Accept"><font face="Verdana" color="#00CC00"><b>RRC : downlinkDirectTransfer + SM&nbsp;: Activate PDP Context Accept</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">46) </span></font><span style="font-size:10pt;"><a href="#46_Packet_Traffic"><b><font face="Verdana" color="#00CC00">&lt; Packet Traffic&nbsp;&gt;</font></b></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">47) --- User Disconnect Packet Call ---</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">48) </span></font><span style="font-size:10pt;"><a href="#48_SM_Deactivate_PDP_Context_Request"><font face="Verdana" color="#00CC00"><b>RRC : uplinkDirectTransfer + SM : Deactivate PDP Context Request</b></font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">49) </span></font><span style="font-size:10pt;"><a href="#49_SM_Deactivate_PDP_Context_Accept"><font face="Verdana" color="#00CC00"><b>RRC : downlinkDirectTransfer + SM : Deactivate PDP Context Accept</b></font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">50) <a href="BasicCall_Voice_WCDMA.html#54_RRC_Connection_Release">RRC : RRC Connection Release</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">51) <a href="BasicCall_Voice_WCDMA.html#55_RRC_Connection_Release_Complete">RRC : RRC Connection Release Complete</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="34_RRC_Connection_Request">34) RRC : RRC Connection Request</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">RRC:UL-CCCH-Message</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">UL-CCCH-Message ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-integrityCheckInfo ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [rrcConnectionRequest]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRequest ::= SEQUENCE [11]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-initialUE-Identity ::= CHOICE [tmsi-and-LAI]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-tmsi-and-LAI ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-tmsi ::= BIT STRING SIZE(32) [00000001001000110100010101100111]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-lai ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-plmn-Identity ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-mcc ::= SEQUENCE OF SIZE(3)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | +-Digit ::= INTEGER (0..9) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | +-Digit ::= INTEGER (0..9) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | +-Digit ::= INTEGER (0..9) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-mnc ::= SEQUENCE OF SIZE(2..3) [2]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-Digit ::= INTEGER (0..9) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-Digit ::= INTEGER (0..9) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-lac ::= BIT STRING SIZE(16) [0000000010000000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-establishmentCause ::= ENUMERATED [originatingHighPrioritySignalling]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-protocolErrorIndicator ::= ENUMERATED [noError]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-measuredResultsOnRACH ::= SEQUENCE [0] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-currentCell ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-modeSpecificInfo ::= CHOICE [fdd]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-fdd ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;+-measurementQuantity ::= CHOICE [cpich-Ec-N0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-cpich-Ec-N0 ::= INTEGER (0..63) [42]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-monitoredCells ::= SEQUENCE OF OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-v3d0NonCriticalExtensions ::= SEQUENCE [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rRCConnectionRequest-v3d0ext ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-uESpecificBehaviourInformation1idle ::= BIT STRING OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-v4b0NonCriticalExtensions ::= SEQUENCE [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRequest-v4b0ext ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-accessStratumReleaseIndicator ::= ENUMERATED [rel-6]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-v590NonCriticalExtensions ::= SEQUENCE [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRequest-v590ext ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-predefinedConfigStatusInfo ::= BOOLEAN [FALSE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-v690NonCriticalExtensions ::= SEQUENCE [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRequest-v690ext ::= SEQUENCE [10]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-ueCapabilityIndication ::= ENUMERATED [hsdch-edch] OPTIONAL:Exist</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-measuredResultsOnRACHinterFreq ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-domainIndicator ::= CHOICE [ps-domain]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-ps-domain ::= NULL</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-v6b0NonCriticalExtensions ::= SEQUENCE [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRequest-v6b0ext ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-mbmsSelectedServices ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-v6e0NonCriticalExtensions ::= SEQUENCE [0] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRequest-v6e0ext ::= SEQUENCE [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-supportForFDPCH ::= ENUMERATED [true] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-v770NonCriticalExtensions ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="37_GMM_Service_Request">37) RRC: initialDirectTransfer + GMM :&nbsp;Service&nbsp;Request</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">NAS:GMM,Service Request (UMTS only)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">Service Request (UMTS only) ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-Skip Indicator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Skip Indicator ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-GPRS mobility management protocol discriminator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Protocol Discriminator ::= PD [8]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-Service Request (UMTS only) Message type ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Message type ::= MSG [0C]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-Service type ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;</span></font><font face="Lucida Console" color="red"><span style="font-size:9pt;">+-Service type ::= CHOICE [Signalling]</span></font><font face="Lucida Console"><span style="font-size:9pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-Ciphering Key Sequence Number ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-Key sequence ::= CHOICE [Possible values for the ciphering key sequence number 000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-P-TMSI ::= LV</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Length of mobile identity contents ::= LEN (0..255) [5]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Identity digit 1 ::= INT (0..15) [15]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Odd/even indication ::= CHOICE [even number of identity digits and also when the TMSI/P-TMSI is used]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Type of identity ::= CHOICE [TMSI/P-TMSI]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet3-Octet10 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-Identity digit p ::= OCTETARRAY SIZE(0..8) [01234567]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-PDP context status ::= TLV OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-PDP context status IEI ::= IEI [32]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Length of PDP context status contents ::= LEN (0..255) [2]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet3 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-NSAPI(7) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-NSAPI(6) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-NSAPI(5) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-NSAPI(4) ::= CHOICE [are coded as '0' and shall be treated as spare in this version of the protocol]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-NSAPI(3) ::= CHOICE [are coded as '0' and shall be treated as spare in this version of the protocol]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-NSAPI(2) ::= CHOICE [are coded as '0' and shall be treated as spare in this version of the protocol]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-NSAPI(1) ::= CHOICE [are coded as '0' and shall be treated as spare in this version of the protocol]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-NSAPI(0) ::= CHOICE [are coded as '0' and shall be treated as spare in this version of the protocol]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet4 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-NSAPI(15) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-NSAPI(14) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-NSAPI(13) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-NSAPI(12) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-NSAPI(11) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-NSAPI(10) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-NSAPI(9) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-NSAPI(8) ::= CHOICE [indicates that the SM state of the corresponding PDP context is PDP-INACTIVE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-MBMS context status ::= TLV OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;| +-MBMS context status IEI ::= IEI [35]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;| +-Length of MBMS context status contents ::= LEN (0..255) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet3-Octet18 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-NSAPI ::= OCTETARRAY SIZE(0..16)</span></font><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="38_GMM_AuthenticationAndCipheringRequest">38) RRC : downlinkDirectTransfer + GMM:AuthenticationAndCipheringRequest</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">NAS:GMM,Authentication and ciphering request</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">Authentication and ciphering request ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Skip Indicator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Skip Indicator ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-GPRS mobility management protocol discriminator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Protocol Discriminator ::= PD [8]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Authentication and ciphering request Message type ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Message type ::= MSG [12]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-IMEISV request ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-IMEISV requestvalue ::= CHOICE [IMEISV not requested]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Ciphering algorithm ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-Type ofalgorithm ::= CHOICE [ciphering not used]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-A&amp;C reference number ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-A&amp;C reference numbervalue ::= INT (0..15) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Force to standby ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-Force tostandby value ::= CHOICE [Force to standby not indicated]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Authentication parameter RAND ::= TV OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Authentication parameter RAND IEI ::= IEI [21]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet2-Octet17 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-RAND value ::= OCTETARRAY SIZE(16..16) [34343733363033373434373336303337]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-GPRS Ciphering Key Sequence Number ::= TV OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-Ciphering Key Sequence Number IEI ::= IEI [8-]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-Key sequence ::= CHOICE [Possible values for the ciphering key sequence number 000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Authentication Parameter AUTN (UMTS authentication challenge only) ::= TLV OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;| +-Authentication Parameter AUTN IEI ::= IEI [28]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;| +-Length of AUTN contents ::= LEN (0..255) [16]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet3-Octet18 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-AUTN ::= OCTETARRAY SIZE(0..16) [FF8D9AAABF430000CBDAEAFF8D9AAABF]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="39_GMM_AuthenticationAndCipheringResponse">39) RRC : uplinkDirectTransfer + GMM:AuthenticationAndCipheringResponse</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">NAS:GMM,Authentication and ciphering response</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">Authentication and ciphering response ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-Skip Indicator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Skip Indicator ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-GPRS mobility management protocol discriminator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Protocol Discriminator ::= PD [8]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-Authentication and ciphering response Message type ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Message type ::= MSG [13]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-Spare Half Octet ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-Spare Half Octet ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-A&amp;C reference number ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-A&amp;C reference numbervalue ::= INT (0..15) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;</span></font><font face="Lucida Console" color="red"><span style="font-size:9pt;">+-Authentication Response parameter ::= TV OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Authentication Response parameter IEI ::= IEI [22]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-SRES value or most significant 1 ::= INT (0..255) [203]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet3 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-SRES value or most significant 2 ::= INT (0..255) [218]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet4 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-SRES value or most significant 3 ::= INT (0..255) [234]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet5 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console" color="red"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-SRES value or most significant 4 ::= INT (0..255) [255]</span></font><font face="Lucida Console"><span style="font-size:9pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-IMEISV ::= TLV OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Mobile Identity IEI ::= IEI [23]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Length of mobile identity contents ::= LEN (0..255) [4]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet3 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-spare ::= INT (0..3) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-MBMS Session Identity indication ::= CHOICE [MBMS Session Identity is not present]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-MCC/MNC indication ::= CHOICE [MCC/MNC is not present]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Odd/even indication ::= CHOICE [even number of identity digits and also when the TMSI/P-TMSI is used]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-Type of identity ::= CHOICE [TMGI and optional MBMS Session Identity]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet4-Octet6 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| | +-MBMS Service ID ::= OCTETARRAY SIZE(3..3) [000000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| +-Octet7-Octet10 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-MCC/MNC digit ::= OCTETARRAY SIZE(3..3) [000000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-MBMS Session Identity ::= OCTETARRAY SIZE(1..1) [00]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;+-Authentication Response Parameter (extension) (UMTS authentication challenge only) ::= TLV OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;| +-Authentication Response (extension) IEI ::= IEI [29]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;| +-Length of Authentication Response contents ::= LEN (0..255) [4]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet3-Octet14 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:9pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><font face="Lucida Console" color="red"><span style="font-size:9pt;">+-RES (all but 4 most significant octets) ::= OCTETARRAY SIZE(0..12) [8D9AAABF]</span></font><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="40_RRC_Security_Mode_Command">40) RRC : Security Mode Command</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="41_RRC_Security_Mode_Complete">41) RRC : Security Mode Complete</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="42_SM_Activate_PDP_Context_Request">42) RRC : uplinkDirectTransfer + SM&nbsp;: Activate PDP Context Request</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="43_Radio_Bearer_Setup">43) RRC : Radio Bearer Setup</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="44_Radio_Bearer_Setup_Complete">44) RRC : Radio Bearer Setup Complete</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="45_SM_Activate_PDP_Context_Accept">45) RRC : downlinkDirectTransfer + SM&nbsp;: Activate PDP Context Accept</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="46_Packet_Traffic">46) &lt; Packet Traffic&nbsp;&gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="48_SM_Deactivate_PDP_Context_Request">48) RRC : uplinkDirectTransfer + SM : Deactivate PDP Context Request</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="49_SM_Deactivate_PDP_Context_Accept">49) RRC : downlinkDirectTransfer + SM : Deactivate PDP Context Accept</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

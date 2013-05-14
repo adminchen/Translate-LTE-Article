@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, CS Fallback, CSFB " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CS_Fallback">CS Fallback</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Basically LTE is a Packet only technology. It is well designed for data traffic. Then what about Voice call ? This has normally done via CS call in existing technology (WCDMA, GSM, C2K etc). There can be a couple of options to achieve voice call in LTE. One of the option is just to use packet based voice call (e.g, VoIP or IMS). Another option is to use multiple technology.
+For example, if UE wants to have packet communication, the network redirect it to the normal LTE core network and if UE wants to do voice call the network redirect the call to one of the existing technology like WCDMA, GSM or C2K. This technology that enables to redirect connection to other technology (e.g, WCDMA, GSM, C2K) is called 'CS Fallback'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">It may sound very simple and usefull... but it is not that simple as you think. First, UE should support multiple technologies and network side would be even more complicated. One of the simplest representation on network side would be as follows. As you may guess, there should be some link point between LTE network and 2G/3G network to make this CS fallback happen. In this
+case, the connection point is between MSC and MME and the interface connecting these two entities are called 'SG' interface. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/CsFallback_SAE.PNG" width="809" height="445" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now LTE and 2G/3G network is connected. Now let's look into the interplay of the two networks to make the voice call possible. I think these interplay can be explained by adding just three lines as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/CsFallback_Reg_Paging.PNG" width="681" height="342" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is this everything make CS Fallback happen ? Definately not. There is some difference in terms of signaling protocol between LTE and 2G/3G. To make these two different protocol work together would not be that simple. To make this happen, LTE network should have a certain level of understanding (compatibility) with 2G/3G protocol and 2G/3G network shouldhave a certain level of understanding
+LTE protocol. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is not the scope of this short section to describe the whole details of 'CS Fallback' protocol side. So just keep it mind that it would be pretty complicated process and try to google some of articles. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you are interested in any practical example of CsFB to the level of RRC/NAS message, refer to <a href="Handover_LTE.html#OverviewOfCSFB_WCDMA" target="_blank">CSFB (LTE--&gt;WCDMA)</a> section of <a href="Handover_LTE.html" target="_blank">Handover</a> page. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">One thing I would like to recomment is </font></span></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a href="http://lteworld.org/blog/understanding-cs-fallback-lte"><font face="Verdana">http://lteworld.org/blog/understanding-cs-fallback-lte</font></a></span></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">There are several different ways to implement CSFB (CS Fallback) and one of the most common way is to use 'Redirection' method. For the details of 'Redirection' mechanism, refer to <a href="Handbook_LTE_old1.html#Redirection">'Redirection'</a> section.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

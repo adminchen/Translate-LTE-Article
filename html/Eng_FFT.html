@@ -1,0 +1,619 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="Engineering Math, Furier Transform ">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="801">
+    <tr>
+        <td width="795"><b><font face="Verdana"><span style="font-size:14pt;">FFT (Fast Fourier Transform)</span></font></b></td>
+    </tr>
+    <tr>
+        <td width="795">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_EngMath_01 */
+google_ad_slot = "2417473975";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Probably Fourier Transform would be a mathematical tool which is the most widely used in engineer area. I would not explain in details how Fourier Transform works mathematically, you can have a lot of information from internet or at least you would go through at least a couple of month for this topic during your university course. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When I think about the word &quot;Fourier&quot; (Actually a person's name), I have two images as shown below. One is a Fourier Series Expension and the other one is Fourier Transform. With Fourier Series expansion, you would have a continous function made up of very simple components (sin() + cos()) for any data whether the data is continous or non-continous. I am pretty sure that you would
+learn how to create a sequence of (sin() + cos()) to approximate computer clock-like rectangular pulse. (You could easily find tutorial or even many of Java application from internet).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Another image that pops up in my mind when I think about 'Fourier' is 'Fourier Transform'. One of the most typical usage (or purpose) of courier transform is to convert a time domain data into a frequency domain data and this section will mostly focused on this 'Fourier Transform'. &nbsp;(I think I am hearing those questions from many reader... saying ... &quot;What is time domain data ?
+What is frequecy domain data ? why we want to convert the time domain data into frequency domain data ?&quot;. All of these are very good question. Try very hard until you get your own answers for these questions -:)). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_Fourier02.PNG" width="484" height="450" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">I would not explain much of the theory about FFT, you would already get too much of it from text book or from on-line. As in other pages in my site, I will put as much examples and plots as possible just to make you &quot;feel&quot; about it. Of course, this pages would keep being extended as I find more examples that would help you with &quot;intuitive&quot; understanding
+of FFT. </font></font></span></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Zero_Padding">Zero Padding</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Number_of_Period">Number of Period</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="#Abrupt_Changes"><font face="Verdana"><span style="font-size:10pt;">Abrupt Changes</span></font><font face="Verdana"><span style="font-size:10pt;"> in Time Domain Data</span></font></a></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#FFT_Complex_Number">FFT for Complex Number</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Phase_of_FFT">Phase of FFT</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#EffectOfExp_p_i">Effect of multiplying Exp(p i) to the signal</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#EffectOfExp_f_t_i">Effect of multiplying Exp(f t i) to the signal</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Zero_Padding">Zero Padding</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">See following plots. As you see in (a), (b), (c), (d), the length of the data for the signal are all the same. But length of zero value being appended to the signal data are different resulting in different number of data for fft. Just try to 'feel' or 'sense' the general trand. what kind of difference you see in the fft plot as the length of appended zero gets increased
+? Do you see the fft plot gets smoother as the length of trailing zeros (zero pad) gets longer ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/Eng_FFT_ZeroPad01.PNG" width="711" height="397" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Try following Octave/Matlab code and play with following lines marked in blue. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">n = [0:31];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x = cos(2*pi*n/10);</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">&nbsp;</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x1 = x;</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x2 = [x zeros(1,64-length(x1))];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x3 = [x zeros(1,128-length(x1))];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x4 = [x zeros(1,256-length(x1))];</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1 = abs(fft(x1));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2 = abs(fft(x2));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3 = abs(fft(x3));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x4 = abs(fft(x4));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1 = [0:length(fft_x1)-1]/length(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2 = [0:length(fft_x2)-1]/length(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f3 = [0:length(fft_x3)-1]/length(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f4 = [0:length(fft_x4)-1]/length(fft_x4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x1,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x2,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,5);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x3,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,6);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,7);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x4,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,8);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f4,fft_x4); </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Number_of_Period">Number of Period</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">See following plots. As you see in (a), (b), (c), (d), the total&nbsp;of the fft data (signal + zero padding)&nbsp;are all the same. But the number of cycles of the signal are different. Just try to 'feel' or 'sense' the general trand. what kind of difference you see in the fft plot as the length of appended zero gets increased ? Do you see the peak gets higher and sharper&nbsp;as
+the number of&nbsp;signal cycles&nbsp;gets larger&nbsp;?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_NumberOfPeriods_01.PNG" width="708" height="294" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Try following Octave/Matlab code and play with following lines marked in blue. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">n = [0:29];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x = cos(2*pi*n/10);</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">&nbsp;</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x1 = [x zeros(1,256-1*length(x))];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x2 = [x x zeros(1,256-2*length(x))];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x3 = [x x x zeros(1,256-3*length(x))];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x4 = [x x x x zeros(1,256-4*length(x))];</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1 = abs(fft(x1));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2 = abs(fft(x2));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3 = abs(fft(x3));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x4 = abs(fft(x4));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1 = [0:length(fft_x1)-1]/length(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2 = [0:length(fft_x2)-1]/length(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f3 = [0:length(fft_x3)-1]/length(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f4 = [0:length(fft_x4)-1]/length(fft_x4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x1,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1); axis([0 1 0 60]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x2,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2); axis([0 1 0 60]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,5);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x3,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,6);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3); axis([0 1 0 60]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,7);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x4,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,8);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f4,fft_x4); axis([0 1 0 60]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Abrupt_Changes">Abrupt Changes</a></b></span></font><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b> in Time Domain Data</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">See following plots. As you see in (a), (b), (c), (d), the total&nbsp;of the fft data (signal + zero padding)&nbsp;are all the same. But the number of cycles of the signal are also same. Then what is the difference ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Comparing (a) and (b), you would notice a sudden phase change in the middle of the signal (b). This abrupt change created the distortion in fft as shown in (b_f).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Comparing (a) and (c), you would notice (c) is rectangular form of signal meaning that there are abrupt amplitude changes at rising and falling edges of the pulses. But in this case, this abrupt change does not create any distortion in fft plot. In stead, it creates a couple of additional peaks in fft (c_f). If you study only a little bit of Fourier Series, you would understand
+why these additional peaks show up. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Comparing (c) and (d), you would notice a sudden phase change in the middle of the signal (d). This abrupt change created the distortion in fft as shown in (d_f).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_AbruptChanges_01.PNG" width="635" height="324" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Try following Octave/Matlab code and play with following lines marked in blue. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">n = [0:29];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x = cos(2*pi*n/10);</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">&nbsp;</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x1 = [x x zeros(1,256-2*length(x))];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x2 = [x -x zeros(1,256-2*length(x))];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x3 = [sign(x) sign(x) zeros(1,256-2*length(x))];</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x4 = [sign(x) -sign(x) zeros(1,256-2*length(x))];</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1 = abs(fft(x1));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2 = abs(fft(x2));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3 = abs(fft(x3));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x4 = abs(fft(x4));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1 = [0:length(fft_x1)-1]/length(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2 = [0:length(fft_x2)-1]/length(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f3 = [0:length(fft_x3)-1]/length(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f4 = [0:length(fft_x4)-1]/length(fft_x4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x1,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1); axis([0 1 0 40]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x2,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2); axis([0 1 0 40]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,5);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x3,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,6);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3); axis([0 1 0 40]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,7);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x4,'r-'); axis([0 length(x4) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,2,8);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f4,fft_x4); axis([0 1 0 40]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="FFT_Complex_Number">FFT for Complex Number</a></b></span></font></p>
+            <div v:shape="_x0000_s1026" class=O>
+                <div style='mso-char-wrap:1;mso-kinsoku-overflow:1'>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                </div>
+            </div>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In all the examples described above, the signal (the input value to FFT process) was all real value. But in most of real situation, we use the signals presented as a sequence number of complex numbers. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this section, we will see the difference between FFT for real values and FFT for complex values. &nbsp;First, I created a script for various experiments in this section. By changing a,b,p1,p2, I will create many different cases to think about. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n = [0:256];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">a = 1.0;</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">b = 0.8; </font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">p1 = 0.0;</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">p2 = 0.2*pi;</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">x = a*cos(2*pi*n/20+p1) + j*b*sin(2*pi*n/20+p2);</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x1 = [real(x)];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x2 = [imag(x)];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x3 = [x];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1 = fft(x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2 = fft(x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3 = fft(x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1_abs = abs(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2_abs = abs(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3_abs = abs(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1_arg = arg(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2_arg = arg(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3_arg = arg(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1 = [0:length(fft_x1)-1]/length(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2 = [0:length(fft_x2)-1]/length(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f3 = [0:length(fft_x3)-1]/length(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x1,'r-'); axis([0 length(x3) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x1([1:length(x1)/8]),'r-'); axis([0 length(x1)/8 -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,7);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1_abs);axis([0 1 0 300]); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,10);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1([1:length(x1)/8]),fft_x1_abs([1:length(x1)/8]));axis([0 1/8 0 300]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x2,'b-'); axis([0 length(x3) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,5);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x2([1:length(x2)/8]),'b-'); axis([0 length(x2)/8 -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,8);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2_abs);axis([0 1 0 300]); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,11);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2([1:length(x2)/8]),fft_x2_abs([1:length(x2)/8]));axis([0 1/8 0 300]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x3),'r-',imag(x3),'b-'); axis([0 length(x3) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,6);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x3([1:length(x3)/8])),'r-',imag(x3([1:length(x3)/8])),'b-'); axis([0 length(x2)/8 -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,9);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x3_abs);axis([0 1 0 300]); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(4,3,12);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3([1:length(x3)/8]),fft_x3_abs([1:length(x3)/8]));axis([0 1/8 0 300]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Complex Number FFT - Example 1 &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First, I created a sample signal, the real part of which is cos() graph and the imaginary part of which is sin() curve. The a,b,p1,p2 value to create this example&nbsp;is as follows.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a = 1.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = 1.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p1 = 0.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p2 = 0.0</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">You see three columns A,B,C. A is a real value sequence created by a*cos(2*pi*n/20+p1), B is also a real value sequence created by b*sin(2*pi*n/20+p2) and C is a complex value sequence created by a*cos(2*pi*n/20+p1) + j*b*sin(2*pi*n/20+p2). Since 'C' signal is made up of pure 'sin' (sin() with no phase shift) and pure cos (cos() with no phase shift) the arg&nbsp;of the complex value (the
+phase difference between the real part and imaginary part) is exactly 90 degree (pi/4) as indicated as 'p' in Column 'C', row (c) plot. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now the most important part is the graphs on row (c). What do you think the differences among the three graphs on row (c) ? At the first two graphs which are both the result of FFT&nbsp;of real value sequence, you see two peaks, but in the third graph which is the result of FFT of a complex value sequence, you see only one peak. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is there any other differences except the number of peaks in FFT plot ? You can find another difference in graphs on row (d). You will notice that the height of the peak of complex valued FFT is much greater than the height of the peak of real valued FFT. How big is it ? In conclusion, in this specific case the height of peak on (column C, row d) is twice as high as (column A, row d) or (column
+B, row d).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then you would have question that comes naturally. What is the meaning (implication) of these differences (i.e, size of peak difference or number of peak differences) ? For now, I don't know how to explain this difference easily... but I will get back to this question later. How much 'later' ? I don't know for now -:). Try find your own answer in the meantime -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_ComplexNumber_01.PNG" width="744" height="419" border="0"></p>
+            <div v:shape="_x0000_s1026" class=O>
+                <div style='mso-char-wrap:1;mso-kinsoku-overflow:1'>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Complex Number FFT - Example 2&nbsp;&gt;</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                </div>
+            </div>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let me have a question. If a signal is made up of any form of complex numbers, does it produce only ONE peak as we saw in previous example ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's look at the following example to find the answer to this question. I set the variables for my script as follows. (You would notice I set a non-zero value for p2). </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a = 1.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = 1.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p1 = 0.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p2 = 0.2*pi;</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">You see three columns A,B,C. A is a real value sequence created by a*cos(2*pi*n/20+p1), B is also a real value sequence created by b*sin(2*pi*n/20+p2) and C is a complex value sequence created by a*cos(2*pi*n/20+p1) + j*b*sin(2*pi*n/20+p2). Since 'C' signal is made up of pure 'sin' (sin() with no phase shift) and </font><font face="Verdana" color="blue">cos (in this case this cos() has a
+phase shift defined by p2)</font><font face="Verdana">. Now the arg&nbsp;of the complex value (the phase difference between the real part and imaginary part) is not exactly 90 degree (pi/4) as indicated as 'p' in Column 'C', row (c) plot. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now let's look into&nbsp;the graphs on row (c). What do you think the differences among the three graphs on row (c) ? Even though the phase of signal B has been changed, the fft graph for the data doesn't seem to be changed in any way at least in terms of number of peaks or the height of the peak. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But you would notice a big difference between this example and previous example. It is that now even the fft of the complex signal has another peak even though the size of the peak is much smaller than the first peak. You may 'sense' this second peak would be related to the arg changes of the complex value data. To have more concrete 'feeling', try change p1, p2 into various different value
+and run the script. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is there any other differences except the number of peaks in FFT plot ? You can find another difference in graphs on row (d). You will notice that the height of the peak of complex valued FFT is much greater than the height of the peak of real valued FFT. How big is it ? But in this case, the large peak of colum C does&nbsp;not seem to be&nbsp;exactly twice as high as (column A, row d) or
+(column B, row d). If you compare the result of various trials of changing p1, p2, you will have some 'feeling' about the size of peak changes. I will leave this to you. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_ComplexNumber_02.PNG" width="744" height="419" border="0"></p>
+            <div v:shape="_x0000_s1026" class=O>
+                <div style='mso-char-wrap:1;mso-kinsoku-overflow:1'>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                </div>
+            </div>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Complex Number FFT - Example 3&nbsp;&gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's make another question. What if I change the amplitude of real or imaginary part of the complex signal without introducing any phase shift ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">My trial parameter is as follows. You should notice that a and b is not the same now. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a = 1.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = 0.8; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p1 = 0.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p2 = 0.0;</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">You see three columns A,B,C. A is a real value sequence created by a*cos(2*pi*n/20+p1), B is also a real value sequence created by b*sin(2*pi*n/20+p2) and </font><font face="Verdana" color="blue">now the amplitude of b*sin(2*pi*n/20+p2) is smaller than a*cos(2*pi*n/20+p1)</font><font face="Verdana">. C is a complex value sequence created by a*cos(2*pi*n/20+p1) + j*b*sin(2*pi*n/20+p2). 'C'
+signal is made up of pure 'sin' (sin() with no phase shift) and cos. </font><font face="Verdana" color="blue">Amplitude of real part and amplitude of imaginary part is not same as you see in m1,m2 in the graph (column C, row (b))</font><font face="Verdana">. Now the arg&nbsp;of the complex value (the phase difference between the real part and imaginary part) is not exactly 90 degree (pi/4) as indicated as 'p' in Column 'C', row (c) plot. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now let's look into&nbsp;the graphs on row (c). What do you think the differences among the three graphs on row (c) ? Even though the phase of signal B has been changed, the fft graph for the data doesn't seem to be changed in any way at least in terms of number of peaks or the height of the peak. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But you would notice a big difference between this example and previous example. It is that now even the fft of the complex signal has another peak even though the size of the peak is much smaller than the first peak. You may 'sense' this second peak would be related to the arg changes of the complex value data. To have more concrete 'feeling', try change a, b&nbsp;into various different
+value and run the script. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is there any other differences except the number of peaks in FFT plot ? You can find another difference in graphs on row (d). You will notice that the height of the peak of complex valued FFT is much greater than the height of the peak of real valued FFT. How big is it ? But in this case, the large peak of colum C does&nbsp;not seem to be&nbsp;exactly twice as high as (column A, row d) or
+(column B, row d). If you compare the result of various trials of changing a, b, you will have some 'feeling' about the size of peak changes. I will leave this to you. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_ComplexNumber_03.PNG" width="746" height="419" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <div v:shape="_x0000_s1026" class=O>
+                <div style='mso-char-wrap:1;mso-kinsoku-overflow:1'>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Complex Number FFT - Example 4&nbsp;&gt;</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In previous examples, we saw how separate changes in the amplitude and phase of the complex value data affect the result of FFT. Now let's change both amplitude and phase at the same time see how it influence fft result.</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">My trial parameter is as follows. You should notice that a and b is not the same now. p1 and p2 is not the same either&nbsp;. </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                </div>
+            </div>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a = 1.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = 0.8; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p1 = 0.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p2 = 0.2*pi;</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">You see three columns A,B,C. A is a real value sequence created by a*cos(2*pi*n/20+p1), B is also a real value sequence created by b*sin(2*pi*n/20+p2) and </font><font face="Verdana" color="blue">now the amplitude of b*sin(2*pi*n/20+p2) is smaller than a*cos(2*pi*n/20+p1)</font><font face="Verdana">. C is a complex value sequence created by a*cos(2*pi*n/20+p1) + j*b*sin(2*pi*n/20+p2). 'C'
+signal is made up of pure 'sin' (cos() with no phase shift) and 'sin'(</font><font face="Verdana" color="blue">sin() with phase shift)</font><font face="Verdana">.&nbsp;</font><font face="Verdana"> </font><font face="Verdana" color="blue">Now the arg&nbsp;of the complex value (the phase difference between the real part and imaginary part) is not exactly 90 degree (pi/4) as indicated as 'p' in Column 'C', row (c) plot. and Amplitude of real part and imaginary part is also different.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now let's look into&nbsp;the graphs on row (c). What do you think the differences among the three graphs on row (c) ? Even though the phase of signal B has been changed, the fft graph for the data doesn't seem to be changed in any way at least in terms of number of peaks or the height of the peak. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But you would notice a big difference between this example and previous example. It is that now even the fft of the complex signal has another peak even though the size of the peak is much smaller than the first peak. You may 'sense' this second peak would be related to the arg changes of the complex value data. To have more concrete 'feeling', try change a, b&nbsp;and p1,p2 into various
+different value and run the script. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is there any other differences except the number of peaks in FFT plot ? You can find another difference in graphs on row (d). You will notice that the height of the peak of complex valued FFT is much greater than the height of the peak of real valued FFT. How big is it ? But in this case, the large peak of colum C does&nbsp;not seem to be&nbsp;exactly twice as high as (column A, row d) or
+(column B, row d). If you compare the result of various trials of changing a, b and p1,p2, &nbsp;you will have some 'feeling' about the size of peak changes. I will leave this to you. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_ComplexNumber_04.PNG" width="746" height="419" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Phase_of_FFT">Phase of FFT</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">If you look carefully into the mathemtical formual for fourier transform, you would notice exp(-i t) part which is a complex number)&nbsp;and this part applies to every point of the input data. Therefore, the result of FFT is always a sequence of complex number regardless of whether the fft input is real number or complex number. It means each data point (a complex number)&nbsp;in
+fft result has it's own magnitue and phase. All the fft graph shown in previous sections is based on the magnitude of the fft result, but there are some cases where not only the magnitude part but also phase (arg or angle) part is important. (One example for this kind of case is 'filter design'). In this case, we normaly use both magnitude plot and phase plot to characterize the fft result. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this section, we would see how the phase value of fft can be represented. To see how most of the mathmatical software represent phase (angle), let's start with a simple and rotating complex value sequence as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(a) shows the graph of the complex value sequence. Red curve represent the real part and blue curve represent the imaginary part. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(c) shows the graph of the complex value in polar cordinate (or parametric coordinate). As you see, this complex sequence continuously rotating. It means the angle part just keep increasing continuously. But if you plot the phase (angle) in cartesian coordinate (rectangular) plot, you would see abrupt phase changes periodically as shown in (b). This is because of the way the computer software
+calcuate the phase (angle) of the complex number. So you should be careful about interpreting the phase values of the fft result. Especially when you see an abrupt phase changes (discontinuity of the phase value), you have to think about whether it is the discontinuity from the nature of input data or computer algorithm calculating the phase value. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_Phase_01.PNG" width="527" height="433" border="0"></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">For you intuitive understanding and various experiment, I wrote a small Octave (or Matlab) script as shown below. Just hange the value of a,b,p1,p2 and x (formula for signal generation) and see how the phase plot varies. As I always say, try as much as possible and try to make your own understanding. </font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n = [0:256];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a = 1.0;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = 1.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p1 = 0.0;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">p2 = 0.0;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = a*cos(2*pi*n/20+p1) + j*b*sin(2*pi*n/20+p2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x),'r-',imag(x),'b-'); axis([0 length(x) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(arg(x),'r-'); axis([0 length(x) -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,[3 4]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x([1:21])),imag(x([1:21])),'b-',real(x([1:21])),imag(x([1:21])),'rx'); axis([-1.5 1.5 -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,5);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(arg(x([1:21])),'b-',arg(x([1:21])),'rx'); axis([0 21 -pi pi]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Followings are just several examples that I tried and I would not explain much about this. Just take a look and have some feeling. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_Phase_02.PNG" width="756" height="520" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">With the feeling (or some sense) you formed from previous example, let's see the result of the fft for the data we used in previous sections. I added the phase plot of each fft. For now, just try to have some impressions here.. I hope I can explain the meaning of these type of phase changes in filter design session in the future.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_Arg_01.PNG" width="629" height="385" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Following is the script for the above plot. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n = [0:31];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = cos(2*pi*n/10);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x1 = x;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x2 = [x zeros(1,64-length(x1))];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x3 = [x zeros(1,256-length(x1))];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1 = fft(x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2 = fft(x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3 = fft(x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1_abs = abs(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2_abs = abs(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3_abs = abs(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1_arg = arg(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2_arg = arg(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3_arg = arg(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1 = [0:length(fft_x1)-1]/length(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2 = [0:length(fft_x2)-1]/length(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f3 = [0:length(fft_x3)-1]/length(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x1,'r-'); axis([0 length(x3) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,7);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1_arg);axis([0 1 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,10);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1([1:length(f1)/4]),fft_x1_abs([1:length(f1)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,13);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1([1:length(f1)/4]),fft_x1_arg([1:length(f1)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x2,'r-'); axis([0 length(x3) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,5);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,8);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2_arg);axis([0 1 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,11);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2([1:length(f2)/4]),fft_x2_abs([1:length(f2)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,14);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2([1:length(f2)/4]),fft_x2_arg([1:length(f2)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x3,'r-'); axis([0 length(x3) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,6);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,9);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3_arg);axis([0 1 -pi pi]); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,12);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3([1:length(f3)/4]),fft_x3_abs([1:length(f3)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,15);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3([1:length(f3)/4]),fft_x3_arg([1:length(f3)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="EffectOfExp_p_i">Effect of multiplying Exp(p i) to the signal</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_Exp_p_i.PNG" width="700" height="450" border="0"></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n = [0:31];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = exp(j*2*pi*n/10);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x1 = [x zeros(1,256-length(x))];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x2 = x1 .* exp(j*0.25*pi);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x3 = x1 .* exp(j*0.5*pi);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1 = fft(x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2 = fft(x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3 = fft(x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1_abs = abs(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2_abs = abs(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3_abs = abs(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1_arg = arg(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2_arg = arg(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3_arg = arg(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1 = [0:length(fft_x1)-1]/length(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2 = [0:length(fft_x2)-1]/length(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f3 = [0:length(fft_x3)-1]/length(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x1),'r-',imag(x1),'b-'); axis([0 length(n) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,7);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1_arg);axis([0 1 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,10);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1([1:length(f1)/4]),fft_x1_abs([1:length(f1)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,13);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1([1:length(f1)/4]),fft_x1_arg([1:length(f1)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x2),'r-',imag(x2),'b-'); axis([0 length(n) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,5);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,8);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2_arg);axis([0 1 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,11);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2([1:length(f2)/4]),fft_x2_abs([1:length(f2)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,14);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2([1:length(f2)/4]),fft_x2_arg([1:length(f2)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x3),'r-',imag(x3),'b-'); axis([0 length(n) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,6);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,9);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3_arg);axis([0 1 -pi pi]); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,12);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3([1:length(f3)/4]),fft_x3_abs([1:length(f3)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,15);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3([1:length(f3)/4]),fft_x3_arg([1:length(f3)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="EffectOfExp_f_t_i">Effect of Multiplying Exp(f t i) to the signal</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Eng_FFT_Exp_f_i.PNG" width="700" height="427" border="0"></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n = [0:31];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = exp(j*2*pi*n/10);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x1 = [x zeros(1,256-length(x))];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x2 = [x .* exp(j*0.1*pi*n) zeros(1,256-length(x))];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x3 = [x .* exp(j*0.2*pi*n) zeros(1,256-length(x))];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1 = fft(x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2 = fft(x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3 = fft(x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1_abs = abs(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2_abs = abs(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3_abs = abs(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x1_arg = arg(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x2_arg = arg(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fft_x3_arg = arg(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1 = [0:length(fft_x1)-1]/length(fft_x1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2 = [0:length(fft_x2)-1]/length(fft_x2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f3 = [0:length(fft_x3)-1]/length(fft_x3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,1);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x1),'r-',imag(x1),'b-'); axis([0 length(n) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,4);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,7);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1,fft_x1_arg);axis([0 1 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,10);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1([1:length(f1)/4]),fft_x1_abs([1:length(f1)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,13);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f1([1:length(f1)/4]),fft_x1_arg([1:length(f1)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x2),'r-',imag(x2),'b-'); axis([0 length(n) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,5);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,8);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2,fft_x2_arg);axis([0 1 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,11);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2([1:length(f2)/4]),fft_x2_abs([1:length(f2)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,14);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f2([1:length(f2)/4]),fft_x2_arg([1:length(f2)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,3);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(x3),'r-',imag(x3),'b-'); axis([0 length(n) -1.5 1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,6);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3_abs); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,9);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3,fft_x3_arg);axis([0 1 -pi pi]); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,12);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3([1:length(f3)/4]),fft_x3_abs([1:length(f3)/4]));</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,3,15);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f3([1:length(f3)/4]),fft_x3_arg([1:length(f3)/4]));axis([0 1/4 -pi pi]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

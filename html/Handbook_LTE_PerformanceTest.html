@@ -1,0 +1,203 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Performance Test</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I was asked pretty often &quot;Can you help me with Performance Test of our UE ?&quot;, &quot;How can I do the performance test for our device ?&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then I asked them back &quot;As far as I know there is no clear definition of 'Performance'. It seems that everybody has different opinion. What is your definition of Perforamce ?&quot;. &quot;Is there any expected result for the test ?&quot;.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Unfortunately I don't get any clear answer to these questions from any body. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The simplest definition of performance test would be &quot;to test if UE achieves maximum throughput at each and every layer&quot;. Generally we do this kind of test in two different level, one at L1/PHY layer and one at IP layer. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this section, I would focus more on L1/PHY layer performance test rather than IP layer throughput. For IP layer throughput performance, refer to <a href="Throughput.html" target="_blank">Throughput</a> page. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fortunately, we have a well defined test methodology and criteria for PHY/L1 performace as a part of 3GPP conformance test. (Refer to <a href="RF_Measurement_LTE.html#RF_Conformance" target="_blank">Performance Test</a> section of <a href="RF_Measurement_LTE.html" target="_blank">RF Measurement</a> Page)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But the test that are covered by the conformance test is bare minimum level (I would say it is less than the minimum). Let me give you a list of major factors that may influence the performance and possible number of settable values for each factors. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="777" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="298" bgcolor="#9966FF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">Factors</font></span></p>
+                    </td>
+                    <td width="469" bgcolor="#9966FF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">Number of Possible Configuration</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="298"><span style="font-size:10pt;"><font face="Verdana">Number of RBs</font></span></td>
+                    <td width="469"><span style="font-size:10pt;"><font face="Verdana">50 possible values for 10 Mhz, 100 possible values for 20 Mhz</font></span></td>
+                </tr>
+                <tr>
+                    <td width="298" height="5"><span style="font-size:10pt;"><font face="Verdana">MCS</font></span></td>
+                    <td width="469" height="23"><span style="font-size:10pt;"><font face="Verdana">28 possible values</font></span></td>
+                </tr>
+                <tr>
+                    <td width="298" height="11"><a href="Handbook_LTE_DownlinkPowerAllocation.html" target="_blank"><span style="font-size:10pt;"><font face="Verdana">Rho A, Rho B</font></span></a></td>
+                    <td width="469" height="23"><span style="font-size:10pt;"><font face="Verdana">5 possibile configuration</font></span></td>
+                </tr>
+                <tr>
+                    <td width="298" height="11"><span style="font-size:10pt;"><font face="Verdana"><a href="Handbook_LTE_CFI.html" target="_blank">PCFICH value</a></font></span></td>
+                    <td width="469" height="23"><font face="Verdana"><span style="font-size:10pt;">3 possible values</span></font></td>
+                </tr>
+                <tr>
+                    <td width="298" height="5"><span style="font-size:10pt;"><font face="Verdana"><a href="Handbook_LTE_Fading.html" target="_blank">Fading Condition</a></font></span></td>
+                    <td width="469" height="23"><span style="font-size:10pt;"><font face="Verdana">4~5 possible configuration based on Conformance Test (Much more possibilities in real environment)</font></span></td>
+                </tr>
+                <tr>
+                    <td width="298"><span style="font-size:10pt;"><font face="Verdana">SNR</font></span></td>
+                    <td width="469">
+<font face="Verdana"><span style="font-size:10pt;">Continous value (but around 20 values for test)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="298"><span style="font-size:10pt;"><font face="Verdana">Channel Power</font></span></td>
+                    <td width="469"><span style="font-size:10pt;"><font face="Verdana">Continous value (but around 20 values for test)</font></span></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">If you simply multiply the numbers on the right column, you would get more than 10 million combinations. In reality, you would have to take into account antenna performance, heat generation and a lot of other factors. So it is practically impossible to test all of these combinations. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Then what are we supposed to do ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Just rely on RF Conformance test and give up all other possibilities ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You shouldn't do that. As you may have experienced in this area, however well you passed all the conformace test the problems will always happen in the field&nbsp;and most of those problems are related to those factors which has not been tested by conformance. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">My personal best practice would be </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) At first step, try&nbsp;all the parameters (factors) with a big step size (e.g, SNR sweep with 2 dB steps, rather than trying SNR sweep with 0.1 dB steps)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">ii) Identify the parameters that influence the performance the most.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">iii) Find the value ranges that shows the biggest differences in terms of performance.</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you can reduce the number of possible test configuration to a couple of thousand cases rather than over 10 millions, I think </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">it would be feasible to do this kind of testing as part of standard test at least a couple of times whenever you develop a new model and this would help you with performance optimization process and reduce any possible problems in the field. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RS_Power_vs_PDSCH_Decoding_Error">RS Power vs PDSCH Decoding Error</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SNR_vs_PDSCH_Decoding_Error">SNR vs PDSCH Decoding Error</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RS_Power_vs_PDSCH_Decoding_Error">RS Power vs PDSCH Decoding Error</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In conventional technology (e.g, CDMA, GSM, WCDMA, HSDPA), total number of possible radio bearer for physical layer are not much. But in LTE, the number of possible physical layer bearer are so huge because there are so many possibilities of 'Number of RB' and 'MCS'. If you multiply the number of these two parameters, you would have at least a couple of hundreds possible physical bearer for any bandwith (as the System Bandwidth gets wider, the possible number of possible physical layer bearer gets larger). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For the accurate physical layer performance test, you have to test all these possible combinations, but none of the conformance level test cases requires this kind of full space testing. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">With a LTE network simulator and the test script, I performed a test to evaluate the physical layer performance of a UE. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The overall procedure are</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Put UE in connection mode with SISO</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Set a specific MCS</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Set a specific DL Power (I used Cell Specific Reference Power and PDSCH channel power for this step)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Transmit 2000 PDSCH from SS (Network Simulator)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) Count the number of NACKs received by SS</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vii) Go to step iii) and decrement the DL channel power by 2 dB</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Follwings are the result that I got from this test. You will notice the overal trends very easily as follows.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Number of NACK gets increases as the number of RBs get increases</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Number of NACK gets increases as the DL channel power get descreses</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Number of NACK gets increases as DL MCS value get increases</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may say.. these are nothing new to me. Every body can guess this kind of trends even without this kind of time cosuming test. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may be right. But think about following questions and see if you can give answers without doing the real test ? </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) What is the RS Power&nbsp;where&nbsp;CRC error start happening ? (Is this point same as all UEs ?)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Once CRC error happens, does it &nbsp;increase &nbsp;in linear fashion or in non-linear fashion as RS power gets descreases ? </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Once CRC error happens, does it &nbsp;increase &nbsp;in linear fashion or in non-linear fashion as MCS&nbsp;gets increases&nbsp;? </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Like this, you can make a lot of questions you cannot answer without doing real test. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This result would not mean much for a specific single device since there is no officially defined evaluation criteria, but if you do the same test for the various UE models, you can use this result as a comparitive performance criteria and it would be very helpful to improve your device performance.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_PDSCH_Decoding_Performance_RS.PNG" width="700" height="550" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If your device shows this kind of behavior, you would notice that CRC error (NACK) would not happen easily when number of RB allocation is less than 25 regardless of MCS value and regardless of RS power. (Of course, you may have different result if you push down RS power even lower than -95 dBm/15 Khz). So for this device or the device with similar platform, you may skip the test configuration of number of RB less than 25 and basically this single filtering would reduce the number of test by 50 %. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SNR_vs_PDSCH_Decoding_Error">SNR vs PDSCH Decoding Error</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This test (based on my personal criteria) is designed to find answer to a question &quot;What is the minimum condition / configuration to start&nbsp;generating CRC error ?&quot;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Everybody would know the general tendency even without doing any experiment as follows :</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) The rate of CRC error would increase as SNR decrease</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The rate of CRC error would increase as MCS increase </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) The rate of CRC error would increase as Code Rate increase</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But this kind of general tendency based on theory would not give you the answer to your specific questions to your specific device as follows. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Exactly at which N_RB (number of RBs) and at which SNR CRC error start occur ?</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Is this starting point the same for all of your device ? </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) What if your device RF calibration goes wrong ? Would it&nbsp;heavily influence the test result ? </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) (For example) The transport block size at I_tbs = 20 &amp; N_RB = 3 and the one at I_TBS = 0, N_RB = 50 are the same. Would this two condition generate the same rate of CRCs with SNR changes ? </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Probably the best way to find answers to these questions would be to do the real test. This section would give you some insight on this (even though it would&nbsp;not give you all the answers). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Overall procedure of my test are </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Set the power of Downlink&nbsp;Reference Signal (Cell Specific Reference Signal) to be -45 dBm (This is very high.. you would hardly experience this kind of strong power in live network, but I set it to be high like this to provide UE with ideally high power so that the RS power would not be any cause of CRC error). </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Configure downlink channel configuration so that SNR would be around 30 dB. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Set&nbsp;DL N_RB (Number of Resource Blocks for PDSCH) to be 1 </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) transmit PDSCH for&nbsp;2000 subframe and count the number of NACK (indicator of number of CRC)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) Increment DL N_RB by 1</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) Repeat step iv)~v) until N_RB reaches 50</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vii) Decrement SNR by 2 dB</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">viii) Repeat step step iii)~vii)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ix) Repeat step i)~viii) for all possible MCS (0~28)</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Yes... it was huge amount of test and it took me several days to complete this test. Several test result are as follows. This is just for your reference as an introduction to test methodology. and it is only for a single device that I used. You may have a little different result for your device. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First look at the case of Max MCS and Min MCS for 64 QAM. Number of NACK (CRC error) pattern is not straight linear, but you would see some trend changes within this range. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_PDSCH_Decoding_Performance_SNR_64QAM.PNG" width="740" height="435" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's&nbsp;look at the case of Max MCS and Min MCS for 16&nbsp;QAM. Number of NACK (CRC error) pattern is not straight linear, but you would see some trend changes within this range. For the device I tested, it turned out that SNR should be at least 10 dB or higher in order to achieve the full performance without any CRC for every possible resource block allocation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_PDSCH_Decoding_Performance_SNR_16QAM.PNG" width="736" height="454" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's&nbsp;look at the case of Max MCS and Min MCS for QAM. Again, the Number of NACK (CRC error) pattern is not straight linear, but you would see some trend changes within this range. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_PDSCH_Decoding_Performance_SNR_QAM.PNG" width="737" height="488" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

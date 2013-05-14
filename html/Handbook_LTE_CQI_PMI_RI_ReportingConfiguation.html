@@ -1,0 +1,83 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, CQI, PMI, RI Reporting Configuration " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CQI_PMI_RI_Reporting_Configuration">CQI, PMI, RI Reporting Configuration</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When (on which subframe, with what interval) the CQI is transmitted ? There are two types of CQI transmission : Periodic and Aperiodic. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Periodic CQI : CQI is transmitted periodically with a certain interval specified by higher layer message(e.g, RRC Connection Reconfiguration, RRC Connection Setup). </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Aperiodic CQI : CQI is transmitted by a special trigger (e.g, DCI0, RACH Response).</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's look into Periodic Report first. As mentioned above, in Periodic report configuration CQI/PMI/RI is transmitted periodically with a certain interval specified by higher layer message(e.g, RRC Connection Reconfiguration, RRC Connection Setup)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following RRC configuration (RRC Connection Setup or RRC Connection Reconfiguration) notifies UE of CQI, PMI, RI reporting configuration.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/CQI_PMI_RI_ReportingConfig_01.PNG" width="785" height="561" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But just from RRC message and the two tables (from 36.213), you cannot know exactly at which subframe the CQI/PMI/RI are transmitted. To figure out the exact time stamp (SFN and subframe) you have to go through several mathematical equations as follows. These two equations are only part of the story. You have to refer to 36.213 7.2.2 Periodic CSI Reporting using PUCCH. You will see the many
+different cases of reporting cycle. I just use this two example to show you how to interpret these equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is an example when CQI only is being transmitted. Npd and N_OFFSET,CQI configured by RRC Connection Setup and RRC Connection Reconfiguration and the value itself came from Table 7.2.2-1A of 36.213. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/CQI_PMI_RI_ReportingConfig_02.PNG" width="552" height="176" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The equation itself will be quite simple, but just to doublecheck your understanding, let me give you a short quizz (don't get panic -:)). Here you go.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If cqi-pmi-Configindex in RRC message is 13. What is Npd and N_OFFSET,CQI ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This maps to the row of the table as follows. You can read Npd directly. It is 10. Then you need a little bit of math to get N_OFFSET,CQI. &nbsp;The value for this example is specified to be (I_CQI/PMI-7). It is 13-7 which is 6. Now the last step is to apply these two values to the equation above to calculate the exact subframe number for CQI/PMI transmission.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_213_Table7_2_2_1A_CQI_ConfigIndex_Ex01.PNG" width="468" height="385" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : I_CQI/PMI is specified by physicalConfigDedicated.cqi-ReportConfig.cqi-ReportPeriodic.setup.cqi-pmi-ConfigIndex in a RRC Message (e.g, RRC Connection Reconfiguration)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is an example where both CQI and RI are being transmitted. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/CQI_PMI_RI_ReportingConfig_03.PNG" width="716" height="259" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">just to doublecheck your understanding, let me give you a short quizz. Here you go.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If ri-Configindex in RRC message is 200. What is M_RI&nbsp;and N_OFFSET,RI ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This maps to the row of the table as follows. You can read M_RI&nbsp;directly. It is 2. Then you need a little bit of math to get N_OFFSET,RI. &nbsp;The value for this example is specified to be -(I_RI-161). It is -(200-161) which is -39. Now the last step is to apply these two values to the equation above to calculate the exact subframe number for RI transmission.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_213_Table7_2_2_1B_RI_ConfigIndex_Ex01.PNG" width="504" height="268" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : I_RI is specified by physicalConfigDedicated.cqi-ReportConfig.cqi-ReportPeriodic.setup.ri-ConfigIndex in a RRC Message (e.g, RRC Connection Reconfiguration)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="813">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="106">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="813">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Zadoff_ChuSequence">Zadoff - Chu Sequence</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As I briefly mentioned above, this is not a single number. It is a sequence of special numbers. You can find quite a lot of materials on this sequence from internet (try with Wikipedia). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's first think about how this sequence is generated. Various kinds of number sequences are used in many different kind of technologies (e.g, Walsh code in CDMA, OVSF code in WCDMA) and usually these numbers are created by a special rules or formula. Same to Zadoff-Chu sequence. The basic form of Zadoff chu sequence can be created by the formula as shown in the following spreadsheet (click
+on the picture to see in magnified view. Please click <a href="../Docs/LTE_PHY_Sequences.zip">here</a> if&nbsp;you want to have this spreadsheet).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/ZadOff_Chu_Small.PNG" width="805" height="443" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Video Tutorial : <a href="http://www.youtube.com/watch?v=xCm_1bdVwlU" target="_blank">http://www.youtube.com/watch?v=xCm_1bdVwlU</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Why did we chose to use these sequence ? It is because this sequence has a couple of special properties that can be very useful for LTE low layer implementation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Followings are the special properties of the sequence :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) This sequence has a constant amplitude. If you look into the formula, it is in the form of e^(-j theta). You may learned about this in high school math. If you convert this into Euler form, you will get e^(-j theta) = cos(theta) - j sin(theta). First, you will see this is a complex number which is made up of real and imaginary part. If you plot the numbers onto a complex plan (Real part
+- horizontal axis and Imaginary part on vertical axis), all the numbers will lie on the perimeter of a circle. This means the amplitude of these number is constant. See the plot above. (Column B, C is one example of Zadoff Sequence. B is the real part and C is imaginary part. The plot is the scatter plot of column B, C)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Zero Autocorrelation. If you create a sequence using this formula and create another sequence just by shifting the same sequence by N (N can be 1,2,....,size of sequence -1). And if you take the correlation of the two sequence, the result become 0. Taking the spreadsheet shown above as an example, Column B,C is a sequence created by formula. and Column D,E is not the one created by the
+formula.. it is just shifted version of Column B, C. Cell F70 and G70 shows the correlation of Column B,C and D,E which gives almost 0. It should be 0 theoretically, but the F70,G70 is not exactly 0 because of numerical errors.. but it is almost 0. If you have two sequence of number and the correlation of the two sequence is 0, we say &quot;the two sequences are orthogonal to each other&quot;. It means that you can create many of orthogonal sequences just by shifting a Zadoff Chu sequence. How convenient it is
+to create orthogonal sequences.. and you know how important to create orthogonal sequences in many wireless communication. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any sequences that has the two properties explained above are called CAZAC sequence (constant amplitude zero autocorrelation waveform). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Cross correlation of two Zadoff Chu sequence is 1/Sqrt(Nzc). If you create two sequences using the formula shown on the spreadsheet just by changing 'q' (the q value used in both sequence should be prime numbers) and take the correlation of the two sequences, the result will be 1/Sqrt(Nzc).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are a couple of more special properties of Zadoff Chu sequences, but I don't think they are important for LTE implementation. So I would leave it to you to refer to other sources. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Where in LTE we use this Zaddoff Chu sequence. In short, the sequence are used in the following part of LTE. (I will update the details of these topics later)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Primary Synchronization Signal (PSS) (so called primary synchronization channel)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) <a href="RACH_LTE.html#How_to_generate_RACH_Signal" target="_blank">random access preamble (PRACH)</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) PUCCH MDRS</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) <a href="Handbook_LTE_DMRS_PUSCH.html" target="_blank">PUSCH DMRS</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) <a href="Handbook_LTE_SRS.html" target="_blank">sounding reference signals(SRS)</a>. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="106" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

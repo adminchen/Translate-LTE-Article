@@ -1,0 +1,357 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Transmission_Mode">Transmission Mode</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">In LTE, usually they use multiple Antenna for downlink (at least from&nbsp;Category 3 UE and higher), meaning that eNode (Network) has use multiple Tx Antenna and UE use multiple Rx antenna. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Now you almost automatically think about 'MIMO', but in reality 'multiple antenna' does not automatically mean 'MIMO'. For example, you have two downlink antenna. You can use these two antenna in various ways. Of course, one ways is to use it as 2 x 2 MIMO, but this is not the only way. You can use the two antenna in diversity configuration rather than MIMO configuration.
+Or you can just use only one of the antenna and sometimes you would like to use various different multiplexing, precoding methods etc. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In LTE, they give a special name for each of the way of transmission and it is called 'Transmission Mode'.&nbsp;For example, what we normally call 'SISO' (Single Transmission Antenna and Single Reciever Antenna) is called 'TM1(Transmission Mode 1)'. What we normally call 'Diversity' is called 'TM2'. &nbsp;What we call 'MIMO' but no feedback from UE is called 'TM3'. MIMO and UE feedback from UE (CQI, PMI, RI) is called 'TM4'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A good summary of each Transmission Mode can be as following table from 36.213.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_213_Table7_2_3_0_TM_CQI_Reference.PNG" width="592" height="278" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Considering these various possibilities, 3GPP provides several predefined transmission methods and this transmission method is called 'Transmission Mode'. For now, there are seven predefined predefined transmission mode as shown in the following table (TS 36.213)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_213_7_1_Table02.PNG" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To understand very details of each transmission mode requires almost complete knowledge of physical layer processing. Three important blocks in physical layer to determin the transmission mode can be illustrated as follows. You will find many different ways from the data input (left most arrow) through the final antenna ports (rightmost arrows). Each transmission mode determin which path
+the input data should follow through.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/TM_Flow.PNG" width="724" height="196" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Some important parameter sets for each transmission mode are as follows. (To understad this process in detail, it is crucial to understand details of <a href="BasicProcedures_LTE.html#Precoding" target="_blank">Precoding</a> in <a href="BasicProcedures_LTE.html" target="_blank">basic procedure page</a>).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="816" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="69" bgcolor="#6666FF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">TM</font></span></p>
+                    </td>
+                    <td width="121" bgcolor="#6666FF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">No of Codewords</font></span></p>
+                    </td>
+                    <td width="113" bgcolor="#6666FF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">No of Layers</font></span></p>
+                    </td>
+                    <td width="127" bgcolor="#6666FF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">Precoding</font></span></p>
+                    </td>
+                    <td width="258" bgcolor="#6666FF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">Codebook</font></span></p>
+                    </td>
+                    <td width="102" bgcolor="#6666FF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">No of Antenna</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM1</span></font></p>
+                    </td>
+                    <td width="121">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="113">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="127">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">a single antenna port</span><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="258">
+                        <p align="center"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="102">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM2</span></font></p>
+                    </td>
+                    <td width="121" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="113" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="127" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.3</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">Transmit diversity</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="258" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font></p>
+                    </td>
+                    <td width="102" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69" height="42" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM3</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="121">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="113">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="127">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.3</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">Transmit diversity</span></font></p>
+                    </td>
+                    <td width="258">
+                        <p align="center"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font></p>
+                    </td>
+                    <td width="102" height="68" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="121" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="113" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="127" height="23">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.2</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">Large delay CDD</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="258" height="23">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">Fixed. 36.211 6.3.4.2.3 Table 6.3.4.2.3-1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">{Number of layers, Codebook index} = {2, 0}</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69" height="42" rowspan="2" bgcolor="#FFFFCC">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">TM4</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="121" bgcolor="#FFFFCC">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">1</font></span></p>
+                    </td>
+                    <td width="113" bgcolor="#FFFFCC">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">2</font></span></p>
+                    </td>
+                    <td width="127" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">without CDD</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="258" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.3 Table 6.3.4.2.3-1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">{Number of layers, Codebook index} = </span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">{1, 0} or {1, 1} or {1, 2} or {1, 3}</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="102" height="100" rowspan="2" bgcolor="#FFFFCC">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">2</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="121" height="23" bgcolor="#FFFFCC">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">2</font></span></p>
+                    </td>
+                    <td width="113" height="23" bgcolor="#FFFFCC">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">2</font></span></p>
+                    </td>
+                    <td width="127" height="23" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">without CDD</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="258" height="23" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.3 Table 6.3.4.2.3-1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">{Number of layers, Codebook index} = </span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">{2, 1} or {2, 2}</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM5</span></font></p>
+                    </td>
+                    <td width="121" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="113">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2(cell specific)</span></font></p>
+                    </td>
+                    <td width="127">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.3</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">Transmit diversity</span></font></p>
+                    </td>
+                    <td width="258">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font></p>
+                    </td>
+                    <td width="102" height="84" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="26">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="127" height="52">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">without CDD</span></font></p>
+                    </td>
+                    <td width="258" height="52">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.3 Table 6.3.4.2.3-1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">{Number of layers, Codebook index} = </span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">{1, 0} or {1, 1} or {1, 2} or {1, 3}</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM6</span></font></p>
+                    </td>
+                    <td width="121" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="113" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="127" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">without CDD</span></font></p>
+                    </td>
+                    <td width="258" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.2.1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">without CDD</span></font></p>
+                    </td>
+                    <td width="102" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69" height="42" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM7</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="121" height="68" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font><span style="font-size:10pt;"></span></p>
+                    </td>
+                    <td width="113">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2(cell specific)</span></font></p>
+                    </td>
+                    <td width="127">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.3</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">Transmit diversity</span></font></p>
+                    </td>
+                    <td width="258">
+                        <p align="center"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font></p>
+                    </td>
+                    <td width="102" height="68" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font><span style="font-size:10pt;"></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="23">
+                        <p align="center"><span style="font-size:10pt;">1</span></p>
+                    </td>
+                    <td width="127" height="23">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">a single antenna port</span></font></p>
+                    </td>
+                    <td width="258" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="69" height="65" rowspan="3" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM8</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="121" height="42" rowspan="2" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="113" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="127" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.1</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">a single antenna port</span></font></p>
+                    </td>
+                    <td width="258" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font></p>
+                    </td>
+                    <td width="102" height="120" rowspan="3" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="23" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2(cell specific)</span></font></p>
+                    </td>
+                    <td width="127" height="23" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.3</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">Transmit diversity</span></font></p>
+                    </td>
+                    <td width="258" height="23" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="121" height="23" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="113" height="23" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="127" height="23" bgcolor="#FFFFCC">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">36.211 6.3.4.4</span></font></p>
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">Spatal multiplexing with UE-specific RS</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="258" height="23" bgcolor="#FFFFCC">
+                        <p align="center"><font face="Verdana"><span style="font-size:8pt;">N/A</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Here goes some additional material to read from LteUniversity. You would get pretty good high level picture from them. </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://lteuniversity.com/get_trained/expert_opinion1/b/raysulewski/archive/2011/12/01/transmission-mode-1-or-is-it.aspx" target="_blank">Why Should You Care about Transmission Modes?</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://lteuniversity.com/get_trained/expert_opinion1/b/raysulewski/archive/2011/11/18/why-should-you-care-about-transmission-modes.aspx" target="_blank">Transmission Mode #1 Or is it?</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://lteuniversity.com/get_trained/expert_opinion1/b/raysulewski/archive/2011/12/23/transmission-mode-3-the-first-of-the-4-mimos.aspx" target="_blank">Transmission Mode 3 The first of the 4 MIMOs!</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

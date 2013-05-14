@@ -1,0 +1,64 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, CDD, Cyclic Delay Diversity  " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">UMTS Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp; <a href="Handbook_UMTS_Index.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Downlink Frame Timing</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_04 */
+google_ad_slot = "4173408773";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Once you complete the cell search process described above, UE can figure out the following information about the timing.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">i) Exact phase reference for downlink channels from CPICH (This is not the timing parameter, but this would very important factors to decode other channels including Timing/Sync related channels).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">ii) Exact start timing of each slots from P-SCH</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">iii) Exact start timing of each frame from S-SCH</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">iv) System Frame Number for each frame from P-CCPCH (MIB)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Once UE get all the information listed above, the timing for other channels can be deduced by the following diagram (This diagram came from 3GPP TS 25.211). For example, S-CCPCH is transmitted at the multiples of 256 chips delay from the start of CPICH(Start of frame timing). And PICH is transmitted at the specified timing before S-CCPCH. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">For the details of these timing value, refer to 25.211 - 7 Timing relationship between physical channels - 7.1 General</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Some of these timing offsets are set by higher layer signaling message (e.g, SIB, RRC Connection Setup, Radio Bearer Setup).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">S-CCPCH TimingOffset is specified by SIB5 elements : sCCPCH-SystemInformationList.SCCPCH-SystemInformation[0].secondaryCCPCH-Info.modeSpecificInfo.fdd.timingOffset</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_CommonChannel.PNG" width="658" height="397" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Lucida Console"><span style="font-size:10pt;"></span></font><font face="Lucida Console"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+           
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

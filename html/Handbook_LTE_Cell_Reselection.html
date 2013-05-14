@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, Cell Selection, Cell Selection Criteria " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Cell Reselection</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Cell Reselection is a kind of mechanism to change cell after UE is camped on a cell. This is to let UE get connected to cell which has the best condition among all the cells to which the UE is allowed to camp on. But UE does not change cells randomly, it uses a set of pretty complicated criteria and algorithms for this reselection process. The details of these criteria and algorithms will be described later but the high level guideline is as follows : </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First Level Criteria : &nbsp;Absolute Priority</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Second Level Criteria : Radio Link Quality</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Third Level Criteria : Cell Accessibility </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A little bit detailed criteria can be described as follows and you will see ever further details after this. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE always have to measure frequecies and RAT with higher priority</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE has to have to measure frequecies and RAT with lower&nbsp;priority in the following fashion</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE has to perform intra-frequency measurement only when SrxLev&nbsp;of the serving cell &lt;= SintraSearch</span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE has to perform lower or equal priority&nbsp;inter-frequency/InterRAT measurement only when SrxLev&nbsp;of the serving cell &lt;=&nbsp;SnonintraSearch</span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LTE cell reselection uses priority based levels. (These priorities can be&nbsp;specified in LTE SIB4,5,6,7 and RRC Connection Release). Priority 0 indicate the lowest priority and 7 indicate the highest priority. The priority cannot be same for WCDMA and LTE, meaning that it must be set differently for different RAT. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Among the cell power and priority, which one plays more critical role in cell reselection ? Cell Power defines the minimum condition. Once the minimum condition is met, Priority plays more critical role. For example, let's assume that UE is now camped in WCDMA cell and detected a neighbouring LTE cell with higher priority than the serving WCDMA cell, UE will perform cell reselection to LTE cell as long as the LTE cell is above the minimum signal strength threshold. In the same logic, if a UE camped on LTE cell detected a neighbouring WCDMA&nbsp;cell with higher priority than the serving LTE&nbsp;cell, UE will perform cell reselection to WCDMA&nbsp;cell as long as the WCDMA cell is above the minimum signal strength threshold.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">WCDMA SIB19 specifies the LTE&nbsp;frequencies (EARFCN) and priorities. A maximum of 8 EARFCNs (4 FDD + 4 TDD)&nbsp;can be listed in SIB 19. For each EARFCN, you can configure a max 16 blacklisted cells. The blacklisted cell is the cell UE should not make reselection to. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Using the eutraDetection parameter in SIB19, you can make UE to detect and display the presence of lower priority LTE frequencies while it is in WCDMA cell. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LTE SIB6 specifies the WCDMA frequencies (DL ARFCN) and the parameters used for absolute priority based cell reselection. </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>How to detect and reselect to LTE cell while in WCDMA ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">UE must measure the LTE frequencies and detect the available LTE cell in order to perform cell reselection to LTE. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">UE measures two physical properties called for WCDMA signal. One is CPICH RSCP and CPICH EcNo. RSCP determines Srxlev and EcNo determines Squal. &nbsp;</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Srxlev = Qrxlevemeas - qRxLevMin. Qrxlevemeas is RSCP level measured by UE and qRxLevMin is the value specified in SIB. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Squal = Qqualmeas - qQualMin. Qqualmeas&nbsp;is EcNo level measured by UE and qQualMin&nbsp;is the value specified in SIB.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">The detection measurement of LTE frequencies should be done at least once every 60s for higher priority LTE frequencies. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">In following condition,&nbsp;detection measurements of lower priority LTE frequency is not required. </span></font></li>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Srxlev &gt; absPrioCellRes.sPrioritySearch1</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Squal &gt; absPrioCellRes.sPrioritySearch2</span></font></p>
+                </ul>
+            </ul>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In following condition, UE should detect once every 30s for both lower and higher priority LTE frequencies</span></font></li>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Srxlev &lt;=&nbsp;absPrioCellRes.sPrioritySearch1</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Squal &lt;=&nbsp;absPrioCellRes.sPrioritySearch2</span></font></p>
+                </ul>
+            </ul>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The maximum number of LTE FDD Frequencies are 4. In this case, UE should have performed measurement for detecting LTE cells on all 4 LTE frequencies once every 240 (4 x 60) s or 120(4 x 30) s depending if UE measures above or below parameter threshold absPrioCellRes.sPrioritySearch1</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>How to detect and reselect to WCDMA&nbsp;cell while in LTE&nbsp;?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Measurement Criteria (From High Priority LTE Cell to Lower Priority WCDMA Cell):</font></span><font face="Verdana"><span style="font-size:10pt;"> When LTE cell has higher priority than WCDMA, it would stay in LTE cell but it performs measurement for the low priority WCDMA if UE is under the following condition :</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Srxlev of the serving cell &lt; sNonIntraSearch (SIB3)</font></span><font face="Verdana"><span style="font-size:10pt;">, </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If we express this using dB/dBm, </span></font><span style="font-size:10pt;"><font face="Verdana" color="blue">Srxlev of the serving cell &lt; (2 x sNonIntraSearch (SIB3))</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where Srxlev = Qrxlevmeas - qRxLevMin (SIB3),</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If we express using dB/dBm, </span><span style="font-size:10pt;">Srxlev = Qrxlevmeas [dBm]&nbsp;- (2 x qRxLevMin (SIB3)) [dBm]</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where Qrxlevemeas = measured RSRP level, qRxLevMin = minimum RSRP level for camping</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Measurement Criteria (From Lower&nbsp;Priority LTE Cell to Higher&nbsp;Priority WCDMA Cell): </font></span><font face="Verdana"><span style="font-size:10pt;">When LTE cell has lower&nbsp;priority than WCDMA (WCDMA cell priority defined in SIB6 is higher than the serving cell priority),</span></font><span style="font-size:10pt;"><font face="Verdana">The UE always have to perform measurements on WCDMA cell. How often UE has to measure for WCDMA depends on whether Srxlev of the serving cell is greater or lower than sNonIntraSearch(SIB3). If no parameter is set (meaning in default condition), detection of WCDMA cell should be performed at least every 60 seconds. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Reselection Criteria &nbsp;(From High Priority LTE Cell to Lower Priority WCDMA Cell):</font></span><font face="Verdana"><span style="font-size:10pt;"> If UE in LTE cell is under the following condition with the duration longer than tReselectionUtra (SIB6), it should reselect to WCDMA cell. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Srxlev of LTE cell (serving cell) &nbsp;&lt; threshServingLow&nbsp;(SIB3)</font></span><font face="Verdana"><span style="font-size:10pt;">, </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where Srxlev = Qrxlevmeas - qRxLevMin (SIB3),</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where Qrxlevemeas = measured RSRP level, qRxLevMin = minimum RSRP level for camping</span></font></p>
+            </ul>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Srxlev of WCDMA cell&nbsp;&nbsp;&gt; threshXLow&nbsp;(SIB6)</font></span><font face="Verdana"><span style="font-size:10pt;">, </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where Srxlev = Qrxlevmeas - qRxLevMin (SIB3),</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If we express using dB/dBm, </span><span style="font-size:10pt;">Srxlev = Qrxlevmeas [dBm]&nbsp;- (2 x qRxLevMin (SIB3)) [dBm]</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where Qrxlevemeas = measured RSCP level, qRxLevMin = minimum RSCP level for camping</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : If more than one WCDMA meet this condition, UE should select to the cell with highest Srxlev</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : If these values are not specified in SIB and UE has to apply default values, UE has to perform reselection when LTE RSRP is lower than -145 dBm and WCDMA cell is better than -119 dBm for at least 2 seconds. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Reselection Criteria &nbsp;(From Lower&nbsp;Priority LTE Cell to Higher&nbsp;Priority WCDMA Cell):</font></span><font face="Verdana"><span style="font-size:10pt;"> If UE in LTE cell is under the following condition with the duration longer than tReselectionUtra (SIB6), it should reselect to WCDMA cell. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Srxlev of WCDMA cell&nbsp;&nbsp;&gt; threshXHigh&nbsp;(SIB6)</font></span><font face="Verdana"><span style="font-size:10pt;">, </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where Srxlev = Qrxlevmeas - qRxLevMin (SIB3),</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where Qrxlevemeas = measured RSCP level, qRxLevMin = minimum RSCP level for camping</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

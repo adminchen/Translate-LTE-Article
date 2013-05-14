@@ -1,0 +1,351 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Paging &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horz_Wide_01 */
+google_ad_slot = "9022410772";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Paging is the mechanism in which Network tells UE saying &quot;I have something for you&quot;. Then UE decode the content (Paging Cause) of the Paging message and UE has to initiate the appropriate the procedure.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In most cases, this paging process happens while UE is in idle mode. This means that UE has to monitor whether the networking is sending any paging message to it and it has to spend some energy(battery) to run this &quot;Monitoring&quot; process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If I have to run this &quot;Monitoring&quot; process continously even in the idle mode, isn't it too much waste of engergy ?Yes, it is.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is there any way to prevent this kind of energy waste ? There would be no way to prevent this envergy consumption completely (if you can come out with any idea to prevent this completely, you don't need to read this any more.. just do early retire and enjoy your life whereever you want to go with huge money coming out of your patent -:), but there would be some way to reduce the consumption
+in great degree.What is it ? There may be many different way to do this.. but most common method (probably easiest to realize) is to make some 'contract' between UE and Network.What kind of contract it would be like ? It is like &quot;Hey.. Mr. Net.. don't send the paging method continuously.. just transmit it in a kind of burst mode with a certain interval. I will go sleep when you are not transmitting Paging and I will just wake up exactly at the time you are transmitting the paging message&quot;.This way UE
+can save the battery while it is in sleep and can get the paging message as well. It means that UE is recieving some data from the network &quot;discontinously&quot;. This kind of reception mechanism is called DRX (Discontinous Reception).Here we have an important question. How can UE knows the exact timing when the Network send the paging ? The simplest solution for this would be to make another contract about &quot;Paging transmission timing&quot;. you see the logic ?</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Overview_on_Paging_Mechanism">Overview on Paging Mechanism</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PagingParameters_SIB2">Paging Parameters in SIB2</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PO_PF">Paging Occasion and Paging Frame</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#UEID_Paging">UE ID in Paging</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#TTCN_Paging_Cycle_Calculation">TTCN for Paging Cycle Calculation</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="#Examples"><font face="Verdana"><span style="font-size:10pt;">Examples</span></font><font face="Verdana"><span style="font-size:10pt;"> of Paging Message</span></font></a></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Overview_on_Paging_Mechanism">Overview on Paging Mechanism</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) During the idle mode, UE gets into and stay in sleeping mode defined in DRX cycle (Discontinous Receive Cycle). (This DRX is cycle is defined in SIB2)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE periodically wake up and monitor PDCCH in order to check for the presence of a paging message(UE looks for&nbsp;any information encrypted by P-RNTI)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If the PDCCH indicates that a paging message is transmitted in the subframe, then UE needs to demodulate the PCH to see if the paging message is directed to it. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : Paging messages are sent by a MME to all eNodeBs in a Tracking Area and those eNodeBs in a Tracking Area is transmitting the same paging message.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : Each eNodeB can contain cells belonging to different tracking areas but each cell can only belong to one Tracking Area.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PagingParameters_SIB2">Paging Parameters in SIB2</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">BCCH-DL-SCH-Message ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;+-message ::= CHOICE [c1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [systemInformation]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-systemInformation ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-criticalExtensions ::= CHOICE [systemInformation-r8]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-systemInformation-r8 ::= SEQUENCE [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-sib-TypeAndInfo ::= SEQUENCE OF SIZE(1..maxSIB[32]) [1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +- ::= CHOICE [sib2]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-sib2 ::= SEQUENCE [00]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;......</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| </font><font face="Lucida Console" color="red">+-pcch-Config ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| </font><font face="Lucida Console" color="red">| +-defaultPagingCycle ::= ENUMERATED [rf128]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| </font><font face="Lucida Console" color="red">| +-nB ::= ENUMERATED [oneT]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now it's time to get into the official specification. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PO_PF">Pasing Occasion and Paging Frame</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two most important terminologies which is PF(Paging Frame) and PO(Paging Occasion). 3GPP 36.304 - [7 Paging] explain this two terms as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* Paging Occasion (PO) is a subframe where there may be P-RNTI transmitted on PDCCH addressing the paging message.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* Paging Frame (PF) is one Radio Frame, which may contain one or multiple Paging Occasion(s).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you know, LTE has two timing units as many of other technology. Timing Unit in Frame scale (SFN : System Frame Number) is one unit and the timing unit in subframe level (Subframe Number). It means that you have to know both SFN and Subframe Number to locate exact position in LTE time domain. Regarding the paging cycle, PF(Paging Frame) + PO(Paging Occasion) let you know the exact timing
+when UE has to wake up to catch the paging message being sent to it.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's tackle the PF first.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PF = SFN mod T = (T div N) x (UE_ID mod N)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then where does T come from ? According to 36.304, T is defined as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">T is DRX cycle of the UE. T is determined by the shortest of the UE specific DRX value, if allocated by upperlayers, and a default DRX value broadcast in system information . If UE specific DRX is not configured by upperlayers, the default value is applied.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It means UE can get the T from two different source, one from the system information (SIB2, IE defaultPagingCycle) and the one from upper layer. Then which value does UE has to use ? It depends on the situation. If upper layer send the value, it use the value from the uppder layer, otherwise UE has to use the value from SIB2. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then let's think about where does other values come from. These values are defined as follows in the specification.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">N = min(T, nB), which means the smaller one among T and nB. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">nB can be any one of 4T, 2T, T, T/2, T/4, T/8, T/16, T/32, which comes from SIB2 (IE nB).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <table border="1" width="794" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">nB</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/2 T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/4 T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/8 T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/16 T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/32 T</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">N</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/2</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/4</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/8</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/16</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/32</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE_ID = IMSI mod 1024, where IMSI should be used in Decimal format and is stored in USIM. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">By this, we got PF now. Then what is the next step ? We have to get PO (Paging Occasion).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.304 defines PO as follows : </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/PO_FDD.PNG" width="762" height="106" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you see the table,</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) When Ns = 1, there can be only one paging occation (only one subframe where paging message is carried) within a Paging Frame and the subframe number is 9. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) When Ns = 2, there can be two&nbsp;paging occations (two subframes where paging message is carried) within a Paging Frame and the subframe number is 4 and 9. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) When Ns = 4, there can be four&nbsp;paging occations (four subframes where paging message is carried) within a Paging Frame and the subframe number is 0,4,5 and 9. </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">From the table, we can figure out PO if we get i_s. Then how to get i_s ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">We already explained how to get N. We only have to know Ns now. 36.104 defines Ns as follows: </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ns = max(1, nB/T), which means that Ns is the larger value between 1 and NB/T. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <table border="1" width="794" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">nB</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/2 T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/4 T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/8 T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/16 T</span></font></p>
+                    </td>
+                    <td width="81" bgcolor="#CC9900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/32 T</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Ns</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="81">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana"><b><a name="UEID_Paging">UE ID in Paging Message</a></b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you see the ue-identity field (IE) of Paging message, you will see there are two choices, s-TMSI and IMSI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Which type of UE ID is commonly used. The answer is s-TMSI. If everything is normal, Network send Paging with s-TMSI, but if something (e.g, Network Failure) happens during registration and it fails to allocate TMSI to the UE, NW would send Paging with IMSI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If UE get the paging with IMSI, it should tear down all the existing Bearer and delete TAI, TAI List, KSIASMI and get into EMM-DEREGISTERED status. And then redo 'Attach Request'.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><b><font face="Verdana"><a name="TTCN_Paging_Cycle_Calculation">TTCN for Paging Cycle Calculation</a></font></b></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even though I tried to explain clearly, exact paging cycle calcuation is pretty confusing procedures. If you are interested in exact steps of Paging Cycle Calculation, I would recommend you to refer to TTCN source code from ETSI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Refer to following two functions in EUTRA_Paging.ttcn</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;i) function f_EUTRA_GetPagingCycleValue ( DefaultPagingCycle_Type p_PagingCycle)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;ii) function f_EUTRA_Calculate_PF_PO ( SystemFrameNumber_Type &nbsp;p_Sfn,</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DefaultPagingCycle_Type p_T,</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PCCH_Config.nB &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_Nb,</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hexstring &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_Imsi,</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EUTRA_FDD_TDD_Mode_Type p_Fdd_Tdd )</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Refer to <a href="Tips_3GPP_LTE.html#HowToGetTTCN" target="contents">Where can I get TTCN and Viewer ?</a> if you want to get TTCN source code and TTCN Viewer.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><b><font face="Verdana"><a name="Examples">Examples of Paging Message</a></font></b></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 1 &gt; - Paging with s-TMSI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">PCCH-Message ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;+-message ::= CHOICE [c1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [paging]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-paging ::= SEQUENCE [1000]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-pagingRecordList ::= SEQUENCE OF SIZE(1..maxPageRec[16]) [1] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-PagingRecord ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Lucida Console" color="red">| &nbsp;&nbsp;+-ue-Identity ::= CHOICE [s-TMSI]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| +-s-TMSI ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-mmec ::= BIT STRING SIZE(8) [00000001]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-m-TMSI ::= BIT STRING SIZE(32) [00000000000000000000000000000001]</font><font face="Lucida Console"></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-cn-Domain ::= ENUMERATED [ps]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-systemInfoModification ::= ENUMERATED OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-etws-Indication ::= ENUMERATED OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-nonCriticalExtension ::= SEQUENCE OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 2&nbsp;&gt; - Paging with IMSI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">PCCH-Message ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [c1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [paging]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-paging ::= SEQUENCE [1000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-pagingRecordList ::= SEQUENCE OF SIZE(1..maxPageRec[16]) [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-PagingRecord ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">| &nbsp;&nbsp;+-ue-Identity ::= CHOICE [imsi]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| +-imsi ::= SEQUENCE OF SIZE(6..21) [15]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [2]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [3]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [4]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [5]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [6]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [7]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [8]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-IMSI-Digit ::= INTEGER (0..9) [9]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-cn-Domain ::= ENUMERATED [ps]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-systemInfoModification ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-etws-Indication ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-nonCriticalExtension ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 3&nbsp;&gt; - Paging for ETWS</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">PCCH-Message ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [c1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [paging]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-paging ::= SEQUENCE [0110]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-pagingRecordList ::= SEQUENCE OF OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-systemInfoModification ::= ENUMERATED [true] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-etws-Indication ::= ENUMERATED [true] OPTIONAL:Exist</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-nonCriticalExtension ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 4&nbsp;&gt; - Paging for system Info Modification</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">RRC_LTE:PCCH-Message</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">PCCH-Message ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [c1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [paging]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-paging ::= SEQUENCE [0100]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-pagingRecordList ::= SEQUENCE OF OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-systemInfoModification ::= ENUMERATED [true] OPTIONAL:Exist</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-etws-Indication ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-nonCriticalExtension ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

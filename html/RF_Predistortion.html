@@ -1,0 +1,131 @@
+<html>
+
+<head>
+<title>Frame Structure - Downlink</title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="RF, Amplifier, Predistortion" />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800" height="218">
+    <tr>
+        <td width="897" height="27">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Predistortion </span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_RF_01 */
+google_ad_slot = "7746299577";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Predistortion is a technique which can compensate the influence of distortion created by an amplifier. As you know, Amplifier is a device that maginfies the input signal and output a larger signal. Ideal amplifier should amplifies the signal in the same degree whether the input signal level is low or high. However, in reality most of amplifier amplifies a little different degree depending
+on the input level. This different level of amplification depending on signal level would result in the distortion of the signal and this distortion would cause various unwanted outcomes. One of the biggest problem is that the distortion would cause large degree of power leakage out of the signal bandwidth. </font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Would there be any way to minimize the effect of distortion ? One possible idea is that to distort the signal in the exactly opposite way that the amplifier will distort before the signal goes into the amplifier. This technique is called 'Predistortion' meaning 'Distortion Before Amplifier'.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Let's assume that you have an amplifier and the transfer function (operating function) of the amplifier looks like the plot at the center of the following illustration. With just a glimpse, you would notice the transfer function is not linear, meaning the degree of amplification varies depending on the level of the input signal. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Now let's look at the figure at upper track. A signal (green plot) with relatively low level goes into the amplifier (top-left). After going through the amplifier, you would have the output signal shown in blue color. If you compare the input signal and output signal, you would notice the shape of the signal is almost same. It means that the input signal is not distorted by the
+amplification. (I intentionally used the transfer function with gain of 1 for easy comparison of the two signal).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Now look at the graph in&nbsp;lower track. You see a little wide range of signal (green plot) goes into the amplifier. In this case, you will see some difference between the shape of input signal (green color)&nbsp;and output signal (blue color) especially upper range of the signal. It means that the signal get distorted by the amplifier. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Predistortion_01.png" width="744" height="505" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">If you want to play with this process a little bit further, try with the following Matlab/Octave code. You can play with inputmin and inputmax value as you like to change the input signal level and see how the output signal changes.</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">gain = 1.0; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = 0:pi/100.0:pi; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y_amp = gain * tanh(x);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">inputmin = 0.0;</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">inputmax = 1.0;</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">inputsize = 50;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">input = inputmin + (inputmax-inputmin) * rand(1,inputsize);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">output = gain * tanh(input);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(1,3,1);plot(input,'g-');title('input');xlim([0 length(input)]);ylim([0 1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(1,3,2);plot(x,y_amp,'r-');title('amplifier');xlim([0 max(x)]);ylim([0 1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(1,3,3);plot(input,'g-');hold on;plot(output,'b-');hold off;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title('input &amp; output');xlim([0 length(input)]);ylim([0 1]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now the question is &quot;Is there any way to minimize or remove the distortion effect ?&quot;.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/RF_Predistortion_02.png" width="338" height="206" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One idea is to add another block right in front of the amplifier as shown below. Let's assume that the transfer function of the predistortion block is as shown below. Let's see how the signal changes after it went through the distortion block. You would notice pretty big difference between the output signal (blue color) and input signal (green color) meaning that it is 'distorted'. But this
+distortion is 'wanted/intended' distortion. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">And then this distorted signal (not the original signal) goes through the amplifier. Now see how the signal coming out of the amplifier looks like. You will see that the shape of the output signal is almost same as the input signal. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This shows that the intentional distortion created by the predistortion block has removed the effect of distortion by the amplifier. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Predistortion_03.png" width="694" height="486" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">If you want to play with this process a little bit further, try with the following Matlab/Octave code. You can play with inputmin and inputmax value as you like to change the input signal level and see how the output signal changes.</font></font></span></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">gain = 1.0;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = 0:pi/100.0:pi; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y_amp = gain * tanh(x);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x_pre = 0:1/100.0:0.99; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y_pre = gain * atanh(x_pre);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">inputmin = 0.0;</font></span><font color="blue"></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">inputmax = 1.0;</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">inputsize = 50;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">input = inputmin + (inputmax-inputmin) * rand(1,inputsize);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">predistortedInput = atanh(input);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">output = gain * tanh(predistortedInput);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(1,5,1);plot(input,'g-');title('input');xlim([0 length(input)]);ylim([0 2]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(1,5,2);plot(x_pre,y_pre,'r-');title('predistortion');xlim([0 max(x_pre)]);ylim([0 2]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(1,5,3);plot(input,'g-');hold on;plot(predistortedInput,'b-');hold off;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title('predistorted Input');xlim([0 length(input)]);ylim([0 2]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(1,5,4);plot(x,y_amp,'r-');title('amplifier');xlim([0 max(x)]);ylim([0 2]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(1,5,5);plot(input,'g-');hold on;plot(output,'b-');hold off;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title('input &amp; output');xlim([0 length(input)]);ylim([0 2]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What I explained above is mostly based with <a href="RF_Handbook_TimeDomain_FrequencyDomain.html" target="_blank">time domain</a> characteristics, but in reality handling amplifiers you would characterize them more in <a href="RF_Handbook_TimeDomain_FrequencyDomain.html" target="_blank">frequency domain</a>. If you compare the frequency response of unlinearized (without predistortion) and linearized (with predistortion), it can be illustrated as below. As you see, the most critical issue caused by operating in nonlinear region without predistortion is high <a href="RF_Handbook_ACLR_ACPR.html" target="_blank">ACLR/ACPR</a> as shown in gray traces&nbsp;as shown below. With proper predistortion, you can remove those high ACLR/ACPR to make it like black trace shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Predistortion_FrequencyResponse_01.png" width="294" height="298" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Image from the article <a href="http://www.wirelessdesignonline.com/doc.mvc/Linear-Power-Amplifiers-for-3G-W-CDMA-Base-St-0001" target="_blank">Linear Power Amplifiers for 3G (W-CDMA) Base Stations</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now the most important question would be &quot;How can I know the degree of predistortion for a specific amplifier ?&quot;. More technically speaking, how can I figure out the transfer function of predistortion block ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Theoretical answer is very simple. If you know the transfer function of the amplifier, you can get the transfer function of the predistortion block just by taking the inverse function of the transfer function. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you know, in reality nothing goes as easy as you say. For further details of predistortion (especially implementation of predistortion), please refer to other materials. you can google out a lot of articles/posts. I think this is enough for explaining the concept of the predistortion.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Basically there are two method of define the degree of predistortion, open-loop method and closed-loop method. (This is also a kind of control system, so it would be either open-loop or closed-loop).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In open-loop method as shown below, we use a kind of predefined lookup table to specify the degree of predistortion. This method would be simple to implement but the question is what would be the best lookup table and how can we create the table.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Predistortion_LookupTable_01.png" width="366" height="291" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In closed loop method as illustrated below, the output of the amplifier feedback to the predistortion block and the block adaptively figure out the proper predistortion parameter based on the feedback. The advantage would be that this method would dynamically adjust the value but implementation of adaptive algorithm would be difficult. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Predistortion_ClosedLoop_01.png" width="345" height="173" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

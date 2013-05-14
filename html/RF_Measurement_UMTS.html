@@ -1,0 +1,1476 @@
+<html>
+
+<head>
+<title>Frame Structure - Downlink</title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800" height="218">
+    <tr>
+        <td width="897" height="27"><b><font face="Verdana"><span style="font-size:14pt;">RF Measurement - WCDMA, HSPA</span></font></b></td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+<font face="Verdana"><span style="font-size:10pt;">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_UMTS_RF_Measurement_01 */
+google_ad_slot = "9506967170";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this page, I will try to describe UMTS RF measurement procedure ( Purpose, Meaning of the test, Interpretation of the result) in my own language and in my understanding. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#34_521_TestCaseList">34.521 (RF Conformance) Test Case List</a></span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#5_Transmitter_Characteristics">5. Transmitter Characteristics</a> </span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#6_Reciever_Characteristics">6. Reciever Characteristics</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#7_Performance_Requirements">7. Performance Requirements</a></span></font></li>
+                </ul>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#HSet_Definition_Table">HSet Definition Table</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Measurement Procedure</span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#5_2B">5.2B Maximum Output Power with HS-DPCCH and E-DCH</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#5_2C">5.2C UE Relative Code Domain Power Accuracy (Release 6 and later)</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#5_4_1">5.4.1 Open Loop Power Control in the Uplink</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#5_5">5.5 Transmit ON/OFF Power</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#5_6">5.6 Change of TFC</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#5_7">5.7 Power setting in uplink compressed mode</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#5_7A">5.7A HS-DPCCH Power Control</a></span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="34_521_TestCaseList">34.521 (RF Conformance) Test Case List</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <table align="center" border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 width=74 style='height:12.75pt;width:56pt' bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter</span></font></p>
+                    </td>
+                    <td class=xl23 width=647 style='width:485pt' bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Description</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmitter Characteristics</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Receiver Characteristics</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Performance requirements</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">8</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Requirements for support of RRM</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">9</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Performance requirements for HSDPA</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">10</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Performance requirement (E-DCH)</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; <a name="5_Transmitter_Characteristics">5. Transmitter Characteristics </a>&gt;</span></font></p>
+            <table border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 width=74 style='height:12.75pt;width:56pt' bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Chap 5</span></font></td>
+                    <td width=647 style='width:485pt' bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Transmitter Characteristics</span></font></td>
+                    <td class=xl24 width=64 style='width:48pt' bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Eq Config</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.2</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Output Power</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.2A "><font face="Verdana"><span style="font-size:10pt;">5.2A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Output Power with HSDPCCH (Release 5 only)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.2AA "><font face="Verdana"><span style="font-size:10pt;">5.2AA&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Output Power with HSDPCCH (Release 6 and later)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.2B "><font face="Verdana"><span style="font-size:10pt;">5.2B&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Output Power with HSDPCCH and EDCH</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.2C "><font face="Verdana"><span style="font-size:10pt;">5.2C&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">UE relative code domain power accuracy</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">5.2D</span></font></td>
+                    <td class=xl25 width=647 style='width:485pt'><font face="Verdana"><span style="font-size:10pt;">UE Relative Code Domain Power
+  Accuracy for HS-DPCCH and EDCH</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.2E "><font face="Verdana"><span style="font-size:10pt;">5.2E&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">UE Relative Code Domain Power Accuracy for HS-DPCCH and E-DCH with 16QAM</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.3</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Frequency Error</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.4</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Output Power Dynamics in Uplink</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.4.1 "><font face="Verdana"><span style="font-size:10pt;">5.4.1&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Open Loop Power Control in Uplink</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.4.2 "><font face="Verdana"><span style="font-size:10pt;">5.4.2&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Inner Loop Power Control in Uplink</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">5.4.3</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Minimum Output Power</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.4.4 "><font face="Verdana"><span style="font-size:10pt;">5.4.4&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Outofsynchronisation handling of output power</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.5</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Transmit ON/OFF Power</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.6</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Change of TFC</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.7</span></font></td>
+                    <td x:str="Power setting in uplink compressed mode "><font face="Verdana"><span style="font-size:10pt;">Power setting in uplink
+  compressed mode&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.7A "><font face="Verdana"><span style="font-size:10pt;">5.7A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">HSDPCCH (Rel6)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.7A "><font face="Verdana"><span style="font-size:10pt;">5.7A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">HSDPCCH Power Control (Rel7 and later)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.8</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Occupied Bandwidth (OBW)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.9</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">&nbsp;Spectrum emission mask</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.9A "><font face="Verdana"><span style="font-size:10pt;">5.9A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Spectrum Emission Mask with HSDPCCH</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.9B "><font face="Verdana"><span style="font-size:10pt;">5.9B&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td x:str="Spectrum Emission Mask with EDCH "><font face="Verdana"><span style="font-size:10pt;">Spectrum Emission Mask with
+  EDCH&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.1</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Adjacent Channel Leakage Power Ratio (ACLR)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.10A "><font face="Verdana"><span style="font-size:10pt;">5.10A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Adjacent Channel Leakage Power Ratio (ACLR) with HSDPCCH</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.10B "><font face="Verdana"><span style="font-size:10pt;">5.10B&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Adjacent Channel Leakage Power Ratio (ACLR) with EDCH</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.11</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Spurious Emissions</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,3</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.12</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Transmit Intermodulation Requires SG and SPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,2,3</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">5.13</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Transmit Modulation</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">-</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">5.13.1</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Error Vector Magnitude (EVM)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.1A "><font face="Verdana"><span style="font-size:10pt;">5.13.1A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Error Vector Magnitude (EVM) with HSDPCCH (Rel6)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.1A "><font face="Verdana"><span style="font-size:10pt;">5.13.1A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Error Vector Magnitude (EVM) with HSDPCCH (Rel7 and later)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.1AA "><font face="Verdana"><span style="font-size:10pt;">5.13.1AA&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Error Vector Magnitude (EVM) and phase discontinuity with HSDPCCH</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.1AAA "><font face="Verdana"><span style="font-size:10pt;">5.13.1AAA&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">EVM and IQ origin offset for HS-DPCCH and E-DCH with 16 QAM</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.2 "><font face="Verdana"><span style="font-size:10pt;">5.13.2&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td x:str="Peak code domain error "><font face="Verdana"><span style="font-size:10pt;">Peak code domain error&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.2A "><font face="Verdana"><span style="font-size:10pt;">5.13.2A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Relative Code Domain Error with HS-DPCCH</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">5.13.2B</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Relative Code Domain Error with HS-DPCCH and E-DCH</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.2C "><font face="Verdana"><span style="font-size:10pt;">5.13.2C&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Relative Code Domain Error for HS-DPCCH and E-DCH with 16QAM</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.3 "><font face="Verdana"><span style="font-size:10pt;">5.13.3&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">UE phase discontinuity</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="5.13.4 "><font face="Verdana"><span style="font-size:10pt;">5.13.4&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">PRACH preamble quality</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; <a name="6_Reciever_Characteristics">6. Reciever Characteristics</a> &gt;</span></font></p>
+            <table border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 width=74 style='height:12.75pt;width:56pt' x:num bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Chap 6</span></font></td>
+                    <td width=647 style='width:485pt' bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Receiver Characteristics</span></font></td>
+                    <td class=xl24 width=64 style='width:48pt' x:num bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Eq Config</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">6.2</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Reference Sensitivity Level</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.2A</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Reference Sensitivity Level for DC-HSDPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.2B</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Reference Sensitivity Level for DB-DC-HSDPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">6.3</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Input Level</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="6.3A "><font face="Verdana"><span style="font-size:10pt;">6.3A&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Input Level for HSPDSCH Reception (16QAM)</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="6.3B "><font face="Verdana"><span style="font-size:10pt;">6.3B&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Input Level for HS-PDSCH Reception (64QAM)</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:str="6.3C "><font face="Verdana"><span style="font-size:10pt;">6.3C&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Input Level for DC-HSDPA Reception (16QAM)</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.3D</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Input Level for DC-HSDPA Reception (64QAM)</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.3E</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Input Level for DB-DC-HSDPA Reception(16QAM)</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.3F</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Maximum Input Level for DB-DC-HSDPA Reception(64QAM)</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">6.4</span></font></td>
+                    <td x:str="Adjacent Channel Selectivity (ACS) "><font face="Verdana"><span style="font-size:10pt;">Adjacent Channel Selectivity
+  (ACS)&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,2</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">6.5</span></font></td>
+                    <td x:str="Blocking Characteristics "><font face="Verdana"><span style="font-size:10pt;">Blocking Characteristics&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,2</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.5A</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Blocking Characteristics for DC-HSDPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,2</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.5B</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Blocking Characteristics for DB-DC-HSDPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">6.6</span></font></td>
+                    <td x:str="Spurious Response "><font face="Verdana"><span style="font-size:10pt;">Spurious Response&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,2</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.6A</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Spurious Response for DC-HSDPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,2</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.6B</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Spurious Response for DB-DC-HSDPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">6.7</span></font></td>
+                    <td x:str="Intermodulation Characteristics "><font face="Verdana"><span style="font-size:10pt;">Intermodulation
+  Characteristics&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,2</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.7A</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Intermodulation Characteristics for DC-HSDPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,2</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">6.7B</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Intermodulation Characteristics for DB-DC-HSDPA</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">6.8</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Spurious Emissions</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,3</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; <a name="7_Performance_Requirements">7. Performance Requirements</a> &gt;</span></font></p>
+            <table border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 width=74 style='height:12.75pt;width:56pt' x:num bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Chap 7</span></font></td>
+                    <td width=647 style='width:485pt' bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Performance requirements</span></font></td>
+                    <td class=xl24 width=64 style='width:48pt' bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Eq Config</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.2</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Demodulation in Static Propagation conditions</span></font></td>
+                    <td class=xl24 x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.3</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Demodulation of DCH in Multipath Fading Propagation conditions</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,4</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.4</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Demodulation of DCH in Moving Propagation conditions Requires</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,4</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.5</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Demodulation of DCH in BirthDeath Propagation conditions</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">1,4</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">7.5A</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Demodulation of DCH in high speed train condition</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.6</span></font></td>
+                    <td x:str="Demodulation of DCH in downlink Transmit diversity modes "><font face="Verdana"><span style="font-size:10pt;">Demodulation
+  of DCH in downlink Transmit diversity modes&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.7</span></font></td>
+                    <td x:str="Demodulation in Handover conditions "><font face="Verdana"><span style="font-size:10pt;">Demodulation in Handover
+  conditions&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.8</span></font></td>
+                    <td x:str="Power control in downlink "><font face="Verdana"><span style="font-size:10pt;">Power control in downlink&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.9</span></font></td>
+                    <td x:str="Downlink compressed mode "><font face="Verdana"><span style="font-size:10pt;">Downlink compressed mode&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.1</span></font></td>
+                    <td x:str="Blind Transport format detection "><font face="Verdana"><span style="font-size:10pt;">Blind Transport format
+  detection&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.11</span></font></td>
+                    <td x:str="Demodulation of Paging Channel (PCH) "><font face="Verdana"><span style="font-size:10pt;">Demodulation of Paging
+  Channel (PCH)&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.12</span></font></td>
+                    <td x:str="Detection of Acquisition Indicator (AI) "><font face="Verdana"><span style="font-size:10pt;">Detection of Acquisition
+  Indicator (AI)&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">7.12A</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Detection of E-DCH Acquisition Indicator (E-AI)</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">7.13</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">UE UL power control operation with discontinuous UL DPCCH transmission
+  operation</span></font></td>
+                    <td class=xl24><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; <a name="Equipment_Configuration">Equipment Configuration</a> &gt;</span></font></p>
+            <table border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 width=74 style='height:12.75pt;width:56pt' bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">No</span></font></td>
+                    <td width=647 style='width:485pt' bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Equipment Type</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Basic Call Box</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">2</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Signal Generator</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">3</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Spectrum Analyzer</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height="11" class=xl24 style='height:12.75pt' x:num><font face="Verdana"><span style="font-size:10pt;">4</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Fading Simulator</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height="11" class="xl24" style="height:12.75pt;"><font face="Verdana"><span style="font-size:10pt;">CT</span></font></td>
+                    <td height="23"><font face="Verdana"><span style="font-size:10pt;">Full Conformance Test System</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="HSet_Definition_Table">HSet Definition Table</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">For the details of each HSET, refer to </span><span style="font-size:10pt;">3GPP TS 25.101 Annex A.7”.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <table border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 width=164 style='height:12.75pt;width:123pt' bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">HSDPA
+  Set of Parameters</span></font></p>
+                    </td>
+                    <td class=xl22 width=104 style='width:78pt' bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Avg Info Bit Rate</span></font></p>
+                    </td>
+                    <td class=xl22 width=82 style='width:62pt' bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TTI</span></font></p>
+                    </td>
+                    <td class=xl22 width=132 style='width:99pt' bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">No of HARQ Process</span></font></p>
+                    </td>
+                    <td class=xl22 width=128 style='width:96pt' bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SML per HARQ proc</span></font></p>
+                    </td>
+                    <td width=123 style='width:92pt' bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">No Of Phy Ch Code</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">H-Set 1 (QPSK)</span></font></td>
+                    <td class=xl23 x:str="534 kbps "><font face="Verdana"><span style="font-size:10pt;">534 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">3</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">2</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">9600</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">5</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 1 (16QAM) "><font face="Verdana"><span style="font-size:10pt;">H-Set 1
+  (16QAM)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="777 kbps "><font face="Verdana"><span style="font-size:10pt;">777 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">3</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">2</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">9600</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">4</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">H-Set 2 (QPSK)</span></font></td>
+                    <td class=xl23 x:str="801 kbps "><font face="Verdana"><span style="font-size:10pt;">801 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">2</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">3</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">9600</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">5</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 2 (16QAM) "><font face="Verdana"><span style="font-size:10pt;">H-Set 2
+  (16QAM)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="1166 kbps "><font face="Verdana"><span style="font-size:10pt;">1166 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">2</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">3</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">9600</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">4</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 3 (QPSK) "><font face="Verdana"><span style="font-size:10pt;">H-Set 3
+  (QPSK)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="1601 kbps "><font face="Verdana"><span style="font-size:10pt;">1601 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">9600</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">5</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 3 (16QAM) "><font face="Verdana"><span style="font-size:10pt;">H-Set 3
+  (16QAM)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="2332 kbps "><font face="Verdana"><span style="font-size:10pt;">2332 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">9600</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">4</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 4 (QPSK) "><font face="Verdana"><span style="font-size:10pt;">H-Set 4
+  (QPSK)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="534 kbps "><font face="Verdana"><span style="font-size:10pt;">534 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">2</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">2</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">7200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">5</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 5 (QPSK) "><font face="Verdana"><span style="font-size:10pt;">H-Set 5
+  (QPSK)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="801 kbps "><font face="Verdana"><span style="font-size:10pt;">801 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">3</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">9600</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">5</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 6 (QPSK) "><font face="Verdana"><span style="font-size:10pt;">H-Set 6
+  (QPSK)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="3219 kbps "><font face="Verdana"><span style="font-size:10pt;">3219 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">19200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">10</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 6 (16QAM) "><font face="Verdana"><span style="font-size:10pt;">H-Set 6
+  (16QAM)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="4689 kbps "><font face="Verdana"><span style="font-size:10pt;">4689 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">19200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">8</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 8 (64QAM) "><font face="Verdana"><span style="font-size:10pt;">H-Set 8
+  (64QAM)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="13252 kbps "><font face="Verdana"><span style="font-size:10pt;">13252 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">43200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height="17" style="height:12.75pt;"><font face="Verdana"><span style="font-size:10pt;">H-Set 8A
+(64QAM)</span></font></td>
+                    <td class="xl23"><font face="Verdana"><span style="font-size:10pt;">13252 kbps&nbsp;</span></font></td>
+                    <td align="right"><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align="right"><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align="right"><font face="Verdana"><span style="font-size:10pt;">43200</span></font></td>
+                    <td align="right"><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 8_2 (64QAM) "><font face="Verdana"><span style="font-size:10pt;">H-Set 8_2
+  (64QAM)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="13252 kbps "><font face="Verdana"><span style="font-size:10pt;">13252 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">44000</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="H-Set 12 (QPSK) "><font face="Verdana"><span style="font-size:10pt;">H-Set 12
+  (QPSK)&nbsp;</span></font></td>
+                    <td class=xl23 x:str="60 kbps "><font face="Verdana"><span style="font-size:10pt;">60 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">3200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="Category 6,Max. "><font face="Verdana"><span style="font-size:10pt;">Category
+  6,Max.&nbsp;</span></font></td>
+                    <td class=xl23 x:str="3649 kbps "><font face="Verdana"><span style="font-size:10pt;">3649 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">11200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">5</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="Category 8,Max. "><font face="Verdana"><span style="font-size:10pt;">Category
+  8,Max.&nbsp;</span></font></td>
+                    <td class=xl23 x:str="7205.5 kbps "><font face="Verdana"><span style="font-size:10pt;">7205.5 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">22400</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">10</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="Category 9,Max. "><font face="Verdana"><span style="font-size:10pt;">Category
+  9,Max.&nbsp;</span></font></td>
+                    <td class=xl23><font face="Verdana"><span style="font-size:10pt;">10125.5 kbps</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">28800</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="Category 10,Max. "><font face="Verdana"><span style="font-size:10pt;">Category
+  10,Max.&nbsp;</span></font></td>
+                    <td class=xl23 x:str="13676 kbps "><font face="Verdana"><span style="font-size:10pt;">13676 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">28800</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="Category 13,Max. "><font face="Verdana"><span style="font-size:10pt;">Category
+  13,Max.&nbsp;</span></font></td>
+                    <td class=xl23 x:str="17640 kbps "><font face="Verdana"><span style="font-size:10pt;">17640 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">43200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 style='height:12.75pt' x:str="Category 14,Max "><font face="Verdana"><span style="font-size:10pt;">Category
+  14,Max&nbsp;</span></font></td>
+                    <td class=xl23 x:str="21096 kbps "><font face="Verdana"><span style="font-size:10pt;">21096 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">43200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height="11" style='height:12.75pt' x:str="Category 14,20M "><font face="Verdana"><span style="font-size:10pt;">Category
+  14,20M&nbsp;</span></font></td>
+                    <td class=xl23 x:str="20352 kbps "><font face="Verdana"><span style="font-size:10pt;">20352 kbps&nbsp;</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">43200</span></font></td>
+                    <td align=right x:num><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height="11" style="height:12.75pt;">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Category 22,Max.</span></font></p>
+                    </td>
+                    <td height="23" class="xl23">
+                        <p><font face="Verdana"><span style="font-size:10pt;">27952 kbps</span></font></p>
+                    </td>
+                    <td height="23" align="right"><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td height="23" align="right"><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td height="23" align="right">
+                        <p><font face="Verdana"><span style="font-size:10pt;">28800</span></font></p>
+                    </td>
+                    <td height="23" align="right">
+                        <p><font face="Verdana"><span style="font-size:10pt;">15</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height="11" style="height:12.75pt;">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Category 24,Max.</span></font></p>
+                    </td>
+                    <td height="23" class="xl23">
+                        <p><font face="Verdana"><span style="font-size:10pt;">42192 kbps</span></font></p>
+                    </td>
+                    <td height="23" align="right"><font face="Verdana"><span style="font-size:10pt;">1</span></font></td>
+                    <td height="23" align="right"><font face="Verdana"><span style="font-size:10pt;">6</span></font></td>
+                    <td height="23" align="right">
+                        <p><font face="Verdana"><span style="font-size:10pt;">43200</span></font></p>
+                    </td>
+                    <td height="23" align="right"><font face="Verdana"><span style="font-size:10pt;">15</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="5_2B">5.2B Maximum Output Power with HS-DPCCH and E-DCH</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This test is to test HSUPA Max Tx power while UE transmit UL DPCCH, HS-DPCCH, E-DPCCH, E-DPDCH, but for this UE has to meet the following criteria.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE TX power should not go higher than MAX UE Power (Max Allowed UE Power)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE has to be able to change E-TFCI value to keep its total power under MAX UE power. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) UE should use the Maximum possible E-TFCI in any condition. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following plot is to show a overall procedure for [subtest 1], but other subtests are also working in similar way. Only specific TFCI condition and Power Offset conditions are different. Here you see 5 steps but only the first step and last step is fixed and other steps between them is for adjusting the measurement conditions. so number of steps between the first and last step may vary depending
+on situation or UE. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Step 1 : Equipment send TPC commands so that UE maitains the TX power way below than the MAX UE Power (MAX allowed UE power). In this case, UE is using the largest E-TFCI since the space between&nbsp;current TX power and Max UE power is large enough to accommodate the E-TFCI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Step 2 : Equipement send TPC UP command and UE sets DPCCH power incremented by 1 dB, but there is still enough space from MAX UE power. So UE is using the Max E-TFCI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Step 3&nbsp;: Equipement send TPC UP command and UE sets DPCCH power incremented by 1 dB, but there is barely&nbsp;enough space from MAX UE power. So UE is still using the Max E-TFCI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Step 4 : Equipement send TPC UP command and UE sets DPCCH power incremented by 1 dB, but now the space from MAX UE power is not enough to accommodate the Max E-TFCI. So UE select a little lower TFCI which can be accommodated by the remaining power space. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Step 5 : Now Equipment send TPC DOWN command and UE sets DPCCH power decremented by 1 dB and this would give back the enough power space to accommodate the MAX E-TFCI and UE select the MAX E-TFCI again. And the equipment measure total TX power at this step and use it as pass/fail criteria. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_5_2B.PNG" width="643" height="375" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[Common Configuration]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. Set DPCH Timing Offset =&nbsp;6</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2. Set Maximum Allowed UL TX Power = 21.0 dBm.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3. Set HSUPA TTI = 10ms and Modulation = QPSK</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4. Set HS-DPCCH as follows. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Feedback Cycle = 4 ms</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ack-Nack Repetition Factor = 3</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Repetition Factor = 2 </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5. Set TPC Algorithm = Algorithm 2</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6. Select&nbsp;Fixed Reference Channel H-Set1 (QPSK)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[Subtest1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. Set Delta CQI = 8 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">2. Set Absolute Grant = 12</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3. Set E-TFCI As follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <table border="1" width="626" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of E-TFCI = 5</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 11</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 4</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 67</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 18</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 71</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 23</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 75</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 26</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 81</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 27</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4. Set Beta C, Beta D, Delta ACK, Delta NAC, Delta CQI, Delta E-DPCCH as follows. (Note : This is to meet&nbsp;34.121 Table C 11.1.3 requirement. Delta ACK, Delta NAC, Delta CQI are set in such way that HS-DPCCH is being transmitted with a flat power)</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Beta C = 10</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Beta D = 15</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta ACK&nbsp;= 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta NACK = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta CQI = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta E-DPCCH = 6</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5. Send TPC so that UE transmit power is 16 dBm (which is lower than it's max power by 7.5 dB) and maintain the same power.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6. Wait 150 ms until the UE power becomes 16.0 dBm.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">7. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 75.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8. TPC_cmd = +1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">9. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 75.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10. Repeat step&nbsp;8 to 9&nbsp;until the E-TFCI measurement result is not 75. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11. TPC_cmd = -1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">12. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 75 again.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">13. TPC_cmd = -1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">14. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 75.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">15. Repeat step&nbsp;13 to 14&nbsp;until the E-TFCI measurement result is not 75. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">16. Measure the UE Tx power and check if it is +24dBm (Tolerance +1.7/–6.7 dB).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[Subtest2]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. Set Delta CQI = 8 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">2. Set Absolute Grant = 20</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3. Set E-TFCI As follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="626" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of E-TFCI = 5</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 11</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 4</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 67</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 18</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 71</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 23</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 75</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 26</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 81</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 27</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4. Set Beta C, Beta D, Delta ACK, Delta NAC, Delta CQI, Delta E-DPCCH as follows. (Note : This is to meet&nbsp;34.121 Table C 11.1.3 requirement. Delta ACK, Delta NAC, Delta CQI are set in such way that HS-DPCCH is being transmitted with a flat power)</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta C = 6</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta D = 15</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta ACK&nbsp;= 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta NACK = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta CQI = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta E-DPCCH = 6</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">5. Send TPC so that UE transmit power is 16 dBm and maintain the same power.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">6. Wait 150 ms until the UE power becomes 14.0 dBm.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">7. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 67</font></span><font face="Verdana"><span style="font-size:10pt;">.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8. TPC_cmd = +1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">9. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 67</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10. Repeat step&nbsp;8 to 9&nbsp;until the E-TFCI measurement result is not 67. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11. TPC_cmd = -1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">12. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 67&nbsp;again.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">13. TPC_cmd = -1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">14. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 67.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">15. Repeat step&nbsp;13 to 14&nbsp;until the E-TFCI measurement result is not 67.</font></span><font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">16. Measure the UE Tx power and check if it is +23dBm (Tolerance +2.7/–5.2 dB).</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[Subtest3]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. Set Delta CQI = 8 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">2. Set Absolute Grant = 15</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">3. Set E-TFCI As follows. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="626" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of E-TFCI = 2</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 11</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 4</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 92</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 18</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4. Set Beta C, Beta D, Delta ACK, Delta NAC, Delta CQI, Delta E-DPCCH as follows. (Note : This is to meet&nbsp;34.121 Table C 11.1.3 requirement. Delta ACK, Delta NAC, Delta CQI are set in such way that HS-DPCCH is being transmitted with a flat power)</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta C = 15</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta D = 9</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta ACK&nbsp;= 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta NACK = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta CQI = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta E-DPCCH = 6</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">5. Send TPC so that UE transmit power is 15 dBm </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">6. Wait 150 ms until the UE power becomes 15.0 dBm.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">7. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 92</font></span><font face="Verdana"><span style="font-size:10pt;">.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8. TPC_cmd = +1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">9. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 92</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">10. Repeat step&nbsp;8 to 9&nbsp;until the E-TFCI measurement result is not 92.</font></span><font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11. TPC_cmd = -1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">12. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 92&nbsp;again.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">13. TPC_cmd = -1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">14. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 92.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">15. Repeat step&nbsp;13 to 14&nbsp;until the E-TFCI measurement result is not 92.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">16. Measure the UE Tx power and check if it is +23dBm (Tolerance +2.7/–5.2 dB).</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[Subtest4]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. Set Delta CQI = 8 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">2. Set Absolute Grant = 17</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3. Set E-TFCI As follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="626" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of E-TFCI = 5</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 11</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 4</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 67</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 18</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 71</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 23</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 75</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 26</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 81</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 27</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4. Set Beta C, Beta D, Delta ACK, Delta NAC, Delta CQI, Delta E-DPCCH as follows. (Note : This is to meet&nbsp;34.121 Table C 11.1.3 requirement. Delta ACK, Delta NAC, Delta CQI are set in such way that HS-DPCCH is being transmitted with a flat power)</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta C = 2</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta D = 15</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta ACK&nbsp;= 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta NACK = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta CQI = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Delta E-DPCCH = 5</font></span></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">5. Send TPC so that UE transmit power is 16 dBm and maintain the same power.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">6. Wait 150 ms until the UE power becomes 14.0 dBm.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">7. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 71</font></span><font face="Verdana"><span style="font-size:10pt;">.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8. TPC_cmd = +1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">9. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 71</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10. Repeat step&nbsp;8 to 9&nbsp;until the E-TFCI measurement result is not 71. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11. TPC_cmd = -1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">12. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 71&nbsp;again.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">13. TPC_cmd = -1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">14. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 71.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">15. Repeat step&nbsp;13 to 14&nbsp;until the E-TFCI measurement result is not 71.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">16. Measure the UE Tx power and check if it is +22dBm (Tolerance +3.7/–5.2 dB).</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[Subtest5 –upto v8.7.0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. Set Delta CQI = 8 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">2. Set Absolute Grant = 21</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3. Set E-TFCI As follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="626" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of E-TFCI = 5</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 11</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 4</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 67</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 18</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 71</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 23</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 75</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 26</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 81</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 27</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4. Set Beta C, Beta D, Delta ACK, Delta NAC, Delta CQI, Delta E-DPCCH as follows. (Note : This is to meet&nbsp;34.121 Table C 11.1.3 requirement. Delta ACK, Delta NAC, Delta CQI are set in such way that HS-DPCCH is being transmitted with a flat power)</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta C = 14</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta D = 15</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta ACK&nbsp;= 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta NACK = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta CQI = 8</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Delta E-DPCCH = 7</font></span></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">5. Send TPC so that UE transmit power is 16 dBm and maintain the same power.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">6. Wait 150 ms until the UE power becomes 16.0 dBm.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">7. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 81</font></span><font face="Verdana"><span style="font-size:10pt;">.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8. TPC_cmd = +1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">9. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 81</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10. Repeat step&nbsp;8 to 9&nbsp;until the E-TFCI measurement result is not 81. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11. TPC_cmd = -1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">12. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 81&nbsp;again.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">13. TPC_cmd = -1&nbsp;and wait 150 ms.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">14. Do&nbsp;HSUPA Throughput measurement and confirm the E-TFCI measurement result is 81.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">15. Repeat step&nbsp;13 to 14&nbsp;until the E-TFCI measurement result is not 81.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">16. Measure the UE Tx power and check if it is +24dBm (Tolerance +1.7/–6.7 dB).</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[Subtest5 –since v8.8.0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. Set Delta CQI = 8 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">2. Set Absolute Grant = 12</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3. Set E-TFCI As follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="626" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of E-TFCI = 1</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="189">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI = 67</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI PO = 18</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4. Set Beta C, Beta D, Delta ACK, Delta NAC, Delta CQI, Delta E-DPCCH as follows. (Note : This is to meet&nbsp;34.121 Table C 11.1.3 requirement. Delta ACK, Delta NAC, Delta CQI are set in such way that HS-DPCCH is being transmitted with a flat power)</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta C = ?</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Beta D = ?</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta ACK&nbsp;= 0</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta NACK = 0</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta CQI = 0</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Delta E-DPCCH = 0</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">minimum set of E-TFCI = 67</font></span></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">5. Send TPC so that UE transmit power is 16 dBm and maintain the same power.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">6. Wait 150 ms until the UE power becomes 16.0 dBm.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">7. Send TPC ALL 1&nbsp;so that UE transmit power is its Max power.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">8. Wait 150 ms until the UE power becomes its Max Power.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">9. Measure the UE Tx power and check if it is +24dBm (Tolerance +1.7/–6.7 dB).</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/34_121_Table_C_11_1_3.PNG" width="752" height="455" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="5_2C">5.2C UE Relative Code Domain Power Accuracy (Release 6 and later)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Even when&nbsp;total UE TX power stay constant, each component physical channel power should vary dynamically depending on the channel composition. The component of Uplink transmission signal with HSDPA environment are as follows :</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">U DPCCH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">U DPDCH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">HS-DPCCH</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once connection is made, U DPCCH + U DPDCH is always being transmitted, but HS-DPCCH transmission varies depending on configuration. For example, when there is no HS-DPCCH being transmitted, DPCCH + DPDCH power would increase to fill the power space where HS-DPCCH used to take &nbsp;up and when there is HS-DPCCH being transmitted, DPCCH + DPDCH power would decrease to make enough space for
+the HS-DPCCH to fill in.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even when the composition of Uplink power is same, the portions of the power for each channel can vary with the following configuration. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Beta C</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Beta D</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta ACK</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta NACK</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Delta CQI</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Feedback Cycle</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ACK/NACK Repetition Factor</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Repetition Factor</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Depending on the factors described above, uplink power profile in the time domain may look as follows. This test cases measures each of the channel power at the following four points depending on each subtest configuration. (The point labeled (1), (2), (3), (4) is the point where the power is measured). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_2_C_00.PNG" width="624" height="293" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">The reason why the Transmit Power Profile become like this can be illustrated as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/HSET1_HS_DPCCH_Pattern.PNG" width="479" height="398" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the measurement result for each subtest. Each bar represents the relative power for each component channels (DPCCH, DPDCH, HS-DPCCH)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_2_C_01.PNG" width="664" height="505" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_2_C_02.PNG" width="683" height="502" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="5_4_1">5.4.1 Open Loop Power Control in the Uplink</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_4_1_01.PNG" width="708" height="531" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_4_1_02.PNG" width="708" height="531" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="5_5">5.5 Transmit ON/OFF Power</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_5_01.PNG" width="708" height="531" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_5_02.PNG" width="708" height="531" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="5_6">5.6 Change of TFC</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_6_01.PNG" width="708" height="537" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_6_02.PNG" width="708" height="531" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_6_03.PNG" width="708" height="537" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="5_7">5.7 Power setting in uplink compressed mode</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_7_01.PNG" width="708" height="537" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_7_02.PNG" width="708" height="537" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_7_03.PNG" width="708" height="537" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_7_04.PNG" width="708" height="537" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="5_7A">5.7A HS-DPCCH Power Control</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The transmission of Ack/Nack or CQI over the HS-DPCCH may cause the transmission power in the uplink to vary and the ratio of the amplitude between the DPCCH and the Ack/Nack and CQI respectively is signalled by higher layers</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The nominal sum power on DPCCH+DPDCH is independent of the transmission of Ack/Nack and CQI, but if&nbsp;UE output power with HS-DPCCH(Ack/Nack or CQI) exceed the specified maximum value &nbsp;or it&nbsp;fall below the specified value, UE may apply additional scaling to the total transmit power as defined in transmission power requirement. As a result, the overal power profile when both DPCCH+DPDCH
+and HS-DPCCH are&nbsp;transmitted simultaneously can be very complicated as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_7_A_01.PNG" width="468" height="427" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This test is to verify that the changes in uplink transmit power when transmitting the HS-DPCCH (Ack/Nack and CQI) and the power between HS-DPCCH transmissions are within the allowed power step tolerances as specified. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To test this, this test case configure HS-DPCCH transmission pattern as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/HSET1_HS_DPCCH_Pattern.PNG" width="479" height="398" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As the first step, SS set TPC_cmd = 0 (no power up, nor power down of UL DPCCH) and measure the power changes at the points as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_7_A_02.PNG" width="484" height="376" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">At the second step, SS send TPC_cmd = 1 and check the power steps at the points marked as below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_CT_UMTS_TC_5_7_A_03.PNG" width="526" height="410" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

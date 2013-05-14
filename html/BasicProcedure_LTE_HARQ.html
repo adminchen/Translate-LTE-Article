@@ -1,0 +1,88 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Basic Procedure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="BasicProcedures_LTE_Index.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LTE_BasicProcedure_01 */
+google_ad_slot = "1058697172";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>HARQ Process</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HARQ(Hybrid ARQ) is pretty complicated process and not easy to understand in very detail, but it would be helpful if you have some big picture of this process. (Describing this process in very detail would not be the scope of this section.)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's first think about the terminology. What is H-ARQ ? Why it uses the term &quot;Hybrid&quot; ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First think about the term ARQ. ARQ stands for Automatic Repeat Request and you would have heard this a lot if you had experience of studying IP communication (I think you can google a lot of tutorials on this, so I would not explain about what is ARQ here). The &quot;H&quot; in HARQ means &quot;Hybrid&quot; which implies that HARQ is a combination of &quot;Something&quot; and &quot;ARQ&quot;.
+Then what would be the &quot;Something&quot; ? The &quot;Something&quot; is FEC (forward error correction). FEC is also not LTE specific technology and a kind of generic error correction mechanism. So I would like you to google something about FEC.&nbsp;&nbsp;&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A little bit different mode of HARQ process is used depending on whether it is for FDD or TDD and whether it is for Uplink and Downlink. But I will talk only about FDD case. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In FDD, we are using 8 HARQ process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) For&nbsp;Downlink</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a) it can use the 8 HARQ processes in any order (Asynchronous Process).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b) UE does not know anything about HARQ process information for DL data before it gets it. So Network send these information (Process ID, RV) in PDCCH (DCI, Refer to DCI section of this site). </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) For&nbsp;Uplink</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a)it have to use the specific process in a specific subframe (Synchronous Process). UE has to use the same HARQ process number every 8 subframes. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b) Since UE have to use specific HARQ process ID at specific subframe, the reciever (eNode B) knows exactly which HARQ process comes when. And eNodeB can also knows about RV because UL Grant (DCI 0) from eNodeB can specify RV using MCS field. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">c)it has two mode of operation : Adaptive and Non-Adaptive HARQ</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is an example of Adative UL HARQ Process (Key idea is that Each UL retransmission uses different RV and the RV is determined by DCI 0).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UL_HARQ_Adaptive.PNG" width="410" height="450" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Following is an example of Non Adative UL HARQ Process (Key idea is that Each UL retransmission uses different RV and the RV is determined by predefined sequence specified in TS36.321 &quot;5.4.2.2 HARQ process&quot;).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UL_HARQ_NonAdaptive.PNG" width="417" height="448" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The last but very important question would be &quot;How UE knows if it is supposed to do Adaptive retransmission and Non-Adaptive retransmission ?&quot;</span></font></p>
+                <ul>
+                    <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                        <div align="left">
+                            <p><font face="Verdana"><span style="font-size:10pt;">UE do &quot;Adaptive retransmission&quot; if it detect DCI 0 &nbsp;and NDI is not toggled. (In this case, UE does not care about &quot;HARQ feedback (PHICH)&quot;, it retransmit based on DCI 0 information).</span></font></p>
+                        </div>
+                    </li>
+                    <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                        <div align="left">
+                            <p><font face="Verdana"><span style="font-size:10pt;">UE figures out that it is using &quot;Non-Adaptive retransmission&quot; if it got &quot;HARQ feedback (PHICH=NACK)&quot; but does not get DCI 0.</span></font></p>
+                        </div>
+                    </li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

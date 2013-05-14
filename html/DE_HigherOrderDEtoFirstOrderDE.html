@@ -1,0 +1,188 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="Differential Equation,Spring,Pendulum,Mixing Tank,Introduction,Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">DE - Higher Order DE to First Order DE</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_DifferentialEq_01 */
+google_ad_slot = "3063480776";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="HigherOrderToFirstOrder">Converting High Order Differential Equation into First Order Simultaneous Differential Equation</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">As far as I experienced in real field in which we use various kind of engineering softwares in stead of pen and pencil to handle various real life problem modeled by differential equations. This would be very important topics but I have seen almost no textbook which touches this kind of topics in detail. In many case, they just shows the final result (a bunch of first order
+differential equation converted from high order differential equation) but not much about the process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's assume that we have a higher order differential equation (3rd order in this case). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_01.PNG" width="411" height="72" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Our goal is to convert these higher order equation into a matrix equation as shown below which is made up of a set of first order differential equations.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_02.PNG" width="294" height="478" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">We will look into the process of the conversion through some examples in this section, but before going there,&nbsp;I want to mention a little bit about why we need this kind of conversion. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Why do we want this kind of conversion ?</span></font> <font face="Verdana"><span style="font-size:10pt;">Just to give us another type of headache ? Of course not -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As shown in the following illustration, once we get a bunch of first order differential equations out of Higher order equation, we can </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) use them more easily for numerical processing to solve the problem (See <a href="Octave_Matlab_DifferentialEquation.html" target="_blank">Differential Equation</a> pages of Matlab/Octave)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) convert into a matrix form in which we can use a lot of linear algebra tools to analyze/solve the equation</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) (Mostly in Control System theory) convert into a state space model which can be analyzed by various tools specially designed for State Space analysis tool. (See <a href="Octave_Matlab_DifferentialEquation.html" target="_blank">Differential Equation</a> pages of Matlab/Octave)</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_03.PNG" width="595" height="341" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into the detailed process for this conversion through following examples.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="HigherOrderToFirstOrder_2ndOrderHomogeneous">&lt; Example : 2nd Order Homogeneous Lineare Differential Equation - System with no external input &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's assume that we have a 3rd order differential equation as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_1_01.PNG" width="403" height="70" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There can be several different way for the conversion, but my trick is like this. First, I look for the order of the equation and replace all the terms of lower than the order&nbsp;with different variables. &nbsp;Since this is 3rd order differential equation, I will replace 2nd, 1st, 0th term with other variables as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_1_02.PNG" width="562" height="107" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_1_03.PNG" width="416" height="176" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can also do this replacement process as shown below. The method shown above would give you mathematical meaning of the replacement process, but once you fully understand the mathematical meaning the method shown below would be a handy shortcut for this process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_1_03_1.PNG" width="364" height="231" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you see above, I replaced the 0th, 1st, 2nd order term with x1,x2,x3 respectively. If we plug in these variable into the original equation and do a little bit of rearrangement, we get the following equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_1_04.PNG" width="271" height="164" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you collect all the equations which is the first order, you would get following three equations. In this case, the first two equations were directly from our definition and the third one is from original equation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_1_05.PNG" width="271" height="213" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is the end of the process, if you want to solve this differential equations in a </span></font><span style="font-size:10pt;"><a href="#Numerical_Solutions" target="_blank"><font face="Verdana">numerical method</font></a></span><font face="Verdana"><span style="font-size:10pt;"> as explained in this page. &nbsp;But if you want to convert this set of simultaneous equations into a matrix
+form, it would be good to revise the equations as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_1_06.PNG" width="272" height="210" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you will easily convert these simulteneous equation into a matrix form as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_1_07.PNG" width="317" height="293" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="HigherOrderToFirstOrder_2ndOrderNonHomogeneous">&lt; Example : 2nd Order Non-Homogeneous Lineare Differential Equation - System with Single External Input &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now I have another equation. This is almost same as the first equation but only one minor diference. (I would strongly recommend you to go through the first example before you go through this example). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_01.PNG" width="426" height="68" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As we did in the first example. I look for the order of the equation and replace all the terms of lower than the order&nbsp;with different variables. &nbsp;Since this is 3rd order differential equation, I will replace 2nd, 1st, 0th term with other variables as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_02.PNG" width="570" height="106" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_03.PNG" width="421" height="173" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Here goes the second method again. You can pick whatever method you like.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_03_1.PNG" width="376" height="231" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you see above, I replaced the 0th, 1st, 2nd order term with x1,x2,x3 respectively. If we plug in these variable into the original equation and do a little bit of rearrangement, we get the following equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_04.PNG" width="314" height="167" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you collect all the equations which is the first order, you would get following three equations. In this case, the first two equations were directly from our definition and the third one is from original equation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_05.PNG" width="329" height="211" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is the end of the process, if you want to solve this differential equations in a </span></font><span style="font-size:10pt;"><a href="EngMath_DifferentialEquation.html#Numerical_Solutions" target="_blank"><font face="Verdana">numerical method</font></a></span><font face="Verdana"><span style="font-size:10pt;"> as explained in this page. &nbsp;But if you want to convert this set of simultaneous
+equations into a matrix form, it would be good to revise the equations as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_06.PNG" width="329" height="211" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you will easily convert these simulteneous equation into a matrix form as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_07.PNG" width="414" height="299" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">From the equation above, you lost y(t). You can express y(t) in generic form as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_08.PNG" width="599" height="221" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you have to figure out unknown values marked above. You can figure out those unknown values as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_09.png" width="590" height="189" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Combining the two matrix equations that we built from the long procedure described above, you can have a set of matrix as shown below. This form of matrix equation is called 'State Space' matrix equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_10.png" width="353" height="439" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="HigherOrderToFirstOrder_SimultaneousEquation">&lt; Example : Simultaneous Differential Equation (System Equation) &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Previous example shows how we can convert one higher linear order differential equation into a single matrix equation. In this example, I will show you the process of converting two higher order linear differential equation into a sinble matrix equation. If you extend this procedure, you can convert any number of higher order differential equations into a single matrix equation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_SimultaneousEquation_01.PNG" width="208" height="83" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You see two variables (more specification, two functions x(t) and y(t)) in this equations and two differential terms x'(t), y'(t). Now let'sdefine these functions and differentials as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_SimultaneousEquation_02.PNG" width="106" height="179" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you substitue the original equations with the variables that you defined above, you get a new equations as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_SimultaneousEquation_03.PNG" width="232" height="91" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you combine the new equations and your definitions so that first order diffential forms are at the right&nbsp;side and all the remaining terms are on the right side. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_SimultaneousEquation_04.PNG" width="232" height="172" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you can convert the above equations into the following format. Do you know why I am doing this kind of conversion using many of '0' terms which does not have much meaning in mathematical sense ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is to convert this simultaneous equations into the matrix form. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_SimultaneousEquation_05.PNG" width="366" height="173" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you can easily convert this equation into a matrix form as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_SimultaneousEquation_06.PNG" width="406" height="173" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="HigherOrderToFirstOrder_ExampleFromYouTube">&lt; Example from YouTube &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.youtube.com/watch?v=dZfdKXxhnTM&feature=relmfu" target="_blank">Differential Equations and exp (At) | MIT 18.06SC Linear Algebra, Fall 2011</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Redirection">Redirection</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To be honest, I don't know how to clearly define this word &quot;Redirection&quot; even though we pretty often use this terminology. Just based on my personal understanding, &quot;Redirection&quot; is the mechanism of chaning cells from one (let's call this 'serving/source cell') to another&nbsp;(let's call this 'target cell') at a specific point in the call process where RRC Session has
+initiated but it is before initiating Radio Bearer Setup. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Actually there are so many different cases where UE has to select or change cells in various points during the call processing and the terminology for the cell changes gets different depending on when the cell change happens. For example, if the cell change (in this case I would say 'picking up a cell among various candiate', so the term 'change' would not be the right one) happens when you
+power on a UE, we call the process 'Cell Selection'. If the cell change happens while UE is in idle mode, we call it 'Cell Reselection'. and if the cell change happens while UE is in communication mode after radio bearer setup, we call it 'Handover'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Actually 'Redirection' is not the unique cocept in LTE, we have been using this concept almost all the technology. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">The typical procedure for Redirection in LTE is as follows : (Note that the initial state is &quot;Connected Mode in source cell&quot; and the final state is the &quot;Idle mode in target cell&quot;)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <table border="1" width="707" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center" height="122">
+                <tr>
+                    <td width="123" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Direction</span></font></p>
+                    </td>
+                    <td width="281" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Message/Process</span></font></p>
+                    </td>
+                    <td width="289" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Description</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="123">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UE --&gt; NW</span></font></p>
+                    </td>
+                    <td width="281">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Extended Service Request</span></font></p>
+                    </td>
+                    <td width="289">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="123" height="24">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UE &lt;-- NW</span></font></p>
+                    </td>
+                    <td width="281" height="24">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RRC Connection Release</span></font></p>
+                    </td>
+                    <td width="289" height="24">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Indicate which cell UE has to connect</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="123">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UE &lt;--&gt; NW</span></font></p>
+                    </td>
+                    <td width="281">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; Registration&nbsp;to Target Cell &gt;</span></font></p>
+                    </td>
+                    <td width="289">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="123" height="11">&nbsp;</td>
+                    <td width="281" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; IDLE in Target Cell &gt;</span></font></p>
+                    </td>
+                    <td width="289" height="23">&nbsp;</td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">I think just showing the one example of the contents of these message would be worth several pages of explanation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&lt; Extended service request &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">NAS_LTE:EMM,Extended service request</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">Extended service request ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Security header type ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Security header type ::= CHOICE [Plain NAS message, not security protected]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-EPS mobility management protocol discriminator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Protocol discriminator ::= PD [7]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Extended service request message identity ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Message type ::= MSG [4C]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-NAS key set identifier ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-TSC ::= CHOICE [native security context (for KSI ASME)]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-NAS key set identifier ::= CHOICE [possible values for the NAS key set identifier 0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Service type ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">| +-Service type value ::= CHOICE [mobile originating CS fallback or 1xCS fallback]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-M-TMSI ::= LV</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Length of mobile identity contents ::= LEN (0..255) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Identity digit 1 ::= INT (0..15) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Odd/even indication ::= CHOICE [even number of identity digits and also when the TMSI/P-TMSI is used]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Type of identity ::= CHOICE [No Identity]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet3-Octet6 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-Identity digit p ::= OCTETARRAY SIZE(0..4)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-CSFB response ::= TV OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;+-Octet1 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-CSFB response IEI ::= IEI [B-]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-spare ::= FIX [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-CSFB response value ::= CHOICE [CS fallback accepted by the UE]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&lt; RRC Connection Release&nbsp;&gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">RRC_LTE:DL-DCCH-Message</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">DL-DCCH-Message ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [c1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [rrcConnectionRelease]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRelease ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrc-TransactionIdentifier ::= INTEGER (0..3) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-criticalExtensions ::= CHOICE [c1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [rrcConnectionRelease-r8]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRelease-r8 ::= SEQUENCE [100]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-releaseCause ::= ENUMERATED [other]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-redirectedCarrierInfo ::= CHOICE [cdma2000-1xRTT] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-cdma2000-1xRTT ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-bandClass ::= ENUMERATED [bc2]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-arfcn ::= INTEGER (0..2047) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-idleModeMobilityControlInfo ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-nonCriticalExtension ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

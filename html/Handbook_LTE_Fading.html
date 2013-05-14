@@ -1,0 +1,90 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, Fading " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="793">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="126">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="793">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Fading">Fading</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In most of the wireless communication environement, a signal out of a transmitter radiate into wide direction and these radiated signal takes different path and arriving at the reciever at different timing and with different signal strength(amplitude). As a result, the signal coming into the reciever is the composite of all the components. As you may learned in high school physics, when the
+two copies of the signal get combined the resulting signal can be an augmented signal or attenuated signal depending on whether the two signal constructively combined or destructively combined. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then what determines whether the signals constructively combine or destructively combine ? The answer also come from high school physics. The phase of the two signal determines whether the signal constructively combine or destructively combine. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In wireless communication environment, many copies of the signals get combined at the reciever side and some of them constructively combines and some of them destructively combines. So final result of combination of all the incoming signals become very complicated and the combined signal becomes drastically different from the original signal tranmitted from the source. In most case, the quality
+of the combined signal at the reciever gets poorer (deteriorated) than the original signal. This kind of process of signal deterioration by the multiple propogation path of a signal is called 'Fading'. When we say &quot;Fading&quot;, it usually implies &quot;Signal quality gets bad&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Fading_WavePath.PNG" width="668" height="254" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For more intuitive unerstanding of the fading, I will show you a couple of different aspect of fading you can mesure using various equipments. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First, let's compare a faded signal and non-faded signal using a spectrum analyzer. You would get the two results as follows and you will see the highly fluctuating amplitude across the channel bandwidth. (Note : These two capture are not the one from the same signal, so comparing the absolute value of the amplitude does not many any sense. Just take the image of overall amplitude profile).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Fading_Spectrum.PNG" width="608" height="231" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look at how the fading influence the signal quality decoded by the reciever. Look at the following samples of constellation for faded and non-faded signal.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Fading_Constellation.PNG" width="589" height="213" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's get into even further and I think this is the thing that you would be most interested in. How this fading would influence the final performance. Following graph shows the data rate at PHY layer and PDCP layer. The plot showing at the top (labeled as 'PHY Transmission Rate') is the amount of data being transmitted per second by PHY layer of the transmitter. The plot in the middle
+(labeled as 'PHY throughput with HARQ ACK' is the amount of data getting ACKED per second&nbsp;from the reiever PHY layer. You see there is pretty much gap between the two plots. It means that a considerable portions of the data were failed to get properly decoded by the reciever and the reciever sent NACK for the data. Normally in this case, the transmitter PHY layer retransmits the previous data rather than moving into the next step of the transmission. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The plot at the bottom (labelled as 'PDCP Transmission Rate') is the amount of data being sent to the lower layer from the transmitter's PDCP layer. You will see another gap here. It is not easy to explain exactly what is causing this gap. In this case, some portions of the gap would come from the overhead of higher layer data structure but majority of the gap would be because PDCP cannot
+push the data down to the lower layer since PHY layer is too busy with retransmitting the previous data rather than transmitting the new data coming from the higher layer. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Fading_Throughput.PNG" width="644" height="150" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Typical model for Fading channel can be described by a simple diagram as follows. This is very simplified model but fortunately this is almost enough for 3GPP specification for fading test. As you see, a signal comes into the fading block and splits into multiple path. Each path has three components, namely Delay, PDF, Gain component. By changing these parameters in each path,
+you can construct pretty complicated fading channel. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Fading_BlockDiagram.PNG" width="573" height="418" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In LTE 3GPP specification, typical three types of Fading profiles are defined as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Fading_LTE_Profile_36_101.PNG" width="696" height="485" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In addition to this delay, gain, PDF, we have to think about the correlations among all the antenna on transmitter and reciever side as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Fading_Antenna_Overview.PNG" width="520" height="171" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">These correlation is defined in 3GPP as shown below and this correlation matrix should be applied to the Fading model when we use multiple antenna configuration. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Fading_LTE_Model_36_101.PNG" width="546" height="370" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            
+        </td>
+        <td width="126" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

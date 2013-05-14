@@ -1,0 +1,97 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="GUTI">GUTI(Globaly Unique Temporary ID)</a></b> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As the name implies, GUTI is a kind of temporary ID. Each of the UE has a couple of different kind of it's own Unique ID like IMSI, IMEI etc, but to use these unique ID all the time during the communication would make the security vulnerable. So in some wireless communication, we use a temporary ID which maps the unique ID allocated to UE. And this temporary ID changes often, so even if somebody
+hacked out the ID it will be useless soon. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In WCDMA, you may remember that we had several commonly used IDs, IMSI, TMSI, P-TMSI. IMSI is a unique ID stored in USIM and permanent ID. TMSI, P-TMSI is a temporary ID which is mainly used as a replacement for IMSI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">GUTI is also a temporary ID and it is slimilar to P-TMSI in UMTS. The structure of GUTI is as follows :</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PLMN (3 Bytes)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MME Group ID (2 Bytes)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MME Code (1 Bytes)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">M-TMSI (4 Bytes)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-GUTI ::= TLV OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-EPS mobile identity IEI ::= IEI [50]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Length of EPS mobile identity contents ::= LEN (0..255) [11]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet3 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Spare ::= FIX [F]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Odd/even indication ::= CHOICE [....]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Type of identity ::= CHOICE [GUTI]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet4 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MCC digit 2 ::= INT (0..15) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MCC digit 1 ::= INT (0..15) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet5 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MNC digit 3 ::= INT (0..15) [15]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MCC digit 3 ::= INT (0..15) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet6 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MNC digit 2 ::= INT (0..15) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MNC digit 1 ::= INT (0..15) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet7 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MME Group ID ::= INT (0..255) [128]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet8 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MME Group ID(continued) ::= INT (0..255) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet9 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-MME Code ::= INT (0..255) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet10 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-M-TMSI ::= INT (0..255) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet11 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-M-TMSI(continued) ::= INT (0..255) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet12 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-M-TMSI(continued) ::= INT (0..255) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet13 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-M-TMSI(continued) ::= INT (0..255) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Examples of NAS messages using GUTI are </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Attach Request</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Attach Accept</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Attach Complete</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+           
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

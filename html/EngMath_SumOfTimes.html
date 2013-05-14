@@ -1,0 +1,391 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="Engineering Math, Sum of Times, Fourier Transform, Correlation " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Sum Of Times </span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_EngMath_01 */
+google_ad_slot = "2417473975";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">I think one of the most common components of mathenatical equations being used in various engineering field would be as follows. (you will see specific examples later). I am pretty sure that almost all of you have seen this component in the mathematical models which you are working on now. So I thought it would be worthwhile looking into the practical meaning of this component
+as the first topic of my course (at least in engineering mathematics). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_Format.PNG" width="83" height="73" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Everybody would have different ways to understand a concept and you can interpret this in any way which is better for you. Personally, I am such a person who has difficulties to understand any concept that cannot be visualized. So whenever I want to learn something, the first step is to try to visualize the basic concepts. Fortunately, I think most of the concept in engineering
+can be visualized. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">My visualization of this mathematical operation is as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_OverView_01.PNG" width="567" height="440" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">As you see in the mathmatical presentation, it has two component x and y. Judging from the fact that x and y has a subscript (i) which implies that x, y is not a single number. They are a sequence number. In computer programming concept, these x, y are a kind of 1 dimensional arrays. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Can I understand the operation of this mathematical presentation just by looking at the illustration above without any additional explanation ? I strongly hope so. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If I present this into a C language syntax which most of you are familiar with, it would be as follows.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sum = 0;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">for (i = 0; i&nbsp;&lt; n; i++) {&nbsp;&nbsp;&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sum += x[i]*y[i];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">}</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;">&nbsp;</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In short, this operation can be summarized as following two steps.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) multiply (times) each components of the sequence x, y</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) sum all of the result of the multiplication. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is why I put the title of this page as &quot;Sum of Times&quot; meaning &quot;Sum of Multiplication&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Another widely used graphical representation of &quot;Sum of Times&quot; is as follows. You will often see this representation in Neural Network.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_OverView_02.PNG" width="436" height="310" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Now let's think about why this mathematical operation is so important. I think it is because this mathmatical form is the most essential component of the following engineering tools which are most commonly used mathemtical tools in engineering area. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;">&nbsp;</span></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Correlation">Correlation</a></span></font><span style="font-size:10pt;"></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Fourier_Transform">Fourier Transform</a></span></font><span style="font-size:10pt;"></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Convolution">Convolution</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Vector_Inner_Product">Vector Inner Product</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Neural_Network">Neural Network</a></span></font><span style="font-size:10pt;"></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Application</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Application_Convolution_FIR_LP">Convolution - FIR - Low Pass Filter</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Application_Convolution_ImageProcessing">Convolution - Image Processing</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Correlation">Correlation</a></b></span></font><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b> (Correlation Coefficient)</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are many different variation of mathematical representation of Correlation Coefficient. One of examples is as follows. It would look intimidatingly complicated, but the most important part of the equation is the part marked in red rectangle. All the other parts are to make the result of the equation became between -1 and +1. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_Correlation_Eqn_01.PNG" width="397" height="126" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What is the meaning of the correlation coefficient ? Correlation Coefficient is a specific number that represent how closely two sequence (data set) are (related) related. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What does it mean by &quot;related&quot; ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">My intuitive understanding about &quot;being related&quot; is &quot;how can the two graph of the data set look similar&quot;. You may ask another question saying &quot;What do you mean by 'being similar' ?&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let me give you my personal understanding as well for this term. 'Being Similar' can be an indicator to show &quot;How well the graph &nbsp;of the two data set can be overlapped without shifting any of the data set ?&quot;. Pay specific attention to &quot;WITHOUT SHIFTING any of the data set&quot;. This is very important. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's try visualize the meaning of the Correlation Coefficient. I want you to try to understand this intuitive meaning as hard as possible since this concept will help you understand most of other tools that uses the 'sum of times' component. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I created 6 different data sequence named as x1, x2, x3, x4, x5, x6 respectively. The graph of each data sequences are as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_Correlation_01.PNG" width="558" height="541" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Now let me ask you a question. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">How similar the sequence x1 and x2 are to each other ? Do you think they are very closely related &nbsp;or very loosely related ? I will give you 10 seconds to think about the answer. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Now let's figure out the correlation coefficient of x1 and x2 using a matlab function as follows. As you see, the calculated coefficient of x1, x2 is 0.000. What does this mean ? It means these two sequences are not related to each other at all. Is this answer close to what you intuitively thought ? It may be not for somebody. You may think &quot;If you shift x2 a little bit
+to the right or left, you would see x1 and x2 would exactly overlap each other. How come they are not correlated at all ?&quot;. You are right, but as I explained earlier, 'Correlation Coefficient' is&nbsp;an indicator to show &quot;How well the graph &nbsp;of the two data set can be overlapped without shifting any of the data set ?&quot;. Do you see 'without shifting any of the data' ? If you do the mathematical operation of correlation coefficient for x1 and x2 as it is, you get the value 0.000, which means
+'no correlation'.</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">corrcoef(x1,x2) = 0.000</span></font></p>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's compare x1 with x3. What do you think about the correlation between these two data sets ? First you would notice that these two data set would never overlap (superimpose)&nbsp;each other. So.. Should Correlation Coefficient be 'zero' ? Let's calculate the correlation coefficient using a&nbsp;matlab function and I got the following result. It's '-1'. How do I interpret this ? Does
+this mean that there is even less correlation than 'zero correlation' ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">No. This means that if you mirror x3 along the horizontal axis, x1 and x3 overlap (superimpose) each other. This is also an example of high correlation. </span></font></p>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">corrcoef(x1,x3) = -1.000</span></font></p>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's move to the next comparison. Let's compare x1 and x4. First just look at the shape of the graph of x1 and x4. Does it look identical ? No, if you look at them carefully, you would notice that x4 is a little bit of shifted version of x1. What would the correlation coefficient of these two data set be like ? The result is as follows. It shows pretty strong correlation, but not as strong
+as '1' (100% correlation). Compare the set (x1,x4) and (x1,x2). (x1,x2) gave us zero correlation but (x1,x4) gives us a certain degree of correlation. Both x2 and x4 are the shifted version of x1. Then why do we have different result ? It is because the amount of shift is different. In case of (x1,x2), the shift is 90 degree (pi/2), but in case of (x1,x4) the shift is less than 90 degree. </span></font></p>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">corrcoef(x1,x4) = 0.705</span></font><span style="font-size:10pt;"></span></p>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into the correlation coefficient of x1 and x5. The result is as follows. Do these two graphs superimpose each other ? NO. Then how come the correlation coefficient become 1.0 (100% correlation) ? Is it because the two graph can superimpose if you change&nbsp;the magnitude of x5. (In this case, if you magnify x5 twice, the two graph superimpose). </span></font><span style="font-size:10pt;"></span></p>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">corrcoef(x1,x5) = 1.000</span></font><span style="font-size:10pt;"></span></p>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's take a look at the last case - x1,x6. &nbsp;It would look like this set would be the least correlated to each other. Let's take a correlation coefficient. The result is as follows. As we expected, the correlation is very low... but it is still a little higher than the set (x1, x2). Isn't this against your intuition ? </span></font></p>
+            <ul>
+                <ul>
+                    <ul>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">corrcoef(x1,x6) = -0.019</span></font></p>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">We have gone through several sets of data sets to give you some intuitive understanding of the correlation coefficient. But you would have noticed some of the cases which might go against your intuition. This kind of case can be a risk of using intuition or of just relying on visualization, but I think it still be a better way than totally relying on mathematical equation
+and gets no clue of the real meaning of it. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the Matlab/Octave script that would give you a series of plots as shown above. Try create any of the data on your own and how the graph and correlation coefficient changes. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t=0:2*pi/100:10;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Nt = size(t,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x1=sin(2*pi*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x2=cos(2*pi*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x3=-sin(2*pi*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x4=sin(2*pi*t-pi/4.0);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x5=0.5.*sin(2*pi*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x6=2.*rand(1,Nt)-1;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(6,1,1);plot(x1);ylabel('x1');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(6,1,2);plot(x2);ylabel('x2');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(6,1,3);plot(x3);ylabel('x3');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(6,1,4);plot(x4);ylabel('x4');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(6,1,5);plot(x5);ylabel('x5');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(6,1,6);plot(x6);ylabel('x6');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fprintf('corrcoef(x1,x1) = %1.3f\n',corrcoef(x1,x1))</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fprintf('corrcoef(x1,x2) = %1.3f\n',corrcoef(x1,x2))</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fprintf('corrcoef(x1,x3) = %1.3f\n',corrcoef(x1,x3))</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fprintf('corrcoef(x1,x4) = %1.3f\n',corrcoef(x1,x4))</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fprintf('corrcoef(x1,x5) = %1.3f\n',corrcoef(x1,x5))</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">fprintf('corrcoef(x1,x6) = %1.3f\n',corrcoef(x1,x6))</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Fourier_Transform">Fourier Transform</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Now we are going to look into such a famous tool, called &quot;Fourier Transform&quot;. Here in this section, I would focus on the mathematical meaning of the Fourier Transform (more specifically, Discrete Fourier Transform). See the <a href="Eng_FFT.html" target="_blank">Fourier Transform</a> page for its role as an engineering tool. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A typical mathematical presentation of Discrete Fourier Transform looks as follows. It may look a little bit complicated, but if you wrap it up into proper chunks you would notice that this is also a kind of &quot;Sum of Times&quot; format. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_Fourier_Eqn_01.PNG" width="470" height="229" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">As you learned in <a href="#Correlation" target="_blank">Correlation</a> section (explained above), the most intuitive meaning of &quot;Sum of Times&quot; is a kind of indicator showing the correlation between two data sequences. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">So Fourier Transform is also based on calculating the two specified data sequence as follows.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xi = input data sequence for Fourier Transform</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">yi = e^(-i 2pi k n/N)</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It means that Fourier Transform is indication of correlation between a given data sequence and &quot;e^(-i 2pi k n/N)&quot;. If you studied &quot;<a href="EngMath_Exp.html" target="_blank">Exponential Form</a>&quot; or any material about Euler's formula, you would know e^(-i 2pi k n/N) is a cyclic function. It is a cyclic function, the cycle of which is represented by the variable 'k'. Therefore,
+we can say &quot;Fourier Transform is a tool to show the correlation between a specified data sequence and muliples of cyclic data sequence with different cycle&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If I represent my explanation, Fourier Transform can depicted as follows. (In the following graph, &quot;x1&quot; is the input data you want to do 'fourier transform', and the series of plots on right side is the multiple cyclic data sequence with different cycles. The stem plot at the left bottom is the graph shows the forrelation coefficient of each data pair, i.e (x1, s1), (x1,s2), (x1,
+s3) and so forth. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_Fourier01.PNG" width="758" height="583" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you convert this description into a mathematical forumula, Fourier Transform can be depicted as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/EngMath_SumOfTimes_Fourier_Graph_01.PNG" width="702" height="338" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Following is Matlab/Octave script generating the sequence of graphs shown above. Try change the data for x1 in various different way until you get your own intuition of this concept. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t=0:2*pi/400:3;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Nt = size(t,2);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x1 = sin(2*pi*2*t) + 0.3 * sin(2*pi*5*t) + 0.7*sin(2*pi*7*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s1=sin(2*pi*1*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s2=sin(2*pi*2*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s3=sin(2*pi*3*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s4=sin(2*pi*4*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s5=sin(2*pi*5*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s6=sin(2*pi*6*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s7=sin(2*pi*7*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s8=sin(2*pi*8*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s9=sin(2*pi*9*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">s10=sin(2*pi*10*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">corr_vec = [corrcoef(x1,s1) corrcoef(x1,s2) corrcoef(x1,s3) corrcoef(x1,s4) corrcoef(x1,s5) corrcoef(x1,s6) corrcoef(x1,s7) corrcoef(x1,s8) corrcoef(x1,s9) corrcoef(x1,s10)];</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,1);plot(x1);ylabel('x1');axis([0,Nt,-2.1,2.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,1*2);plot(s1);ylabel('s1(1Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,2*2);plot(s2);ylabel('s2(2Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,3*2);plot(s3);ylabel('s3(3Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,4*2);plot(s4);ylabel('s4(4Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,5*2);plot(s5);ylabel('s5(5Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,6*2);plot(s6);ylabel('s6(6Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,7*2);plot(s7);ylabel('s7(7Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,8*2);plot(s8);ylabel('s8(8Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,9*2);plot(s9);ylabel('s9(9Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,10*2);plot(s10);ylabel('s10(10Hz)');axis([0,Nt,-1.1,1.1]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(10,2,[13 15 17 19]);stem(abs(corr_vec));ylabel('corr');axis([0,10,0,1.0]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Convolution">Convolution</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Convolution is an tool which is as widely used as Fourier Transform. When we &quot;analyze&quot; or &quot;design&quot; something (e.g, Filter or Control System) we usually use Fourier Transform, but when we &quot;implement&quot; what we designed, we normally use &quot;convolution&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fourier Transform is a tool which convert a time domain entity into a frequency domain entity. Convolution is a tool which manipulate a time domain entity as it is in time domain.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To be honest, I haven't heard the word 'Convolution' before I first started a filter design product around 20 years ago and I haven't understood the real meaning of this tool for a couple of years even while I was using the tool very heavily and even implemented it in my program. So don't get disappointed if you don't understand this right away. As far as I exprienced, it took me take at
+least several month to understand the real meaning of any new concept even though it may look simple. The most important thing is to hold on to it without giving up until you grasp the real understanding however long it would take.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Actually it is very difficult to understand the real/intuitive meaning of convolution without animation. (please refer to a couple of links I listed below). But you should not rely on to the animated explation only. You would say &quot;Ah Ha... Now I think I understand this&quot; when you see those animated ones, but your understanding would start fading a couple of days later. At some point,
+you have to directly attack the math itself and solidify your understanding. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I will try add a couple of more illustration later hoping it help more. For now, if I just describe it the process verbally, </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's assume we have two data called 'f[m]', 'g[m]'. In convolution, these two data has two different role.. one is the data to be processed and the other one is what we call 'kernel'. Let's assume f[m] is the data to be processed and g[m] as 'kernel'. Let's assume c[n] is the result data of the convolution.&nbsp;&nbsp;Usually f[] is much longer than g[]. We want to take the convolution of
+these two data. Overall step goes like this. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Take the kernel data sequence (in this case, g[m])&nbsp;and flip it around (revserse it). This gives you g[-m]</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Align f[m] and g[-m] to the left. Now the starting position of f[m] and g[-m] is same. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Perform the &quot;sum of times (sum of multiplication)&quot; between f[m] and g[-m] from the first elements of g[-m] to the last elements of g[-m] and put the result into the first element of c[] data.(It means the result goes into c[0]).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Shift g[-m] data to the right by one step (this is called g[-(m-1)] or g[1-m]). Now the second data of f[] and first data of g[-(m-1)] is aligned. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) Perform the &quot;sum of times (sum of multiplication)&quot; between f[] and g[] from the first elements of g[-(m-1)] to the last elements of g[-(m-1)] and put the result into the first element of c[] data.(It means the result goes into c[1]).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Shift g[-(m-1)] data to the right by one step (this is called g[-(m-2)] or g[2-m]). Now the second data of f[] and first data of g[-m] is aligned. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) Perform the &quot;sum of times (sum of multiplication)&quot; between f[] and g[] from the first elements of g[-(m-2)] to the last elements of g[-(m-2)] and put the result into the first element of c[] data.(It means the result goes into c[2]).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) Now you see any pattern. Do this pattern until g[] reaches to the end of f[].</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For clearer understanding, I recommend you to try this whatever programing language (C, Java, Matlab, Octave etc) you are familiar with. If you are not familiar with any of the programming language, Microsoft Excel would be an excellent tool for you to try. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I hope following illustration would help you a little bit understand the mathematical component of the convolution. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_Convolution01.PNG" width="631" height="231" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_Convolution02.PNG" width="597" height="172" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the simplest and most common example of the convolution can be found in stock chart. In stock chart, you would see 7 days moving average or 52 days moving everage etc. This kind of moving average is the most common example of convolution. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">if you set the data as follows, </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f[] = daily stock price data</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">g[] = [1/7 &nbsp;1/7 &nbsp;&nbsp;1/7 &nbsp;&nbsp;1/7 &nbsp;&nbsp;1/7 &nbsp;&nbsp;1/7 &nbsp;&nbsp;1/7]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you take the convolution of f[] and g[], the result will give you 7 days moving average of the stock price data. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is a couple of links that you give you a couple of intuitive understanding of the convolution process.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Continous Convolution (</span></font><span style="font-size:10pt;"><a href="http://jhu.edu/~signals/convolve/index.html"><font face="Verdana">http://jhu.edu/~signals/convolve/index.html</font></a></span><font face="Verdana"><span style="font-size:10pt;">)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Discrete Convolution(</span></font><span style="font-size:10pt;"><a href="http://jhu.edu/~signals/discreteconv2/index.html"><font face="Verdana">http://jhu.edu/~signals/discreteconv2/index.html</font></a></span><font face="Verdana"><span style="font-size:10pt;">)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Interactive Lecture Module: Continuous-Time LTI Systems and Convolution (<a href="http://jhu.edu/~signals/lecture1/frames.html">http://jhu.edu/~signals/lecture1/frames.html</a>)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Vector_Inner_Product">Vector Inner Product</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I think you might have learned about a vector. (you may have learned this in high school in some country or learned it in Linear Algebra course in University). In the course, you may have learned an mathematical operator called&nbsp;'inner product' of vectors. </span></font>'</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you define a two vector as follows,</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_InnerProduct_01.PNG" width="345" height="180" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">The inner product of these two vectors are defined as follows. (What is practical meaning of &quot;Inner Product&quot;? I would try to explain on this in Vector page).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_InnerProduct_02.PNG" width="431" height="64" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">You would notice this is a straightforward example of &quot;sum of times&quot;. This is why in many text book many authors likes to this kind of 'vector inner product' notation for various &quot;sum of times&quot; operation. Once you see those process expressed as this kind of purely mathematical operation, you start feel dizzy and close the book. But it is more like a psychogical
+effect. Just try to convert it into a form which gives you less psychological burden like &quot;sum of times&quot; form and you can continue to read the book -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Neural_Network">Neural Network</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Just look at the following diagrams first and think on your own about how this can be related to the &quot;sum of times/sum of multiplication&quot; process. Refer to <a href="EngMath_Matrix.html#Neural_Network" target="_blank">Neural Network</a> section in <a href="EngMath_Matrix.html" target="_blank">Matrix</a> page.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/EngMath_SumOfTimes_NeuralNetwork_01.PNG" width="483" height="364" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Again, refer to <a href="EngMath_Matrix.html#Neural_Network" target="_blank">Neural Network</a> section in <a href="EngMath_Matrix.html" target="_blank">Matrix</a> page to know how you can get the following representdation from the diagram above.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_NeuralNetwork_02.PNG" width="511" height="231" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Again, refer to <a href="EngMath_Matrix.html#Neural_Network" target="_blank">Neural Network</a> section in <a href="EngMath_Matrix.html" target="_blank">Matrix</a> page to know how you can get the following representdation from the diagram above.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_SumOfTimes_NeuralNetwork_03.PNG" width="352" height="132" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Application_Convolution_FIR_LP">Application - Convolution - FIR - Low Pass Filter</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In a previous section,&nbsp;you understand how the process called &quot;sum of times&quot; is used for a complicated process called 'Convolution'. This section would give you a example on how the process 'Convolution' is used in a engineering application. This example shows you how covolution is used to implement a digital filter and of course, the fundamental mathemtical process is &quot;sum
+of times&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Most of digital filter (FIR filter in this case) is represented as follows. Take bi =&nbsp;g[] and x[] = f[] and read the '<a href="#Convolution" target="_blank">convolution</a>' section. then you would understand how this works. The only difference between this mathematical representation and the one used in 'convolution' section is that in this case f[] is shifting at each iteration, but
+in convolution section g[] was shifting at each iteration. But result is the same. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_Convolution_App_Fir_LP_01.PNG" width="175" height="63" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_Convolution_App_Fir_LP_02.PNG" width="586" height="562" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the Matlab and Octave code you can try. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fs=8e3; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ts=1/Fs; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ns=512; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t=[0:Ts:Ts*(Ns-1)]; </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1=500;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2=3200;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x1=sin(2*pi*f1*t); </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x2=0.3*sin(2*pi*f2*t);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x=x1+x2;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = fir1(48,0.35,'low');</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=conv(x,b);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,1); plot(x1);ylabel('x1');axis([0,550,-1.5,1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,2); plot(x2);ylabel('x2');axis([0,550,-1.5,1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,3); plot(x);ylabel('x=x1+x2');axis([0,550,-1.5,1.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,4); plot(b);ylabel('b');axis([0,550,-0.5,0.5]);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(5,1,5); plot(y);ylabel('y=conv(x,b)');axis([0,550,-1.5,1.5]);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Application_Convolution_ImageProcessing"><b>Application - Convolution - Image Processing</b></a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I will not say much about the image processing here since this page is not for the theory of image processing even though this is one of my favourite topics. If you are interested in the image process, I strongly recommend to refer to&nbsp;this excellent presentation </span></font><span style="font-size:10pt;"><a href="http://www.math.ucf.edu/~xli/ConvolutionInImageProcessing2011print.pdf"
+target="_blank"><font face="Verdana">here</font></a></span><font face="Verdana"><span style="font-size:10pt;">. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Very briefly speaking, a lot of image processing techniq is implemented by Convolution and this convolution is done in 2 D data (2 D array) as illustrated below. My point here is that you see the convolution and &quot;sum of times&quot; process in this techniq as well.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_Convolution_App_ImgProc_01.PNG" width="611" height="517" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is one example of the process that I mentioned here with Octave/Matlab. You would see the source code at the bottom. Enjoy !!!</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_Convolution_App_ImgProc_02.PNG" width="750" height="365" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">img=imread('Lena.png');</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">imgBW = rgb2gray(img);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">imshow(imgBW);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b=[0 0 0;0 1 0;0 0 -1]</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">pimg = conv2(imgBW,b);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">figure;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">imshow(pimg);</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

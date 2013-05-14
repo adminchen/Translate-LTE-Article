@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="813">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Basic Procedure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="BasicProcedures_LTE_Index.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="106">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="813">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LTE_BasicProcedure_01 */
+google_ad_slot = "1058697172";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Channel Coding Processing for DL SCH/PCH/MCH</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First as a disclaimer, I am very early stage of studying this field. For a long time since I joined into the wireless communication, this kind of processing has always the part that I was so eager to undersand but eventually gave up. In LTE as well, the document like 36.211, 36.212 were mysterious specification to me. I have always wondering &quot;How those guys can implement real device(PHY)
+just by reading these thin, vague, cloudy (at leas to me) documents ?&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Very recently an expert in this area helped me so much to get some insight/big picture to start with. (I still think several month to go to be able to draw detailed picture for this, but getting the initial big picture would be the most important step).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Here goes my first picture and this will get more detailed illustration later... so keep checking this part if you are interested. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:9pt;">The first picture you have to be familiar (don't try to memorize... just see this as often as possible and just make it familiar) . This figure is from 36.212.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:9pt;">Let's just make a two important bulets here. Whatever a processing unit is, the first and most important steps you have to understand is &quot;What is the input ?&quot; and &quot;What is the output ?&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:9pt;">What is the input of this whole process ? It is a transport block.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:9pt;">What is the output of this whole process ? It is a series of IQ data to be transmitted from PHY. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:9pt;">So the whole purpose of this process is &quot;to convert a transport block (from MAC) into a series of bit stream&nbsp;data to be transmitted&quot;.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_212_Fig_5_3_2-1_DLSCH.PNG" width="538" height="574" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into each step of the process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The first step is pretty simple. Just adding 24 bits of CRC block to the end of the input (transport block).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/ChannelCoding_DLSCH_Step1.PNG" width="677" height="283" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The second step is as follows. It is splitting the big transport block into multiple small blocks and add another CRC to each of the split chunks. Sounds simple ? but there is a couple of things to make it tricky. Why do we need to split the block ? Do we always to have to split the input block ? It would be understandable to split a very large input block into multiple smaller block, but
+if we have to split even a small input block, isn't it inefficient ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The generic answer is that the process split the input block only when the block is very large. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then the question is &quot;How large it would be to be splitted ?&quot; In LTE case, 6144 (bits) is the number. (See 5.1.2 Code block segmentation and code block CRC attachment of 36.212)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/ChannelCoding_DLSCH_Step2.PNG" width="704" height="372" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next step is the famous Turbo Coding step. I am not able to explain on how turbo coding works in easy/plain language mainly because I don't understand it clearly. But for now, let's just focus on only one fact. If you see the turbo coding block diagram in 36.212. You would see that one bit input become 3 bit output as it goes through the turbo coding processor (It means the coding rate is
+1/3). In this process, one input row generate three rows of output as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/ChannelCoding_DLSCH_Step3.PNG" width="680" height="485" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next step is Rate Matching step. This is the most mesterious part to me. The generic Idea is like this. I said Turbo coding generate three rows of output for&nbsp;each row of input. In this rate matching process, the each set of three rows of input stream became one row of bit stream. The question is &quot;How to convert the a set of three row into one row ?&quot; Is it just by concatenating
+the three row into one long row ? Is it just random mix of the three row ? Is it by interleaving the three row into one ?&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is the question you have to find the answer from 5.1.4.2 Rate matching for convolutionally coded transport channels and control information of 36.212. Good luck with your endeaver -:) I think it will take a couple of month for me to understand this even with a good tutor around me.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/ChannelCoding_DLSCH_Step4.PNG" width="681" height="494" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Just adding another big picture to this rate matching step, take a quick look at the following figure from 36.212. You see the three lines of Turbo coding output gets into this rate matching block and comes out as a single line of bit stream. Our goal is to understanding the detailed process of &quot;interleaving&quot;, &quot;BitCollection&quot;, &quot;Bit Selection and
+pruning&quot; procedure.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_212_Fig_5_1_4-2_DLSCH.PNG" width="766" height="291" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next is the last step which is relatively simple. Combine the multiple rows of imput into one long bit stream as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/ChannelCoding_DLSCH_Step5.PNG" width="681" height="291" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you may have a question. Is this the end of the process ? Are these data get directly transmitted out of the antenna ? Unfortunately No. The output of this complicated process become the input (starting point) of another complicated process as shown below. I means there are a lot of stuffs you have to study pulling the hair -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_211_Fig_6_3-1.PNG" width="796" height="200" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="106" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

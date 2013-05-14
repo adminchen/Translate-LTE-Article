@@ -1,0 +1,70 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, CDD, Cyclic Delay Diversity  " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="813">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">UMTS Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp; <a href="Handbook_UMTS_Index.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="106">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="813">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>CQI</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_04 */
+google_ad_slot = "4173408773";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI stands for Channel Quality Indicator. As the name implies, it is an indicator carrying the information on how good/bad the communication channel quality is. This CQI is for HSDPA. (LTE also has CQI for its own purpose). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI is the information that UE sends to the network and practically it implies the following two </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Current Communication&nbsp;Channel Quality is this-and-that..</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) I (UE) wants to get the data with this-and-that transport block size, which in turn can be directly converted into throughput</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In HSDPA, the CQI value ranges from 0 ~ 30. 30 indicates the best channel quality and 0,1 indicates the poorest channel quality. Depending which value UE reports, network transmit data with different transport block size. If network gets high CQI value from UE, it transmit the data with larger transport block size and vice versa. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if network sends a large transport block even though UE reports low CQI, it is highly probable that UE failed to decode it (cause CRC error on UE side) and UE send NACK to network and the network have to retransmit it which in turn cause waste of radio resources. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if UE report high CQI even when the real channel quality is poor ? In this case, network would send a large transport block size according to the CQI value and it would become highly probable that UE failed to decode it (cause CRC error on UE side) and UE send NACK to network and the network have to retransmit it which in turn cause waste of radio resources. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How UE can measure CQI ? This is the most unclear topic to me. As far as I know, there is no explicit description in any standard on the mechanism by which the CQI is calculated, but it is pretty obvious that the following factors play important roles to CQI measurement. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-noise ratio (SNR) </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-interference plus noise ratio (SINR)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-noise plus distortion ratio (SNDR)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is unclear how these factors are used and whether there is any other factors being involved. I was told the detailed CQI measurement algorithm is up UE implementation (chipset implementation). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding the influce of CQI on total throughput, refer to <a href="Throughput.html#CQI_vs_Throughput" target="_blank">CQI vs Throughput</a> in &quot;<a href="Throughput.html" target="_blank">Throughput</a>&quot; page.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Lucida Console"><span style="font-size:10pt;"></span></font><font face="Lucida Console"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+           
+        </td>
+        <td width="106" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

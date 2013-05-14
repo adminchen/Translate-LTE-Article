@@ -1,0 +1,345 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="MatLab, Octave, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Octave/Matlab</span></font></b><font face="Verdana"><span style="font-size:14pt;"><b>&nbsp;- 3D Graph</b></span><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_Matlab_01 */
+google_ad_slot = "1704498775";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this page, I would post a quick reference for Matlab and Octave. (Octave is a GNU program which is designed to provide a free tool that work like Matlab. I don't think it has 100% compatability between Octave and Matlab, but I noticed that most of basic commands are compatible. I would try to list those commands that can work both with Matlab and Octave). All the sample code listed here,
+I tried with Octave, not with Matlab. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are huge number of functions which has not been explained here, but I would try to list those functions which are most commonly used in most of matlab sample script you can get. My purpose is to provide you the set of basic commands with examples so that you can at least read the most of sample script you can get from here and there (e.g, internet) without overwhelming you. If you get
+familiar with these minimal set of functionality, you would get some 'feeling' about the tool and then you would make sense out of the official document from Mathworks or GNU Octave&nbsp;which explains all the functions but not so many examples. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I haven't completed 'what I think is the minimum set' yet and I hope I can complete within a couple of weeks. Stay tuned !!!</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Menu_3DGraph">3D Graph</a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Plot3">plot3</a></span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Plot3_linewidth_color">linewidth, color setting</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Plot3_view">view</a></span></font><span style="font-size:10pt;"></span></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Plot3_mesh">mesh</a></span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Plot3_mesh_axis">axis (axis range)</a></span></font><span style="font-size:10pt;"></span></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Plot3_surface">surface</a></span></font><span style="font-size:10pt;"></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot3_contour">contour</a></span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot3d_contour_clabel">Labeling the level line</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot3d_contour_forcing_contourlines">Forcing contour lines</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot3d_contour_implicitplot">Implicit Plot</a></span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot3">&lt; plot3 - 3D Parametric Plot &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t = linspace(0,5*pi,100);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot3(sin(t),cos(t),t)</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d.PNG" width="441" height="399" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a name="Plot3_linewidth_color">&lt; plot3 - 3D Parametric Plot - linewidth, color&gt;</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t = linspace(0,5*pi,100);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot3(sin(t),cos(t),t,'linewidth',3,'color','r');</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_linewidth_color.PNG" width="441" height="399" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot3_view">&lt; plot3 - 3D Parametric Plot - view&nbsp;&gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">view(angle_around_z_axis, angle_around_y_axis) // angle in degree</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t = linspace(0,5*pi,100);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot3(sin(t),cos(t),t,'linewidth',3,'color','r');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">view(-20,80);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_view.PNG" width="441" height="399" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot3_mesh">&lt; mesh &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xstep = -2:.05:2; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ystep = -2:.05:2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[X,Y] = meshgrid(xstep,ystep);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Z = exp(-(X.^2+Y.^2));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">mesh(X,Y,Z);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_mesh.PNG" width="441" height="399" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot3_mesh_axis">&lt; mesh - axis range &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">axis([xmin xmax ymin ymax zmin zmax])</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xstep = -2:.05:2; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ystep = -2:.05:2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[X,Y] = meshgrid(xstep,ystep);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Z = exp(-(X.^2+Y.^2));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">mesh(X,Y,Z); axis([0 2 -2 2 0 1]);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_mesh_axisrange.PNG" width="396" height="362" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a name="Plot3_surface">&lt; surface &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xstep = -2:.05:2; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ystep = -2:.05:2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[X,Y] = meshgrid(xstep,ystep);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Z = exp(-(X.^2+Y.^2));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">surface(X,Y,Z);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">view(-40,30);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_surface.PNG" width="419" height="323" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot3_contour">&lt; contour &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xstep = -2:.05:2; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ystep = -2:.05:2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[X,Y] = meshgrid(xstep,ystep);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Z = exp(-(X.^2+Y.^2));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">contour(X,Y,Z,20);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_contour.PNG" width="399" height="376" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot3d_contour_clabel">&lt; contour - Labeling the level &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xstep = -2:.05:2; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ystep = -2:.05:2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[X,Y] = meshgrid(xstep,ystep);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Z = exp(-(X.^2+Y.^2));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[c,h]=contour(X,Y,Z,5);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">clabel(c,h);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_contour_clabel.PNG" width="409" height="376" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot3d_contour_forcing_contourlines">&lt; contour - forcing contour lines &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xstep = -2:.05:2; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ystep = -2:.05:2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[X,Y] = meshgrid(xstep,ystep);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Z = exp(-(X.^2+Y.^2));</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[c,h]=contour(X,Y,Z,[0.0 0.2 0.3 0.4 0.5 0.8 0.9]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">clabel(c,h);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_contour_forcing_contourlines.PNG" width="389" height="377" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot3d_contour_implicitplot">&lt; contour - implicit plot &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xstep = -3:.05:3; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ystep = -3:.05:3;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[X,Y] = meshgrid(xstep,ystep);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Z=X.^2 .+ 2.*X.*Y .+ Y.^2 - 2.*X;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">contour(X,Y,Z,[3,3]); % implicit plot for X.^2 .+ 2.*X.*Y .+ Y.^2 - 2.*X&nbsp;= 3</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot3d_contour_implicitplot.PNG" width="393" height="379" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

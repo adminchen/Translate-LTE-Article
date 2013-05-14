@@ -1,0 +1,246 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="ResourceAllocationType">Resource Allocation Type</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Reference to : TS 36.213 </span><span style="font-size:10pt;">7.1.6 Resource allocation</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Resource Allocation Type specifies the way in which the scheduler allocate resource blocks&nbsp;for each transmission. Just in terms of flexibility, the way to give the maximum flexibility of resource block allocation would be to use a string of a bit map (bit stream), each bit of which represent each resource block. This way you would achieve the maximum flexibility, but it would create
+too much complication of resource allocation process or too much data (too long bit map) to allocate the resources. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">So LTE introduces a couple of resource allocation types and each of the resource allocation type uses a predefined procedures. There are three different resource allocation types in LTE, Resource Allocation Type 0, 1, 2.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="678" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center">
+                <tr>
+                    <td width="97" bgcolor="#CCCCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DCI Format</span></font></p>
+                    </td>
+                    <td width="238" bgcolor="#CCCCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;"> &nbsp;Possible Resource Allocation Type</span></font></p>
+                    </td>
+                    <td width="329" bgcolor="#CCCCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Memo</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="97">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="238">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 0 or Type 1</span></font></p>
+                    </td>
+                    <td width="329">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">determined by resource allocation header field</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="97">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1A</span></font></p>
+                    </td>
+                    <td width="238">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 2</span></font></p>
+                    </td>
+                    <td width="329">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="97">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1B</span></font></p>
+                    </td>
+                    <td width="238">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 2</span></font></p>
+                    </td>
+                    <td width="329">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="97">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1C</span></font></p>
+                    </td>
+                    <td width="238">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 2</span></font></p>
+                    </td>
+                    <td width="329">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="97">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1D</span></font></p>
+                    </td>
+                    <td width="238">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 2</span></font></p>
+                    </td>
+                    <td width="329">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="97">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="238">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 0 or Type 1</span></font></p>
+                    </td>
+                    <td width="329">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">determined by resource allocation header field</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="97">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2A</span></font></p>
+                    </td>
+                    <td width="238">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 0 or Type 1</span></font></p>
+                    </td>
+                    <td width="329">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">determined by resource allocation header field</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Resource Allocation Type 0 : This is the simplest way of allocation resources. First it divides resource blocks into multiples of groups. This resource block group is RBG(Resource Block Group) called. The number of resource block in each&nbsp;group varies depending on the system band width. It means RBG size gets different depending on the system bandwidth. The relationship between
+RBS size (the number of resouce block in a RBG) and the system bandwidth as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="196" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center">
+                <tr>
+                    <td width="90" bgcolor="#CCCCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">System BW</span></font></p>
+                    </td>
+                    <td width="96" bgcolor="#CCCCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RBG Size</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1.4</span></font></p>
+                    </td>
+                    <td width="96">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3</span></font></p>
+                    </td>
+                    <td width="96">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                    </td>
+                    <td width="96">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">10</span></font></p>
+                    </td>
+                    <td width="96">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">15</span></font></p>
+                    </td>
+                    <td width="96">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td width="96">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><u>Resource allocation type 0</u></font></span><font face="Verdana"><span style="font-size:10pt;"> allocate the resources using a bitmap and each bit represents one RBG. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The data hierachy in this type is &quot;RB --&gt; RGB&quot; and the resource allocation is done at the level of RBG. Following is an example in RA Type 0 for 10 Mhz BW. One thing you have to notice here is each bit in the bitmap represents one RBG, not one RB. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RA_Type0_Structure.PNG" width="726" height="495" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><u>Resource Allocation Type 1</u>&nbsp;: I don't know how to explain about this type without using a well illustrated picture (I will try to create it later). Like in Resource Allocation Type 0, this RA type (Resource Allocation Type) is also using bitmap for the allocation, but in this RA type an additional layer was added. The new layer (hiearchy) is RBG Subset. So the overal
+hierarchy
+is &quot;RB --&gt; RBG --&gt; RBG Subset&quot; and the resource allocation is done at 'RBG Subset' level. One RBG Subset is made up of mulple RBGs. Exactly how many RBGs are in one RBG Subset varies depending on the bandwidth, but the number of RBs within a RBG is the same as number RBGs within an RBG Subset. Following is an example in RA Type 1&nbsp;for 10 Mhz BW. Things you have to notice here are&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">
+                    <div align="left">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Each bit in the bitmap represents RB. </span></font></p>
+                    </div>
+                </li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">
+                    <div align="left">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Each RBG is allocated across multiple subsets as shown below.</span></font></p>
+                    </div>
+                </li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">
+                    <div align="left">
+                        <p><font face="Verdana"><span style="font-size:10pt;">The number of subsets is equal to the number of RBs within a RBG.</span></font></p>
+                    </div>
+                </li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">
+                    <div align="left">
+                        <p><font face="Verdana"><span style="font-size:10pt;">You can not allocate all RBs since there is no subset which can covers all RBs.</span></font></p>
+                    </div>
+                </li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RA_Type1_Structure.PNG" width="742" height="447" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><u>Resource Allocation Type 2</u> : In this case, network allocate a set of contiguous RBs. But this contiguous RB is &quot;Virtual&quot; concept, not the &quot;Physical&quot; concept. It means that even though MAC layer allocate the multiple contiguous RBs, they may not be aligned contiguously when it get transmitted at PHY layer. This means that there should be a rule/algorithm
+to
+convert this logical(virtual) RB allocation to physical RB allocation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two type of the conversion, one is 'localized' and the other is 'distributed'. When you select 'localized', both&nbsp;virtuall allocation and physical allocation allocate RBs in contiguous way. When you select 'distributed', the virtual RB allocation is contiguous, but physical allocation is not contiguous (they are distributed over wider frequency ranges). Following
+is an example in RA Type 2&nbsp;for 10 Mhz BW.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RA_Type2_Structure.PNG" width="739" height="457" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

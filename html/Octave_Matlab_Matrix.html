@@ -1,0 +1,1093 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="MatLab, Octave, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Octave/Matlab</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;</span><span style="font-size:14pt;">-<b> Marix</b></span><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_Matlab_01 */
+google_ad_slot = "1704498775";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this page, I would post a quick reference for Matlab and Octave. (Octave is a GNU program which is designed to provide a free tool that work like Matlab. I don't think it has 100% compatability between Octave and Matlab, but I noticed that most of basic commands are compatible. I would try to list those commands that can work both with Matlab and Octave). All the sample code listed here,
+I tried with Octave, not with Matlab. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are huge number of functions which has not been explained here, but I would try to list those functions which are most commonly used in most of matlab sample script you can get. My purpose is to provide you the set of basic commands with examples so that you can at least read the most of sample script you can get from here and there (e.g, internet) without overwhelming you. If you get
+familiar with these minimal set of functionality, you would get some 'feeling' about the tool and then you would make sense out of the official document from Mathworks or GNU Octave&nbsp;which explains all the functions but not so many examples. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I haven't completed 'what I think is the minimum set' yet and I hope I can complete within a couple of weeks. Stay tuned !!!</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Menu_Matrix">Matrix (Two or Higher Dimmensional Array)</a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Creating a Matrix</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_Creation">Generic Form</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="#Matrix_Creation_Identity"><font face="Verdana"><span style="font-size:10pt;">Identity Matrix</span></font><font face="Verdana"><span style="font-size:10pt;"> - eye()</span></font></a></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_Creation_Zeros">M x N Zero Matrix - zeros()</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_Creation_Ones">M x N One Matrix - ones()</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_MathematicalOperation">Mathematical Operation </a></span><span style="font-size:10pt; line-height:100%;">(Basic Operators)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Indexing the elements (reference to elements)</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_IndexingElement_row_col">matrixname(rowindex,colindex)</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_IndexingElement_all_col">matrixname(:,colindex)</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_IndexingElement_row_all">matrixname(rowindex,:)</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Matrix_Operators">Matrix specific operations</a></span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Matrix_Eigenvalue_Eigenvector">Eigenvalue and Eigenvector</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Decomposition</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_Decomposition_LU">LU Decomposition</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Rearranging Elements</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_RearrangeElements_circshift">circshift()</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Matrix_RearrangeElements_resize">resize()</a></span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><a name="Matrix_Creation"><font face="Verdana" color="blue">&lt; Creating a Matrix &gt;</font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Method 1 : &nbsp;m = [ value value value ;&nbsp;value value value ; &nbsp;...]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m = [1 2 3; 4 5 6; 7 8 9]</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;2 &nbsp;&nbsp;3</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;4 &nbsp;&nbsp;5 &nbsp;&nbsp;6</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;8 &nbsp;&nbsp;9</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Method 2&nbsp;: &nbsp;m = [ vector&nbsp;;&nbsp;vector ; &nbsp;...]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v1 = [1 2 3];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v2 = [4 5 6];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v3 = [7,8,9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [v1; v2; v3]</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;2 &nbsp;&nbsp;3</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;4 &nbsp;&nbsp;5 &nbsp;&nbsp;6</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;8 &nbsp;&nbsp;9</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_Creation_Identity"><font face="Verdana" color="blue">&lt; Creating an Identity Matrix &gt;</font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Method 1&nbsp;: &nbsp;m = eye(M) // M x M identity&nbsp;matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m = one(3)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;0 &nbsp;&nbsp;0</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;1 &nbsp;&nbsp;0</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0 &nbsp;&nbsp;1</p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_Creation_Zeros"><font face="Verdana" color="blue">&lt; Creating M&nbsp;x N Zero Matrix &gt;</font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Method 1 : &nbsp;m = zeros(M,N)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m = zeros(4,2)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Method 2&nbsp;: &nbsp;m = zeros(M) // M x M square matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m = zeros(3)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0 &nbsp;&nbsp;0</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0 &nbsp;&nbsp;0</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0 &nbsp;&nbsp;0</p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_Creation_Ones"><font face="Verdana" color="blue">&lt; Creating a M x N one matrix &gt;</font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Method 1 : &nbsp;m = ones(M,N)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m = ones(4,2)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;1</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;1</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;1</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;1</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Method 2&nbsp;: &nbsp;m = ones(M) // M x M square matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m = one(3)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;1 &nbsp;&nbsp;1</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;1 &nbsp;&nbsp;1</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;1 &nbsp;&nbsp;1</p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_MathematicalOperation"><font face="Verdana" color="blue">&lt; Mathematical Operation &gt;</font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : m = matrix1 + matrix 2;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m2 = [9 8 7; 6 5 4; 3 2 1];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = m1 + m2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;10 &nbsp;&nbsp;10</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;10 &nbsp;&nbsp;10</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;10 &nbsp;&nbsp;10</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 2&nbsp;: m = matrix1 .*&nbsp;matrix 2; // element by element multiplication</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m2 = [9 8 7; 6 5 4; 3 2 1];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = m1 .*&nbsp;m2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;16 &nbsp;&nbsp;21</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;24 &nbsp;&nbsp;25 &nbsp;&nbsp;24</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;21 &nbsp;&nbsp;16 &nbsp;&nbsp;&nbsp;9</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 3&nbsp;: m = matrix1 *&nbsp;matrix 2; // Inner Product</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m2 = [9 8 7; 6 5 4; 3 2 1];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = m1 *&nbsp;m2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;30 &nbsp;&nbsp;&nbsp;24 &nbsp;&nbsp;&nbsp;18</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;84 &nbsp;&nbsp;&nbsp;69 &nbsp;&nbsp;&nbsp;54</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;138 &nbsp;&nbsp;114 &nbsp;&nbsp;&nbsp;90</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 4&nbsp;: m = matrix1 .^ n; // power of n for each element</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m2 = [9 8 7; 6 5 4; 3 2 1];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = m1 .^ 2;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;4 &nbsp;&nbsp;&nbsp;9</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;16 &nbsp;&nbsp;25 &nbsp;&nbsp;36</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;49 &nbsp;&nbsp;64 &nbsp;&nbsp;81</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 5&nbsp;: m = matrix1 ^ n; // matrix power</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m2 = [9 8 7; 6 5 4; 3 2 1];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = m1 ^ 2;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;30 &nbsp;&nbsp;&nbsp;36 &nbsp;&nbsp;&nbsp;42</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;66 &nbsp;&nbsp;&nbsp;81 &nbsp;&nbsp;&nbsp;96</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;102 &nbsp;&nbsp;126 &nbsp;&nbsp;150</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 6&nbsp;: tm = m'; // transpose matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3; 6 5 4; 7 3 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">tm=m'</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;tm =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;6 &nbsp;&nbsp;7</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 &nbsp;&nbsp;5 &nbsp;&nbsp;3</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;4 &nbsp;&nbsp;9</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 7&nbsp;: im = inv(m); // take the inverse&nbsp;matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3; 6 5 4; 7 3 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">im=inv(m)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">im =&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;-0.47143 &nbsp;&nbsp;0.12857 &nbsp;&nbsp;0.10000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.37143 &nbsp;&nbsp;0.17143 &nbsp;-0.20000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.24286 &nbsp;-0.15714 &nbsp;&nbsp;0.10000</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 8&nbsp;: im = det(m); // take the determinant of the&nbsp;matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3; 6 5 4; 7 3 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">dm=det(m)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">dm =&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;-70</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_IndexingElement_row_col"><font face="Verdana" color="blue">&lt; Indexing the elements - matrixname(rowindex,colindex) &gt;</font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(1,2)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ans = 2</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(1,2) = 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;6 &nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;8</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_IndexingElement_all_col"><font face="Verdana" color="blue">&lt; Indexing the elements - matrixname(:,colindex) &gt;</font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(:,2)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ans = </span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(:,2) = 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;8</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(:,2) = [15;16;17]</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;15 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;16 &nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;8</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;&nbsp;17 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(:,2) = [15 16 17]<b>'</b></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;15 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;16 &nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;8</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;&nbsp;17 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(:,2) = [15 16 17]<b>.'</b></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;15 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;16 &nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;8</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;&nbsp;17 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_IndexingElement_row_all"><font face="Verdana" color="blue">&lt; Indexing the elements - matrixname(rowindex,:) &gt;</font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(2,:)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ans = </span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5 6 7 8</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(2,:) = 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;2 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;10 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m(2,:) = [15 16 17 18]</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;2 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;15 &nbsp;&nbsp;16 &nbsp;&nbsp;17 &nbsp;&nbsp;18</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;10 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_Operators"><font face="Verdana" color="blue">&lt; Matrix Operators &gt;</font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Matrix_Eigenvalue_Eigenvector">Case 1 : Eigenvalue and Eigenvector</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black" height="511">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A = [1.01 0;0 0.9];</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[v,d]=eig(A)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top" height="219">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666" height="219">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;1</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">d =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Diagonal Matrix</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.90000 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;1.01000</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="26" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666" height="26">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A*v</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="73" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666" height="73">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ans =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.00000 &nbsp;&nbsp;1.01000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.90000 &nbsp;&nbsp;0.00000</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="28" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666" height="28">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v*d</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="61" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666" height="61">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ans =</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.00000 &nbsp;&nbsp;1.01000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.90000 &nbsp;&nbsp;0.00000</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_Decomposition_LU"><font face="Verdana" color="blue">&lt; Decomposition - LU Decomposition &gt;</font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p><font face="Verdana"><span style="font-size:10pt;">m = [1 2 3 4;5 6 7 8;9 10 11 12;13 14 15 16]</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m =&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;2 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;6 &nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;8</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;10 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;13 &nbsp;&nbsp;14 &nbsp;&nbsp;15 &nbsp;&nbsp;16</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="4" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">[L,U] = lu(m)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="4" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">L =&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.07692 &nbsp;&nbsp;1.00000 &nbsp;&nbsp;0.00000 &nbsp;&nbsp;0.00000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.38462 &nbsp;&nbsp;0.66667 &nbsp;-0.63988 &nbsp;&nbsp;1.00000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0.69231 &nbsp;&nbsp;0.33333 &nbsp;&nbsp;1.00000 &nbsp;&nbsp;0.00000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1.00000 &nbsp;&nbsp;0.00000 &nbsp;&nbsp;0.00000 &nbsp;&nbsp;0.00000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">U =&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;13.00000 &nbsp;&nbsp;14.00000 &nbsp;&nbsp;15.00000 &nbsp;&nbsp;16.00000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;0.00000 &nbsp;&nbsp;&nbsp;0.92308 &nbsp;&nbsp;&nbsp;1.84615 &nbsp;&nbsp;&nbsp;2.76923</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;0.00000 &nbsp;&nbsp;&nbsp;0.00000 &nbsp;&nbsp;-0.00000 &nbsp;&nbsp;-0.00000</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;0.00000 &nbsp;&nbsp;&nbsp;0.00000 &nbsp;&nbsp;&nbsp;0.00000 &nbsp;&nbsp;&nbsp;0.00000</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" height="4" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666" height="27"><font face="Verdana"><span style="font-size:10pt;">L * U</span></font></td>
+                </tr>
+                <tr>
+                    <td width="113" height="4" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ans =&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;&nbsp;2 &nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;&nbsp;6 &nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;&nbsp;8</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;10 &nbsp;&nbsp;11 &nbsp;&nbsp;12</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;13 &nbsp;&nbsp;14 &nbsp;&nbsp;15 &nbsp;&nbsp;16</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_RearrangeElements_circshift"><font face="Verdana" color="blue">&lt; Rearranging Elements - circshift()&nbsp;&gt;</font></a><font face="Verdana" color="blue"> </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1&nbsp;: m = circshift(m1,N) // Where N is a positive Number. This shift rows</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = circshift(m1,1)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;8 &nbsp;&nbsp;9</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;2 &nbsp;&nbsp;3</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;4 &nbsp;&nbsp;5 &nbsp;&nbsp;6</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 2&nbsp;: m = circshift(m1,N) // Where N is a Negative&nbsp;Number. This shift rows</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = circshift(m1,-1)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;4 &nbsp;&nbsp;5 &nbsp;&nbsp;6</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;8 &nbsp;&nbsp;9</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;2 &nbsp;&nbsp;3</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 3&nbsp;: m = circshift(m1,[0 N]) // Where N is a Positive&nbsp;Number. This shift cols</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = circshift(m1,[0 1])</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;3 &nbsp;&nbsp;1 &nbsp;&nbsp;2</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;6 &nbsp;&nbsp;4 &nbsp;&nbsp;5</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;9 &nbsp;&nbsp;7 &nbsp;&nbsp;8</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 3&nbsp;: m = circshift(m1,[0 N]) // Where N is a Negative&nbsp;Number. This shift cols</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = circshift(m1,[0 1])</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;2 &nbsp;&nbsp;3 &nbsp;&nbsp;1</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;5 &nbsp;&nbsp;6 &nbsp;&nbsp;4</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;8 &nbsp;&nbsp;9 &nbsp;&nbsp;7</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a name="Matrix_RearrangeElements_resize"><font face="Verdana" color="blue">&lt; Rearranging Eelemetns - resize() &gt;</font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1&nbsp;: m = resize(m1,M,N,..) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// Resize Matrix m1 to be an M x N x .. matrix, where M, N is smaller than the original matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = resize(m1,3,2)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;2</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;4 &nbsp;&nbsp;5</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;8</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 2&nbsp;: m = resize(m1,M,N,..) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// Resize Matrix m1 to be an M x N x .. matrix, where M or N is smaller than the original matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = resize(m1,3,2)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;2 &nbsp;&nbsp;3 &nbsp;&nbsp;0 &nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;4 &nbsp;&nbsp;5 &nbsp;&nbsp;6 &nbsp;&nbsp;0 &nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;7 &nbsp;&nbsp;8 &nbsp;&nbsp;9 &nbsp;&nbsp;0 &nbsp;&nbsp;0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;0 &nbsp;&nbsp;0 &nbsp;&nbsp;0 &nbsp;&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 3&nbsp;: m = resize(m1,M) // Resize Matrix m1 to be an M x M&nbsp; matrix</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m1 = [1 2 3; 4 5 6; 7 8 9];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m = resize(m1,2)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;m =</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;1 &nbsp;&nbsp;2 &nbsp;&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;4 &nbsp;&nbsp;5 &nbsp;</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

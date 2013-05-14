@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="TrackingArea">Tracking Area</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Tracking Area is a logical concept of an area where a user can move around without updating the MME. The network allocates a list with one or more TAs to the user. In certain operation modes, the UE may move freely in all TAs of the list without updating the MME. You can think of 'Tracking Area' as 'Routing Area' in UMTS.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Each eNobe broadcasts a special tracking area code (TAC) to indicate to which Tracking Area the eNodeB belong to and the TAC is unique within a PLMN. (Since PLMN is a unique number allocated to each of the system operator and TAC is a unique in a PLMN, if you combine these two numbers you would have a globally unique number. This number (PLMN + TAC) is called Tracking Area Identity (TAI)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt; line-height:100%;">Tracking Area for each eNodeB is broadcast by SIB1 as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [systemInformationBlockType1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-systemInformationBlockType1 ::= SEQUENCE [000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-cellAccessRelatedInfo ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-plmn-IdentityList ::= SEQUENCE OF SIZE(1..6) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-PLMN-IdentityInfo ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-plmn-Identity ::= SEQUENCE [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| +-mcc ::= SEQUENCE OF SIZE(3) OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| | +-MCC-MNC-Digit ::= INTEGER (0..9) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| | +-MCC-MNC-Digit ::= INTEGER (0..9) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| | +-MCC-MNC-Digit ::= INTEGER (0..9) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| +-mnc ::= SEQUENCE OF SIZE(2..3) [2]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-MCC-MNC-Digit ::= INTEGER (0..9) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-MCC-MNC-Digit ::= INTEGER (0..9) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-cellReservedForOperatorUse ::= ENUMERATED [notReserved]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">trackingAreaCode ::= BIT STRING SIZE(16) [0000000000000001]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-cellIdentity ::= BIT STRING SIZE(28) [0000000000000000000100000000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE stores a group of TAC and this group of TAC maintained in a UE is called Tracking Area List. &nbsp;UE does not need to go through Tracking Area Update procedure when it moves along this TAI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Why we need this kind of grouping, called Tracking Area ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What would happen if we didn't do a good job in Tracking Area Design ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What UE is supposed to do when it move from a Tracking Area to another Tracking Area ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">These are some of the questions you have to find answers. (I will talk about these later in somewhere else)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

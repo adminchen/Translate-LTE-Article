@@ -1,0 +1,209 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">DCI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+			
+            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+&nbsp;</p>
+            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Main_02 */
+google_ad_slot = "4011958374";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            
+            
+            </script>
+</p>
+            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">
+&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When you study the physical frame structure of LTE, you may be impressed by flexibility (meaning complexity in other way) of all the possible ways of resource allocation. It was combination of Time Domain, Frequency Domain and the modulation scheme. Especially in frequency domain, you have so many resource blocks you can use (100 Resource Blocks in case of 20 Mhz Bandwidth) and if you think
+of all the possible permutation of these variables, the number will be very huge. Then you would have this question (At least I had this question).. How can the other party (the recieving side) can figure out exactly where in the slot and in which modulation scheme that the sender (transmitter) transmit the data(subframe)? I just captured the physical signal but how can I (the reciever) decode this signal. This is where the term called 'DCI(Downlink Control Indicator)' comes in. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is DCI which carries those detailed information like &quot;which resource block carries your data ?&quot; and &quot;what kind of demodulation scheme you have to use&nbsp;to decode data ?&quot; and some other additional information. It means you (the reciever) first have to decode DCI and based on the information you got from the DCI you can decode the real data. It means without DCI, decoding
+the data delivered to you is impossible. Not only in LTE, but also in most of wireless communication the reciever requires special information structure like DCI. For example,&nbsp;in WCDMA R99, Slot format and TFCI carries those information and in HSDPA HS-SCCH carried those information and in HSUPA E-TFCI carries it.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In terms of protocol implementation with respect to carrying these information, R99 seems to be the most complicated one. You had to define all the possible combination of resource allocation in the form of TFCS (a kind of look-up table for TFCI) and you have to convey those information through L3 message (e.g, Radio Bearer Setup message and RRC Connection Setup message) and the transmitter
+also have to configure itself according to the table. A lot of error meaning headache came from the mismatches between the TFCS information you configured in L3 message and the configuration the transmitter applied to itself (transmitter's lower layer configuration). It has been too much headache to me. HSDPA relieved the headache a lot since it carries these information directly on HS-SCCH and this job is done by MAC layer. The resource allocation information carried by HS-SCCH is called 'TFRI'. So I don't have
+to care much about L3 message.. but still I need to jump around the multiple different 3GPP document to define any meaningful TFRIs. And other complication was that even in HSDPA we still using R99 DPCH for power control and signaling purpose, so I cannot completely remove the headache of handling TFCS.Now in LTE, this information is carried by DCI as I explained above and we only have to care about just a couple of parameters like Number of RBs, the starting point of RBs and the modulation scheme and I don't
+have to care anything about configuring these things in RRC messages. This is a kind of blessing to me.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As one example showing how/when DCI is used, refer to http://jaekuryu.blogspot.com/2010/01/lte-signalinig-essentials.html section &quot;Uplink Data Transmission Scheduling - Persistent Scheduling&quot;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Types of DCIs</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI carries the following information :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UL resource allocation (persistent and non-persistent)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Descriptions about DL data transmitted to the UE. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">L1 signaling is done by DCI and Up to 8 DCIs can be configured in the PDCCH. These DCIs can have 6 formats : 1 format for UL scheduling, 2 formats for Non-MIMO DL scheduling, 1 format for MIMO DL Scheduling and 2 formats for UL power control. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI has various formats for the information sent to define resource allocations. The DCI formats defined in LTE are as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0 : UL Grant. (Resource Allocation for PUSCH and TPC command for UL Power Control)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 1 : Transmission of PDSCH for SIMO operation</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 1 A : Resource Allocation for SIMO DL PDSCH and UL Power Control </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 1 B : Transmission control information of MIMO Rank 1 based compact resource assignment</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 1 C : Very compact type of resource allocation for PDSCH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 1 D : Same as format 1B with additional information of power offset</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 2 : DL MIMO Closed Loop and UL Power Control</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 1A : DL MIMO Open&nbsp;Loop and UL Power Control</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 3 : UL Power Control Only (for multiple UEs) </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 3A : UL Power Control Only (for multiple UEs)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">L1 signaling is done by DCI and Up to 8 DCIs can be configured in the PDCCH. These DCIs can have 6 formats : 1 format for UL scheduling, 2 formats for Non-MIMO DL scheduling, 1 format for MIMO DL Scheduling and 2 formats for UL power control. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI has various formats for the information sent to define resource allocations. The resource allocation information </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>What kind of information is carreid by each DCI ?</b>&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The best way to understand this in very detail is to take one example of each of DCI bit string and decode manually based on 3GPP specification. But this section can be a good summary for quick reference. And the DCI decode examples at the end of this page would give you a good/detailed picture of DCI strutures.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Type 0 : A bitmap indicating the resource block groups(RBGs) that are allocated to the scheduled UE. (An RBG is a set of consecutive physical resource blocks(PRBs). This type has following informations</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Flag for format 0/format1A differentiation</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hoping flag</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Resource block assignment and hopping resource allocation</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">New data indicator</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC command for scheduled PUSCH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic shift for DM RS</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI request</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of appended zeros to format 0</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Type 1 : A bitmap indicating PRBs from a set of PRBs from a subset of resource block groups determined by the system bandwidth.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Resource allocation header (resource allocation type 0/type 1)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Resource block assignment</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Modulation and coding scheme</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HARQ process number</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">New data indicator</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Redundancy version</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC command for PUCCH</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Type 2 : A set of contiguously allocated physical or virtual resource blocks. The allocations vary from a single PRB upto the maximum number of PRBs spanning the system bandwidth.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>What determines a DCI Format for the specific situation ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two major factors to determine a DCI format for a specific situation as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) RNTI Type</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Transmission Mode</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This means that you cannot change only one of these parameters arbitrarily and you always have to think of the relationships among these when you change one of these parameters. Otherwise you will spend a long time for troubleshooting -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Those tables from 3GPP 36.213 shows the relationships between RNTI Type, Transmission Mode and DCI format. (You would notice that same information (same RNTI type) can have multiple candidates of DCI format. Then, the question is &quot;How network determine which DCI format it has to use at a specific moment ?&quot;. In some case, you can find a clear criteria from following table, but some other case the selection criteria is not clear. For example, if you ask &quot;Do I have to use DCI format 1A or 2A when I am using TM3, C-RNTI ?&quot;. You may say &quot;Use DCI format 2A in MIMO configuration and use 1 A in non-MIMO configuration&quot;. But the answer would not be clear if you ask &quot;What kind of DCI format (1A or 1C) for Paging message (P-RNTI) ?&quot;. At least table 7.1-2 does now show any different selection criteria and I haven't found anywhere else in the spec about this selection criteria. In this case, I just ask to several other people who is working on that specific area and trying to draw conclusion by a kind of 'vote'. For this specific case (DCI format for&nbsp;P-RNTI), I got the response saying &quot;There is no clear criteria, it is just upto network on which one to pick&quot;.)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_213_7_1_Table01.PNG" width="592" height="342" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_213_7_1_Table02.PNG" width="619" height="482" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_213_7_1_Table03.PNG" width="608" height="362" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_213_7_1_Table04.PNG" width="610" height="102" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Any relations between DCI format and Layer 3 signaling message ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Yes, there is a relationship. You have to know which DCI format is required for which RRC message. Following tables from 3GPP 36.321 shows the relationship between RNTI and logical channel and you would know which RRC message is carried by which logical channel. So with two step induction, you will figure out the link between RRC message and it's corresponding DCI format.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_321_Table_7_1-2.PNG" width="620" height="280" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, if you see the &quot;Security Mode Command&quot; message of section 6.2.2 of 36.331, it says </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Signalling radio bearer: SRB1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC-SAP: AM</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Logical channel: DCCH</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Direction: UE to E-UTRAN</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you see the table, you would see this message is using C-RNTI. and you will figure out the possible candiates from table 7.1-5 of 36.213 and if you would have detailed information of the transmission mode, you can pinpoint out exactly which DCI format you have to use for this message for a specific case. Assuming TM mode in this case is TM1 and scheduling is dynamic scheduling, if you
+see Table 7.1-2 you will figure out that this is using C-RNTI. With this RNTI Type and TM mode, if you see table 7.1-5, this case use DCI Format 1 or DCI Format 1A.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Channel Coding Process for DCI</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is a little complicated to describe this process here. (To be honest, I don't know how to explain this process in plain language). Please see 5.3.3.1 DCI formats of 36.212</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>DCI 0 - Examples</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 1 &gt; DCIFormat 0, value = 0x2584A800</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can figure out the Start of RB and N_RB (Number of allocated RB) from RIV value.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/DCIFormat0_2584A800.PNG" width="348" height="201" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-family:verdana; font-size:10pt;">How can I calcuate Start_RB and N_RB from RIV. The simple calcuation is as 
+follows :</span><span style="font-size:10pt;"><BR></span><span style="font-family:verdana; font-size:10pt;">i) N_RB = 
+Floor(RIV/MAX_N_RB) + 1= Floor(1200/50) + 1 = 25, where MAX_N_RB = 50 in this 
+case since this is 10 Mhz System BW.</span><span style="font-size:10pt;"><BR></span><span style="font-family:verdana; font-size:10pt;">ii) Start_RB = RIV mod MAX_N_RB = 
+1200 mod 50 = 0<BR></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 2&nbsp;&gt; DCIFormat 0, value = 0x48720800</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This examples shows the case where PUSCH frequency hopping flag is on. Depending on the value for NUL-hop, the detailed hopping pattern is determined.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/DCI0_10Mhz_48720800.PNG" width="376" height="220" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When the system band frequency is 1.4M, 3M, 5M, Type PUSCH hopping is decided by below method.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&quot;NUL-hop&quot; = 0 --- Type1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&quot;NUL-hop&quot; = 1 --- Type2</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When the system band frequency is 10M, 15M, 20M, Type PUSCH hopping is decided by below method.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&quot;NUL-hop&quot; = 0 --- Type1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&quot;NUL-hop&quot; = 1 --- Type1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&quot;NUL-hop&quot; = 2 --- Type1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&quot;NUL-hop&quot; = 3 --- Type2</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 3&nbsp;&gt; DCIFormat 0, value = 0x07D7E800</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This example shows you a case with UL HARQ retransmission. If you see the MCS value, it says 31 which is set as RVidx 3 in Table 8.6.1-1 of 36.213.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/DCI0_10Mhz_07D7E800_MCS31.PNG" width="393" height="200" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>DCI 1&nbsp;- Examples</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 1 &gt; DCIFormat 1A, value = 0x84B3C040</span></font></p>
+            <p align="center"><img src="../image/DCI1A_10Mhz_84B3C040.PNG" width="388" height="201" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 2&nbsp;&gt; DCIFormat 1A, value = 0xC4B3C140</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/DCI1A_10Mhz_C4B3C140.PNG" width="403" height="216" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>DCI 2 - Examples</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example 1 &gt; DCIFormat 2A, value = 0x080005C08080</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/DCI2A_10Mhz_080005C08080.png" width="370" height="257" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

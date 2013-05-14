@@ -1,0 +1,112 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="Differential Equation,Spring,Pendulum,Mixing Tank,Introduction,Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">DE - Differential Equation vs Matrix </span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_DifferentialEq_01 */
+google_ad_slot = "3063480776";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Differential_Equation_Matrix">Differential Equation meeting Matrix</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you may know, Matrix would be the tool which has been most widely studied and most widely used in engineering area. So if you can convert any mathemtical expressions into a matrix form, all of the sudden you would get the whole lots of the tools at once. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">So it would be a very meaningful to ask following question :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Is it possible to convert a certain form of differential equation into a matrix form ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) If the answer to question i) is YES, is it possible to convert ANY&nbsp;differential equations into a matrix form ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If the answer to question ii) is &quot;Not ANY, but SOME&quot;, what kind of differential equations can be converted into Matrix form ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer to the question i) is YES. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer to the question ii) is &quot;NOT Always&quot;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer to the question iii) is &quot;Linear Homogeneous Differential Equations&quot; or &quot;Linear Non-Homogeneous Differential Equation&quot;. (Basically Matrix itself is a Linear Tools. That's why you learn it at &quot;LINEAR Algebra course&quot; -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Isn't there any way to use Matrix to solve Non Linear Homogeneous Differential Equation ? It is not possible as it is, but if you can convert the Non Linear Equations into a linear equation (Basically this is a approximation within a certain range of domain), it would be possible to use Matrix (I will explain on this 'linearization' process later in other section).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's look into the details of the process to convert a differential equation into a matrix form. As you would have learned in <a href="EngMath_DifferentialEquation.html" target="_blank">Matrix pages</a>, you would need a set of <a href="EngMath_Matrix.html#Ex_SimultaneousEquation" target="_blank">simultaneous equations</a> to construct a matrix. In this case, you would need a set of simultaneous
+differential equations to construct a matrix. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's suppose we have a set of simultaneous differential equations as follows. (This is a form of <a href="#Terminology_and_Classification" target="_blank">linear homogeneous simultaneous equations</a>). For now, let's not think about the meaning of these equations.. let's just suppose it's given to us. (Note that y1, y2 here are function of x, it is not a value. It is a function which can
+be represented as y1(x), y2(x))</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_01.PNG" width="205" height="110" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can easily notice that this simultaneous equations can be converted into following matrix form. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_02.PNG" width="260" height="101" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can simplify this representation even further as shown in the following process. At the end you would have very simple equation y' = A y. This simplified form would look very nice in mathematically, but it looks scary to a lot of readers if you don't know the detailed process of how these equations were derived).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_03.PNG" width="333" height="413" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once you have a set of differential equations represented in Matrix form, you can use a lot of powerful Matrix tools to solve the problem. I will just write the final form of solutions of this form. The solution of this matrix equation is presented as follows. As you see, a special matrix analysis tool called &quot;Eigenvalues&quot; and &quot;Eigenvectors&quot; are used to describe the solution
+of the differential equation. Sometimes it would be pretty complicated to calculate Eigenvalues and Eigenvectors especially as the size of the matrix gets bigger and very large portions of your text book tend to get thicker because they try to explain a lot of this calculation process, but I would not explain anything about how to calculate &quot;Eigenvalues&quot; and &quot;Eigenvectors&quot; because you can easily get these values using Matlab, Octave, Mathematica etc and in reality almost nobody would calculate
+these values by hand). Important thing is to understand the mathematical expression as shown below. Even this, it would be a little difficult to have intuitive understanding without have some concrete examples, but I would add some examples later... for now at least try to understand the meaning of this form based on what you understand about Eigenvalues and Eigenvectors. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_04.PNG" width="436" height="338" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may think this matrix form would not be useful in many case since there would not be many cases where we have a set of simultaneous equations. But it is not true. Actually this kind of simultaneous differential equations are very common. Sometimes it is given directly from modeling of a problem and sometimes we can get these simultaneous differential equations by converting high order
+(same or higher than 2nd order) differential equation into a multiple of the first order differential equations. Following is one example of this case.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's suppose we have a following 2nd order <a href="#Terminology_and_Classification" target="_blank">linear homogeneous differential equation</a>. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_05.PNG" width="221" height="51" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can get a set of simultaneous differential equation being made up of two first order linear homogeneous&nbsp;differential equations. I hope that following illustration would be explicit enough. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_06.PNG" width="638" height="419" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once you have this multiple equations, you can easily convert it into a matrix forma as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_07.PNG" width="246" height="394" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There is another type of linear differential equation which is linear non-homogenous differential equation. As I mentioned at the beginning of this section, it is also possible to convert this into a matrix form.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's assume that we have a set of simultaneous differential equation as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_08.PNG" width="239" height="101" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You know that this set can be represented in Matrix form as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_09.PNG" width="338" height="101" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can simplify this even further by the following process. You don't need this simplification if you don't like, but it is good to know at least since many literature use this kind of simplified form. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_10.PNG" width="340" height="419" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The solution of this form can be expressed as follows. As you see, most part is exactly same as homogenous case. there is one additional term at the end.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Matrix_11.PNG" width="560" height="360" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

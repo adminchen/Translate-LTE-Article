@@ -1,0 +1,79 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="Communication, Linearity, Linear, Non Linear " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Communication</span></font></b><font face="Verdana"><span style="font-size:14pt;"><b>&nbsp;- Impulse Response </b></span><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_CommTech_01 */
+google_ad_slot = "8287380772";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Definition of the Impulse Response is very straight forward. It is the response(output) from a system (or process) when you put an 'impulse (unit pulse, delta function)' as an input. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you know, a system/process and input/output relations can be illustrated as follows. You put some Input to the system and you get an output (Response) from the sytem. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Communication_ImpulseResponse_Concept_01.png" width="666" height="62" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Impulse Reponse is a special case of these Input -&gt; System -&gt; Output relationship. It is a special case where Unit pulse is the input to a system as shown below. In case of discrete system, the impulse (unit pulse) is simple data sequence in which only the value at t = 0 is 1 and all other elements are 0. In case of continous system, the unit pulse is a continuous delta function where the width of the pulse is infinately small and the area under the pulse is 1. It means that the height of the pulse should&nbsp;become infinately high to make the area to be 1. So it is impossible to make the ideal unit pulse in continous system. You can only approximate it. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"></span></font><img src="../image/Communication_ImpulseResponse_Concept_02.png" width="666" height="251" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font>&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Why the Impulse Response is important ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Why we have to care about the impulse response ? &nbsp;It is because it fully characterize a system. If you know the impulse response of a system, &nbsp;you can figure out the response (output) of the system for any kind of input without even testing it. (Note : This holds true only when the system is LTI(Linear Time Invariant) system). Once you have the impulse response and any arbitrary input, you can predict the output of the system simply by taking the convolution of the input and the impulse response. You see many examples in <a href="Communication_Convolution.html" target="_blank">Convolution page</a>. In that page, you see data sequences representing a 'channel' and it is the impulse response of the channel. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you see the <a href="Octave_Matlab_SignalProcessing.html#SignalProcessing_fir1" target="_blank">filer design examples</a> in <a href="Octave_Matlab_SignalProcessing.html" target="_blank">Signal Processing page</a>, you would see various sequences (they call it 'taps for filter' or 'coefficient') representing the characteristics of filters. Those filter taps are also a impulse response for the filter. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>How to get the impulse response for a system ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you would know that impulse response is very important information for a system. Then how can we get the important information (impulse response) for a system ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I can think of roughly three four&nbsp;methods as listed below. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">By Experiment</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">From <a href="EngMath_LaplaceTransform.html#Transfer_Function" target="_blank">Transfer Function</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">From <a href="EngMath_DifferentialEquation.html#StateSpaceModeling" target="_blank">System Equation/State Space Matri&nbsp;(ABCD Matrix)</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Other Techniques</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Communication_ImpulseResponse_Derivation_01.png" width="726" height="391" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I will put further explanation about this process later. In the meantime, I would recommend you to go through <a href="EngMath_LaplaceTransform.html" target="_blank">Laplace Transform page</a> and <a href="EngMath_DifferentialEquation.html">Differential equation pages</a> for mathematical background for this. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Examples of Impulse Response </b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I will start with a couple of examples first, but I will keep adding more examples to give you intuitive ideas for impulse responses for various systems. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Communication_ImpulseResponse_Ex_RC_01.png" width="469" height="125" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Communication_ImpulseResponse_Ex_RLC_01.png" width="481" height="118" border="0"></p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>p</p>
+</body>
+
+</html>

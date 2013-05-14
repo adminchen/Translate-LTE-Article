@@ -1,0 +1,445 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">RACH &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Main_01 */
+google_ad_slot = "8995717975";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            
+            </script>
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What is the most tricky part in device troubleshooting ? My experience says &quot;If a problem happens in the middle of doing something, it is relatively easy to find the root cause and troubleshoot it (probably I might have over-simplified the situation -:), but if something happened before anything started, it would be a nightmare.&quot; For example, you set the all the parameters at thenetwork emulator for a UE you want to test and then turned on the UE. In a several second UE start booting and then in a couple of second you see a couple of antenna bars somewhere at the top of UE screen.. and then in several seconds you see 'SOS' or 'Service Not Available' in stead of your network operator name displayed on your screen and normal Antenna bars. This is what I mean by &quot;problem in the middle of doing something&quot;. In this case, if you collect UE log and equipment log, at least you can
+easily pin point out the location the problem happens and start from there for further details. But what if you are in this situation ? you set the all the parameters at the network emulator side and turn on the UE.. UE start booting up .. showing the message saying &quot;Searching Network ....&quot; and got stuck there.. with no Antenna bars .. not even 'SOS' .. just saying &quot;No service&quot;. And I collected UE side log and Network Emulator side log, but no signalling message. This is where our headache
+starts. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As examples, </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) What if you don't see 'RRC Connection Request' when your turned on the WCDMA UE ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) What if you don't see 'Channel Request' when your turned on the GSM UE ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) What if you don't see 'RACH Preamble' when your turned on the LTE UE ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First thing you have to do is to understand the every details of this procedure not only in the higher signaling layer, but also all the way down to the physical layers related to these first step. And also you have to use proper equipment which can show these detailed process. If you have an equipment that does not provide the logging or it provides log but only higher layer singnaling log,
+it will be extremly difficult to troubleshoot. Given that you have the proper tools, the next thing you have to be ready is to understand the detailed knowledge of these process. Without the knowledge, however good tools I have it doesn't mean anything to me. So ? I want to teach myself here about the first step of LTE signaling which is RACH process. (Somebody would say there are many of other steps even before the RACH, like frequency Sync, Time Sync, MIB/SIB decoding.. but it put these aside for now.. since
+it is more like baseband processing). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#When_RACH_Process_occurs">When RACH Process occurs ?</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Two_types_of_RACH_process">Two types of RACH process : Contention-based and Contention-free</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#When_and_Where_UE_transmit_RACH">Exactly when and Where a UE transmit RACH ?</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Preamble_Format">What is preamble format ?</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#How_does_Network_knows_PRACH_Timing">How does Network knows exactly when UE will transmit the RACH ?</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_Signal_Structure">PRACH Preamble Signal Structure</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#How_to_generate_RACH_Signal">How to generate RACH Signal ?</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#When_and_Where_NW_transmit_RAR">Exactly when and where Network transmit RACH Response</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_Parameters_Physical_Meaning">PRACH Parameters and it's Physical Meaning</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RACH_Procedure_for_Initial_Registration">RACH Procedure during Initial Registration - RACH Procedure Summary</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#How_can_we_get_RA_RNTI">How can we get RA RNTI ?</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#An_Example_of_Full_RACH_Process">An Example of Full RACH Process </a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_Retransmission">PRACH Retransmission</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RACH_Process_Overview_In_Diagrams">RACH Process Overview In Diagrams</a></span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_on_InitialRegistration">RACH Procedure on Initial Registration</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_on_Handover_Contention">RACH Procedure on Handover - Contention Based</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_on_Handover_NonContention">RACH Procedure on Handover - NonContention Based</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_on_DL_Data_Arrival_when_OutOfSync">RACH Procedure on DL Data Arrival when Out-of-Sync - Non Contention Based</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RACH_on_DL_Data_Arrival_Contention">RACH Procedure on DL Data Arrival when Out-of-Sync - Contention Based</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RACH_on_UL_Data_Arrival">RACH Procedure on UL Data Arrival when Out-of-Sync</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RACH_on_Re_establishment">RACH Procedure on RRC Connection Re-establishment when Out-of-Sync</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_RF_Snapshot">PRACH RF Snapshot</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#3GPP_Standard_for_RACH_Process">3GPP Standard for RACH Process</a> </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="When_RACH_Process_occurs">When RACH Process occurs ?</a></b> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It would be helpful to understand if you think about when 'RRC Connection' happens (or when PRACH process happens if you are interested in lower layer stuffs) in WCDMA. It would also be helpful if you think about when 'Channel Request' happens in GSM UE. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">My impression of LTE RACH process is like the combination of PRACH process (WCDMA) and Channel Request (GSM). It may not be 100% correct analogy.. but anyway I got this kind of impression. In LTE, RACH process happens in following situation&nbsp;(3GPP specification, 10.1.5 Random Access Procedure of 36.300&nbsp;) </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Initial access from RRC_IDLE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) RRC Connection Re-establishment procedure</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Handover</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) DL data arrival during RRC_CONNECTED requiring random access procedure</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;E.g. when UL synchronisation status is “non-synchronised”</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) UL data arrival during RRC_CONNECTED requiring random access procedure</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;E.g. when UL synchronisation status is &quot;non-synchronised&quot; or there are no PUCCH resources for SR available.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) For positioning purpose during RRC_CONNECTED requiring random access procedure;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;E.g. when timing advance is needed for UE positioning</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Two_types_of_RACH_process">Two types of RACH process : Contention-based and Contention-free</a></b> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When a UE transmit a PRACH Preamble, it transmits with a specific pattern and this specific pattern is called a &quot;Signature&quot;. In each LTE cell, total 64 preamble signatures are available and UE select randomly one of these signatures. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE select &quot;Randomly&quot; one of these signatures ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Does this mean that there is some possibility that multiple UEs send PRACH with identical signatures ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Yes. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There is such a possibility. It means the same PRACH preamble from multipe UE reaches the NW at the same time.. this kind of PRACH collision is called &quot;Contention&quot; and the RACH process that allows this type of &quot;Contention&quot; is called &quot;Contention based&quot; RACH Process. In this kind of contention based RACH process, Network would go through additional process at later
+step to resolve these contention and this process is called &quot;Contention Resolution&quot; step. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But there is some cases that these kind of contention is not acceptable due to some reason (e.g, timing restriction) and these contention can be prevented. Usually in this case, the Network informs each of the UE of exactly when and which preamble signature it has to use. Of course, in this case Network will allocate these preamble signature so that it would not collide. This kind of RACH
+process is called &quot;Contention Free&quot; RACH procedure. To initiate the &quot;Contention Free&quot; RACH process, UE should be in Connected Mode before the RACH process as in Handover case. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Typical 'Contention Based' RACH Procedure is as follows : </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE --&gt; NW : RACH Preamble (RA-RNTI, indication for L2/L3 message size) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE &lt;-- NW : Random Access Response (Timing Advance, T_C-RNTI, UL grant for L2/L3 message) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) UE --&gt; NW : L2/L3 message iv) Message for early contention resolution </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's assume that a contention happened at step i). For example, two UEs sent PRACH. In this case, both of the UE will recieve the same T_C-RNTI and resource allocation at step ii). And as a result, both UE would send L2/L3 message through the same resource allocation(meaning with the same time/frequency location) to NW at step iii). What would happen when both UE transmit the exact same
+information on the exact same time/frequency location ? One possibility is that these two signal act as interference to each other and NW decode neither of them. In this case, none of the UE would have any response (HARQ ACK) from NW and they all think that RACH process has failed and go back to step i). The other possibility would be that NW could successfully decode the message from only one UE and failed to decode it from the other UE. In this case, the UE with the successful L2/L3 decoding on NW side will
+get the HARQ ACK from Network. This HARQ ACK process for step iii) message is called &quot;contention resolution&quot; process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Typical 'Contention Free' RACH Procedure is as follows : </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE &lt;--NW : RACH Preamble Assignment </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE --&gt; NW : RACH Preamble (RA-RNTI, indication for L2/L3 message size) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) UE &lt;--NW : Random Access Response (Timing Advance, C-RNTI, UL grant for L2/L3 message)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="When_and_Where_UE_transmit_RACH">Exactly when and Where a UE transmit RACH ?</a> </b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To answer to this question, you need to refer to 3GPP specification TS36.211 - Table 5.7.1-2. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;"><font face="Verdana"><img src="../image/36_211_Table_5_7_1_2_PRACH.PNG" width="570" height="621" border="0"></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Did you open the specification now ? It shows exactly when a UE is supposed to send RACH depending on a parameter called &quot;PRACH Configuration Index&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, if the UE is using &quot;PRACH Configuration Idex 0&quot;, it should transmit the RACH only in EVEN number SFN(System Frame Number). Is this good enough answer ? Does this mean that this UE can transmit the RACH in any time within the specified the SFN ? The answer to this question is in &quot;Sub Frame Number&quot; colulmn of the table. It says &quot;1&quot; for &quot;PRACH
+Configuration Idex 0&quot;. It means the UE is allowed to transmit RACH only at sub frame number 1 of every even SFN. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Checking your understanding of the table, I will give you one question. With which &quot;PRACH Configuration Idex&quot;, it would be the easiest for the Network to detect the RACH from UE ? and Why ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer would be 14, because UE can send the RACH in any SFN and any slots within the frame. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In a big picture, you should know all the dimmensions in the following diagram. (The Red rectangle is PRACH signal).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_Dimension.PNG" width="649" height="288" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The R_Slot is determined by PRACH Configuration Index and R_length is determined by Premable format. F_offset is dermined by the following equation when the preamble format is 0~3. n_RA_PRBoffset in this equation is specified by prach-FreqOffset in SIB2.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_N_RA_PRB.PNG" width="415" height="120" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Preamble_Format">What is preamble format ?</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you see the table 5.7.1-1 show above, you see the column titled as &quot;Preamble Format&quot;. What is the preamble format ? It is defined as following diagram. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You would see that the length of PRACH preamble varies depending on the preamble format. For example, the length of PRACH with preamble format is (3186 + 24567) Samples. (As you know, one sample (Ts) is 1/30.72 us. It is defined as 1/(15000 x 2048) seconds in 36.211 4 Frame structure).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Fig5_7_1_PreambleFormat.PNG" width="526" height="373" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may ask &quot;Why we need this kind of multiple preamble format ?&quot;, especially &quot;Why we need various PRACH format with different length in time ?&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the main reason would be that they use different preamble format depending on cell radius, but this is oversimplified answer.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I want&nbsp;to recommend a book titled &quot;LTE :
+The UMTS From Theory to Practice&quot; Section 19.4.2 The PRACH Structure.
+This is the material that describes the PRACH in the most detailed level I
+have ever read. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="How_does_Network_knows_PRACH_Timing">How does Network knows exactly when UE will transmit the RACH ?</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is simple. Network knows when UE will send the RACH even before UE sends it because Network tells UE when the UE is supposed to transmit the RACH. (If UE fails to decode properly the network information about the RACH, Network will fail to detect it even though UE sends RACH). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following section will describe network informaton on RACH. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Which RRC Message contains RACH Configuration ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is in SIB2 and you can find the details in 3GPP 36.331. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/RACH_SIB2_01.PNG" width="510" height="350" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/RACH_SIB2_02.PNG" width="501" height="357" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/RACH_SIB2_03.PNG" width="488" height="370" border="0"></span></font><span style="font-size:10pt;"></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">numberOfRA-Preambles : There are total 64 RA preambles that UE can randomly choose from. But usually a cell reserve several Preambles for 'Non-contention based' PRACH procedure and let UE use the rest of Preambles randomly (contention based). numberOfRA-Preambles indicates how many RA preambles (RA sequences) is available for the contention based RACH process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PRACH_Signal_Structure">PRACH Signal Structure</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following figure shows the PRACH Premable signal structure in comparison with normal Uplink subframe. A couple of points to be specially mentioned are</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Preamble Length in Frequency Domain is amount to 6 RBs of UL Subframe, which is 1.08 Mhz</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One sub carrier of PRACH Preamble is 1.25 Khz whereas 1 sub carrier of UL subframe is 15 Khz. It means that 12 preamble sub carrier is amount to 1 UL Subframe subcarrier.</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_SigStructure.PNG" width="765" height="532" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="How_to_generate_RACH_Signal">How to generate RACH Signal ?</a></b></span></font><b></b></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You don't have to know the details of this procedure unless you are the DSP or FPGA engineer implementing LTE PHY. Just as a common sense about LTE, let's know that PRACH is a kind of <a href="SpecialNumbers_LTE.html#Zadoff_ChuSequence" target="contents">ZaddOff Chu Sequence</a> generated by the following equation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Zadoff_RACH.PNG" width="294" height="71" border="0">,<font face="Verdana"><span style="font-size:10pt;"> where u = physical root sequence index</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are 64 preambles available for each cell and UE has to be able to generate the 64 preambles for the cell it want to camp on. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can easily generate 64 different preambles just by cyclically shifting an existing sequence, but there is a condition for this. All the preamle sequences should be authogonal to each other. Otherwise, various preambles from multiple UEs within the same cell can interfere each other. So we have to shift the generated sequence by a specifically designed value and this value is called Cv (Cyclic Shift Value) and it is defined as follows. (I think determining the Cv is one of the most complicated process in PRACH preamble generation because it gets involved with so many different parameters in cascading manner). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_CyclicShift_Value.PNG" width="602" height="91" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First, you would notice that we use different process to calculate Cv depending on whether we use 'unrestricted sets' or 'restricted sets'. This decision is made by 'Highspeedflag' information elements in SIB2. If Highspeedflag is set to be TRUE, we have to use 'restricted sets' and if Highspeedflag is false, we have to use 'unrestricted sets'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">N_cs is specified by zeroCorrelationZoneConfig information elements in SIB2. As you see in this mapping, N_cs values also gets different depending on whether we use 'restricted sets' or 'unrestricted sets'.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_Ncs.PNG" width="550" height="399" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look at how we get Nzc. This is pretty straightforward. Nzc is determined by the following table. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"> </span></font><img src="../image/36_211_Table_5_7_2_1_Nzc.PNG" width="432" height="108" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If the Preamble&nbsp;is using the unrestricted sets, it is pretty simple. You only have to know Nzc, Ncs to figure out Cv. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The problem is when the Preamble is using the 'restricted sets'. As you see the equation above, you need to know the following 4 values to figure out Cv in 'restricted sets'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_n_RA.PNG" width="171" height="36" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The problem is that the calculation of these four variable is very complicated as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_n_RA_d_start.PNG" width="531" height="294" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You would noticed that you need another value to calculate to determine which of the three case we have to use. It is du. So we need another process to determine du. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_du.PNG" width="456" height="148" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">We went through a complicated procedure just to determin one number (Cv). Once we get Cv, we can generate multiple preambles using the following function. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_x_uv.PNG" width="205" height="28" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Anyway, now we got a PRACH Preamble sequence in hand, but this is not all. In order to transmit this data. We have to convert this data into a time domain sequence and this conversion is done by the following process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_s_t.PNG" width="563" height="383" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For the whole PRACH generation procedure, please refer to 5.7.2/5.7.3 of TS 36.211.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="When_and_Where_NW_transmit_RAR">Exactly when and where Network transmit RACH Response</a> </b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">We all knows that Network should transmit RACH Response after it recieved RACH Preamble from UE, but do we know exactly when, in exactly which subframe, the network should transmit the RACH Response ? The following is what 3GPP 36.321 (section 5.1.4) describes. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><i>Once the Random Access Preamble is transmitted and regardless of the possible occurrence of a measurement gap, the UE shall monitor the PDCCH for Random Access Response(s) identified by the RA-RNTI defined below, in the RA Response window which starts at the subframe that contains the end of the preamble transmission [7] plus three subframes and has length ra-ResponseWindowSize subframes.</i>
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It means the earliest time when the network can transmit the RACH response is 3 subframe later from the end of RACH Preamble. Then what is the latest time when the network can transmit it ? It is determined by ra-ResponseWindowSize. This window size can be the number between 0 and 10 in the unit of subframes. This means that the maximum time difference between the end of RACH preamble and
+RACH Response is only 12 subframes (12 ms) which is pretty tight timing requirement.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PRACH_Parameters_Physical_Meaning">PRACH Parameters and Physical Meaning</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; prach-ConfigIndex &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_ConfigIndex.PNG" width="648" height="455" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; zeroCorrelationZoneConfig and Highspeedflag&nbsp;&gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_Ncs.PNG" width="550" height="399" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; prach-FreqOffset &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_FreqOffset.PNG" width="594" height="303" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; rootSequenceIndex &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_RootSequenceIndex.PNG" width="710" height="476" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RACH_Procedure_for_Initial_Registration">RACH Procedure during Initial Registration - RACH Procedure Summary</a></b> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Follwing is an example of RACH procedure which happens during the initiail registration. If you will be an engineer who is working on protocol stack development or test case development, you should be very familiar with all the details of this process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;<img src="../image/RACH_Registration.PNG" width="586" height="429" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;">&nbsp;</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Again, we have to know every details of every step without missing anything to be a developer, but of course it is not easy to understand everything at a single shot. So, let's start with something the most important part, which I think is the details of RACH response. Following diagram shows one example of RACH Response with 5 Mhz bandwidth. We don't have to memorize the detailed value itself
+but should be familiar with the data format and understand which part of this bit string means what.</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/RACH_Response_01.PNG" width="660" height="178" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you decode UL Grant part, you will get the following result. You will notice that the information it carries would be very similar to DCI format 0 which carries Resource Allocation for uplink data. This information in UL Grant in RACH Response message is the resource allocation for msg3 (e.g, RRC Connection Request). </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">Note
+: This is example of RAR for System BW 5 Mhz. If the sytem BW gets different, you should have different RIV values (if you want to have the same Start_RB, N_RB as in this example) or you will have different Start_RB, N_RB (if you keep RIV as below and just change the system BW)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RACH_Response_02.PNG" width="535" height="358" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let me describe this procedure in verbal form again.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE initiate a Random Access Procedure on the (uplink) Random Access Channel (RACH).(The location of RACH in the frequency/time resource grid the RACH is known to the mobile via the (downlink) Broadcast Channel (BCH). The random access message itself only consists of 6 bits and the main content is a random 5 bit identity) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Network sends a Random Access Response Message(RARM) at a time and location on the Physical Downlink Shared Channel (PDSCH) (The time and location of RARM on PDSCH can be calculated from the time and location the random access message was sent. This message contains the random identity sent by the device, a Cell Radio Network Temporary ID (T_C-RNTI) which will be used for all further
+bandwidth assignments, and an initial uplink bandwidth assignment) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) The mobile device then uses the bandwidth assignment to send a short (around 80 bits) RRC Connection Request message which includes it's identity which has previously been assigned to it by the core network </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Only the step i) uses physical-layer processing specifically designed for random access. The remaining steps utilizes the same physical layer processing as used for normal uplink and downlink data transmission </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="How_can_we_get_RA_RNTI">How can we get RA RNTI ?</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">“5.1.4 Random Access Response reception&quot; in &quot;TS36.321” says how to calculate RA_RNTI as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><i>The RA-RNTI associated with the PRACH in which the Random Access Preamble is transmitted, is computed as:</i></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><i> RA-RNTI = 1 + t_id + 10 * f_id</i></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><i>Where t_id is the index of the first subframe of the specified PRACH (0 &lt;&le; t_id &lt;10), and f_id is the index of the specified PRACH within that subframe, in ascending order of frequency domain (0&le; f_id&lt; 6). </i></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For FDD, f_id is fixed as 0.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Therefore, RA_RNTI is decided by the sending timing (SubFrame) of PRACH Preamble by UE. It means that (the subframe number (number between 0000~0009) of PRACH transmission + 1)&nbsp;is RA-RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It means that UE specifies RA_RNTI by the sending timing (SubFrame) of PRACH Preamble.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="An_Example_of_Full_RACH_Process">An Example of Full&nbsp;RACH&nbsp;Process</a></b> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is an example of Full RACH process with a commercialized LTE device and LTE Network Emulator. I would not explain anything in detail. Just check if the following diagram make any sense to you. If it does, I would say you understand all the details that I explained above.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/FullRACH_Sample01.PNG" width="709" height="405" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/FullRACH_Sample02.PNG" width="713" height="403" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PRACH_Retransmission">PRACH Retransmission</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Most part of previous section was about the ideal RACH process, which means that UE send PRACH and Network send RACH Response at the first trial and went through all the way to the end of process at the first trial. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if UE does not receive RACH Response at the first trial ? What is UE supposed to do in this case ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer is simple. Just retry (resend) PRACH. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then you would have more question. (&quot;I&quot; in the following description is &quot;UE&quot;)</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) When do I have to retry ? (What should be the time delay between the previous transmission and the next transmission ?)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Do I have to retransmit the PRACH with the same power as previous one ? Or try with a little bit higher power ? If I have to try with a little bit higher power, how much power do I have to increase ? </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If I keep failing to receive RACH response, how many time I have to retry ? Do I have to retry until the battery runs out ? or retry only several times and give up ? If I have to give up after a certain amount of retry, exactly how many times do I have to retry ?</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answers to all of these questions are provided by the network. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer (instruction) to question i) is provided by Network via a special RAR MAC PDU called &quot;Backoff Indicator&quot;. (I will explain about Backoff Indicator later in more detail). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer to question ii) and iii) are provided by Network via SIB2 as follows. powerRampingStep is the answer to question ii) and preambleTransMax is the answer to question iii).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In the following example, powerRampingStep = dB2. It means UE has to increase PRACH power by 2 dB everytime it retries.</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">preambleTransMax = n6. It means UE retries PRACH retransmit only 6 times and then give up.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 
+&nbsp;&nbsp;&nbsp;&nbsp;+-radioResourceConfigCommon ::= SEQUENCE</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| 
++-rach-Config ::= SEQUENCE</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | 
++-preambleInfo ::= SEQUENCE [0]</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | | 
++-numberOfRA-Preambles ::= ENUMERATED [n52]</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | | 
++-preamblesGroupAConfig ::= SEQUENCE OPTIONAL:Omit</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | 
++-powerRampingParameters ::= SEQUENCE</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | |</FONT><font face="Lucida Console" color="red"> 
++-powerRampingStep ::= ENUMERATED [dB2]</font></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | | 
++-preambleInitialReceivedTargetPower ::= ENUMERATED [dBm-104]</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | 
++-ra-SupervisionInfo ::= SEQUENCE</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | | 
+</FONT><font face="Lucida Console" color="red">+-preambleTransMax ::= ENUMERATED [n6]</font></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | | 
++-ra-ResponseWindowSize ::= ENUMERATED [sf10]</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | | 
++-mac-ContentionResolutionTimer ::= ENUMERATED [sf48]</FONT></SPAN></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><SPAN 
+style="FONT-SIZE: 10pt"><FONT face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | 
++-maxHARQ-Msg3Tx ::= INTEGER (1..8) [4]</FONT></SPAN></P>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RACH_Process_Overview_In_Diagrams">RACH Process Overview In Diagrams</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">I have explained long about the RACH process. Now you may ask &quot;What is the trigger that let UE initiate the RACH process ?&quot;. You will see various triggers in 3GTS 36.300 (10.1.5) : Overall description of RACH Process. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&quot;Turning on UE&quot; is one of the trigger for sure. And following is another trigger for this process. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a name="PRACH_on_InitialRegistration">&lt; RACH Procedure on Initial Registration &gt;</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is basically the same sequence that I explained in previous sections, but I simplified the diagram in previous sections to let reader focused more on messaging part of RACH procedure. In this diagram, you see some additional steps like HARQ ACK, DCI 0 (UL Grant). This flow is more similar to real live network procedure.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_SequenceFlow_Registration.PNG" width="380" height="465" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="PRACH_on_Handover_Contention">&lt; RACH Procedure on Handover - Contention Based &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_SequenceFlow_HO_Contention.PNG" width="314" height="465" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="PRACH_on_Handover_NonContention">&lt; RACH Procedure on Handover - NonContention Based &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_SequenceFlow_HO_NonContention.PNG" width="294" height="464" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a name="PRACH_on_DL_Data_Arrival_when_OutOfSync">&lt;RACH Procedure&nbsp;on DL Data Arrival when Out-of-Sync</a></span></font><font face="Verdana"><span style="font-size:10pt; line-height:100%;"> - Non Contention Based &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_SequenceFlow_DLDataArrival_NonContention.PNG" width="313" height="455" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="RACH_on_DL_Data_Arrival_Contention">&lt;RACH Procedure on DL Data Arrival when Out-of-Sync - Contention Based &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_SequenceFlow_DLDataArrival_Contention.PNG" width="316" height="462" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="RACH_on_UL_Data_Arrival">&lt;RACH Procedure on UL Data Arrival when Out-of-Sync &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_SequenceFlow_ULDataArrival.PNG" width="312" height="461" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="RACH_on_Re_establishment">&lt;RACH Procedure on RRC Connection Re-establishment&nbsp;when Out-of-Sync &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PRACH_SequenceFlow_Reestablishment.PNG" width="355" height="464" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana"><b><a name="PRACH_RF_Snapshot">PRACH RF Snapshot</a></b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_PRACH_RF_AC313.PNG" width="729" height="430" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="3GPP_Standard_for_RACH_Process">3GPP Standard for RACH Process</a></b> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3GTS 36.300 (10.1.5) : Overall description of RACH Process. Read this first. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3GTS 36.211 (5.7) : RRC Messages and IE (Information Elements) which are involved in RACH process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3GTS 36.213 (6) : MAC Layer Procedure related to RACH Process.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

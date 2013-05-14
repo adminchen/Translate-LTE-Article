@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, EIA, EIA0, EIA1, EIA2,EPS Integrity Algorithms" />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="EIA">EIA(EPS Integrity Algorithms)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">As the term implies, this is &quot;Integrity Algorithm&quot; being used in LTE. This algorithm applies only to C-Plane data (NAS mesage). You can take this as a kind of special encryption algorithm which is used only for NAS message. Like EEA, this is also determined by the Network and informed to UE by EMM:Security Mode Command and RRC : Security Mode Command message. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">NAS_LTE:EMM,Security mode command</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">Security mode command ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Security header type ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Security header type ::= CHOICE [Plain NAS message, not security protected]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-EPS mobility management protocol discriminator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Protocol discriminator ::= PD [7]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Security mode command message identity ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Message type ::= MSG [5D]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">+-Selected NAS security algorithms ::= V</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;&nbsp;| &nbsp;&nbsp;+-spare ::= FIX [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;&nbsp;| &nbsp;&nbsp;+-Type of ciphering algorithm ::= CHOICE [EPS encryption algorithm EEA0(ciphering not used)]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;&nbsp;| &nbsp;&nbsp;+-spare ::= FIX [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;&nbsp;| &nbsp;&nbsp;</font><font face="Lucida Console" color="red">+-Type of integrity protection algorithm ::= CHOICE [Reserved 0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Spare half octet ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Spare half octet ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-NAS key set identifier ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-TSC ::= CHOICE [native security context (for KSI ASME)]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-NAS key set identifier ::= CHOICE [possible values for the NAS key set identifier 0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Replayed UE security capabilities ::= LV</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-Length of UE security capability contents ::= LEN (0..255) [5]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [securityModeCommand]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-securityModeCommand ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrc-TransactionIdentifier ::= INTEGER (0..3) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-criticalExtensions ::= CHOICE [c1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-c1 ::= CHOICE [securityModeCommand-r8]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-securityModeCommand-r8 ::= SEQUENCE [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-securityConfigSMC ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Lucida Console" color="blue">| +-securityAlgorithmConfig ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-cipheringAlgorithm ::= ENUMERATED [eea0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Lucida Console" color="red">| &nbsp;&nbsp;+-integrityProtAlgorithm ::= ENUMERATED [spare1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-nonCriticalExtension ::= SEQUENCE OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Currently there are two&nbsp;different types of EIA we can use as shown in the following table. </span></font></p>
+            <ul>
+                <table border="1" width="601" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="111" bgcolor="#3399FF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Identifier</span></font></p>
+                        </td>
+                        <td width="156" bgcolor="#3399FF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type</span></font></p>
+                        </td>
+                        <td width="320" bgcolor="#3399FF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Description</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="111">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">0000</span></font></p>
+                        </td>
+                        <td width="156">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">128-EIA0</span></font></p>
+                        </td>
+                        <td width="320">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Null Integrity&nbsp;algorithm</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="111">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">0001</span></font></p>
+                        </td>
+                        <td width="156">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">128-EIA1</span></font></p>
+                        </td>
+                        <td width="320">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">SNOW 3G</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="111">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">0010</span></font></p>
+                        </td>
+                        <td width="156">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">128-EIA2</span></font></p>
+                        </td>
+                        <td width="320">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">AES</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Actually EIA0 is not officially defined because </span><span style="font-size:10pt;">integrity protection is mandatory for RRC (AS) and NAS signalling messages, but in some special condition (e.g, in UE testing environment), &nbsp;Null Integrity is used. Even in this case, NAS message carries Integrity Header, but the MAC (Message Authentication Code) part of the header
+is all set to be 0.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

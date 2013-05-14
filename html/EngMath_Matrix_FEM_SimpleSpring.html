@@ -1,0 +1,64 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897"><b><font face="Verdana"><span style="font-size:14pt;">FEM(Finite Element Method) - Simple Spring</span></font></b></td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_EngMath_01 */
+google_ad_slot = "2417473975";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First I think I should say sorry if you clicked this link in the hope to clear off all the clouds over your head after struggling for so long time trying to understand the details of FEM -:). This is not at all for that level. I just want to give you an idea of application of the mathematical tool called &quot;Matrix&quot; and how a matrix equation is generated from a simple FEM problem.It is true that one of the core part of FEM is converting the problem into a matrix equation, but in reality nobody is doing this by hand because it is too complex to do it manually. There are a lot of software package doing this kind of jobs for various problem spaces. However, understanding this process would be very useful both for understanding the problem space and understanding the logics being used by those software. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's take a very simple cases as follows. You already have seen this problem on many text book or internet pages. Two springs are connected as follows. Let's assume that Node 1 is fixed to a point (like fixed to a wall) and you are pulling away the Node 3. The question how much each of the spring will be elongated ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_FEM_1_01.PNG" width="421" height="232" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One thing you have to think before you start creating the mathmatical model. It is about node 2. If you see the picture above, node 2 is connected to both spring 1 and spring 2. So it would be experiencing forces from two springs and the force labed as F2 is the total force of the two componend forces. So let's define F2 as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_FEM_1_02.PNG" width="554" height="155" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now by applying the famous hook's law (F = kx), you can draw out four equations as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_FEM_1_03.PNG" width="235" height="196" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Since the two equation (the second and third one is the force being applied to a single node (Node 2). We can combine the two equeation and as result we would finaly have three equations as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_FEM_1_04.PNG" width="659" height="198" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now we have a set of simultaneous equation comprised of 3 equations. As you already seen above, a simultaneous equation can easily be converted into a matrix equation as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_FEM_1_05.PNG" width="366" height="346" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">We saw a very simple example of drawing out a matrix equation from a small set of FEM situation, but in real situation.. most of this process is being automatically done by a software. The procedure that the software use to create the final matrix would be a little different from what I described here.. but the resulting matrix equation should be same. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, UL Frequency Hopping " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;"> <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="FrequencyHopping">Frequency Hopping</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Everybody would know what the frequency hopping is ? It is a special transmission technique sending data with changing crarrier frequency in a certain pattern. Same definition applies to LTE frequency hopping as well. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">So I will talk more on why we need freuqency and what kind of hopping pattern it use. One think to be noticed is that LTE use frequency hopping only for Uplink. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the illustration of a uplink frame. I allocated a resource for a user at a portion of the operation band and the location does not changes throughout the frame. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL_FrequencyHopping_01.PNG" width="675" height="379" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">With a bad luck, what if&nbsp;some impairment happens at the specific frequency region as shown below&nbsp;that the data is carried. In this case, the data for the poor user will be currupted so badly. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL_FrequencyHopping_02.PNG" width="687" height="273" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How can we avoid this kind of issue&nbsp;? There is no perfect solution for this, but there may be many partial solutions for this. Frequency hopping can be one of those partial solutions. If the frequency (basically Start RB of the data) changes, large portions of the data would be able to avoid the impairment even thopugh there still be some unlucky data hit by the noise. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's think of what kind of hopping pattern (method) is used in LTE. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First we can think of a pattern as follows. As you see, frequency change (hopping) does not happens within a subframe. It happens only between a subframe and another subframe. This kind of hopping is called &quot;inter subframe&quot; hopping. Another characteristics you may notice from the following figure would be that the hopping pattern is simple and does not change. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL_FrequencyHopping_03.PNG" width="677" height="270" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next pattern we can think of is as follows. Do you recognize the difference between the previous one and this one ? You would notice that hopping happens within a subframe in this case. This kind of hopping is called 'Intra Subframe' hopping.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL_FrequencyHopping_04.PNG" width="672" height="269" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into another type of hopping. Now you may recognize this is a kind of IntraSubframe hopping as in previous pattern, but you would see that hopping distance between the one slot and another slot is not constant. It may look as if the distance is arbitrary.(It is not totally random, but it would LOOK Like a random)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL_FrequencyHopping_05.PNG" width="677" height="274" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look at another types of pattern. Did you recognize the difference from the previous one ? You would notice that the resource allocation gets flipped around as it hops from the previous one. The resource allocation of a slot is a mirror image of the previous one. This is called &quot;mirroring&quot;.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL_FrequencyHopping_06.PNG" width="676" height="268" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I just tried to give you some intuitive understanding of the UL frequency hopping. For exact hopping rules/patterns, refer to </span><span style="font-size:10pt; line-height:100%;">36.211 - 5.3.4</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How would the eNodeB in what pattern the UL data would hop ? It is simple. Network determine all the hopping patterns and let UE hop as it instructs.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Network informs UE of the details of hopping pattern via SIB2 and DCI 0 as follows. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">+-sib2 ::= SEQUENCE [00]</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-ac-BarringInfo ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-radioResourceConfigCommon ::= SEQUENCE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-rach-Config ::= SEQUENCE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-bcch-Config ::= SEQUENCE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-pcch-Config ::= SEQUENCE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-prach-Config ::= SEQUENCE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-pdsch-Config ::= SEQUENCE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-pusch-Config ::= SEQUENCE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-pusch-ConfigBasic ::= SEQUENCE</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | | +-n-SB ::= INTEGER (1..4) [1]</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | | +-hoppingMode ::= ENUMERATED [interSubFrame]</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | | +-pusch-HoppingOffset ::= INTEGER (0..98) [4]</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | | +-enable64QAM ::= BOOLEAN [FALSE]</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-ul-ReferenceSignalsPUSCH ::= SEQUENCE</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | &nbsp;&nbsp;+-groupHoppingEnabled ::= BOOLEAN [TRUE]</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | &nbsp;&nbsp;+-groupAssignmentPUSCH ::= INTEGER (0..29) [0]</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | &nbsp;&nbsp;+-sequenceHoppingEnabled ::= BOOLEAN [FALSE]</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | &nbsp;&nbsp;+-cyclicShift ::= INTEGER (0..7) [0]</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL_FrequencyHopping_DCI0.PNG" width="360" height="214" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two different types of hopping and the Hopping Bit field (NUL-hop) in DCI 0 specify which hopping type should be applied. The mapping between Hopping Bit Value and Hopping Type is as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <table border="1" width="566" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center">
+                <tr>
+                    <td width="157" bgcolor="#6666FF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">System BW</span></font></p>
+                    </td>
+                    <td width="190" bgcolor="#6666FF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Hopping Bit Field</span></font></p>
+                    </td>
+                    <td width="205" bgcolor="#6666FF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Hopping Type</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="157" rowspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1.4, 3, 5</span></font></p>
+                    </td>
+                    <td width="190">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0</span></font></p>
+                    </td>
+                    <td width="205">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="190">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="205">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="157" rowspan="4">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">10, 15, 20</span></font></p>
+                    </td>
+                    <td width="190">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0</span></font></p>
+                    </td>
+                    <td width="205">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="190">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="205">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="190">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="205">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="190">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3</span></font></p>
+                    </td>
+                    <td width="205">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Type 2</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Type 1 : Frequency offset between the first slot and the second slot is explicitely determined by DCI 0. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Type 2 : Frequency offset between the first slot and the second slot is configured by a predefined pattern. When there is multiple subbands, hopping is done from one subband to another subband.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following four screenshot is an example of PUSCH Frequence Hopping with a commercialized device. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the result of </span></font></p>
+            <ul>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">System BW = 10 Mhz</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n_SB = 1</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">hoppingMode = IntraInterSubframe</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">pusch-HoppingOffset = 4</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping bit value in DCI 0 = 0 (Type 1)</span></font></p>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/PUSCH_Freq_Hop_Bit0.PNG" width="683" height="362" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the result of </span></font></p>
+            <ul>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">System BW = 10 Mhz</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n_SB = 1</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">hoppingMode = IntraInterSubframe</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">pusch-HoppingOffset = 4</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping bit value in DCI 0 = 1 (Type 1)</span></font></p>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/PUSCH_Freq_Hop_Bit1.PNG" width="684" height="361" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the result of </span></font></p>
+            <ul>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">System BW = 10 Mhz</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n_SB = 1</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">hoppingMode = IntraInterSubframe</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">pusch-HoppingOffset = 4</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping bit value in DCI 0 = 2 (Type 1)</span></font></p>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/PUSCH_Freq_Hop_Bit2.PNG" width="684" height="361" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the result of </span></font></p>
+            <ul>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">System BW = 10 Mhz</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n_SB = 1</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">hoppingMode = IntraInterSubframe</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">pusch-HoppingOffset = 4</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping bit value in DCI 0 = 3 (Type 2)</span></font></p>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/PUSCH_Freq_Hop_Bit3.PNG" width="685" height="357" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">One quick question. Why we need this kind PUSCH frequency hopping only for uplink whereas we do not have this feature for downlink. It is because there are other mechnisms in downlink to avoid such a case where a large portions of allocated resources get currupted at once. One of the way is to use 'Distributed' resource allocation and the other way is to scatter the downlink
+resources over the wide range using special '<a href="Handbook_LTE_old1.html#ResourceAllocationType">Resource Allocation Type</a>'. But in uplink, you cannot implement such a distributed resource allocation since uplink is using 'Single Carrier' FDMA. (Why Single Carrier FDMA does not allow 'distributed resource allocation'? Try to think out the answer yourself. It would be a good practice of understanding one important aspect of 'Single Carrier' FDMA -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

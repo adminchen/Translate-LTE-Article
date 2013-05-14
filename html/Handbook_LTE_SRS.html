@@ -1,0 +1,306 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;"><a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SRS">SRS (Sounding Reference Signal)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">SRS stands for Sounding Reference Signal. Literally it says a kind of &quot;Reference Signal&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Reference Signal for who ? Is it for UE or for eNodeB ? It is reference signal for eNodeB to figure out the channel quality of uplink path for each subsections of frequence region. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Who is sending this reference signal ? It is UE. (You may remember from <a href="FrameStructure_UL.html#SlotStructure" target="_blank">Uplink Framestructure</a> section that UE is transmitting SRS at the last symbol of a&nbsp;slot)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Why we need this kind of signal ? As you know, in LTE eNodeB often allocates only a partial section of full system bandwidth for a specific UE and at a specific time. So it would be good to know which section across the overall bandwidth has better channel quality comparing to the other region. In this case, Network can allocate the specific frequency region which is the
+best for each of the UEs. (If we always have to use full bandwidth, we may not need this kind of reference signal since there is no choice even when there is a better or worse spots within the bandwidth). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">How often UE transmit SRS ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">It depends on the configuration set by the signaling message (SIB2, RRC Connection Setup, RRC Connection Reconfiguration etc), but UE can transmit it every two subframes at the most and every 32&nbsp;frame (320 subframe) at the least (10 bit signaling parameter </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">srs-ConfigIndex</font></span><font
+face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;tells UE of the periodicity of SRS transmission and the period can be 2,5,10,20,40,80,160,320 ms). Actually there is an option in which UE does not transmit SRS at all. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SRS is transmitted at the last symbol of UL slot with full system band area and it is transmitted by a certain interval. What if multiple UE has the same SRS transmission cycle(interval) ? Would there be any possibility that a bunch of SRS from multiple UEs are overlapped ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Yes, this is possible. To avoid this kind of situation, we can configure each of UE to transmit SRS in hopping mode with different hopping schedule.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For further details of SRS, please refer to the following link. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.steepestascent.com/content/mediaassets/html/LTE/Help/SRS.html" target="_blank">http://www.steepestascent.com/content/mediaassets/html/LTE/Help/SRS.html</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console"><font face="Lucida Console">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana">As I mentioned earlier, SRS configuration is notified to UE by a couple of RRC messages. Common RRC messages carrying SRS configuration info are SIB2, RRC Connection Setup, RRC Connection Reconfiguration. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are largerly two kinds of SRS, Common SRS and Dedicated SRS. Common SRS is also called Cell Specific SRS and Dedicated SRS is also called UE&nbsp;Specific SRS.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana">In SIB2, SRS is configured in following information elements. You can disable SRS by setting </font></span><span style="font-size:10pt;"><font face="Lucida Console">soundingRS-UL-ConfigCommon if you want.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-radioResourceConfigCommon ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-rach-ConfigCommon ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-bcch-Config ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-pcch-Config ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-prach-Config ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-pdsch-ConfigCommon ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-pusch-ConfigCommon ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-pucch-ConfigCommon ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-soundingRS-UL-ConfigCommon ::= CHOICE [setup]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | +-setup ::= SEQUENCE [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-srs-BandwidthConfig ::= ENUMERATED [bw2]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-srs-SubframeConfig ::= ENUMERATED [sc0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-ackNackSRS-SimultaneousTransmission ::= BOOLEAN [TRUE]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-srs-MaxUpPts ::= ENUMERATED OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-uplinkPowerControlCommon ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-ul-CyclicPrefixLength ::= ENUMERATED [len1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana">In RRC Connection Setup and RRC Connection Reconfiguration, SRS is configured in following information elements. You can disable SRS by setting </font></span><span style="font-size:10pt;"><font face="Lucida Console">soundingRS-UL-ConfigDedicated&nbsp;if you want.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console"><font face="Lucida Console">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-physicalConfigDedicated ::= SEQUENCE [0000110110] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-pdsch-ConfigDedicated ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-pucch-ConfigDedicated ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-pusch-ConfigDedicated ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-uplinkPowerControlDedicated ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-tpc-PDCCH-ConfigPUCCH ::= CHOICE [setup] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-tpc-PDCCH-ConfigPUSCH ::= CHOICE [setup] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-cqi-ReportConfig ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">| &nbsp;&nbsp;+-soundingRS-UL-ConfigDedicated ::= CHOICE [setup] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| +-setup ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-srs-Bandwidth ::= ENUMERATED [bw0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-srs-HoppingBandwidth ::= ENUMERATED [hbw0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-freqDomainPosition ::= INTEGER (0..23) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-duration ::= BOOLEAN [FALSE]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-srs-ConfigIndex ::= INTEGER (0..1023) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-transmissionComb ::= INTEGER (0..1) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-cyclicShift ::= ENUMERATED [cs0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-antennaInfo ::= CHOICE [explicitValue] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-schedulingRequestConfig ::= CHOICE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">For srs-Bandwidth, refer to following tables from 36.211. Basically these tables defines how many resource block (frequency bandwidth) is allocated for SRS transmission.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Table_5_5_3_2_1_SRS.PNG" width="515" height="232" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Table_5_5_3_2_2_SRS.PNG" width="524" height="232" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Table_5_5_3_2_3_SRS.PNG" width="524" height="232" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Table_5_5_3_2_4_SRS.PNG" width="526" height="232" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">For srs-SubframeConfig, please refer to the following table from 36.211. Since srs-SubframeConfig is parameter only for SRS Common (Cell Specific SRS), this table is applied only for Cell Specific SRS. Basically this table defines on which subframe SRS is transmitted and on which subframe it is not transmitted.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Table_5_5_3_3_1_SRS_Config.PNG" width="504" height="513" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How do we know from the table above, which subframe should transmit SRS or which subframe should not ? It is determined by the following rule. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/36_211_Eqn_5_5_3_3_1_SRS.PNG" width="173" height="30" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ns here means subframe number.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, if we chose subframe configuration 7, T_SFC become 5 and Delta_SFC become {0,1}. According to this, the SRS Status on each subframe become as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="687" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center">
+                <tr>
+                    <td width="149" bgcolor="#00CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Subframe Number (ns)</span></font></p>
+                    </td>
+                    <td width="172" bgcolor="#00CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[ns/2] mod T_SFC</span></font></p>
+                    </td>
+                    <td width="352" bgcolor="#00CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SRS Status</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[0/2] mod 5 = </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">0</font></span></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is a member of {0,1}, so SRS is </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">ON</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[1/2] mod 5 = </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">1</font></span></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is a member of {0,1}, so SRS is </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">ON</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[2/2] mod 5 = 2</span></font></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is not a member of {0,1}, so SRS is OFF</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[3/2] mod 5 = 3</span></font></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is not a member of {0,1}, so SRS is OFF</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[4/2] mod 5 = 4</span></font></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is not a member of {0,1}, so SRS is OFF</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[5/2] mod 5 = </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">0</font></span></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is a member of {0,1}, so SRS is </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">ON</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[6/2] mod 5 = </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">1</font></span></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is a member of {0,1}, so SRS is </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">ON</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[7/2] mod 5 = 2</span></font></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is not a member of {0,1}, so SRS is OFF</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">8</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[8/2] mod 5 = 3</span></font></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is not a member of {0,1}, so SRS is OFF</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="149">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">9</span></font></p>
+                    </td>
+                    <td width="172">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Floor[9/2] mod 5 = 4</span></font></p>
+                    </td>
+                    <td width="352">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">The result is not a member of {0,1}, so SRS is OFF</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Following is an example frame structure showing the SRS transmission determined by the above table. (In this example, System BW = 5 Mhz, Start RB = 5, Number of RB = 15)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/SRS_SubFrameConfig7.PNG" width="731" height="323" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For srs-ConfigIndex, please refer to the following table from 36.213.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_213_Table8_2_1_SRS_Periodicity.PNG" width="614" height="347" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">For the following parameters, refer to 36.211 </span><span style="font-size:10pt;">5.5.3.2 Mapping to physical resources.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">srs-Bandwidth</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">srs-HoppingBandwidth</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">freqDomainPosition</font></span></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One thing to notice that there is no flag for &quot;srs-Hopping ON or OFF&quot;, but according to the specification (if I understood it correctly) we can figure &quot;srs-Hopping ON or OFF&quot; indirectly by combining the following two parameters. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">srs-HoppingBandwidth &gt;= srs-Bandwidth : SRS Hopping OFF</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">srs-HoppingBandwidth &lt;&nbsp;srs-Bandwidth &nbsp;: SRS Hopping ON</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can skip following part if you are not realy, realy interested and it would be almost impossible to understand all of details unless you are implementing (programing) this process and test it. To be honest, I haven't tried program this part on my own, so I may not understand the details to the very bottom line. But I reorganized 36.211, 36.213 according to my own thought process and try
+to understand at least which parameters are involved in the process and how the RRC message parameter get involved in this low layer sequence generation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SRS is also a kind of Zadoff Chu sequence. So the first step is to create a proper sequence for SRS and this process is pretty simple as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/SRS_SeqGen_01.PNG" width="765" height="124" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next step is to allocate the sequence data into each of resource elements which is reserved for carrying SRS. This process is real tricky one and most of SRS parameters are involved in this resource element mapping process. (enjoy !!! -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/SRS_SeqGen_02.PNG" width="765" height="308" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you read through the 36.211, you would notice that many of these parameters are coming from higher layer. Following is the higher layer message and I associated each of the information elements to the parameters you saw in previous process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/SRS_SeqGen_03.PNG" width="739" height="290" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Unfortunately most of parameters related in SRS creation/resource allocation is hard to visualize, but there are at least a couple of parameters that can be visualized as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/SRS_SeqGen_04.PNG" width="739" height="385" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once Common SRS and Dedicated SRS are configured, UE has to determine whether it transmit Normal PUSCH or Shortened PUSCH everytime it try to send PUSCH. Following example would help you understand the decision making criteria.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/SRS_Shortened_Normal_PUSCH.PNG" width="691" height="573" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">For further details, refer to the following references.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.331, SoundingRS-UL-Config</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.211 5.5.3 Sounding reference signal</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.213 8.2 UE sounding procedure</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

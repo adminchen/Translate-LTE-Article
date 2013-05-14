@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<title>Frame Structure - Downlink</title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897"><b><font face="Verdana"><span style="font-size:14pt;">WCDMA/HSPA Packet Call</span></font></b></td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+<font face="Verdana"><span style="font-size:10pt;">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_UMTS_MultiCall_01 */
+google_ad_slot = "5076767577";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1) <a href="BasicCall_Voice_WCDMA.html#1_MIB">MIB</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2) <a href="BasicCall_Voice_WCDMA.html#2_SIB">SIB</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">RACH Preamble</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">AICH</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">RACH Message</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6) <a href="BasicCall_Voice_WCDMA.html#6_RRC_Connection_Request">RRC: RRC Connection Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">7) <a href="BasicCall_Voice_WCDMA.html#7_RRC_Connection_Setup">RRC: RRC Connection Setup</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8) <a href="BasicCall_Voice_WCDMA.html#8_RRC_Connection_Setup_Complete">RRC: RRC Connection Setup Complete</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">9) <a href="BasicCall_Voice_WCDMA.html#9_Location_Updating_Request">RRC: initialDirectTransfer + MM: Location Updating Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10) <a href="BasicCall_Voice_WCDMA.html#10_Authentication_Request">RRC : downlinkDirectTransfer + MM:Authentication Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11) <a href="BasicCall_Voice_WCDMA.html#11_Attach_Request">RRC: initialDirectTransfer + GMM: Attach&nbsp;Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">12) <a href="BasicCall_Voice_WCDMA.html#12_AuthenticationResponse">RRC : uplinkDirectTransfer + MM:Authentication Response</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">13) <a href="BasicCall_Voice_WCDMA.html#13_Security_Mode_Command">RRC : Security Mode Command</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">14) <a href="BasicCall_Voice_WCDMA.html#14_Security_Mode_Complete">RRC : Security Mode Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">15) <a href="BasicCall_Voice_WCDMA.html#15_Identity_Request">RRC : downlinkDirectTransfer + MM:Identity Request</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">16) <a href="BasicCall_Voice_WCDMA.html#16_Identity_Response">RRC : uplinkDirectTransfer + MM:Identity Response</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">17) <a href="BasicCall_Voice_WCDMA.html#17_Location_Updating_Accept">RRC : downlinkDirectTransfer + MM:Location Updating Accept</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">18) <a href="BasicCall_Voice_WCDMA.html#18_TMSI_ReallocationComplete">RRC : uplinkDirectTransfer + MM:TMSI Reallocation Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">19) <a href="BasicCall_Voice_WCDMA.html#19_AuthentionAndCipheringRequest">RRC : downlinkDirectTransfer + GMM: AuthenticationAndCipheringRequest</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">20) <a href="BasicCall_Voice_WCDMA.html#20_AuthentionAndCipheringResponse">RRC : uplinkDirectTransfer + GMM: AuthenticationAndCipheringResponse</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">21) <a href="BasicCall_Voice_WCDMA.html#21_Security_Mode_Command">RRC : Security Mode Command</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">22) <a href="BasicCall_Voice_WCDMA.html#22_Security_Mode_Complete">RRC : Security Mode Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">23) <a href="BasicCall_Voice_WCDMA.html#23_Identity_Request">RRC : downlinkDirectTransfer + GMM:Identity Request</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">24) <a href="BasicCall_Voice_WCDMA.html#24_Identity_Response">RRC : uplinkDirectTransfer + GMM:Identity Response</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">25) <a href="BasicCall_Voice_WCDMA.html#25_Attach_Accept">RRC : downlinkDirectTransfer + GMM:Attach Accept</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">26) <a href="BasicCall_Voice_WCDMA.html#26_Attach_Complete">RRC : uplinkDirectTransfer + GMM:Attach Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">27) <a href="BasicCall_Voice_WCDMA.html#27_RRC_Connection_Release">RRC : RRC Connection Release</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">28) <a href="BasicCall_Voice_WCDMA.html#28_RRC_Connection_Release_Complete">RRC : RRC Connection Release Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">29) <a href="BasicCall_Voice_WCDMA.html#29_In_Idle_Mode">&lt; In Idle Mode &gt;</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">30) --- User Makes a Packet Call (e.g, Browsing) ---</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">31) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">RACH Preamble</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">32) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">AICH</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">33) <a href="BasicCall_Voice_WCDMA.html#3_4_5_RACH">RACH Message</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">34) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#34_RRC_Connection_Request">RRC : RRC Connection Request</a></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">35) <a href="BasicCall_Voice_WCDMA.html#35_RRC_Connection_Setup">RRC : RRC Connection Setup</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36) <a href="BasicCall_Voice_WCDMA.html#36_RRC_Connection_Setup_Complete">RRC : RRC Connection Setup Complete</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">37) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#37_GMM_Service_Request">RRC: initialDirectTransfer + GMM :&nbsp;Service&nbsp;Request</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">38) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#38_GMM_AuthenticationAndCipheringRequest">RRC : downlinkDirectTransfer + GMM:AuthenticationAndCipheringRequest</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">39) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#39_GMM_AuthenticationAndCipheringResponse">RRC : uplinkDirectTransfer + GMM:AuthenticationAndCipheringResponse</a></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">40) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#40_RRC_Security_Mode_Command">RRC : Security Mode Command</a></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">41) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#41_RRC_Security_Mode_Complete">RRC : Security Mode Complete</a></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">42) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#42_SM_Activate_PDP_Context_Request">RRC : uplinkDirectTransfer + SM&nbsp;: Activate PDP Context Request</a></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">43) </span></font><a href="BasicCall_Packet_WCDMA.html#43_Radio_Bearer_Setup"><b><font face="Verdana" color="#00CC00"><span style="font-size:10pt;">RRC : Radio Bearer Setup</span></font></b></a><b><font face="Verdana" color="#00CC00"><span style="font-size:10pt;"> </span></font></b><span style="font-size:10pt;"><font face="Verdana">&lt;= This is for a Packet Radio Bearer</font></span><font
+face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">44) </span></font><a href="BasicCall_Packet_WCDMA.html#44_Radio_Bearer_Setup_Complete"><b><font face="Verdana" color="#00CC00"><span style="font-size:10pt;">RRC : Radio Bearer Setup Complete</span></font></b></a><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">45) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#45_SM_Activate_PDP_Context_Accept">RRC : downlinkDirectTransfer + SM&nbsp;: Activate PDP Context Accept</a></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">46) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#46_Packet_Traffic">&lt; Packet Traffic&nbsp;&gt;</a></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">47) --- Network Initiate Voice Call --- </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">48) </span></font><span style="font-size:10pt;"><a href="#48_Paging_Type2"><font face="Verdana" color="#00CC00"><b>Paging (Type2)</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">49) </span></font><span style="font-size:10pt;"><a href="#49_Paging_Response"><font face="Verdana" color="#00CC00"><b>Paging Response</b></font></a></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">50) <a href="BasicCall_Voice_WCDMA.html#10_Authentication_Request">RRC : downlinkDirectTransfer + MM:Authentication Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">51) <a href="BasicCall_Voice_WCDMA.html#11_Attach_Request">RRC: initialDirectTransfer + GMM: Attach&nbsp;Request</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">52) <a href="BasicCall_Voice_WCDMA.html#12_AuthenticationResponse">RRC : uplinkDirectTransfer + MM:Authentication Response</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">53) </span></font><span style="font-size:10pt;"><a href="#53_Security_Mode_Command"><font face="Verdana" color="#00CC00"><b>RRC : Security Mode Command</b></font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">54) </span></font><span style="font-size:10pt;"><a href="#54_Security_Mode_Complete"><b><font face="Verdana" color="#00CC00">RRC : Security Mode Complete</font></b></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">55) <a href="BasicCall_Voice_WCDMA.html#42_CC_Setup">RRC : uplinkDirectTransfer + CC : Setup</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">56) <a href="BasicCall_Voice_WCDMA.html#43_CC_Call_Proceeding">RRC : downlinkDirectTransfer + CC : Call Proceeding</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">57) </span></font><span style="font-size:10pt;"><a href="#57_Radio_Bearer_Setup"><font face="Verdana" color="#00CC00"><b>RRC : Radio Bearer Setup</b></font></a><font face="Verdana" color="#00CC00"><b> </b></font><font face="Verdana">&lt;= This is for a (Packet + Voice)&nbsp;Radio Bearer</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">58) </span></font><span style="font-size:10pt;"><a href="#58_Radio_Bearer_Setup_Complete"><font face="Verdana" color="#00CC00"><b>RRC : Radio Bearer Setup Complete</b></font></a></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">59) <a href="BasicCall_Voice_WCDMA.html#46_CC_Alerting">RRC : downlinkDirectTransfer + CC : Alerting</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">60) <a href="BasicCall_Voice_WCDMA.html#47_CC_Connect">RRC : uplinkDirectTransfer + CC : Connect</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">61) <a href="BasicCall_Voice_WCDMA.html#48_CC_Connect_Acknowledge">RRC : downlinkDirectTransfer + CC : Connect Acknowledge</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">62) --- User Disconnect Voice Call --- </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">63) <a href="BasicCall_Voice_WCDMA.html#51_CC_Disconnect">RRC : uplinkDirectTransfer + CC : Disconnect</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">64) <a href="BasicCall_Voice_WCDMA.html#52_CC_Release">RRC : downlinkDirectTransfer + CC : Release</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">65) <a href="BasicCall_Voice_WCDMA.html#53_CC_Release_Complete">RRC : uplinkDirectTransfer + CC : Release Complete</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">66) --- User Disconnect Packet&nbsp;Call ---</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">67) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#48_SM_Deactivate_PDP_Context_Request">RRC : uplinkDirectTransfer + SM : Deactivate PDP Context Request</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">68) </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><a href="BasicCall_Packet_WCDMA.html#49_SM_Deactivate_PDP_Context_Accept">RRC : downlinkDirectTransfer + SM : Deactivate PDP Context Accept</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">69) <a href="BasicCall_Voice_WCDMA.html#54_RRC_Connection_Release">RRC : RRC Connection Release</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">70) <a href="BasicCall_Voice_WCDMA.html#55_RRC_Connection_Release_Complete">RRC : RRC Connection Release Complete</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="48_Paging_Type2">48) Paging (Type2)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="49_Paging_Response">49) Paging Response</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="53_Security_Mode_Command">53) RRC : Security Mode Command</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="54_Security_Mode_Complete">54) RRC : Security Mode Complete</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="57_Radio_Bearer_Setup">57) RRC : Radio Bearer Setup</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="58_Radio_Bearer_Setup_Complete">58) RRC : Radio Bearer Setup Complete</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font>&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

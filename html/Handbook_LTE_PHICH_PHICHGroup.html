@@ -1,0 +1,218 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;"><a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PHICH_PHICH_Group">PHICH/PHICH Group</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PHICH stands for Physical channel HybridARQ Indicator Channel. Simply put, it is a secially designed downlink only channel which carries ACK or NACK for the PUSCH received by the network. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Uplink case they just used PUCCH for carrying ACK/NACK for each PDSCH it recieved. Why don't we use PDCCH for ACK/NACK on network side. Good topic for you to think over -:) </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PHICH is carried by the first symbol of each subframe. (It is located in the same symbol as PCFICH). </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One PHICH is carried by multiple REG.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Multiple PHICH can be carried by the same set of REG and these multiple PHICH being carried by the same REGs are called PHICH group. These multiple PHICHs are multiplexed by orthogonal codes. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Therefore, to indentify a specific PHICH we need to know PHICH group number and orthogonal code index.</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In some (many ?) cases, mutiple PHICH can be mapped to a same set of resource elements and this group of PHICH being carried by the same set of resource element is called PHICH Group. (Why we have to carry multiple PHICH on a same set of resource elements ? Another good items for you to think -:) ). &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When some &quot;multiple things&quot; are carried by the same physical resources, we call the multiple things being &quot;multiplexed&quot;. So we can say a group of PHICH is being 'multiplexed' onto a set of resource elements. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When you multiplex something, you always have to think about how to &quot;de-multiplex&quot; them. It means that you have to multiplex somethings in such a way that they can be easily separated into individual things. If you multiplex things and those things cannot be demultiplexed, it is called a garbage -:). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the most common way of multiplexing in wireless communication would be to use &quot;orthogoal sequences&quot;. (You may remember how they multplexed multiple set of data in CDMA or WCDMA). PHICH multiplexing also uses the same method, meaning they are multiplexed with a set of predefined orthogonal sequences. The set of orthogonal sequence defined in 3GPP 36.211(&quot;6.9 Physical
+hybrid ARQ indicator channel&quot;) is as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Table_6_9_1_2_PHICH_Ortho_Sequence.PNG" width="485" height="307" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may notice that the PHICH&nbsp;spreading factor for 'Extended cyclic prefix' is half of the one for 'Normal cyclic prefix'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As a summary, I will put down the definition of PHICH and PHICH group is defined in 3GPP 36.211 &quot;6.9 Physical hybrid ARQ indicator channel&quot;&nbsp;as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_PHICH.PNG" width="660" height="227" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You would quickly notice that number of PHICH group is twice as many for extended cyclic prefix as the one for normal cyclic prefix.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You would see that to calculate the N_group_PHICH you should know Ng value and the specification says the Ng value comes from higher layer. In this case, the higher layers means &quot;MIB (Master Information Block)&quot;. MIB has an IE(information element) called &quot;phich-Resource&quot; as shown below. This IE represents Ng.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/MIB.PNG" width="373" height="129" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How many PHICHs can be carried by one PHICH group ? Maximum 8 PHICHs can be multiplexed into a PHICH group when we use normal CP and Maximum 4 PHICHs can be multiplexed into a PHICH when we use the extended CP. Zero PHICH in a PHICH group is also allowed.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How many PHICH groups can be supported by a system bandwidth ? This can be determined by the system bandwidth (N_RB)&nbsp;and a special parameter called Ng. These N_RB and Ng value is carried by MIB as shown above.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">With Ng and the N_DL_RB (maximum number of RB for a system bandwidth), you can calculate the N_group_PHICH as in the following table. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="458" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center">
+                <tr>
+                    <td width="156">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">N_RB \ Ng</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/6</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1/2</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="156">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">6 (1.4 Mhz)</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="156">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">15 (3 Mhz)</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="156">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">25 (5 Mhz)</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="156">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">50 (10 Mhz)</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">13</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="156">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">75 (15 Mhz) </span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">10</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">19</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="156">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">100 (20 Mhz)</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">3</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">13</span></font></p>
+                    </td>
+                    <td width="70">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">25</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Each PHICH in a PHICH group is mapped to each UE. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How many REG would be required to carry one PHICH ? To figure this out, we have to go through several steps and do some mental calculation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) ACK and NACK is encoded by 3 bits (111 for ACK, 000 for NACK). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) According to Table 6.9.1-2 of 36.211, each bit of PHICH is spreaded by 4 bits (SF=4) when we use 'normal cyclic prefix'. So each PHICH after spreading with a 4 bits orthgonal sequence becomes 12 bits.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) PHICH is modulated in BPSK and this means 'one symbol carries one bit'. And this in turn means we need 12&nbsp;symbols for each PHICH (each ACK or NACK). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Each RE (Resource Elements) carries one symbol. So we need 12 REs to carry one PHICH (one ACK or NACK). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) one REG is made up of 4 REs. So we need 3 REGs to carry one PHICH. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) These three REGs for one PHICH is distributed evenly across the whole bandwidth. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">From those multiple Groupes in a system bandwith and multiple PHICHs within each PHICH group, how UE would know exactly which PHICH to look for ? For the very details, you have to understand the procedure described in 9.1.2 PHICH Assignment Procedure of 36.213. As I mentioned above, you have to know the PHICH group number and orthogonal sequence index to locate the specific PHICH. UE figure
+out these two numbers from the lowest PRB index of the first slot of the PUSCH transmission and DMRS cyclic shift. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

@@ -1,0 +1,521 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897"><b><font face="Verdana"><span style="font-size:14pt;">LTE Advanced</span></font></b></td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LteAdvanced_01 */
+google_ad_slot = "3379708374";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">This is the document at the very early stage and will keep being updated as I get more detailed picture of LTE advanced. For now, please parden me with posting vague, poorly connected/organized contents. This is purely a skeleton which should be covered with flash and blood. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">I will keep putting more details and trying to connect dots in more organized way. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">As I explained in <a href="FromR99toLTE.html">From R99 to LTE</a> page, any kind of evolution of communication is based on a set of common technical motivation as follows. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Increase data throughput</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Decrease Latency</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Increase communication efficiency</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Increase the reliability of the data transaction (especially in cell boundary)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Followings are the topics I will cover in this page. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#LTE_vs_LTE_Advanced">LTE vs LTE Advanced</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#InitialMotivation">Initial Motivation for LTE Advanced</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#InitialDeployment">Initial Deployment</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Keywords_in_LTE_Advanced">Keywords in LTE Advanced</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Overview_of_Carrier_Allocation_Network_Arch">Overview of Carrier Allocation and Network Architecture</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RelayNetworks">Relay Node</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#LTE_Advanced_Roadmap_Check_List">LTE Advanced Roadmap Check List</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Personal_Questions_about_LTE_Advanced">Personal Questions about LTE Advanced</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#TransmissionMode_for_LTE_Advanced">Transmission Mode for LTE Advanced</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RRC_Snapshots_for_LTE_Advanced">RRC Snapshots for LTE Advanced</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Technical_Challenges_Implementing_LTE_Adv">Technical Challenges of Implementing LTE Advanced</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="LTE_vs_LTE_Advanced">LTE vs LTE Advanced</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <table border="1" width="837" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="375" bgcolor="#FFCC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="229" bgcolor="#FFCC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">LTE</span></font></p>
+                    </td>
+                    <td width="219" bgcolor="#FFCC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">LTE Advanced</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375">
+                        <p><font face="Verdana"><span style="font-size:9pt;">Max downlink speed (bps) </span></font></p>
+                    </td>
+                    <td width="229">
+                        <p align="center"><font face="Verdana"><span style="font-size:9pt;">100 M</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="center"><font face="Verdana"><span style="font-size:9pt;">1000 M (1 G)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Max up&nbsp;speed (bps) </span></font></p>
+                    </td>
+                    <td width="229">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">50 M</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">500 M</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375"><font face="Verdana"><span style="font-size:10pt;">Carrier Aggregation</span></font></td>
+                    <td width="229">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">No</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Yes</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375"><font face="Verdana"><span style="font-size:10pt;">Max Number of Layers (Downlink)</span></font></td>
+                    <td width="229">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2 (Cat 3), 4 (Cat 4,5)</span></font></p>
+                    </td>
+                    <td width="219">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">8</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375" height="5"><font face="Verdana"><span style="font-size:10pt;">Max Number of Layers (Uplink)</span></font></td>
+                    <td width="229" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="219" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375" height="6"><font face="Verdana"><span style="font-size:10pt;">Max Number of Codewords (Downlink)</span></font></td>
+                    <td width="229" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="219" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375" height="6"><font face="Verdana"><span style="font-size:10pt;">Max Number of Codewords (Uplink)</span></font></td>
+                    <td width="229" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="219" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375" height="6"><font face="Verdana"><span style="font-size:10pt;">Max Number of Transport Block/subframe (Downlink)</span></font></td>
+                    <td width="229" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="219" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375" height="6"><font face="Verdana"><span style="font-size:10pt;">Max Number of Transport Block/subframe (Uplink)</span></font></td>
+                    <td width="229" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="219" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375" height="6"><font face="Verdana"><span style="font-size:10pt;">Simultaneous PUSCH/PUCCH transmission</span></font></td>
+                    <td width="229" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Not Allowed</span></font></p>
+                    </td>
+                    <td width="219" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Allowed</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="375" height="6"><font face="Verdana"><span style="font-size:10pt;">Non Contiguous Data Transmission in Single DFT (Uplink)</span></font></td>
+                    <td width="229" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Not Allowed (SC-FDMA)</span></font></p>
+                    </td>
+                    <td width="219" height="27">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Allowed (Clustered SC-FDMA)</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="InitialMotivation">Initial Motivation for LTE Advanced</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may be hearing more and more about LTE Advanced these days (approaching the end of 2012) and you may think &quot;Do we really need such a huge bandwidth ? Is the current LTE BW not enough ? Do we have all the technologies mature enough for LTE Advanced Implementation ?&quot;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To see the mature implementation of LTE advanced network or mobile phone, you should get firm &quot;YES&quot; to following quesitons first. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is there any major LTE Network Operators who has strong willingness to deploy LTE Advanced Network(Feature) ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Are all those components (especially baseband chipsets and RF devices) for LTE advanced device&nbsp;available&nbsp;and mature in the market ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Are there any test equipment which are&nbsp;providing the test capability for the device ?</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As of the end of 2012, I don't think I have firm &quot;YES&quot; to any of these questions. But I am hearing that a couple of LTE network operators will deploy LTE Advanced feature in very near future and some operators has already supported the feature. I think this is true, but the LTE advanced they talk about at this point is not the full fledged technology and it is mainly about Carrier
+Aggregation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Does this mean that they already feel the current 20 Mhz LTE bandwidth is not enough ? As far as I know, it is not because of this. Even though the current LTE supports 20 Mhz BW in max, there are only a few network operators who is certified for such a wide bandwidth. The most common bandwidth that network operators has for LTE is 10 Mhz, which means they are not fully utilizing the LTE
+capability in terms of bandwidth. This is not because of technical restriction, it is purely because of licensing issues for the allocated bandwidth. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even though there is not many Network Operators who has 20 Mhz BW, there are some network operators who has license multiple band (e.g, two separated 10 Mhz BW and two or more 5 Mhz BW). These network operators wants to combine those multiple bands to achieve wide BW (in most case 20 Mhz BW) LTE. It is the initial motivation for LTE Advanced for now and I don't think we will see the fully
+grown LTE advanced technology in any time soon. We still have a lot of things to be done even for the initial LTE (Release 8 LTE) and this maturing process would take a couple of more years. LTE Advanced will be introduced gradually in parallele to Release 8 LTE, but initial introduction of LTE advanced would be more about &quot;Marketing motivation&quot; rather than &quot;Technical motivation&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="InitialDeployment">Initial Deployment</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may heard from other sources or will see in this page a lot of fancy stories about LTE advanced (like the aggregation of 5 carriers with 20 Mhz BW each, 8 x 8 DL MIMO, 4 x 4 UL MIMO,&nbsp;1G Data Rate etc). But as I mentioned above, the reality would not be as fancy as you may expect. As of Jan, 2013. The only type of deployment I am hearing that some network operators would deploy is
+as follows :</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) 2 DL Carriers (mostly 10 Mhz BW each, Inter band)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) NO UL Subcarriers</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Following illustration shows some of possible carrier allocations for initial deployment.</font></span></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/LTE_Advanced_InitialDeployment_CarrierAllocation_01.png" width="636" height="476" border="0"></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even this simple configuration there are many things to consider and following is some of the list. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">What kind of data you would carry on the primary and secondary DL carrier ?</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">: Definately both channel can carry PDSCH. How about PDCCH ? Would both DL carry each of its own PDCCH seprately ? or Primary DL Carrier would carry PDCCH for both carrier and the secondary carrier carry only PDSCH ?. Both options are possible and it is upto network implementation. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">How kind of data you would carry on UL carrier ?</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">: You may think there would be no differences in UL carrier if UL does not support multi carrier as in the initial deployment, but it would not be true. There would be no differences in terms of PUSCH, but how about PUCCH? Since UE is getting PDSCHs from two separate carriers, there should be questions of how to send HARQ ACK/NACK for each of the PDSCH. Should UE send separate PUCCHs(HARQ
+ACK/NACK for each DL carriers) or single PUCCH carrying the HARQ ACK/NACK for both channels. Both options are possible in terms of Rel 9/Rel 10 specification, but it is higher possibility to use a single PUCCH for carrying HARQ ACK/NACK for both DL carriers. It means that we will have new PUCCH format for this situation. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">How to handle PRACH ?</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">: Since UE can have possibility of send Uplink to two different carrier and can receive the data from two separate carrier. Possible channels for PRACH procedure can be diverse as shown below. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PRACH via Primary Carrier and RAR via Primary Carrier</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PRACH via Primary Carrier and RAR via Secondary&nbsp;Carrier</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PRACH via Secondary&nbsp;and RAR via Secondary&nbsp;Carrier</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">and couple of others.</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But I guess the first option would be the best candidate since it is easy and is the same as Rel 8 method we are currently using. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">How to handle handover with dual carrier ?</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">: For this, we may also have easy option or tricky option. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Tricky option would be to handover the two carrier without any modification from one cell (source cell) to another (destination cell). but this will cause a lot of issues if it is not very carefully implemented. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Easy option would be to remove the secondary DL channel before handover and then perform handover and configure the secondary channel in the destination cell. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Of course, it is highly probable to take an easy option for initial deployment. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Keywords_in_LTE_Advanced">Keywords in LTE Advanced</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Followings are some key words you would see from almost any LTE advanced material. Try to get familiar with these words at least from 10000 feet view. (I would put some details of each of these keywords over the next few weeks).</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Carrier Aggregation</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Enhanced UL Transmission (Clustered SC-FDMA)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Enhanced MIMO</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Relay Node</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LTE CoMP (Coordinated Multi Point transmission)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If I classify the keywords listed above into LTE architecture, it would be as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="794" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="192" bgcolor="#3399FF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Enhancement in Layers</span></font></p>
+                    </td>
+                    <td width="586" bgcolor="#3399FF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Features for Enancement</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="192" bgcolor="#33CCFF">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PHY Throughput</span></font></p>
+                    </td>
+                    <td width="586">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Carrier Aggregation</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Enhanced UL Transmission (Clustured SC-FDMA)</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Enhanced MIMO</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Antenna Configuration</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="192" bgcolor="#33CCFF">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Network Architecture</span></font></p>
+                    </td>
+                    <td width="586">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Relay Node</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CoMP</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Overview_of_Carrier_Allocation_Network_Arch">Overview of Carrier Allocation and Network Architecture</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the most important/critical feature in LTE Advanced is that we use multiple carriers in downlink and possible in uplink as well. It may sound simple to use multiple carriers, but in reality, with the introduction of multiple carrier all the possible carrier/resource allocation in uplink and downlink has such a huge combinations as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is not just a graphicaly complication -:). Just by looking at this illustration, a lot of questions would be boggling in your mind. How to allocated resources (number of RBs) in control channel ? Do we have to have separate HARQ process for each carrier ? or single-aggregated HARQ for the multiple carrier ? What about Uplink side ? How can I schedule the resource for Multiple SC-FDMA
+(Clustered SC-FDMA) ? etc... These are the topics I have to add later.. For now, just enjoy the illustration and use your imagination for all of these questions. Trying to get the solution based on your imagination would greatly help you to understand 3GPP specification. This is a kind of motivation step for the new study. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_R10_CarrierAllocation_Overview.PNG" width="728" height="538" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Another aspect of LTE Advanced is network architecture side. One of the key modification of LTE advanced is 'Relay Node' to improve data communication especially on cell boundary and increase cell coverage. Again, I just put the illustrations and I would like you to use your imagination to find the answers to the questions popping up in your mind. &nbsp;Do we need any RRC message or Information
+element to handle this Relay Node ? How a UE handle the situation as shown for UE C in the following illustration. This UE is getting the similar strength of signals both from eNodeB and Relay Node. Would it be possible to handover between two Relay Nodes ? Would the Relay Node have the same RF capability as eNB ? &nbsp;Would this Relay Node get involved in L1/PHY scheduling as well ? etc. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_R10_Network_Overview.PNG" width="680" height="350" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RelayNetworks">Relay Networks</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the biggest problem in LTE would be that the performance at cell edge would not be as good as those in CDMA/WCDMA. So understandably, one of the biggest feature of LTE advanced would be to come out with a wise compensation measure. On top of it, this compensation measure should be very economic. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">One of the most popular idea (or real implemetation) for this would be to add various relay node (RN). I found an excellent table&nbsp;from NTT DoCoMo technical report. I strongly recommend you to read the full document that I linked at the bottom of the following table. </font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_RN_DoCoMoTechnote.PNG" width="710" height="512" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.nttdocomo.co.jp/english/binary/pdf/corporate/technology/rd/technical_journal/bn/vol12_2/vol12_2_029en.pdf" target="_blank">Source : DoCoMo Technology Report vol 12-2</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Conceptually introducing this kind of Relay Node would give you a lot of gains in terms of throughput. Wouldn't there be any downside of this ? </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you have a lot of these small components scattered around here and there, how could you optimize all of these to give the best performance in terms of overall network, not only for a specific users or specifically restricted area ? </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Wouldn't there be any further complication in terms of signaling ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What about optimizing the resource allocation scheduling ? </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">etc</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I will leave all of these to you as your personal investigation items.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="LTE_Advanced_Roadmap_Check_List">LTE Advanced Roadmap Check List</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the most frequent question that I am getting lately about LTE advanced are &quot;Does your equipment/chipset/network support LTE Advanced Rel 10 ?&quot;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But I don't think this is a valid/meaningful question for now ? (Probably this questions will be meaningful in around 2 years) since I haven't seen any equipment/chipset/network supporting the full Rel 10 features. So if you ask this question now (as of Mar, 2012), you may come across one of the following questions. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : (The system/chipset/network supports (has implemented) around 10 percent of Rel 10 feature. ) But they say &quot;Yes, we support Rel 10 feature&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 2 : (The system/chipset/network supports (has implemented) around 50 percent of Rel 10 feature. ) But they say &quot;No, we do not support Rel 10 feature as of now&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Nobody tells a lie, but nobody tells the truth. My point is that single sentence question saying &quot;Does your equipment/chipset/network support LTE Advanced Rel 10 ?&quot; and the single setence answer &quot;Yes, we do&quot; or &quot;No, we don't&quot; does not make much sense now. If you chose an equipment/chipset/network based on this kind of single setense answer, you may get what is
+completed different from what you expected. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then what would be the valid question and valid answer for NOW ? My recommendation is to make a list of questions and check the answer for each questions. The longer the list would be, the better matches between what you get and what you expect. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A kind of shortest list that I can think of would be as follows. This is a list purely based on the technology itself(3GPP). If you are talking to specific UE/equipment/chipset/network vendor, you should have the additional list of questions which is specific for the UE/equipment/chipset/network because there can be a lot of variations of implemtation or software/protocols stacks interfacing
+with your own product. Sometimes this additional list can be even longer than the 3GPP based check list and can be more important to you. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Again the following is a kind of minimal set of question purely based on my personal criteria. You may have your own revised or totally different set of list. The point now is &quot;MAKE A LIST&quot; -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The word &quot;NOW&quot; in the following list would mean about 3~6 month from now.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="796" cellspacing="0" bordercolordark="white" bordercolorlight="black" height="518">
+                <tr>
+                    <td width="659" bgcolor="#6699FF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Question</span></font></p>
+                    </td>
+                    <td width="127" bgcolor="#6699FF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Answer</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How many Aggregated Carrier you need NOW&nbsp;?</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) More than 2</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Which type of Aggregation you need NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) Contiguous&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) Non-Contiguous &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) Both Contiguous and Non Configuos</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Which type of downlink MIMO (max configuration) you need&nbsp;NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) 2 x 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) 4 x 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) &nbsp;4 x 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4) 8 x 8</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Which type of transmission mode you need&nbsp;NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) TM8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) TM9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) Both TM8&nbsp;and TM9</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Which type of HARQ for PDSCH&nbsp;you need NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) single HARQ for all aggregated transmission&nbsp;&nbsp;&nbsp;&nbsp;2) separate HARQ for each carrier</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you need CQI, RI, PMI implemented according to Rel 10 specification NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) YES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) NO</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you need multi-carrier in Uplink&nbsp;NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) YES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) NO</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you need Clustered SC-FDMA in Uplink NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) YES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) NO</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="659" height="26">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you need Uplink Diversity&nbsp;NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) YES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) NO</span></font></p>
+                    </td>
+                    <td width="127" height="26">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="659" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you need Uplink MIMO&nbsp;NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) YES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) NO</span></font></p>
+                    </td>
+                    <td width="127" height="23">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="659" height="21">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Which type of uplink&nbsp;MIMO (max configuration) you need&nbsp;NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) 2 x 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) 4 x 2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3) 4 x 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></p>
+                    </td>
+                    <td width="127" height="42">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="659" height="21">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What is the maximum Rank for&nbsp;Uplink MIMO&nbsp;NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) 2 &nbsp;&nbsp;&nbsp;&nbsp;3) 3 &nbsp;&nbsp;&nbsp;&nbsp;4) 4 &nbsp;&nbsp;&nbsp;5) N/A</span></font></p>
+                    </td>
+                    <td width="127" height="42">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="659" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you need Relay Node (RN) configuration NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) YES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) NO</span></font></p>
+                    </td>
+                    <td width="127" height="23">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="659" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you need LTE advanced RRC feature NOW ?</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) YES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2) NO</span></font></p>
+                    </td>
+                    <td width="127" height="23">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="659">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Which level of RRC R10 implementation you need NOW ? </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1) ASN Only &nbsp;&nbsp;&nbsp;2) ASN and all the lower layer implementation corresponding the ASN</span></font></p>
+                    </td>
+                    <td width="127"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Personal_Questions_about_LTE_Advanced">Personal Questions about LTE Advanced</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Followings are my personal list of items to be investigated and updated as time allows. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in Transmission Mode</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TM 8</span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TM 9</span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TM 10</span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in Layer Mapping (36.211 6.3.3) ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in Precoding (36.211 6.3.4.2) ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in 36.213 Table 7.1.7.2.1-1 ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in PUCCH format ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in HARQ process ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in SRS structure ? </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in CQI, RI, PMI Report Structure ? </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Any Changes in L2 ? </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="TransmissionMode_for_LTE_Advanced">Transmission Mode for LTE Advanced</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_R10_TM.PNG" width="615" height="547" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RRC_Snapshots_for_LTE_Advanced">RRC Snapshots for LTE Advanced</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is overall steps for LTE adavanced Carrier Aggregation and UE Capability Information and RRC Connection Reconfiguration is the critical steps for Carrier Aggregation configuration. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_GeneralCallProcedure_01.png" width="678" height="472" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Followings is the information carried by UE Capability Information&nbsp;and its IEs for carrier aggregation and antenna configuration. (These are from 3GPP TS 36.331 version 10.4.0 Release 10)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/LTE_Advanced_RRC_UeCapability_01.png" width="730" height="373" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_RRC_UeCapability_02.png" width="741" height="395" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following table is used to configure 'CA-BandwidthClass-r10' IE (This table is from 3GPP TS 36.101 version 10.8.0 Release 10)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_RRC_CA_Class_01.png" width="651" height="237" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Followings is RRC Connection Reconfiguration message and its IEs for carrier aggregation and antenna configuration. (These are from 3GPP TS 36.331 version 10.4.0 Release 10)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_RRC_RrcConnReconfig_01.png" width="768" height="291" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_Advanced_RRC_PhysicalConfigDedicated_01.png" width="768" height="504" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Technical_Challenges_Implementing_LTE_Adv">Technical Challenges of Implementing LTE Advanced</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Followings are some technical challenges mainly for PHY/RF, but definitely there would be a lot of challenges in higher layer implmentation (eg, MAC for L1 scheduling)</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Handling multiple simultaneous reciever and transmitter chains</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Difficulties in handling spur management and self-blocking (mainly due to simultaneous transmission/reception of multi carriers)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Difficulties in Antenna design (especiallying difficult to support MIMO capability for all of the multiple carriers). </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Increased PAPR in Uplink transmission (mainly due to Clustered SC-FDMA)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+</body>
+
+</html>

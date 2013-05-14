@@ -1,0 +1,204 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, Antenna, Antenna Performance, Gain, Directivity, TRP, TIS " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="813">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">RF Component - Antenna &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="106">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="813">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_RF_01 */
+google_ad_slot = "7746299577";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Topics on this page are</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#What_is_Antenna">What is Antenna ?</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How to represent Antenna Performance ?</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Radiation_Pattern">Radiation Pattern</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Antenna_Gain">Antenna Gain</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Total_Radiated_Power">Total Radiated Power</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Total_Isotropic_Sensitivity">Total Isotropic Sensitivity</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Auto_tuning_Antenna_Matching">Auto tuning Antenna Matching</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Links_Antenna_Tutorials">Links for Antenna Tutorials</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="What_is_Antenna">What is Antenna ?</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you know, Antenna is a device which convert Electrical Engergy (Electrical Signal) into Electromagnetic Wave which is transmitted into space. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_Concept.PNG" width="412" height="295" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are various types of antenna out there, some of the examples are shown below. These are only some examples and there are a lot of other types as well. Just check how many of these you are familiar with.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Antenna_Types_01.png" width="592" height="501" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now in most of mobile communication devices, antenna are embedded in a small space. In a relatively older type of mobile phone, you might have seen the antenna shown at the left side of the picture (whip antenna). In most of the mobile devices you see these days, the antenna is embedded within the case or right on the PCB as shown below. As a mobile device (e.g, smart phone) gets more and more technologies (e.g, cellular technology with various band/radio access technology, bluetooth, WiFi etc) within a device, it is getting tougher and tougher to design multiple antenna and put them into a smal space). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Antenna_Types_02.png" width="663" height="407" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>How to represent Antenna Performance ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two major criteria to evaluate Antenna Performance as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) I should convert Electrical Engergy into Electromagnetic Energy with as little loss as possible.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) I should be able to transmit the converted electromatic engergy as much as possible only to the direction that I want.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are several indicators to represent the performance of an antenna as follows. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Radiation_Pattern">Radiation Pattern</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Antenna_Gain">Antenna Gain</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Total_Radiated_Power">Total Radiated Power</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Total_Isotropic_Sensitivity">Total Isotropic Sensitivity</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Radiation_Pattern">Radiation Pattern</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The first step to understand/evaluate the performance of an antenna is to check the radiation pattern of the antenna. Electrical energy flows through a predefined path in most case built in a copper cable or copper trace on PCB, but once the energy is converted into electromagnetic wave, it propagate into the air almost in every direction. Depending on how we design the antenna, the direction in the air in which electromagnetic wave propagate varies. In some direction, the antenna transmit very strong energy and in some direction it transmit small amount of energy and in some direction it transmit the medium range of energy etc. This kind of engergy transmission pattern is called 'Radiation Pattern'. (For more practical example of Radiation Pattern, refer to <a href="http://rcexplorer.se/Educational/gain/gain.html" target="_blank">http://rcexplorer.se/Educational/gain/gain.html</a></span></font> )</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is only some example of possible radiation pattern. In reality, you can think about almost infinite number of different pattern. The goal of antenna design is to make it so that it transmit the energy in the pattern that I want without any energy loss during the conversion from electrical energy to electromagnetic engergy. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_RadiationPattern_01.PNG" width="573" height="244" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_RadiationPattern_02.PNG" width="596" height="213" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_RadiationPattern_03.PNG" width="668" height="233" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_RadiationPattern_04.PNG" width="671" height="211" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_RadiationPattern_05.PNG" width="657" height="282" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Antenna_RadiationPattern_Example_01.png" width="553" height="403" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Antenna_Gain">Antenna Gain</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Personally I think the 'Antenna Gain' is a misleading term because </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) When we hear the term 'Gain', we usually think 'this device would amplify a signal to make it bigger energy'. But this is not true for Antenna. Most of Antenna is 'passive device' which does not amplify anything.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) When we think about Gain, the higher the gain is, the higher the total amount of energy coming out of the device is. But this may not be the true in Antenna case. Higher gain in Antenna may mean &quot;Higher engergy transmitted in a certain direction', but it may not mean 'Total amount of energy coming out of the device'. </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The definition of Antenna gain is the ratio of power transmitted in a certain direction to a certain reference point. This is usually expressed in dB, dBi or dBd. &nbsp;This is indicator to represent 'how well/efficiently the antenna transmit the energy in a specified direction'. Basic concept can be illustrated as follows. (For additional explanation, refer to <a href="http://rcexplorer.se/Educational/gain/gain.html" target="_blank">http://rcexplorer.se/Educational/gain/gain.html</a></span></font> )</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_Gain_Concept.PNG" width="691" height="389" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is a rule of thumb propagation pattern for typical Gain values. As you see, as Antenna gain increases the direction of propagation gets more and more focused, it does not mean that the total transmission energy (the area surrounded by the ovals) gets higher.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_Gain_Profile_01.png" width="622" height="137" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you want to know the methmatical definition for Gain, here you go. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_Gain_Equation_01.PNG" width="636" height="376" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In most case, Antenna Gain is expressed in logarithmic unit as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_Gain_Equation_02.PNG" width="225" height="45" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Total_Radiated_Power">Total Radiated Power (TRP)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It means as the term implies. It is 'sum of radiated power measured from all directions'. Simple definition of TRP can be illustrated as follows(Note : The sphere shown here is not the radiation pattern of the antenna. It is a 3 dimensional coordinate which is called 'spherical coordinate). I hope this is intuitive enough for you to get the idea without any further description. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_TRP_01.png" width="620" height="319" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two types of TRP, passive TRP and Active TRP. This classification comes from the different ways of measuring TRP. Actually it is related more to how to transmit the signal through the antenna. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In passive TRP, usually the DUT is the isolated antenna and the signal is fed directly to the antenna via the output port of a Network Analyzer (or output port of a signal generator) and measures the transmitted power through the input port of Network analyzer or input port of Spectrum&nbsp;Analyzer. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In active TRP, usually the DUT is the whole device including the antenna. For example, if it is for a mobile phone antenna measurement, we use the whole mobile phone as a DUT. The main purpose of Active TRP measurement is to see the performance of Antenna in real environment. In this case, you cannot use network analyzer or signal generator to transmit the signal through antenna. You have to use what most of people in this area calls a 'call box' which is basically a network simulator (e.g, eNodeB, NodeB, BTS simulator). We send the UE (e.g, mobile phone) a command 'send a signal with power XX dBm or max power' and measure the transmitted power using the 'call box' or 'spectrum analyzer'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For further reference of TRP. Refer to <a href="http://www.antenna-theory.com/definitions/trp.php" target="_blank">http://www.antenna-theory.com/definitions/trp.php</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Total_Isotropic_Sensitivity">TIS(Total Isotropic Sensitivity)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First you may ask &quot;What does 'Isotropic'mean ?&quot; &nbsp;If you look into a dictionary or google it, you would find a definition like &quot;Identical in all direction&quot;. &nbsp;TIS means &quot;Sensitivity at every direction based on assumption that the antenna is Isotropic(radiate/receive in the same strength in all direction)&quot;. &nbsp;In reality, there is no such an antenna that is purely isotropic. More practical meaning of TIS can be illustrated as below(Note : The sphere shown here is not the radiation pattern of the antenna. It is a 3 dimensional coordinate which is called 'spherical coordinate). As you see, you measure the sensitivity at every point at the intersection of a spherical grid. you wille&nbsp;have the different measurement result at all of those points in reality. If you take the average of those measured value, you will get a single value which indicate the TIS</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Antenna_TIS_01.png" width="605" height="323" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For further reference of TIS. Refer to <a href="http://www.antenna-theory.com/definitions/tis.php" target="_blank">http://www.antenna-theory.com/definitions/tis.php</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Auto_tuning_Antenna_Matching">Dynamic Antenna Matching</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(As of Apr, 2013) I think Automatic tunning of Antenna Matching circuit is becoming a hot topic especially in mobile phone industry and think it will be a pretty common technology in near future. If you google the keywords like &quot;Automatic Antenna Tuner&quot;,&quot;Dynamic Antenna Tuning&quot; etc, you will find various articles, papers and patents about various tuning technology. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Basic Idea on this technology is pretty simple. (It does not tune th antennna itself, it tunes the matching circuit of the antenna). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, let's suppose that we have a simple Pi network type of matching circuit as shown below. (In real implementation, the matching circuit would be more complex.. but I wanted to use the simplest structure for easy understanding). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In conventional implementation, you would build as shown below. Build a circuit as follows, keep changing the values for each component until you get the best transmission of the antenna. You may find the proper values in a couple of hours if you are lucky. If you are in bad luck, you would have to spent several day-and-nights to find the proper value. If the target frequency of the antenna changes, you would have to repeat this process. and the predefined value may not always work best for all the individual antenna mass produced in the factory. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Antenna_AutoTune_01.png" width="552" height="267" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To solve the problems mentioned above, they came out with the concept of automatic (dynamic) tuning of the matching circuit. The baisc idea is as follows. Let's assume that we built a matching circuit with variable Inductors and variable capacitors. These variable components should not be one of those variable component you can purchase from local radio shack and set the value by rotating a knob by hand. They all should be set in electronic control to make this circuit work without human intervention. Now the tricky thing would be to find (or develope) the variable inductor and capacitors. And these variable device should operate with minimum energy (voltage, current) consumption. Currently, it would be a little bit easier to find variable capacitors than variable inductors. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Antenna_AutoTune_02.png" width="706" height="467" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mainly due to availability of components and some other reasons, in most auto tuning circuit we use variable capacitors as shown below. Once you build a circuit, you may have to find proper values for these components for various situations and store those values in a lookup table and the control reflash the values from the lookup table according to the situation. In this case, how to construct the proper look up table for each situation would be a critical issue. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Antenna_AutoTune_03.png" width="615" height="343" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">So far so good ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">May be, or may be not. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the problems for the technique described above would be that you cannot guarantee the predefined look up table would work for all the possible situations. The situation may change in a little bit different way than expected and the look up table cannot do any good job. One of the common solution for this kind of situation would be to apply a value and check the result and feedback the result to the tuning algorithm so that the algorithm can do more tunings. This approach (closed loop approach) can be illustrated as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Antenna_AutoTune_04.png" width="757" height="386" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><a name="Links_Antenna_Tutorials"><font face="Verdana"><span style="font-size:10pt;"><b>Links for Antenna </b></span></font><font face="Verdana"><span style="font-size:10pt;"><b>Tutorials</b></span></font></a></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://en.wikipedia.org/wiki/Antenna_(radio)" target="_blank">Wiki : Antenna</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://rcexplorer.se/Educational/gain/gain.html" target="_blank">RCExplorer : simple explanation of antenna gain</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.antenna-theory.com/" target="_blank">AntennaTheory.com</a></span></font>                </li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="www.pulseelectronics.com/download/3720/g040" target="_blank">Pulse Electronics : Radiated Efficiency: A True Measure of Antenna Performance</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="www.diamondeng.net/library/AntennaMeasurement.pdf" target="_blank">Diamond Engineering : Antenna Measurements</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="www.broadcom.com/collateral/wp/21XX-WP100-R.pdf" target="_blank">Broadcom : Compliance with TIS and TRP Requirements</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="www.comportco.com/~w5alt/antennas/notes/ant-notes.php" target="_blank">ANTENNA NOTES FOR A DUMMY</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="106" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

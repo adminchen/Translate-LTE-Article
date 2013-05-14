@@ -1,0 +1,556 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, Throughput Calculation " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CQI">CQI</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI stands for Channel Quality Indicator. As the name implies, it is an indicator carrying the information on how good/bad the communication channel quality is. This CQI is for HSDPA. (LTE also has CQI for its own purpose). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI is the information that UE sends to the network and practically it implies the following two </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Current Communication&nbsp;Channel Quality is this-and-that..</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) I (UE) wants to get the data with this-and-that transport block size, which in turn can be directly converted into throughput</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In HSDPA, the CQI value ranges from 0 ~ 30. 30 indicates the best channel quality and 0,1 indicates the poorest channel quality. Depending which value UE reports, network transmit data with different transport block size. If network gets high CQI value from UE, it transmit the data with larger transport block size and vice versa. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if network sends a large transport block even though UE reports low CQI, it is highly probable that UE failed to decode it (cause CRC error on UE side) and UE send NACK to network and the network have to retransmit it which in turn cause waste of radio resources. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if UE report high CQI even when the real channel quality is poor ? In this case, network would send a large transport block size according to the CQI value and it would become highly probable that UE failed to decode it (cause CRC error on UE side) and UE send NACK to network and the network have to retransmit it which in turn cause waste of radio resources. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How UE can measure CQI ? This is the most unclear topic to me. As far as I know, there is no explicit description in any standard on the mechanism by which the CQI is calculated, but it is pretty obvious that the following factors play important roles to CQI measurement. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-noise ratio (SNR) </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-interference plus noise ratio (SINR)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-noise plus distortion ratio (SNDR)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is unclear how these factors are used and whether there is any other factors being involved. I was told the detailed CQI measurement algorithm is up UE implementation (chipset implementation). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In LTE, there are 15 different CQI values randing from 1 to 15 and mapping between CQI and modulcation scheme, transport block size is defined as follows (36.213)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_213_Table7_2_3_1_CQI_Table.PNG" width="417" height="338" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you are an engineer in Network (eNodeB) programming, you need to know the number of resource blocks and MCS for each CQI value to properly allocate the resources for each of UEs. With the modulation scheme in the table, you would get a certain range of MCS you can use for each CQI index. But you cannot pinpoint a specific MCS and Number of RBs. You need another condition to get the proper
+MCS and N RBs and it is '<a href="Handbook_LTE_CodeRate.html" target="_blank">Code Rate</a>' shown in the table. But still there is not a single formula that would give you a single/determined value for MCS and NRB. You have to come up with a set of MCS and N RB that meet the modulation scheme and Code Rate requirement in the table. One example case can be as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table align="center" border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 width=64 style='height:12.75pt;width:48pt' bgcolor="#33CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CQI</span></font></p>
+                    </td>
+                    <td width=70 style='width:53pt' bgcolor="#33CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Modulation</span></font></p>
+                    </td>
+                    <td width=78 style='width:59pt' bgcolor="#33CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Bits/Symbol</span></font></p>
+                    </td>
+                    <td class=xl22 width=78 style='width:59pt' bgcolor="#33CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">REs/PRB</span></font></p>
+                    </td>
+                    <td class=xl22 width=64 style='width:48pt' bgcolor="#33CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">N_RB</span></font></p>
+                    </td>
+                    <td class=xl22 width=64 style='width:48pt' bgcolor="#33CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">MCS</span></font></p>
+                    </td>
+                    <td class=xl22 width=70 style='width:53pt' bgcolor="#33CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TBS</span></font></p>
+                    </td>
+                    <td class=xl22 width=89 style='width:67pt' bgcolor="#33CC00">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Code Rate</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">QPSK</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">536</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.10144927536231885"
+  x:fmla="=(G2+24)/(C2*D2*E2)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.101449</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">QPSK</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">536</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.10144927536231885"
+  x:fmla="=(G3+24)/(C3*D3*E3)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.101449</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">QPSK</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">872</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.16231884057971013"
+  x:fmla="=(G4+24)/(C4*D4*E4)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.162319</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">QPSK</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1736</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.3188405797101449"
+  x:fmla="=(G5+24)/(C5*D5*E5)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.318841</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">QPSK</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2417</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.44221014492753624"
+  x:fmla="=(G6+24)/(C6*D6*E6)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.442210</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">QPSK</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">9</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3112</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.56811594202898552"
+  x:fmla="=(G7+24)/(C7*D7*E7)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.568116</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">16QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">12</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4008</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.36521739130434783"
+  x:fmla="=(G8+24)/(C8*D8*E8)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.365217</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">8</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">16QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">14</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">5160</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.46956521739130436"
+  x:fmla="=(G9+24)/(C9*D9*E9)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.469565</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">9</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">16QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">16</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6200</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.56376811594202902"
+  x:fmla="=(G10+24)/(C10*D10*E10)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.563768</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">10</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">64QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">7992</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.48405797101449277"
+  x:fmla="=(G11+24)/(C11*D11*E11)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.484058</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">11</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">64QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">23</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">9912</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num x:fmla="=(G12+24)/(C12*D12*E12)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.600000</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">12</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">64QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">25</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">11448</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.69275362318840583"
+  x:fmla="=(G13+24)/(C13*D13*E13)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.692754</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">13</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">64QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">27</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">12576</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.76086956521739135"
+  x:fmla="=(G14+24)/(C14*D14*E14)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.760870</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">14</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">64QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">28</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">14688</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.88840579710144929"
+  x:fmla="=(G15+24)/(C15*D15*E15)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.888406</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl22 style='height:12.75pt' x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">15</span></font></p>
+                    </td>
+                    <td class=xl22>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">64QAM</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">20</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">28</span></font></p>
+                    </td>
+                    <td class=xl22 x:num>
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">14688</span></font></p>
+                    </td>
+                    <td class=xl23 align=right x:num="0.88840579710144929"
+  x:fmla="=(G16+24)/(C16*D16*E16)">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0.888406</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note 1 : Refer to </span></font><span style="font-size:10pt;"><font face="Verdana"><a href="Handbook_LTE_ThroughputCalculationExample.html" target="_blank">Throughtput Calculation Example</a></font></span><font face="Verdana"><span style="font-size:10pt;"> for determining N_RB, MCS, TBS determination. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note 2 : REs/PRB varies depending on CFI value as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="269" align="center" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="120" bgcolor="#339900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CFI</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="133" bgcolor="#339900">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">REs/PRB</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="133">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">150</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="133">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">138</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="120">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="133">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">126</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note 3 : I used the following formula explained in </span></font><span style="font-size:10pt;"><font face="Verdana"><a href="Handbook_LTE_CodeRate.html" target="_blank">Code Rate</a></font></span><font face="Verdana"><span style="font-size:10pt;"> section. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v_CodingRate := (int2float(p_TBSize + 24)) / (int2float(p_N_PRB * tsc_REs_Per_PRB * v_BitsPerSymbol)); </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI is carried by PUCCH or PUSCH depending on the situation as follows.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Carried by PUCCH : When there is no uplink data to be transmitted</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Carried by PUSCH : When there is uplink data to be transmitted. </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding CQI report period and configuration, refer to <a href="Handbook_LTE_CQI_PMI_RI_ReportingConfiguation.html" target="_blank">CQI, PMI, RI Reporting Configuration</a> part.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

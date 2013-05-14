@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, Combined Attach " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Combined_Attach">Combined Attach</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In UMTS, we had a terminology called 'Combined Registration'. It means that UE simultaneously performs registration for CS network and PS network. LTE is bascially packet only (PS only). Then what is the purpose of this 'Combined Attach&quot; ? What does it mean ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It means that UE performs registration for LTE network and Non-LTE network (e.g, WCDMA or GSM) simultaneously. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Why do we need this kind of simultaneous registration for two different network ? It is mainly for <a href="Handbook_LTE_old1.html#CS_Fallback" target="_blank">CS-Fallback</a>. Unless a system operator/UE use Voice Over IMS, we use legacy network (e.g, WCDMA, GSM, C2K) for voice call. In this case, UE has to go through the registration for the legacy network. The idea of Combined Attach is
+to perform the attach
+process for LTE and Legacy Network simultaneously. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This attach method is specified in Attach Request and Attach Accept as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">Attach request ::= DIVISION</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Security header type ::= V</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Security header type ::= CHOICE [Plain NAS message, not security protected]</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-EPS mobility management protocol discriminator ::= V</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Protocol discriminator ::= PD [7]</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Attach request message identity ::= V</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Message type ::= MSG [41]</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-NAS key set identifier ::= V</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-TSC ::= CHOICE [native security context (for KSI ASME)]</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-NAS key set identifier ::= CHOICE [possible values for the NAS key set identifier 1]</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-EPS attach type ::= V</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Spare ::= FIX [0]</span></font></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-</span></font><font face="Lucida Console" color="red"><span style="font-size:10pt;">EPS attach type value ::= CHOICE [</span></font><span style="font-size:10pt;"><font face="Verdana" color="red">Combined EPS/IMSI Attach</font></span><font face="Lucida Console" color="red"><span style="font-size:10pt;">]</span></font></P>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE send its attach type information in at EPS attach type value IE of Attach Request. This IE has two options as follows.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">EPS Attach</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Combined EPS/IMSI Attach</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To Complete the Combined Attach, Network has to specify Attach Type as CombinedEPS/IMSI attach and LAI and TMSI as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">Attach accept ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Security header type ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Security header type ::= CHOICE [Plain NAS message, not security protected]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-EPS mobility management protocol discriminator ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Protocol discriminator ::= PD [7]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Attach accept message identity ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Message type ::= MSG [42]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-Spare half octet ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Spare half octet ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-EPS attach result ::= V</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red"><b>+-EPS attach result value ::= CHOICE [combined EPS/IMSI attach]</b></font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;.............</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-<b>Location area identification</b> ::= TV OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-Location Area Identification IEI ::= IEI [13]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-MCC digit 2 ::= INT (0..15) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-MCC digit 1 ::= INT (0..15) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet3 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-MNC digit 3 ::= INT (0..15) [15]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-MCC digit 3 ::= INT (0..15) [1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet4 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-MNC digit 2 ::= INT (0..15) [1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-MNC digit 1 ::= INT (0..15) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet5 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-LAC ::= INT (0..255) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet6 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| &nbsp;&nbsp;+-LAC (continued) ::= INT (0..255) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;+-MS identity ::= TLV OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-Mobile Identity IEI ::= IEI [23]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-Length of mobile identity contents ::= LEN (0..255) [5]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet3 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-Identity digit 1 ::= INT (0..15) [0]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-Odd/even indication ::= CHOICE [even number of identity digits and also when the TMSI/P-TMSI is used]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | +-<b>Type of identity ::= CHOICE [TMSI/P-TMSI/M-TMSI]</b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| +-Octet4-Octet10 ::= DIVISION</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| &nbsp;&nbsp;+-<b>Identity digit p ::= OCTETARRAY SIZE(0..7) [00000000]</b></font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

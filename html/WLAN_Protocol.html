@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="WLAN, Overview" />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">WLAN - Protocol&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home : <a
+href="http://www.sharetechnote.com"
+target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font>
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_WLAN_01 */
+google_ad_slot = "1340375574";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <div align="left">
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">There are a couple of different mode of WLAN operation. Following is the protocol sequence for the case we commonly use where we have an AP(Access Point) and the Device(client PC or Smart phone WLAN) gets connected to the access point. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Overall_Procedure">Overall Procedure</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Data_Transmission_Detail">Data Transmission in Detail</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SleepingMode_DataTransmission">Sleeping Mode and Data Traffic</a></span></font></li>
+                </ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Overall_Procedure">Overall Procedure</a></b></span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The AP is periodically transmitting (broadcasting) a special signal called Beacon signal saying &quot;I am here.. I am here .. I am capable of this and that .. etc)&quot;. &nbsp;Basically this Beacon is like MIB/SIB + Physical Layer Sync channel in mobile communication (e.g, WCDMA/LTE etc). AP broadcast this Beacon several times per seconds. Beacon transmission interval is contained in one of Beacon information fields. (See <a href="#BeaconInformationElements">Beacon data field</a>)</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When you turn on WLAN on your PC or Smart phone, the device first detect and decode this beacon signal and establish physical synchronization. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">After the physical Sync get established, the device and WLAN network goes through the authentication process and then association process which is similar concept to the registration process in mobile phone&nbsp;communication. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Speaking of scanning, there are two types of scanning. One is called Passive Scan and the other one is called Active Scan. As shown below, in Passive Scan the device scans and detect Beacon signal from AP and establish the sync based on the Beacon signal. In Active Scan mode, device broadcast Probe Request to all the APs (or any specific AP), if there is any AP that detect the probe request, it sends Probe Response to the device. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WLAN_Protocol_InitialConnectionSetup_01.png" width="662" height="464" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Once they went through Authentication and Association process, now the device can send and receive user data. Here comes a tricky issues for packet transaction especially when a party tries to transmit something. WLAN does not have concept of dedicated channel (e.g, as in UMTS mobile communication) and it does not have any well designed physical/MAC layer scheduing for each separate user. Basically they are allowed to transmit anytime they like, but in reality a device cannot transmit any time. If it transmit some data while another device is sending data, the data may get lost in the air or it would cause the data for other device get lost since the transmission from the two device would interfer each other. We need some special technique to prevent this problem happening. In Wired LAN, we use a techniq called CSMA/CD and in WLAN we use another technique called CSMA/CA. For the details of these technique, i will write a separate section.. but the goal/purpose of the technique is to make it sure that a device transmit the data when no other device is transmitting anything. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The techniqu that WLAN is using to transmit data without interfering other's is as shown below. The concept is simple. a device (let's call this a source device) send a short signal called RTS to another device (let's call this a destination device). If destination device successfully got the RTS, it is supposed to send CTS. If the source device successfully detect/decode the CTS, it transmit the main data. if the data is successfully recieved/decoded by the destication device, the destination device send 'ACK'. For each and every packet transmission, this process repeats. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WLAN_Protocol_Data.png" width="518" height="186" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Data_Transmission_Detail">Data Transmission in Detail</a></b></span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">More detailed process of this data tranmission in terms of timing can be illustrated as shown below. </span></font></p>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Source transmit the short RTS burst which carries source, destination and duration of following transaction.</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) All other devices around the source may receive the RTS burst. They are all checking if the RTS is for itself or not. </span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If&nbsp;it is for itself and the medium is free, the destination device transmit the CTS which also carries the duration of following transaction.</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Now all the other device (the neighbouring device other than 'Destination' device) also knows that the medium will be occupied for a certain time from now, they would set their NAV(Network Allocation Vector) accordingly so that it would not try sensing and try to transmit anything during that period. </span></font></p>
+                </ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WLAN_Protocol_CSMA_CA_Timing.png" width="614" height="256" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">In case of Fragmented Frame, the sequence goes as follows :</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WLAN_Protocol_CSMA_CA_Timing_Fragment.png" width="744" height="302" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SleepingMode_DataTransmission">Sleeping Mode and Data Transmission</a></b></span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WLAN_Protocol_SleepingMode_DataTraffic_01.png" width="560" height="498" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            </div>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">&nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

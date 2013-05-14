@@ -1,0 +1,408 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Tips for 3GPP Specfication &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+<font face="Verdana"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_04 */
+google_ad_slot = "4173408773";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you have something about which you have no idea of what they are talking about, you would ask somebody else for explanation.. and usually what you think is expert would give you very brief explanation which would not help you much and say &quot;Refer to the 3GPP spec AA.BBB for the detailed explanation&quot;. So you download and open the specification AA.BBB and start reading. Does this
+help ? In most case, NO. If you read the spec AA.BBB and it also says in similar way as your expert did, meaning &quot;giving you a minimum description and saying 'refer to spec BB.CCC&quot; and if you gets into the spec BB.CCC.. you will get into the same situation. This would be the first frustration when you try to understand based on the 3GPP specification. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is there any easy solution for this ? Honestly and unfortunately, NO. But one thing that may help you in long term would be to understand relationships among multiple specifications. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Pick a specific area where you are specially interested in and make a list of additional specification and define the relationship among those specification. I have a couple of examples here. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a href="#Specifications_Big_Picture"><font face="Verdana">Specification for Big Picture</font></a></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><a href="#Frequency_Band_and_ARFCN_Table"><font face="Verdana">Frequency Table and ARFCN</font></a></span></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#PCT_TestSuite">Overview of Conformance Test Suite Implementation</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PUCCH_Reference_Signal">PUCCH Reference Signal</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PUSCH">PUSCH</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PHICH">PHICH</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#ChannelEncodingProcedure">Channel Encoding Procedure</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RACH_Procedure">RACH Procedure</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PagingProcedure">Paging Procedure</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#CCE_Index_Calcuation">CCE Index Calcuation</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#DCI_Format">DCI Format</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#TBS_Throughput_Calculation">Transport Block Size and Throughput Calculation</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RRC">RRC</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#NAS_EPS">NAS</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Core_Network_Protocol">Core Network Protocol</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Ciphering_Integrity">Ciphering and Integrity</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SMS">SMS</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#IMS">IMS</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#AT_Command">AT Command</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Spec_Conformance">Specifications for UE conformance Testing</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#HowToGetTTCN">Where can I get TTCN and Viewer ?</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Specifications_Big_Picture">Specifications for Big Picture</a>.</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">EUTRA/EUTRAN Overview - TS36.300 (Read this as often as possible)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NAS : EPS - TS 24.301, TS 23.401, TS 29.274 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NAS : QoS Related - TS 23.203 (Policy and Charging Control Architecture) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RRC : TS 36.331</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/3GPP_Structure_LTE.PNG" width="491" height="512" border="0"></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Frequency_Band_and_ARFCN_Table">Frequency Band&nbsp;and ARFCN Table</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.101 - 5.7.3 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.521 - 5.4.4</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PCT_TestSuite">Overview of Conformance Test Suite Implementation</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.523-3 , V8.6.0 (2011-07)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.523-3 - 7.2 Uplink Grant</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.523-3 - 7.3 Downlink Resource Allocation</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.509 - Special Conformance Testing Functions for UE</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.509 - </span></font><font face="Verdana"><span style="font-size:10pt;">5 Test Control (TC) protocol procedures and test loop operation</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5.3.2 Activate UE test mode</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5.4.2 Close UE test loop</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5.4.5 Open UE test loop</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.509 - </span></font><font face="Verdana"><span style="font-size:10pt;">6 Message definitions and contents</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6.1 CLOSE UE TEST LOOP</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6.3 OPEN UE TEST LOOP</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6.5 ACTIVATE TEST MODE</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PUCCH_Reference_Signal">PUCCH Reference Signal</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.211 - 5.4 Physical uplink control channel </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.211 - 5.4.1 PUCCH formats 1, 1a and 1b </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.211 - 5.4.3 Mapping to physical resources </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.211 - 5.5.1.3 Group hopping </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.211 - 5.5.2.2 Demodulation reference signal for PUCCH </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.211 - 5.5.2.2.1 Reference signal sequence </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.2 Uplink transport channels and control information </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.2.3 Uplink control information on PUCCH </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.213 - 10.1 UE procedure for determining physical uplink control channel assignment </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 6.3.2 Radio resource control information elements - PUCCH-Config</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PUSCH">PUSCH</a> </b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.211 - 5.5.2.1 Demodulation reference signal for PUSCH </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.2 Uplink transport channels and control information </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.2.2 Uplink shared channel </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.2.3 Uplink control information on PUCCH </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 6.3.1 System information blocks – SystemInformationBlockType2 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 6.3.2 Radio resource control information elements – PUSCH-Config</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PHICH">PHICH</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.211 - 6.9 Physical hybrid ARQ indicator channel </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.213 - 8.3 UE ACK/NACK procedure </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.213 - 9.1.2 PHICH Assignment Procedure</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="ChannelEncodingProcedure">Channel Encoding Procedure</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.3.1 Broadcast channel</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.3.2 Downlink shared channel, Paging channel and Multicast channel</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.3.3 Downlink control information</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.3.4 Control format indicator</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.212 - 5.3.5 HARQ indicator</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RACH_Procedure">RACH Procedure</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS36.211 - 5.7 Physical random access channel </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS36.211 - Table 5.7.1-2 Frame structure type 1 random access configuration for preamble format 0-3. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS36.331 - 6.3.1 System information blocks – SystemInformationBlockType2 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS36.331 - 6.3.2 Radio resource control information elements - PRACH-Config </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS36.331 - 6.3.2 Radio resource control information elements - RACH-ConfigCommon </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS36.331 - 6.3.2 Radio resource control information elements - RACH-ConfigDedicated</span></font></p>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><FONT 
+face=Verdana><SPAN style="FONT-SIZE: 10pt">TS 36.300 - 10.1.5&nbsp;Overall 
+description of RACH Process. Read this first. </SPAN></FONT></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><FONT 
+face=Verdana><SPAN style="FONT-SIZE: 10pt">TS 36.211 - 5.7&nbsp;RRC Messages and 
+IE (Information Elements) which are involved in RACH process. </SPAN></FONT></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><FONT 
+face=Verdana><SPAN style="FONT-SIZE: 10pt">TS 36.213 - 6&nbsp;MAC Layer Procedure 
+related to RACH Process.</SPAN></FONT></P>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PagingProcedure">Paging Procedure</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.304 - 7 Paging</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CCE_Index_Calcuation">CCE Index Calcuation</a></b> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.213 - 9.1.1 PDCCH Assignment Procedure</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="DCI_Format">DCI Format</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format - 36.213 7.1 UE procedure for receiving the physical downlink shared channel </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Arial"><span style="font-size:10pt;"><a name="TBS_Throughput_Calculation"><b>Transport Block Size and Throughput Calculation</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Transport Block Size and Throughput Calculation - TS36.213 Table7.1.7.1-1 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><b><a name="RRC">RRC</a></b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Figure 4.2.1-1: E-UTRA states and inter RAT mobility procedures, 3GPP</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 4.2.1-2: Mobility procedures between E-UTRA and CDMA2000</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 5.2.1.3-1: Change of system Information</span></font></li>
+            </ul>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 6.2 RRC messages (ASN Structure)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 7.3 Timers (Informative)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 7.4 Constants</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 9.1.1 Logical channel configurations</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 9.2 Default radio configurations</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 9.2.2 Default MAC main configuration</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 9.2.3 Default semi-persistent scheduling configuration</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 9.2.4 Default physical channel configuration</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 9.2.5 Default values timers and constants</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.331 - 11 UE capability related constraints and performance requirements</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11.1 UE capability related constraints</span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11.2 Processing delay requirements for RRC procedures</span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="NAS_EPS">NAS&nbsp;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 24.301- NAS for EPS</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Table 9.3.1: Security header type</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.8.1: Message types for EPS mobility management</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.8.2: Message types for EPS session management</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.2.1.1: EPS bearer context status information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.2.1.1: EPS bearer context status information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.2.7.1: NAS security parameters to E-UTRA information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.2.7.1: NAS security parameters to E-UTRA information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.7.1: Detach type information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.7.1: Detach type information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.9.1: EMM cause information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.9.1: EMM cause information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.12.1: EPS mobile identity information element for type of identity &quot;GUTI&quot;</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.12.2: EPS mobile identity information element for type of identity &quot;IMSI&quot;</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.12.1: EPS mobile identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.12A.1: EPS network feature support information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.12A.1: EPS network feature support information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.13.1: EPS update result information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.13.1: EPS update result information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.14.1: EPS update type information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.14.1: EPS update type information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.15.1: ESM message container information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.15.1: ESM message container information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.19.1: KSI and sequence number information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.19.1: KSI and sequence number information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.21.1: NAS key set identifier information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.21.1: NAS key set identifier information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.22.1: NAS message container information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.22.1: NAS message container information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.23.1: NAS security algorithms information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.23.1: NAS security algorithms information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.25A.1: Paging identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.25A.1: Paging identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.27.1: Service type information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.27.1: Service type information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.28.1: Short MAC information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.28.1: Short MAC information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.32.1: Tracking area identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.32.1: Tracking area identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.33.1: Tracking area identity list information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.33.2: Partial tracking area identity list – type of list = &quot;000&quot;</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.33.3: Partial tracking area identity list – type of list = &quot;001&quot;</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.33.4: Partial tracking area identity list – type of list = &quot;010&quot;</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.33.1: Tracking area identity list information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.34.1: UE network capability information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.34.1: UE network capability information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.35.1: UE radio capability information update needed information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.35.1: UE radio capability information update needed information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.36.1: UE security capability information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.36.1: UE security capability information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.38.1: CLI information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.38.1: CLI information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.39.1: SS Code information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.39.1: SS Code information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.40.1: LCS indicator information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.40.1: LCS indicator information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.3.41.1: LCS client identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.3.41.1: LCS client identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.4.2.1: APN aggregate maximum bit rate information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.4.2.1: APN aggregate maximum bit rate information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.4.3.1: EPS quality of service information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.4.3.1: EPS quality of service information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.4.4.1: ESM cause information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.4.4.1: ESM cause information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.4.5.1: ESM information transfer flag information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.4.5.1: ESM information transfer flag information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.4.6.1: Linked EPS bearer identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.4.6.1: Linked EPS bearer identity information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.4.9.1: PDN address information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.4.9.1: PDN address information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Figure 9.9.4.10.1: PDN type information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 9.9.4.10.1: PDN type information element</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 10.2.1: EPS mobility management timers – UE side</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 10.2.2: EPS mobility management timers – network side</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 10.3.1: EPS session management timers – UE side</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Table 10.3.2: EPS session management timers – network side</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Annex A (informative): Cause values for EPS mobility management</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">A.2 Cause related to subscription options</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">A.3 Causes related to PLMN specific network failures and congestion/authentication failures</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">A.5 Causes related to invalid messages</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Annex B (informative): Cause values for EPS session management</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">B.2 Protocol errors (e.g., unknown message) class</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Annex C (normative): Storage of EMM information</span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;">Annex D (normative): Establishment cause (S1 mode only)</span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;">D.1 Mapping of NAS procedure to RRC establishment cause (S1 mode only)</span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 29.274</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 32.426 &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Core_Network_Protocol">Core Network Protocol</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 24.008</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 24.008 - 10.5.6.3&nbsp;&nbsp;&nbsp;&nbsp;Protocol configuration options (an IE in PDN Request and Attach Accept)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Verdana"><a name="Ciphering_Integrity"><span style="font-size:10pt; line-height:100%;"><b>Ciphering&nbsp;and&nbsp;Integrity</b></span><SPAN style="FONT-SIZE: 10pt"> </SPAN></a><SPAN style="FONT-SIZE: 10pt">
+</SPAN></font></P>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 33.401 - Security Architecture</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 33.402 - Security aspects of non-3GPP accesses</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 33.102 - 3G security;Security architecture</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 24.301 - 9.3 Security header type and EPS bearer identity - Security related NAS Message</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 33.102 - </span></font><font face="Verdana"><span style="font-size:10pt;">6.3 Authentication and key agreement</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 33.402 - 6.2 EPS key hierarchy</span></font><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 135 201 V7.0.0 (2007-06) - 3GPP confidentiality and integrity algorithms; Document 1: f8 and f9 specification</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">3GPP Algorithms - http://www.etsi.org/WebSite/OurServices/Algorithms/3gppalgorithms.aspx</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SMS">SMS</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 24.301 - 5.6.3.1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 24.301 - 5.6.3.3</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 24.301 - 9.9.3.22</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 24.301 - 5.6.3.1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.523 - 11.1 SMS over SGs</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="IMS">IMS</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 23.228</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="AT_Command">AT Command</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 27.007 - AT Command for UE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Spec_Conformance">Specifications for UE conformance Testing</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you want to know the details of Conformance Test for LTE, you need to refer to the specification listed at http://www.3gpp.org/ftp/Specs/html-info/36-series.htm</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even though you are not in the conformance type of testing, a lot of IOT (Inter Operability Test) and any user defined test cases has similar concept to the conformance. So trying to understand the conformance testing would help you understand any type of testing. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The first set of specification you have to be familar with are as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.521-1 : RF Conformance (Transmitter Test, Reciever Test and Performance Test) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.521-3 : RF Conformance (RRM Test) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.523 : Protocol Conformance </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When you read these specification, they would describe only test purpose/expected result and overal procedure, but does not describe details of protocol sequence and IE(information elements) for each of the Layer 3 messages. Regarding these, you have to refer to </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.508 : UE Test Environment </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.101 : UE TxRx</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, if you want to understand the procedure about &quot;LTE Transmit Power&quot; Measurement, the first thing you will look into will be the following description of 36.521. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">** 6.2.2.4.1 Initial Condition **</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. Connect the SS to the UE antenna connectors as shown in TS 36.508[7] Annex A Figure A3.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2. The parameter settings for the cell are set up according to TS 36.508 [7] subclause 4.4.3.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3. Downlink signals are initially set up according to Annex C.0, C.1, and C.3.0, and uplink signals according to Annex H.1 and H.3.0.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4. The UL Reference Measurement channels isset according to Table 6.2.2.4.1-1.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5. Propagation conditions are set according to Annex B.0.6. Ensure the UE is in State 3A according to TS 36.508 [7] clause 4.5.3A. Message contents are defined in clause6.2.2.4.3.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">** 6.2.2.4.2 Test procedure **</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1. SS sends uplink scheduling information every TTI via PDCCH DCI format 0 for C_RNTI to schedule the ULRMC according to Table 6.2.2.1.4.1-1. Since the UE has no payload and no loopback data to send the UE sendsuplink MAC padding bits on the UL RMC</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2. Send continuously uplink power control “up” commands in the uplink scheduling information to the UE until theUE transmits at its maximum output power state according to the test configuration from Table 6.2.2.4.1-1.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3. Measure the mean power of the UE in the channel bandwidth of the radio access mode. The period ofmeasurement shall be one sub-frame (1ms).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Just for overall test procedure, the information described above would be enough even without refering to other specification or table. But if you have to do the troubleshooting of the failed test/test error or if you are an engineer who has to develop the test cases, you should not miss even a tiny particles out of all of the following items which was refered in the procedure.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.508 Annex A Figure A3 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.508 subclause 4.4.3. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.521 Annex C.0, C.1, and C.3.0 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.521 Annex H.1 and H.3.0 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.521 Table 6.2.2.4.1-1 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.508 clause 4.5.3A </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TS 36.521 Table 6.2.2.1.4.1-1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you want to know the protocol sequence during the test case execution, you have to refer to TS 36.508 section &quot;4.5 Generic Procedure&quot;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then you need to know the contents (IE : Information Elements) of each message which is described in 36.508 section 4.6, 4.7, 4.7A. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Isn't this complicated enough to make your head spinning ? -:) But once you got into this area, you would never survive without being familiar with this documents and struggling with them.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font><span style="font-size:10pt;"></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="HowToGetTTCN">Where can I get TTCN and Viewer ?</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is where you can download the TTCN source code from</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.3gpp.org/ftp/tsg_ran/WG5_Test_ex-T1/TTCN/Deliveries/LTE_SAE/" target="_blank">http://www.3gpp.org/ftp/tsg_ran/WG5_Test_ex-T1/TTCN/Deliveries/LTE_SAE/</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can download free TTCN-3 Viewer from</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="https://www.anritsu.com/en-GB/Promotions/ttcn3-viewer/registration.aspx">https://www.anritsu.com/en-GB/Promotions/ttcn3-viewer/registration.aspx</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Where do I have to start ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you open up the TTCN source, it would look extremly complicated and I don't know where to start to look at. Where do I have to start ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you want to have overall understanding of test procedure/protocol sequence of each test case, I think it would be better to look at test case description in 3GPP 36.523-1. But when you go over the test procedure over and over, I would start further details of parameters and it's default values of the IE (information elements) for the test cases. I would start with EUTRA_RRC_ASN1_Definitions.asn
+in CommonEUTRA_Def folder. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font><span style="font-size:10pt;"></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

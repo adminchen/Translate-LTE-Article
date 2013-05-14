@@ -1,0 +1,632 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="MatLab, Octave, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Octave/Matlab</span></font></b><font face="Verdana"><span style="font-size:14pt;"><b>&nbsp;- Signal Processing</b></span><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_Matlab_01 */
+google_ad_slot = "1704498775";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this page, I would post a quick reference for Matlab and Octave. (Octave is a GNU program which is designed to provide a free tool that work like Matlab. I don't think it has 100% compatability between Octave and Matlab, but I noticed that most of basic commands are compatible. I would try to list those commands that can work both with Matlab and Octave). All the sample code listed here,
+I tried with Octave, not with Matlab. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are huge number of functions which has not been explained here, but I would try to list those functions which are most commonly used in most of matlab sample script you can get. My purpose is to provide you the set of basic commands with examples so that you can at least read the most of sample script you can get from here and there (e.g, internet) without overwhelming you. If you get
+familiar with these minimal set of functionality, you would get some 'feeling' about the tool and then you would make sense out of the official document from Mathworks or GNU Octave&nbsp;which explains all the functions but not so many examples. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I haven't completed 'what I think is the minimum set' yet and I hope I can complete within a couple of weeks. Stay tuned !!!</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Menu_SignalProcessing">Signal Process</a></b></span></font><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b>ing</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SignalProcessing_Quantization">Quantization - quantiz</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SignalProcessing_Interpolation">interpolation - interp</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SignalProcessing_resample_upsample">resample (upsample) - resample</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SignalProcessing_resample_downsample">resample (downsample) - resample</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#SignalProcessing_Filter">filter</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#SignalProcessing_fir1">fir1</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SignalProecssing_fir2">fir2</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#SignalProcessing_freqz">freqz</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="Octave_Matlab_FilterDesignaTutorial.htm" target="_self">Filter Design Tutorial</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#SignalProcessing_RRC_Filter">RRC (Root Raised Cosine) Filter</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SignalProcessing_Quantization">&lt; Quantization &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_Quantization_01.png" width="255" height="321" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t = [0:.1:2*pi];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig = sin(t);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">partition = [-1:.2:1];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">codebook = [-1.2:.2:1];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[index,quants] = quantiz(sig,partition,codebook);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(t,sig,'r-',t,quants,'b-',t,quants,'bo'); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([-.2 7 -1.2 1.2]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legend('Original signal','Quantized signal');</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_Quantization_02.png" width="478" height="382" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SignalProcessing_Interpolation">&lt; Interpolation &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fs=1000;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A=1.5; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">B=1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1=50; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2=100;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t=0:1/Fs:1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ifreqs=4;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ti= 0:1/(Fs*ifreqs):1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x=A*cos(2*pi*f1*t)+B*cos(2*pi*f2*t); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=interp(x,ifreqs); % interpolate signal by ifreqs</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">stem(t(1:25),x(1:25),'MarkerFaceColor',[0 0 1]);hold on; % plot original signal</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(ti(1:100),y(1:100),'ro','MarkerFaceColor',[1 0 0]);;hold off;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">legend('original data','interpolated data');</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_Interpolation_01.PNG" width="540" height="378" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SignalProcessing_resample_upsample">&lt;resample - upsample &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fs=1000;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A=1.5; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">B=1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1=50; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2=100;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t=0:1/Fs:1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ifreqs=4;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ti= 0:1/(Fs*ifreqs):1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x=A*cos(2*pi*f1*t)+B*cos(2*pi*f2*t); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=resample(x,ifreqs,1); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(ti(1:100),y(1:100),'ro','MarkerFaceColor',[1 0 0]);;hold on;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">stem(t(1:25),x(1:25),'MarkerFaceColor',[0 0 1]);hold off; % plot original signal</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">legend('resampled data','original data');</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_Resample_01.png" width="540" height="408" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SignalProcessing_resample_downsample">&lt; resample - downsample &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fs=1000;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A=1.5; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">B=1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f1=50; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f2=100;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t=0:1/Fs:1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ifreqs=4;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ti= 0:1/(Fs*ifreqs):1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x=A*cos(2*pi*f1*t)+B*cos(2*pi*f2*t); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=resample(x,ifreqs,1); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y1=resample(y,1,ifreqs);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(ti(1:100),y(1:100),'ro','MarkerFaceColor',[1 0 0]);;hold on;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">stem(t(1:25),y1(1:25),'MarkerFaceColor',[0 0 1]);hold off; % plot original signal</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">legend('original data','resampled data');</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_Resample_02.png" width="542" height="402" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="SignalProcessing_Filter"><b>&lt; Filter &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Apply the Digital Filter described as below. &nbsp;As you see in the mathematical description, you can apply&nbsp;both FIR and IIR applying the tab values.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_Filter_Eq.PNG" width="466" height="68" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a = 1;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = [0.2 0.2 0.2 0.2 0.2];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t = linspace(0,5*pi,100);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = sin(t) .+ 0.5*rand(1,100);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y = filter(b,a,x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,'r-',y,'b-');</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_Filter_Plot.PNG" width="586" height="287" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="SignalProcessing_fir1"><b>&lt; fir1&gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : b = fir1(N,[pass_L,pass_R]) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// Generate N tap Bandpass Filter with passband [pass_L,pass_R]. 0 &lt; pass_L,pass_R &lt; 1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = fir1(48,[0.25 0.75]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">stem(b);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">figure;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">freqz(b,1,512);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir_01.PNG" width="547" height="395" border="0"></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir_02.PNG" width="547" height="413" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 2&nbsp;: b = fir1(N,pass_R,'low') </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// Generate N tap Lowpass Filter with passband [0,pass_R]. 0 &lt; pass_R &lt; 1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = fir1(48,0.3,'low');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">stem(b);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">figure;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">freqz(b,1,512);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir1_lowpass_01.PNG" width="556" height="401" border="0"></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir1_lowpass_02.PNG" width="548" height="410" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 3&nbsp;: b = fir1(N,pass_L,'high') </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// Generate N tap Highpass Filter with passband pass_L. 0 &lt; pass_L &lt; 1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = fir1(48,0.7,'high');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">stem(b);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">figure;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">freqz(b,1,512);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir1_highpass_01.PNG" width="550" height="409" border="0"></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir1_highpass_02.PNG" width="552" height="409" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 4&nbsp;: b = fir1(N,[stop_L stop_R],'stop') </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// Generate N tap Bandstop&nbsp;Filter with bandstop between stop_L and stop_R. 0 &lt; stop_L, stop_R&nbsp;&lt; 1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = fir1(48,[0.45 0.55],'stop');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">stem(b);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">figure;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">freqz(b,1,512);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir1_bandstop_01.PNG" width="539" height="396" border="0"></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir1_bandstop_02.PNG" width="539" height="407" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="SignalProecssing_fir2"><b>&lt; fir2 &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : b = fir2(N,[f1,f2,f3,...,fm],[mag1,mag2,mag3,...,magM]) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// Generate N tap Filter with aribitrary passband definition specified by [f1,f2,f3,...,fm],[mag1,mag2,mag3,...,magM]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">f=[0, 0.2, 0.2, 0.4, 0.4, 0.7, 0.7, 0.8, 0.8, 1]; </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">m=[0, 0, 1, 1/2, 0, 0, 1, 1, 0, 0];</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b=fir2(120,f,m);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">figure;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(f,m,'r-');axis([0 1 -0.2 1.2]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">figure;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">stem(b);axis([0,length(b),-0.5,0.5]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">figure;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">freqz(b,1,512);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir2_01.PNG" width="536" height="396" border="0"></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir2_02.PNG" width="551" height="397" border="0"></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir2_03.PNG" width="556" height="398" border="0"></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;<span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="SignalProcessing_freqz"><b>&lt; freqz &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : freqz(b,a,NoOfFrequencyPoints) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// Produce frequency response plot (magnitude and phase vs frequency) with IIR filter coefficient vector b and a. (In case of FIR filter, set a to be 1). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = fir1(48,[0.25 0.75]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">freqz(b,1,512);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir_01.PNG" width="547" height="395" border="0"></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_fir_02.PNG" width="547" height="413" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 2&nbsp;: [h,w] = freqz(b,a,NoOfFrequencyPoints) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">// return the numerical data of&nbsp;frequency response with IIR filter coefficient vector b and a. (In case of FIR filter, set a to be 1). &nbsp;h returns the magnitude values and w returns frequency point values. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b = fir1(48,[0.25 0.75]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">[h,w]=freqz(b,1,512);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(w,10 .* log(abs(h)),'r-');axis([0 pi,-100,0]);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_freqz_01.PNG" width="557" height="401" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="SignalProcessing_RRC_Filter">&lt; RRC (Root Raised Cosine) Filter &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) This example may look a little complicated but the most important parts are only two lines (rcosine(), rcosflt()) as marked in blue. </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig = randi([0 1],1024,1); % This would generate random data of {0, 1}</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig = round(2*(sig - 0.5)); % This is to convert the data {0,1} into {-1,1}</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">upsample=8;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">num = rcosine(1,upsample,'sqrt'); % Transfer function of filter</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This function performs two procedures in a single step. First it upsample the input data(sig) and filter it with rrc filter (num)</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">sig_rrc = rcosflt(sig,1,upsample,'filter',num); </font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This is to perform fft. nextpow2() returns the number which is power of 2 and nearest to the number of input data.</font></span><font color="green"></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% fftshift rotate the fft data so that the peak is located at the center of the spectrum.</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Lsig = length(sig);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Lsig_rrc = length(sig_rrc);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NFFTsig = 2^nextpow2(Lsig); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NFFTsig_rrc = 2^nextpow2(Lsig_rrc); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sigfft=fftshift(fft(sig,NFFTsig)/Lsig);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rrcfft=fftshift(fft(sig_rrc,NFFTsig_rrc)/Lsig_rrc);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This is to convert the fft result into dB scale. </font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sigfft_dB = 20*log10(abs(sigfft));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rrcfft_dB = 20*log10(abs(sig_rrcfft));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% this is for plotting the original data and filtered data and frequency spectrum</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plotRange_tsig = 1:50;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plotRange_tsig_rrc = 1:(50*upsample);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,1);plot(sig(plotRange_tsig));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([1 length(plotRange_tsig) -1.2 1.2]);title('original data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,2);plot(sigfft_dB);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([0 length(sigfft_dB) -100 0]);title('FFT for original data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,3);plot(sig_rrc(plotRange_tsig_rrc));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([1 length(plotRange_tsig_rrc) -1.2 1.2]);title('upsampled and filtered data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;subplot(2,2,4);plot(sig_rrcfft_dB);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([0 length(sig_rrcfft_dB) -100 0]);title('FFT for upsampled and filtered data');</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_SignalProcessing_RRC_Filter_01.PNG" width="675" height="403" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) This example may look a little complicated but the most important parts are only two lines (rcosine(), rcosflt()) as marked in blue. </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">data = randi([0 1],1024,1); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">hMod = comm.QPSKModulator('BitInput',true)</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">hMod.PhaseOffset = 0;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig = step(hMod, data);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">upsample=8;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">num = rcosine(1,upsample,'sqrt'); % Transfer function of filter</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This function performs two procedures in a single step. First it upsample the input data(sig) and filter it with rrc filter (num)</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">sig_rrc = rcosflt(sig,1,upsample,'filter',num); </font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This is to perform fft. nextpow2() returns the number which is power of 2 and nearest to the number of input data.</font></span><font color="green"></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% fftshift rotate the fft data so that the peak is located at the center of the spectrum.</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Lsig = length(sig);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Lsig_rrc = length(sig_rrc);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NFFTsig = 2^nextpow2(Lsig); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NFFTsig_rrc = 2^nextpow2(Lsig_rrc); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sigfft=fftshift(fft(sig,NFFTsig)/Lsig);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rrcfft=fftshift(fft(sig_rrc,NFFTsig_rrc)/Lsig_rrc);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This is to convert the fft result into dB scale. </font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sigfft_dB = 20*log10(abs(sigfft));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rrcfft_dB = 20*log10(abs(sig_rrcfft));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% this is for plotting the original data and filtered data and frequency spectrum</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,1);plot(real(sig),imag(sig));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([-1 1 -1 1]);title('original data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,2);plot(sigfft_dB);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([0 length(sigfft_dB) -100 0]);title('FFT for original data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,3);plot(real(sig_rrc),imag(sig_rrc));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([-1 1 -1 1]);title('upsampled and filtered data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,4);plot(sig_rrcfft_dB);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([0 length(sig_rrcfft_dB) -100 0]);title('FFT for upsampled and filtered data');</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p align="center"><img src="../image/Matlab_SignalProcessing_RRC_Filter_02.PNG" width="678" height="596" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) This example may look a little complicated but the most important parts are only two lines (rcosine(), rcosflt()) as marked in blue. </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">data = randi([0 1],1024,1); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">hMod = comm.QPSKModulator('BitInput',true)</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">hMod.PhaseOffset = 0;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig = step(hMod, data);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">upsample=8;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">num = rcosine(1,upsample,'sqrt'); % Transfer function of filter</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This function performs two procedures in a single step. First it upsample the input data(sig) and filter it with rrc filter (num)</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">sig_rrc = rcosflt(sig,1,upsample,'filter',num); </font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rcv = rcosflt(sig_rrc,1,upsample,'Fs/filter',num);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This is to perform fft. nextpow2() returns the number which is power of 2 and nearest to the number of input data.</font></span><font color="green"></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% fftshift rotate the fft data so that the peak is located at the center of the spectrum.</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Lsig = length(sig);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Lsig_rrc = length(sig_rrc);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Lsig_rcv = length(sig_rcv);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NFFTsig = 2^nextpow2(Lsig); </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NFFTsig_rrc = 2^nextpow2(Lsig_rrc); </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NFFTsig_rcv = 2^nextpow2(Lsig_rcv); </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sigfft=fftshift(fft(sig,NFFTsig)/Lsig);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rrcfft=fftshift(fft(sig_rrc,NFFTsig_rrc)/Lsig_rrc);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rcvfft=fftshift(fft(sig_rcv,NFFTsig_rcv)/Lsig_rcv);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% This is to convert the fft result into dB scale. </font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sigfft_dB = 20*log10(abs(sigfft));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rrcfft_dB = 20*log10(abs(sig_rrcfft));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sig_rcvfft_dB = 20*log10(abs(sig_rcvfft));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="green">% this is for plotting the original data and filtered data and frequency spectrum</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(3,2,1);plot(real(sig),imag(sig));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([-1 1 -1 1]);title('original data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(3,2,2);plot(sigfft_dB);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([0 length(sigfft_dB) -100 0]);title('FFT for original data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(3,2,3);plot(real(sig_rrc),imag(sig_rrc));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([-1 1 -1 1]);title('upsampled and filtered data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(3,2,4);plot(sig_rrcfft_dB);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([0 length(sig_rrcfft_dB) -100 0]);title('FFT for upsampled and filtered data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(3,2,5);plot(real(sig_rcv),imag(sig_rcv));</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([-2 2 -2 2]);title('recieved data');</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(3,2,6);plot(sig_rcvfft_dB);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;axis([0 length(sig_rcvfft_dB) -100 0]);title('FFT for recieved data'); </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p align="center"><img src="../image/Matlab_SignalProcessing_RRC_Filter_03.png" width="423" height="471" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, CDD, Cyclic Delay Diversity  " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="CDD"><b>CDD (Cyclic Delay Diversity)</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CDD is a kind of transmit diversity mechanism implemented by applying a different phase delay (cyclic phase delay)&nbsp;for each OFDM subcarrier. It is used in spatial multiplexing to increase diversity between the 2 spatial paths.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Very simply put, in CDD... one antenna is transmitting the original copy of data and the other antenna is transmitting the cyclic shifted version of the original data as illustrated below (see how the yellow part to represent the cyclic shift)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/CDD_01.PNG" width="629" height="210" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you represent the transmitted data in frequecy domain, the original data and the cyclic shifted version can be represented as follows. As you see, the cyclic shif in time domain produce the phase shift for each symbols in frequency domain and it generate the same effect as&nbsp;frequency diversity. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/CDD_02.PNG" width="642" height="185" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CDD is applied differently for each transmission mode as shown in the following table. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <table border="1" width="452" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center">
+                <tr>
+                    <td width="103" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM type</span></font></p>
+                    </td>
+                    <td width="136" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Number of Antenna</span></font></p>
+                    </td>
+                    <td width="199" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CDD Type</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM1</span></font></p>
+                    </td>
+                    <td width="136">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NO CDD</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM2</span></font></p>
+                    </td>
+                    <td width="136">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NO CDD</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM3</span></font></p>
+                    </td>
+                    <td width="136">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">LARGE CDD</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM4</span></font></p>
+                    </td>
+                    <td width="136">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NO CDD</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM5</span></font></p>
+                    </td>
+                    <td width="136">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NO CDD</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM6</span></font></p>
+                    </td>
+                    <td width="136">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NO CDD</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="103">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM7</span></font></p>
+                    </td>
+                    <td width="136">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NO CDD</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What is the difference between NO CDD (without CDD) and LARGE CDD ? To be honest, I don't think I can explain it in easy way implying that even I don't have fully-detailed understanding on this. If I don't explain anything in plain term. You can refer to 36.211 section 6.3.4.2 Precoding for spatial multiplexing or you can refer to the <a href="BasicProcedures_LTE.html#Precoding" target="_blank">precoding</a> section of <a href="BasicProcedures_LTE.html" target="_blank">LTE Basic Procedure</a> page. (Sometimes there is some concept that you cannot understand without going through the mathmatical description and pulling your hair for long time). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Lucida Console"><span style="font-size:10pt;"></span></font><font face="Lucida Console"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+           
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

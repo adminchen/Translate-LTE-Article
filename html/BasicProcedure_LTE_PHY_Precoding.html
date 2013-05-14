@@ -1,0 +1,94 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Basic Procedure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="BasicProcedures_LTE_Index.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LTE_BasicProcedure_01 */
+google_ad_slot = "1058697172";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Procoding</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Unfortunately I don't know how to explain this part in plain language without using any mathematical tools. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">As you see in the following diagram, Precoding is the process that is between Layer Mapper and Resource mapper. In practice, this precoding is the process that rearrange the IQ constellation into the form that can maximize the throughput to the multiple reciever antenna. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_01.PNG" width="725" height="290" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">To make the process and understanding simpler, let's assume that we are only focusing on two antenna case. If it is two antenna case, the block diagram around the Precoding looks as follows. (TM4 is using this configuration)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_02.PNG" width="743" height="510" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_03.PNG" width="481" height="405" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The only way to understand this concept to the skin would be to try this yourself and play with all these parameters like your toys. To help this, I created a small octave code and attached <a href="../Docs/Precoding_Ex01.zip">here</a>. (I create this code in <a href="http://www.gnu.org/software/octave/download.html" target="_blank">Octave</a> which is a Matlab like GNU program,
+but I guess it will run in Matlab without any modification. I tried to write the code so that I can run on both program but I haven't tested it in Matlab myself). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_04.PNG" width="674" height="548" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Note : If I expand the transformation shown above into a 2 x 2 case to give you more concrete idea, it can be illustration as follows. Since all of the data used here are complex numbers (Real = I, Imaginary = Q), the result of operation may not be so intuitive to you. If you are really interested in understanding the result of transformation, try this transformation with your own program or pen-paper calculation on your own. At least, play with the matlab code that I created and linked here. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_2Layer_2Antenna_Note_01.PNG" width="685" height="280" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Following is the real Downlink signal coming out of a LTE network emulator. I capture the signal and analyzed it with a vector spectrum analyzer with LTE analysis functionality. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_05.PNG" width="743" height="359" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Now let try apply the CDD. I would recommend you to try investigate on what's is CDD in practical sense and what would be the advantage of applying CDD. Here I would only show you the result of the CDD application. The Octave code is&nbsp;<a href="../Docs/Precoding_CDD_Ex01.zip">here</a>. (I create this code in <a href="http://www.gnu.org/software/octave/download.html" target="_blank">Octave</a> which is a Matlab like GNU program,
+but I guess it will run in Matlab without any modification. I tried to write the code so that I can run on both program but I haven't tested it in Matlab myself). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_CDD_01.PNG" width="748" height="557" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Following is the case where a single layer data stream gets transmitted by two antenna. Overall procedure is as follows. (TM6 is using this configuration)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_1Layer_2Antenna_03.PNG" width="743" height="510" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">If we apply the Layer 1 code book to a sequence of data, we will get the constellation as follows. If you briefly see the constellation, you don't find any differences in terms of constellation except overall amplitude gets smaller after going through the precoding block. But if you following through the precoding process for each one (single) constellation, you will understand the differences. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The Octave code is&nbsp;<a href="../Docs/Precoding_Ex02.zip">here</a>. (I create this code in <a href="http://www.gnu.org/software/octave/download.html" target="_blank">Octave</a> which is a Matlab like GNU program,
+but I guess it will run in Matlab without any modification. I tried to write the code so that I can run on both program but I haven't tested it in Matlab myself).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_1Layer_2Antenna_01.PNG" width="691" height="527" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Note : If I expand the transformation shown above into two antenna&nbsp;case (diversity)&nbsp;to give you more concrete idea, it can be illustration as follows. Since all of the data used here are complex numbers (Real = I, Imaginary = Q), the result of operation may not be so intuitive to you. If you are really interested in understanding the result of transformation, try this transformation with your own program or pen-paper calculation on your own. At least, play with the matlab code that I created and linked here.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_1Layer_2Antenna_Note_01.PNG" width="712" height="283" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">As I mentioned above, if you just&nbsp;see the overall constellation, you don't find any differences in terms of constellation except overall amplitude gets smaller after going through the precoding block. But if you following through the precoding process for each one (single) constellation, you will understand the differences. Following sequences of plots shows you 'Precoding' result of each points with each precoding (transformation) vector. Colored spots represents the constellation (I/Q data) coming(I/Q data) out of Layer Mapping block and coming into Precoding block. Black spots represents the constellation coming out of the Precoding block. You would notice that each of the colored spots creates two black spots. Even for the plot with only one black spots, it is the superimposed result of two black spots. Each of the black spots gets transmitted by each of the antenna. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The Octave code is&nbsp;<a href="../Docs/Matrix_ComplexNumber_Ex3.zip">here</a>. (I create this code in <a href="http://www.gnu.org/software/octave/download.html" target="_blank">Octave</a> which is a Matlab like GNU program,
+but I guess it will run in Matlab without any modification. I tried to write the code so that I can run on both program but I haven't tested it in Matlab myself).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Precoding_1Layer_2Antenna_02.PNG" width="538" height="506" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

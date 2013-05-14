@@ -1,0 +1,308 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Frame Structure - Downlink &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">
+&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_05 */
+google_ad_slot = "5650141978";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+
+			</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">One good way to study this kind of thing and get some practical understanding would be to start from the view from the highest level and get deeper into it step by step. </span></font></p>
+            <ul>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><a href="#Overview"><span style="font-size:10pt;">Overview</span><span style="font-size:10pt; line-height:100%;">-FDD</span></a></font></div>
+                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Overview_TDD">Overview-TDD</a></span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#PBCH">PBCH(Physical Broadcast Channel)</a> </span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#First_1_2_3_Symbols">The first L(1 or 2 or 3) Symbols</a></span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#PCFICH">PCFICH(Physical Control Format Indicator Channel)</a> </span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#PDCCH">PDCCH(Physical Downlink Control Channel)</a> </span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#PHICH">PHICH</a> </span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#PDSCH">PDSCH(Physical Downlink Shared Channel)</a></span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH">PRACH</a> </span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#PSS">P-SS(Primary Synchronization Signal)</a></span></font></div>
+                                                                                                                                </li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RS">RS (Reference Signal)</a></span></font></li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#Whole_Frame_Snapshot">Whole Frame Snapshot</a></span></font></div>
+                                                                                                                                                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;"><a href="#Physical_Channels_in_Communication">Physical Channels in Communication</a></span></font></div>
+                                                                                                                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a href="#Gallery">Gallery</a></span></font></div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Overview">Overview</a></b></span></font><font face="Verdana"><span style="font-size:10pt;"><b> - FDD</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The highest level view from 36.211 for FDD LTE is as follows. It only shows the structure of one frame in time domain. It does not show any structure in frequency domain. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Some of high level description you can get from this figure would be </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">i) Time duration for one frame (One radio frame, One system frame) is 10 ms. This means that we have 100 radio frame per second.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">ii) the number of samples in one frame (10 ms) is 307200 (307.200 K) samples. This means that the number of samples per second is 307200 x 100 = 30.72 M samples.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">iii) Number of subframe in one frame is 10.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">iv) Number of slots in one subframe is 2. This means that we have 20 slots within one frame. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_Fig4_1_1_FDD_DL_FrameStructure.PNG" width="587" height="210" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">So one slot is the smallest structure in time domain ? No, if you magnify this frame structure one step further, you would get the following figure. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Now you see that one slot is made up of 7 small blocks called 'symbol'. (One symbol is a certain time span of signal that carry one spot in the I/Q constellation.).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">And you see even smaller structures within a symbol. At the beginning of symbol you see a very small span called 'Cyclic Prefix' and the remaining part is the real symbol data.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">There are two different type of Cyclic Prefix. One is normal Cyclic Prefix and the other is 'Extended Cyclic Prefix' which is longer than the Normal Cyclic Prefix. (Since the length of one slot is fixed and cannot be changed, if we use 'Extended Cyclic Prefix', the number of symbols that can be accomodated within a slot should be decreased. So we can have only 6 symbols if we
+use 'Extended Cyclic Prefix').</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/FDD_DL_FrameStructure_Symbols.PNG" width="561" height="245" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Now let's magnify the structure even further, but this time expand in frequency domain, not in time domain. You will get the following full detail diagram.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PHY_CH_DL.PNG" width="647" height="393" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">The first thing you have to be very familiar with as an engineer working on LTE is the following channel map shown above. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">We can represent an LTE signal in a two dimensional map as shown above. The horizontal axis is time domain and the vertical axis is frequency domain. The minimum unit on vertical axis is a sub carrier and the minimum unit on horizontal axis is symbol. For both time domain and frequency domain, there are multiple hiarachies of the units, meaning a multiple combination of a smaller unit become
+a larger units.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Let's look at the frequency domain structure first.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">LTE (any OFDM/OFDMA) band is made up of multiple small spaced channels and we call each of these small channels as &quot;Sub Carrier&quot;.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Space between the chhanel and the next channel is always same regardless of the system bandwidth of the LTE band.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">So if the system bandwidth of LTE channel changes, number of the channels (sub carriers) changes but the space between channels does not change.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; What is the space between a subcarrier and the next sub carrier ? A&gt; 15 Khz</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; What is the number of channels(sub carriers) for 20 Mhz LTE band ? A&gt; 1200 sub carriers.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; What is the number of channels(sub carriers) for 10 Mhz LTE band ? A&gt; 600 sub carriers.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; What is the number of channels(sub carriers) for 5 Mhz LTE band ? A&gt; 300 sub carriers.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Got any feelings about sub carriers and it's relation to system bandwidth ? </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now let's look at the basic units of horizontal axis which is time domain. The minimum unit of the time domain is a Symbol, which amounts to 66.7 us. Regardless of bandwidth, the symbol length does not changes.In case of time domain, we have a couple of other structures as well. The largest unit in time domain is a frame, each of which is 10 ms in length. Each of the frame consists of 10
+sub frames, each of which is 1 ms in length. Each of sub frame consists of 2 slots, each of which is 0.5 ms in length.Each of slots consists of 7 symbols, each of which is 66.7 us.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">With this in mind, let's think about the scale in reverse direction. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many symbols are there in a slot ? A&gt; 7 symbols.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many symbols in a sub frame ? A&gt; 14 symbols.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many slots are there in a frame ? A&gt; 20 slots. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now let's look at the units which is made up of both time domain (horizontal axis) and frequency domain (vertical axis). Let's call this type of unit a two-dimensional unit. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">The minimum two dimensional unit is resource element which is made up of one symbol in time domain and one sub carrier in frequency domain. Another two dimensional unit is resource block(RB) which is made up of one slot in time domain and 12 sub-carrier in frequency domain. Resource Block(RB) is the most important units in LTE both for protocol side and RF measurement side.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now here goes questions.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many symbols in a resource block ? A&gt; 7 symbols.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many sub-carriers in a resource block ? A&gt; 12 sub-carriers.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many resource elements in a resource block ? A&gt; 84 resource elements. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now it's time to combine all the units we covered. The following questions are very important to read any of the LTE specification. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many resource blocks in a 20 Mhz band ? A&gt; 100 resource blocks.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many resource blocks in a 10 Mhz band ? A&gt; 50 resource blocks.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Q&gt; How many resource blocks in a 5 Mhz band ? A&gt; 25 resource blocks. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">I have seen this type of mapping so many times from so many different sources, but do I really understand all the details of the map ? No not yet. It will take several years to understand every aspects of the map. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Probably what I do as the first step is to describe each part of the map in a verbal form</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><b><a name="Overview_TDD">Overview-TDD</a></b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_211_TDD_DL_FrameStructure.png" width="766" height="678" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PBCH">PBCH(Physical Broadcast Channel) </a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It carries only the MIB.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is using QPSK.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mapped to 6 Resource Blocks (72 subcarriers), centered around DC subcarrier in sub frame 0.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mapped to Resource Elements which is not reserved for transmission of reference signals, PDCCH or PCHICH </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="First_1_2_3_Symbols">The first L(1 or 2 or 3) Symbols</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is one of the most confusing area of the map because multiple channels are located in this area. On the first symbol is PCFICH but PCFICH takes only part of the resource blocks on the first symbol not all. PHICH is carried by this area as well. And the remaining space not occupied by PCFICH and PHICH is allocated for PDCCH. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PCFICH">PCFICH(Physical Control Format Indicator Channel) </a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It carries the size of PDCCH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mapped to the first OFDM symbol in each of the downlink sub-frameThis contains the information on number of OFDM symbols for PDCCH and PHICH symbol duration received from the PBCHUE decode this channel to figure out how many OFDM symbols are assigned for PDCCH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is 16 data subcarriers of the first OFDM symbol of the subframe.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PCFICH data is carried by 4 REGs and these four REGs are evenly distributed across the whole band regardless of the bandwidth.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The exact position of PCFICH is determined by cell ID and bandwidth. </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PDCCH">PDCCH(Physical Downlink Control Channel) </a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mapped to the first L OFDM symbols in each of the downlink sub-frame. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of the symbols (L) for PDCCH can be 1,2, or 3.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of the symbols for PDCCH is specified by PCFICH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCCH carries DCIs and the DCI carries&nbsp;Transport format, resource allocation, H-ARQ information related to DL-SCH, UL-SCH and PCH. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCCH also&nbsp;carries DCI 0 which is for UL Scheduling assignment (e.g, UL Grants).</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Multiple PDCCH are supported and a UE monitors a set of control channels.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Modulation Scheme is QPSK. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCCH is like HS-SCCH for HSDPA and PDCCH for R99, E-AGCH/E-RGCH for HSUPA</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even though PDCCH has a lot of functions, not all of them are used at the same time so PDCCH configuration should be done flexibly.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you are interested in the detailed information mapping in this channel, refer to 6.8.1 of 36.211. Following is the initial descrition on this section. </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The physical downlink control channel carries scheduling assignments and other control information. A physical controlchannel is transmitted on an aggregation of one or several consecutive control channel elements (CCEs), where acontrol channel element corresponds to 9 resource element groups. The number of resource-element groups notassigned to PCFICH or PHICH is REG N . The CCEs available
+in the system are numbered from 0 and N_CCE-1 , where N_CCE = floor(N_REG/9) . The PDCCH supports multiple formats as listed in Table 6.8.1-1. A PDCCH consisting of nconsecutive CCEs may only start on a CCE fulfilling imod n = 0 , where i is the CCE number. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PHICH">PHICH </a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Carries H-ARQ Feedback</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">After UE trasmitted the data in UL, it is waiting for PHICH for the ACK. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is like E-HICH in HSPA</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sometimes several PHICH constitutes a PHICH group using the same resource elements.</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PDSCH">PDSCH(Physical Downlink Shared Channel) </a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Carries user specific data (DL Payload).</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Carries Random Access Response Message.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is using AMC with QPSK, 16 QAM and 64 QAM </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PRACH">PRACH </a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It carries the random access preamble</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is occupying 72 subcarriers of bandwidth in the frequency domain. If the random access preamble is successfuly received, the random access message is transmitted on the UL-SCH.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Within this channel is Random Access Preamble. This Random Access Preamble is generated with Zadoff-Chu sequence. </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PSS">P-SS(Primary Synchronization Signal)</a></b> </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mapped to 72 active sub carriers(6 resource blocks), centered around the DC subcarrier in slot 0 and slot 10.</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Not a big issues until now. But when you have the following data and information, can you locate exactly which part of the channel map would carry this message ? This is one of the very tricky part of understanding LTE protocol and it would take a long time for study. (If you are an RF engineer, this may not be so important to you). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RS">RS (Reference Signal)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Most of the channels (e.g, DPSCH, DPCCH, PBCH etc) is for carrying a special information (a sequence of bits) and they have some higher layer channel connected to them, but Reference Signal is a special signal that exists only at PHY layer. This is not for delivering any specific information. The purpose of this Reference Signal is to deliver the reference point for the
+downlink power. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">When UE try to figure out DL power (i.e, the power of the signal from a eNode B), it measure the power of this reference signal and take it as downlink cell power. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">These reference signal are carried by multiples of specific Resource Elements in each slots and the location of the resource elements are specifically determined by antenna configuration. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In the figures below, Red/Blue/Green/Yellow is the part where the reference signal are carried and the resource elements marked in gray are the ones reserved for reference signal, but are not carrying Reference Signal for that specific antenna. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/ReferenceSignal.PNG" width="586" height="437" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two different types of reference signal : Cell Specific Reference Signa and UE specific Reference Signal</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cell Specific Reference Signal : This reference signal is being transmitted at every subframe and it spans all across the operating bandwidht. It is being transmitted by Antenna port 0,1,2,3. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE Specific Reference Signal : This reference signal is being transmitted within the resource blocks allocated only to a specific UE and is being transmitted by Antenna port 5.</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Is the Resource element for the cell specific reference signal fixed ?</font></span><font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">No, the location changes according to Physical Cell ID as described below. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The time domain index (l) for the reference signal = fixed. ( l = [0,4] )</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The frequency domain index k for the reference signal = changes according to physical cell ID as specified in 36.211 6.10.1.2 Mapping to resource element. </span></font>&nbsp;</li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">main rule is : k = 6 m + (v + v_shift) mod 6, where v_shift = Physical Cell ID mod 6. For further details, refer to 36.211 6.10.1.2</span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana" color="blue">What kind of value is carried by the downlink reference signal ? </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">The value&nbsp;is a pseudo random sequence generated by the algorithm defined in 36.211 6.10.1.1 Sequence Generation.(Note : The uplink reference signal - DMRS - is Zadoff Chu sequence)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the determining value of this sequence is Physical Cell ID, meaning that the physical cell ID influences the value of the reference signal as well. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><b><a name="Whole_Frame_Snapshot">Whole Frame Snapshot</a></b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Following is a snapshot showing the whole channels described above. Of course this is not to give you the detailed information. It is to give you a overall picture of a whole frame. Would you be able to identify the locations of each channels described above ? Just try it, it will be a good practice. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Each components in this grid has it's own role and used in various different context. If you are interested in how each of these channels are used in real communication process, refer to following sections in Quick Reference page.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="BasicProcedures_LTE.html#Cell_ID_Detection_and_System_Information_Detect">Cell ID Detection and System Information Detection</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="BasicProcedures_LTE.html#Persistent_UL_Scheduling">Uplink Data Transmission Scheduling - Persistent Scheduling</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="BasicProcedures_LTE.html#Non_Persistent_UL_Scheduling">Uplink Data Transmission Scheduling - Non Persistent Scheduling</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="BasicProcedures_LTE.html#Downlink_Data_transmission_Process">Downlink Data transmission Process</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="BasicProcedures_LTE.html#Channel_Processing_DL_SCH">Channel Coding Processing for DL SCH/PCH/MCH</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="BasicProcedures_LTE.html#Physical_Channel_Processing">Physical Channel Processing</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/DL_Map_FullFrame.PNG" width="672" height="576" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Physical_Channels_in_Communication">Physical Channels in Communication </a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following diagram shows overall sequence of Uplink/Downlink data transmission. You would be able to associate the data transmission sequence diagram and the specific location of each channels in DL/UL frame structure. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/ChannelFlow_Small.PNG" width="667" height="432" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Gallery">Gallery</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">I would not put much of the comments for the following captures. These captures are for your practice to associate what you read in previous sections to the real life signal pattern. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/DL_Spectrogram_01.PNG" width="702" height="504" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/DL_Spectrogram_02.PNG" width="689" height="462" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/DL_Spectrogram_03.PNG" width="686" height="461" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/LTE_DL_Idle_RF_Profile.PNG" width="676" height="429" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

@@ -1,0 +1,1107 @@
+<html>
+
+<head>
+<title>Frame Structure - Downlink</title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Quick Reference - UMTS &nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">
+&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+<font face="Verdana"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_04 */
+google_ad_slot = "4173408773";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#3GPP_Release_and_Main_Features">3GPP Release and Main Features</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#CBS_CellBroadcastService">CBS(Cell Broadcast Service)</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Cell_Search_Procedure">Cell Search Procedure</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Cell_Selection_Automatic_vs_Manual">Cell Selection - Automatic vs Manual</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Cell_Selection_in_VPLMN">Cell Selection - in VPLMN (Cell Reselection)</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#CPC">CPC (Continous Packet Connectivity)</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#CQI">CQI</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#CompressedMode">Compressed Mode</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Constellation_Downlink_Conceptual">Constellation (Downlink) - Conceptual</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#CPICH_Ec_No_MeasurementReportMapping">CPICH Ec/Io measurement report mapping</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Downlink_Frame_Timing">Downlink Frame Timing</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#DRX_DTX">DRX/DTX</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a href="#E_DPCCH">E-DPCCH</a></font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a href="#E_TFCI_Selection">E-TFCI Selection</a></font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#FrequencyTable">Frequency Table</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#HARQ_HSDPA">HARQ - HSDPA</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#HARQ_HSUPA">HARQ - HSUPA</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#HSDPA_CategoryTable">HSDPA Category Table</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#HSUPA_CategoryTable">HSUPA Category Table</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#HSUPA_ULGrant">HSUPA - UL Grant/E-AGCH,E-RGCH</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Location_Updating_Reject">Location Updating Reject</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Measurement_Control_and_Handover">Measurement Control and Handover</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#P_CCPCH_RSCP_MeasurementReportMapping">P-CCPCH RSCP measurement report mapping</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#PRACH_Power">PRACH Power</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RRC_Establishment_Cause">RRC Establishment Cause</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RSSI_MeasurementReportMapping">RSSI measurement report mapping</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#ScramblingCode">Scrambling Code</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#TFI_TFCI">TFI and TFCI</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Uplink_Frame_Timing">Uplink Frame Timing</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="3GPP_Release_and_Main_Features">3GPP Release and Main Features</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_04 */
+google_ad_slot = "4173408773";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Release 7 &gt;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Higher Order Modulation (DL 64 QAM, UL 16 QAM)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CPC (Continous Packet Connectivity, TDX + DRX)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Enhanced F-DPCH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Improved L2 (for Higher downlink data rate)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Enhanced Cell_FACH for downlink</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Downlink MIMO</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Release 8&nbsp;&gt;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Dual Cell HSDPA</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Combination of 64 QAM and MIMO</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Improved L2 (for Higher uplink data rate)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Enhanced Cell_FACH for uplink</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CS over HSPA</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Serving Cell Change Enhancement</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HS-DSCH Reception in Cell FACH</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Release 9 &gt;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Dual Cell HSUPA</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Dual Band HSDPA</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Dual Cell HSDPA + MIMO</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2ms TTI Uplink range extension</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">&lt; Release 10 &gt; </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Four Carrier HSDPA</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CBS_CellBroadcastService">CBS (Cell Broadcast Service)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CBS is a kind of Short Message service. Then what is the difference between SBS and SMS ? There may be two main differences</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SMS is one to one message and CBS is a message broadcast to many people simultaneously.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SMS can be bidirectional (you can send and receive the message) and CBS is usually unidirectional (subscribers can only receive the message). </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">25.324 &nbsp;Broadcast/Multicast Control BMC</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">23.041 Technical realization of Cell Broadcast Service (CBS)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_CBS_SIB5.PNG" width="740" height="322" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_CBS_Schedule_01.PNG" width="723" height="516" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_CBS_Message_01.PNG" width="497" height="299" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Cell_Search_Procedure">Cell Search Procedure</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cell Search procecess in WCDMA would be described as follows (For the detailed understanding, I would recommend you to study each of the physical channels involved in the following description). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Every cell is tranmitting its scrambling code(Primary Scrambling Code) via CPICH.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE detect the cell power, primary scrambling code and some addition info for compensating demodulation process</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) UE detect P-SCH (Primary Synchronization Code)&nbsp;and figure out slot boundary (start and end of each slot) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) UE detect S-SCH (Primary Synchronization Code)&nbsp;and figure out frame bounday (start and end of each frame)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) UE detect P-CCPCH and decode MIB. Through this MIB, UE can figure out SFN.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Cell_Selection_Automatic_vs_Manual">Cell Selection - Automatic vs Manual</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two main factors influencing the cell selection process. One factor is Cell Power and the other one is various PLMN configuration. I will focus on PLMN based selection here but in many cases you have to consider both Cell Power and PLMN at the same time and the selection process can be more complicated in this case. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Usually many phones provide two options for you to select from for selecting a cell to camp on. One is Automatic and the other one is Manual. There is nothing for me to talk about 'Manual' mode since it is so straightforward. In manual mode, the UE camps on whatever network that user specified. If the UE cannot find the specified cell or rejected by the cell, it would just give up without trying anything else. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The issues come in when the mode is set to be 'Automatic'. 'Automatic' means &quot;Select a cell based on a predefined rule&quot;. Then your question would be &quot;What is the predefined rule?&quot;. Even though 3GPP provide overal guidelines, the detailed implementation would be up UE makers and the requirement from each specific network operator. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">General guideline especially guidelines regarding &quot;PLMN&quot; is as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Select the cell with HPLMN (Home PLMN)&nbsp;or EHPLMN(Equivalent HPLMN)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) If UE lose coverage for HPLMN or EHPLMN, then try find the cell with VPLMN. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">More specifically, in Automatic mode, UE select the Cells with PLMNs in the following order </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) either the HPLMN (if the EHPLMN list is not present or is empty)&nbsp;or the highest priority EHPLMN that is available (if the EHPLMN list is present);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) each PLMN/access technology combination in the ‘User Controlled PLMN Selector with Access Technology’ data file in the SIM (in priority order);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) each PLMN/access technology combination in the ‘Operator Controlled PLMN Selector with Access Technology’ data file in the SIM (in priority order);</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) other PLMN/access technology combinations with received high quality signal (GSM – RLA &ge; -85 dBm, UTRAN FDD - CPICH RSCP above -95 dBm) in random order;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) other PLMN/access technology combinations in order of decreasing signal quality.</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Cell_Selection_in_VPLMN">Cell Selection - in VPLMN</a></b></span></font><font face="Verdana"><span style="font-size:10pt;"><b> (Cell Reselection)</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If UE has camped on to the cell with VPLMN and is in IDLE mode, it has to perform following procedures</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) periodically attempts to obtain service on its HPLMN (if the EHPLMN list is not present or is empty) or one of its</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">EHPLMNs (if the EHPLMN list is present) </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) (if failed in previous step) periodically attempts to a higher priority PLMN/access technology combinations listed in ‘User Controlled PLMN Selector’ or ‘Operator Controlled PLMN Selector’</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I said the term &quot;periodically&quot;. Then how this &quot;peridicity&quot; is determined ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The periodicity &nbsp;T minutes may be stored in the SIM (Higher Priority PLMN search period), T is either in the range 6 minutes to 8 hours in 6 minute steps or it indicates that no periodic attempts shall be made. If no value is stored in the SIM, a default value of 60 minutes is used</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CPC">CPC (Continous Packet Connectivity)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's suppose a situation, say Web browsing for example. While you are reading a page, you are not downloading any data and there are no data communication between UE and the network. During this time, usually RRC state is put into Cell_FACH and Cell_PCH. When you finish reading the page and try to go next page, in this case the RRC state should change back into Cell_DCH. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Another way to improve the problem related to RRC State changes would be to increase the data rate at Cell_FACH. Theoretically you can transmit the data in Cell_FACH in previous technology and ideally the throughput is around 34 K. But if you really try it, you may notice the real throughput is much less than this. For HSPA+, the throuhgput for Cell_FACH has been much increased by Enhanced
+Cell_FACH.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To save battery consumption, UE can repeat very short cycles of 'sleeping mode' and 'wake up' mode when there is no data traffic and normally this repetition cycles is much shorter than DCH&lt;--&gt; FACH &lt;--&gt; PCH cycles. This kind of 'sleeping' and 'wake up' cycles are called <a href="#DRX_DTX">DTX</a>, <a href="#DRX_DTX">DRX</a>. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you apply all these techniquest described above in wise combination, you would achieve such a status as </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Users feels like they are continuously connected to the network (User experience very short latency as if it is always connected).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Even with this kind of user experience, energy consumption (current consumption) on UE can be minimized</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">All the combination of this technique to achieve such a user experience is called &quot;CPC&quot;. It means CPC is a collective terminoloty for a set of technologies, not any specific single technology. It implies that to understand CPC requires a lot of efforts -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Just in short, CPC is a combined technology of all of the following features.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UL-DTX</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DL-DRX</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HS-SCCH orders</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HS-SCCH-less</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">New UL-DPCCH slot format #4</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cell DCH using E-DCH/HS-DSCH</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SRBs mapped on E-DCH/HS-DSCH with use of F-DPCH</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CQI">CQI</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI stands for Channel Quality Indicator. As the name implies, it is an indicator carrying the information on how good/bad the communication channel quality is. This CQI is for HSDPA. (LTE also has CQI for its own purpose). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI is the information that UE sends to the network and practically it implies the following two </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Current Communication&nbsp;Channel Quality is this-and-that..</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) I (UE) wants to get the data with this-and-that transport block size, which in turn can be directly converted into throughput</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In HSDPA, the CQI value ranges from 0 ~ 30. 30 indicates the best channel quality and 0,1 indicates the poorest channel quality. Depending which value UE reports, network transmit data with different transport block size. If network gets high CQI value from UE, it transmit the data with larger transport block size and vice versa. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if network sends a large transport block even though UE reports low CQI, it is highly probable that UE failed to decode it (cause CRC error on UE side) and UE send NACK to network and the network have to retransmit it which in turn cause waste of radio resources. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if UE report high CQI even when the real channel quality is poor ? In this case, network would send a large transport block size according to the CQI value and it would become highly probable that UE failed to decode it (cause CRC error on UE side) and UE send NACK to network and the network have to retransmit it which in turn cause waste of radio resources. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">How UE can measure CQI ? This is the most unclear topic to me. As far as I know, there is no explicit description in any standard on the mechanism by which the CQI is calculated, but it is pretty obvious that the following factors play important roles to CQI measurement. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-noise ratio (SNR) </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-interference plus noise ratio (SINR)</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">signal-to-noise plus distortion ratio (SNDR)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is unclear how these factors are used and whether there is any other factors being involved. I was told the detailed CQI measurement algorithm is up UE implementation (chipset implementation). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding the influce of CQI on total throughput, refer to <a href="Throughput.html#CQI_vs_Throughput" target="_blank">CQI vs Throughput</a> in &quot;<a href="Throughput.html" target="_blank">Throughput</a>&quot; page.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CompressedMode">Compressed Mode</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">Before the handover, UE normally measure the cell power (signal quality) of the target cell and report it to the network, so that network can make a decision whether to allow UE to handover to the target cell or not. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">It is not a big issue to measure the signal quality of the target cell if the target cell is at the same frequency as the current cell (Intrafrequency measurement). But there would be an issue when the target cell is at a different frequency from the current cell (Interfrequency measurement). Just in terms of logical sense of view, the simplest solution for Interfrequency measurement, the simplest solution for this would be to implement two RF tranciever on UE. However, there are some practical problems with this kind of two tranciever solution. One of the problems is cost issue. It would require additional cost to implement the additional tranciever. The other problem would be the possible interference between the current frequency and target frequency especially when the current frequency and target frequency are close to each other. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">So they come out with a special techique called &quot;Compressed Mode&quot;. The idea of the compressed mode is to create a small gap during which no transmission and reception happens. since there is no signal transmission and reception during the gap, UE can switch to the target cell and perform the signal quality measurement and come back to the current cell. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">To make this work seamlessly, there should be a well established agreement between UE and Network about the gap definition (e.g, Starting Position of the Gap, Gap length, number of Gaps etc) and this agreement is established by a couple of RRC messages (e.g, Measurement Control, Physical Channel Reconfiguration etc) as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-modeSpecificInfo ::= CHOICE [fdd]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-fdd ::= SEQUENCE [011]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;+-defaultDPCH-OffsetValue ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;+-dpch-CompressedModeInfo ::= SEQUENCE OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| +-tgp-SequenceList ::= SEQUENCE OF SIZE(1..maxTGPS[6]) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;+-TGP-Sequence ::= SEQUENCE [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-tgpsi ::= INTEGER (1..maxTGPS[6]) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-tgps-Status ::= CHOICE [activate]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-activate ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-tgcfn ::= INTEGER (0..255) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-tgps-ConfigurationParams ::= SEQUENCE [000000] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tgmp ::= ENUMERATED [fdd-Measurement]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tgprc ::= INTEGER (0..511) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tgsn ::= INTEGER (0..14) [4]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tgl1 ::= INTEGER (1..14) [7]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tgl2 ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tgd ::= INTEGER (15..270) [270]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tgpl1 ::= INTEGER (1..144) [12]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-dummy ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rpp ::= ENUMERATED [mode0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-itp ::= ENUMERATED [mode0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-ul-DL-Mode ::= CHOICE [ul-and-dl]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-ul-and-dl ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-ul ::= ENUMERATED [sf-2]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dl ::= ENUMERATED [higherLayerScheduling]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-dl-FrameType ::= ENUMERATED [dl-FrameTypeA]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-deltaSIR1 ::= INTEGER (0..30) [10]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-deltaSIRAfter1 ::= INTEGER (0..30) [5]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-deltaSIR2 ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-deltaSIRAfter2 ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-nidentifyAbort ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-treconfirmAbort ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Let's look into the definition of each parameters used about Compressed Mode. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <table border="1" width="738" align="center" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="129" bgcolor="#99CCFF">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Parameter</span></font></p>
+                    </td>
+                    <td width="593" bgcolor="#99CCFF">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Description</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="129">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">TGSN</span></font></p>
+                    </td>
+                    <td width="593">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmission Gap Starting Slot Number</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="129">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">TGL1</span></font></p>
+                    </td>
+                    <td width="593">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmission Gap Length 1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="129">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">TGL2</span></font></p>
+                    </td>
+                    <td width="593">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmission &nbsp;Gap Length 2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="129">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">TGD</span></font></p>
+                    </td>
+                    <td width="593">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmission Gap Distance</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="129">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">TGPL1</span></font></p>
+                    </td>
+                    <td width="593">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmission Gap Pattern Length 1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="129">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">TGPL2</span></font></p>
+                    </td>
+                    <td width="593">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmission Gap Pattern Length 2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="129">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">TGPRC</span></font></p>
+                    </td>
+                    <td width="593">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmission Gap Repetition Count</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="129">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">TGCFN</span></font></p>
+                    </td>
+                    <td width="593">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Transmission Gap Connection Frame Number</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_CompressedMode.PNG" width="652" height="416" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Constellation_Downlink_Conceptual">Constellation (Downlink)- Conceptual</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">If you combine the following three sections in 25.213, you will have a overall downlink physical channel flow as shown below.</span></font></p>
+            <ul>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;">5.1 Spreading (Figure 8)</span></font></div>
+                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;">5.1.5 Channel combining (Figure 9)</span></font></div>
+                                </li>
+                <li align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;">5.3.2 Modulation (Figure 11)</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font>
+                    </div>
+                                </li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_DL_PhyProcessing.PNG" width="764" height="405" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Assuming the all the physical channel for data transfer is using QPSK (Release 99), the constellation is shown as below. (Graph on left shows Code Domain Power for each channel and the right side graph shows the constellation).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_DL_PhyProcessing_MeasuredSample.PNG" width="611" height="169" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">When I first saw this constellation, I was very confused because it is so much different from my expectation of QPSK constellation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">This kind of complicated constallation comes from the vector summation of multiple QPSK with different amplitudes. If only one channel is transmitted, you would have a normal QPSK constellation as you expected, but if multiple channel (multiple QPSK) are summed, you would get various different patters depending on how many channels are summed and what is the amplitude of each QPSK channel. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Assuming there is just two QPSK channels are being transmitted, I created two example cases with two different amplitude combination as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WCDMA_Constellation_Concept_01.PNG" width="622" height="581" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following sequence of graph show you how each of the constellation spot at the final result can created from two original QPSK constellation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WCDMA_Constellation_Concept_02.PNG" width="468" height="477" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WCDMA_Constellation_Concept_03.PNG" width="468" height="443" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="CPICH_Ec_No_MeasurementReportMapping">CPICH Ec/Io measurement report mapping</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RRC Connection Request and some Measurement Report message carries the CPICH measured value as follows. But the value itself is not a dB or dBm value. There is a predefined table that maps this value to the real dBm value.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionRequest ::= SEQUENCE [11]</span></font><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-initialUE-Identity 
+::= CHOICE [tmsi-and-LAI]</span></font><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console">+-establishmentCause ::= ENUMERATED [registration]</font></span><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-protocolErrorIndicator ::= ENUMERATED 
+[noError]</span></font><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-measuredResultsOnRACH 
+::= SEQUENCE [0] OPTIONAL:Exist</span></font><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-currentCell ::= 
+SEQUENCE</span></font><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-modeSpecificInfo 
+::= CHOICE [fdd]</span></font><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-fdd ::= 
+SEQUENCE</span></font><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | 
+&nbsp;&nbsp;&nbsp;&nbsp;+-measurementQuantity ::= CHOICE [cpich-Ec-N0]</font></span><span style="font-size:10pt;"><font color="red"></font></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-cpich-Ec-N0 
+::= INTEGER (0..63) [41]</font></span><span style="font-size:10pt;"></span></P>
+            <P style="MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px; LINE-HEIGHT: 100%">&nbsp;<SPAN style="FONT-SIZE: 9pt"></SPAN></P>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Following table comes from 3GPP 25.133.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_133_Table_9_9.PNG" width="682" height="182" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Downlink_Frame_Timing">Downlink Frame Timing</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once you complete the cell search process described above, UE can figure out the following information about the timing.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Exact phase reference for downlink channels from CPICH (This is not the timing parameter, but this would very important factors to decode other channels including Timing/Sync related channels).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Exact start timing of each slots from P-SCH</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Exact start timing of each frame from S-SCH</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) System Frame Number for each frame from P-CCPCH (MIB)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once UE get all the information listed above, the timing for other channels can be deduced by the following diagram (This diagram came from 3GPP TS 25.211). For example, S-CCPCH is transmitted at the multiples of 256 chips delay from the start of CPICH(Start of frame timing). And PICH is transmitted at the specified timing before S-CCPCH. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For the details of these timing value, refer to 25.211 - 7 Timing relationship between physical channels - 7.1 General</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Some of these timing offsets are set by higher layer signaling message (e.g, SIB, RRC Connection Setup, Radio Bearer Setup).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">S-CCPCH TimingOffset is specified by SIB5 elements : sCCPCH-SystemInformationList.SCCPCH-SystemInformation[0].secondaryCCPCH-Info.modeSpecificInfo.fdd.timingOffset</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_CommonChannel.PNG" width="658" height="397" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="DRX_DTX">DRX/DTX</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">DRX stands for &quot;Discontinous Reception&quot; and DTX stands for &quot;Discontinous Transmission&quot;. When you are talking about 'Reception' and 'Transmission', you may often get confused with 'direction of data flow'. Is it from 'UE to Network' or 'Network to UE'. At least, I got confused so often with this. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">So let's make it clear about 'who is receiving ?' and 'who is transmitting' when we are talking about DRX and DTX. The answer is 'UE'. Therefore, DRX means 'Discontinous Reception by UE' and DTX means 'Discontinous Transmission by UE'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then what does it mean by 'Discontinous' ? To get clear understanding of this word, let's think about 'what does it mean by 'continous' ?'. &nbsp;'Continous' is a ordinary mode &nbsp;of operation in most of the situation where we use mobile phone. Does 'Continous' mean that UE is continously (always) receiving some data and is continously (always) transmitting data ? No, it does not. UE cannot receive any data when Network does not send any data to it and UE cannot transmit any data when it does not have any data to send. 'Continuous transmission/Continuous Reception' in this context mean that 'UE is </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">continuously (always) ready</font></span><font face="Verdana"><span style="font-size:10pt;"> to recieve data and </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">is continously (always) ready</font></span><font face="Verdana"><span style="font-size:10pt;"> to transmit the data. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To be ready to recieve/transmit something, UE should be 'ON'. So Continous reception/Continous transmission means that &quot;UE is always ON(Wake-up mode)&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What's wrong with UE being always 'ON'. You many easily figure out that it will cause a lot of battery consumption. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To save this kind of battery consumption, they invented a special mechanism called 'Discontinous Reception/Transmission'. 'Discontinous Transmission' and 'Discontinous Reception' means that UE is in Sleeping Mode most of the time and only periodically 'Wake up' to receive or transmit the data. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Overall concept would sound simple, but you may get confiused again trying to understand the detailed parameter related to DTX and DRX. These parameters are specified in Radio Bearer Message as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First I thought we only need 'Periodicity of DTX/DRX' and 'Duration of ON time', but there are many other parameters are involved. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-dtx-drx-TimingInfo ::= SEQUENCE OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-timing ::= CHOICE [newTiming]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-newTiming ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;+-enablingDelay ::= ENUMERATED [radio-frames-0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;+-ue-dtx-drx-Offset ::= INTEGER (0..159) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-dtx-drx-Info ::= SEQUENCE [11] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-dtx-Info ::= SEQUENCE [01] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-e-dch-TTI-Length ::= CHOICE [dtx-e-dch-TTI-10ms]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | +-dtx-e-dch-TTI-10ms ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-ue-dtx-Cycle1-10ms ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-ue-dtx-Cycle2-10ms ::= ENUMERATED [sub-frames-20]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-mac-dtx-Cycle-10ms ::= ENUMERATED [sub-frames-10]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dtx-cycle2InactivityThreshold ::= ENUMERATED [e-dch-tti-8]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dtx-cycle2DefaultSG ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dtx-long-preamble-length ::= ENUMERATED [slots-4] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-mac-InactivityThreshold ::= ENUMERATED [e-dch-tti-8]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-cqi-dtx-Timer ::= ENUMERATED [sub-frames-32]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dpcch-Burst1 ::= ENUMERATED [sub-frames-1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dpcch-Burst2 ::= ENUMERATED [sub-frames-1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-drx-Info ::= SEQUENCE OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-Cycle ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-Cycle-InactivityThreshold ::= ENUMERATED [sub-frames-32]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Lucida Console">| | | +-ue-GrantMonitoring-InactivityThreshold ::= ENUMERATED [e-dch-tti-8]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-GrantMonitoring ::= BOOLEAN [TRUE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-uplink-DPCCHSlotFormatInformation ::= ENUMERATED [slot-format-1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into the detailed parameters. Let's think about DTX part first. (I will draw some diagram later when I have more time, but now I will just describe it verbally). The most important parameters for DTX are as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-e-dch-TTI-Length ::= CHOICE [dtx-e-dch-TTI-10ms]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | +-dtx-e-dch-TTI-10ms ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-ue-dtx-Cycle1-10ms ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-ue-dtx-Cycle2-10ms ::= ENUMERATED [sub-frames-20]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-mac-dtx-Cycle-10ms ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First think about the cycles first. You see three different cycles here. In this example, we have the following three cycles. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">ue-dtx-Cycle1-10ms ::= ENUMERATED [sub-frames-10] = 20 ms (2 ms/subframe x 10 subframe)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">ue-dtx-Cycle2-10ms ::= ENUMERATED [sub-frames-20] = 40 ms (2 ms/subframe x 20 subframe)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">mac-dtx-Cycle-10ms ::= ENUMERATED [sub-frames-10] = 20 ms(2 ms/subframe x 10 subframe)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The overall procedure of DTX operation goes as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE get's into sleeping mode and ue-dtx-Cycle1-10ms starts</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE wake up when ue-dtx-Cycle1-10ms expires&nbsp;and stay up for a 'ON-duration'.</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If there is no E-DCH frame to be transmitted and ue-dtx-Cycle1-10ms is expired, it will get into sleeping mode and ue-dtx-Cycle2-10ms timer starts.</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) UE wake up when ue-dtx-Cycle2-10ms timer expires and stay up for 'ON-duration'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) If there is no E-DCH frame to be transmitted and ue-dtx-Cycle1-10ms is expired, it will get into sleeping mode and ue-dtx-Cycle1-10ms timer starts.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) repeat the step step ii)~v). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">The question is when UE wake up, how long it should stay 'up' ? In another words, how the 'ON time' is determined. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">The 'ON time' is determined by e-dch-TTI-Length ::= CHOICE [dtx-e-dch-TTI-10ms]. In this example, the ON time is 10 ms.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One thing you notice is that ue-dtx-Cycle1-10ms and ue-dtx-Cycle2-10ms is alternating here. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In the procedure described above, we only mentioned about </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">ue-dtx-Cycle1</font></span><font face="Verdana"><span style="font-size:10pt;"> and </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">ue-dtx-Cycle2</font></span><font face="Verdana"><span style="font-size:10pt;">. Then what is the '</span></font><span style="font-size:10pt;"><font face="Verdana" color="red">mac-DTX-Cycle</font></span><font face="Verdana"><span style="font-size:10pt;">' ?&nbsp;Simply put this is DTX cycle timer with the highest priority. In other words, even though UE would be in 'sleep mode' according to ue-dtx-Cycle1-10ms and ue-dtx-Cycle2-10ms, if it gets into 'ON period' of </span></font><span style="font-size:10pt;"><font face="Verdana">mac-dtx-Cycle-10ms, it should wake up right away and transmit the data. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Pretty complicated, right ? But it is even more complicated when it is really working on in real environment since we have to consider some additional factors as well. The only way for you to understand this is to collect as much example as possible to show you very diverse situation of DTX. Here goes one example, but I will keep adding more examples later. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UMTS_DTX_Example_01.PNG" width="694" height="445" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into DRX operation. The DRX cycle is specified&nbsp;as shown below. It seems a little bit simpler than DTX cycle configuration. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-drx-Info ::= SEQUENCE OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-Cycle ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-Cycle-InactivityThreshold ::= ENUMERATED [sub-frames-32]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The overall procedure is as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE gets into sleeping mode.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE wakes up when ue-drx-Cycle starts and stay up for one HS-PDSCH TTI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii.a) If there is no HS-PDSCH data for the UE during the 'ON time', it gets into sleeping mode. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii.b) If there is HS-PDSCH dat</span></font><span style="font-size:10pt;"><font face="Verdana">a for the UE during the 'ON time', UE continue to stay on for the duration of ue-drx-Cycle-InactivityThreshold</font></span><font face="Verdana"><span style="font-size:10pt;">.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii.c) if there is another HS-PDSCH data for the duration of </span></font><span style="font-size:10pt;"><font face="Verdana">of ue-drx-Cycle-InactivityThreshold, ON-time get extended for another ue-drx-Cycle-InactivityThreshold from the reception of the data.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">iii.d) repeat step iii.a)~iii.c)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) repeat the steps ii)~iii)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may think 'why UE&nbsp;need to go through such a complicated process described in the step iii ?'. &nbsp;Logic is simple. If UE receives a data during the short period of 'ON-time', it is highly probably that there is another data coming right next TTI. So instead of getting into the sleeping mode right away just according to ue-drx-Cycle, it stay awake a little bit more not to cause too much delay for the downlink traffic. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="E_DPCCH">E-DPCCH</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As DPCCH carries the information required to decode DPDCH in R99, E-DPCCH carries the information required to decode E-DPDCH in HSUPA. E-DPCCH carries 10 bits structured as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <table border="1" width="608" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center">
+                <tr>
+                    <td width="196">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">E-TFCI (7 bits)</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RSN (2 bits)</span></font></p>
+                    </td>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Happy bit (1 bit)</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-TFCI : It stands for &quot;E-DCH Transport Format Combination Indicator&quot; and indicates the transport format being transmitted simultaneously on E-DPDCHs. The E-TFCI tells the receiver the transport block size coded on the E-DPDCH. From this value, the reciever (Node B) can figure out how many E-DPDCHs are transmitted in parallel and what spreading factor is used. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RSN : It stands for Retransmission Sequence Number meaning as follows :</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">00 : New Transmission</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">01 : First Retransmission</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10 : Second Retransmission</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11 : Higher than Second Retransmission</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Happy bit : It carries the information whether the UE is content with the current data rate (Grant) allocated by the network or not. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="E_TFCI_Selection">E-TFCI Selection</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/E_TFCI_Selection.PNG" width="665" height="360" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="FrequencyTable">Frequency Table</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WCDMA_FrequencyTable.PNG" width="571" height="424" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="HARQ_HSDPA">HARQ - HSDPA</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/HSDPA_HARQ.PNG" width="508" height="406" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="HARQ_HSUPA">HARQ - HSUPA</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Uses Synchronous HARQ</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The terminal should keep the unacknowledged data in the memory for any possible retransmission</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Both Soft(Chasing) combining and Incremental Redundancy can be applicable.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; 10 ms TTI &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Max 4 HARQ Process are being used. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/HSUPA_HARQ_10msTTI.PNG" width="507" height="406" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; 2&nbsp;ms TTI &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Max 8&nbsp;HARQ Process are being used. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/HSUPA_HARQ_2msTTI.PNG" width="502" height="397" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="HSDPA_CategoryTable">HSDPA Category Table</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following Table comes from TS 25.306.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_306_Table_5_1a_HSDPACategory.PNG" width="605" height="643" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="HSUPA_CategoryTable">HSUPA Category Table</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black" width="781">
+                <TR class=txt12 vAlign=top align=middle>
+                    <TD width="80" bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">HSUPA<BR>category</span></font></TD>
+                    <TD width="64" bgcolor="#99CCFF">
+                        <P><font face="Verdana"><span style="font-size:10pt;">Maximum<BR>number of<BR>HSUPA<BR>codes<BR>transmitted</span></font></P>
+                    </TD>
+                    <TD width="121" bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Minimum<BR>spreading<BR>factor</span></font></TD>
+                    <TD width="149" bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Support<BR>for 10 and 2 ms<BR>HSUPA TTI</span></font></TD>
+                    <TD width="107" bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Maximum<BR>number of<BR>bits<BR>transmitted<BR>within<BR>a 10 
+ms<BR>HSUPA<BR>TTI</span></font></TD>
+                    <TD width="150" bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Maximum<BR>number of<BR>bits<BR>transmitted<BR>within<BR>a 2 
+ms<BR>HSUPA<BR>TTI</span></font></TD>
+                    <TD width="80" bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Maximum<BR>Bit rate </span></font></TD>
+                </TR>
+                <TR class=txt12>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">Category 1</span></font></TD>
+                    <TD align=middle width="64"><font face="Verdana"><span style="font-size:10pt;">1</span></font></TD>
+                    <TD align=middle width="121"><font face="Verdana"><span style="font-size:10pt;">SF4</span></font></TD>
+                    <TD align=middle width="149"><font face="Verdana"><span style="font-size:10pt;">10 ms TTI only</span></font></TD>
+                    <TD align=middle width="107"><font face="Verdana"><span style="font-size:10pt;">7296</span></font></TD>
+                    <TD align=middle width="150"><font face="Verdana"><span style="font-size:10pt;">-</span></font></TD>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">0.73 Mbps</span></font></TD>
+                </TR>
+                <TR class=txt12>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">Category 2 </span></font></TD>
+                    <TD align=middle width="64"><font face="Verdana"><span style="font-size:10pt;">2</span></font></TD>
+                    <TD align=middle width="121"><font face="Verdana"><span style="font-size:10pt;">SF4</span></font></TD>
+                    <TD align=middle width="149"><font face="Verdana"><span style="font-size:10pt;">10 ms and 2 ms TTI</span></font></TD>
+                    <TD align=middle width="107"><font face="Verdana"><span style="font-size:10pt;">14592</span></font></TD>
+                    <TD align=middle width="150"><font face="Verdana"><span style="font-size:10pt;">2919</span></font></TD>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">1.46 Mbps </span></font></TD>
+                </TR>
+                <TR class=txt12>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">Category 3 </span></font></TD>
+                    <TD align=middle width="64"><font face="Verdana"><span style="font-size:10pt;">2</span></font></TD>
+                    <TD align=middle width="121"><font face="Verdana"><span style="font-size:10pt;">SF4</span></font></TD>
+                    <TD align=middle width="149"><font face="Verdana"><span style="font-size:10pt;">10 ms TTI only</span></font></TD>
+                    <TD align=middle width="107"><font face="Verdana"><span style="font-size:10pt;">14592</span></font></TD>
+                    <TD align=middle width="150"><font face="Verdana"><span style="font-size:10pt;">-</span></font></TD>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">1.46 Mbps </span></font></TD>
+                </TR>
+                <TR class=txt12>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">Category 4 </span></font></TD>
+                    <TD align=middle width="64"><font face="Verdana"><span style="font-size:10pt;">2</span></font></TD>
+                    <TD align=middle width="121"><font face="Verdana"><span style="font-size:10pt;">SF2</span></font></TD>
+                    <TD align=middle width="149"><font face="Verdana"><span style="font-size:10pt;">10 ms and 2 ms TTI</span></font></TD>
+                    <TD align=middle width="107"><font face="Verdana"><span style="font-size:10pt;">20000</span></font></TD>
+                    <TD align=middle width="150"><font face="Verdana"><span style="font-size:10pt;">5837</span></font></TD>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">2.92 Mbps </span></font></TD>
+                </TR>
+                <TR class=txt12>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">Category 5 </span></font></TD>
+                    <TD align=middle width="64"><font face="Verdana"><span style="font-size:10pt;">2</span></font></TD>
+                    <TD align=middle width="121"><font face="Verdana"><span style="font-size:10pt;">SF2</span></font></TD>
+                    <TD align=middle width="149"><font face="Verdana"><span style="font-size:10pt;">10 ms TTI only</span></font></TD>
+                    <TD align=middle width="107"><font face="Verdana"><span style="font-size:10pt;">20000</span></font></TD>
+                    <TD align=middle width="150"><font face="Verdana"><span style="font-size:10pt;">-</span></font></TD>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">2.00 Mbps </span></font></TD>
+                </TR>
+                <TR class=txt12>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">Category 6 </span></font></TD>
+                    <TD align=middle width="64"><font face="Verdana"><span style="font-size:10pt;">4</span></font></TD>
+                    <TD align=middle width="121"><font face="Verdana"><span style="font-size:10pt;">SF2</span></font></TD>
+                    <TD align=middle width="149"><font face="Verdana"><span style="font-size:10pt;">10 ms and 2 ms TTI</span></font></TD>
+                    <TD align=middle width="107"><font face="Verdana"><span style="font-size:10pt;">20000</span></font></TD>
+                    <TD align=middle width="150"><font face="Verdana"><span style="font-size:10pt;">11520</span></font></TD>
+                    <TD align=middle width="80"><font face="Verdana"><span style="font-size:10pt;">5.76 Mbps </span></font></TD>
+                </TR>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="HSUPA_ULGrant">HSUPA - UL Grant/E-AGCH,E-RGCH</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In HSDPA case, data source is NodeB and destination is UE. Since Network (the data source)&nbsp;is the master and it has all the authorities for data transmission scheduling, it&nbsp;doesn't need any Grant (&quot;approval for data transmission&quot;). Basically Network can transmit the data anytime it is ready. But in HSUPA case the situation is different. The data source is UE and Network is data sinc(reciever), but UE is not the master of the scheduling. Network is scheduling master all the time. It means that in HSUPA, the transmitter (UE in this case) has to have &quot;approval for transmission&quot; from the data reciever (Network in this case). The &quot;Approval for transmission&quot; is called &quot;UL Grant&quot;, and overall mechanism for UL Grant and data transmission in HSUPA goes as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you see, there are two different types of UL Grant called &quot;Absolute Grant&quot; carried by AGCH(Absolute Grant Channel) and &quot;Relative Grant&quot; carried by RGCH(Relative Grant Channel). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Absolute Grant is being transmitted by the network every TTI and it is transmitted to the all UE communicating to the network. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Relative Grant can be transmitted only at the TTI in which PHICH is not transmitted. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/HSUPA_ULGrant.PNG" width="661" height="444" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The value for the Absolute Grant can be 0 ~ 31. Except the value 0~1. All the remaining value is mapped to a certain level of power value that UE can use for data transmission. (At the beginning, I was so confused about this value. When we say &quot;Grant&quot;, I expected each of the value would mean &quot;Yes, you can transmit the data and this is the data rate you can transmit&quot;. But what I see from the following Absolute Grant table is &quot;Here is the amount of power you can use for the data transmission&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then you may ask &quot;Is there any predefined algorithm running on UE side which maps this power value to the real data rate ?&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Excellent question ! &nbsp;Yes, there is. UE is performing a special E-TFCI selection algorithm based on how much power it can use for data transmission and this Grant value determines &quot;how much power is available for the data transmission&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is Absolute Grant table from 25.212 v9.4.0. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_212_Table16B_AbsoluteGrant.PNG" width="422" height="588" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into the Relative Grant. Relative Grant carries three different status (Command), UP, HOLD, DOWN and the meaning of this command is defined in 25.212 as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_212_Table17_RelativeGrant.PNG" width="557" height="125" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Location_Updating_Reject">Location Updating Reject</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">This is a NAS message which is sent to UE when the UE is not allowed to register to the specific network or a specific Location Area. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Cause #11 - PLMN not allowed’ &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Network send this message when a UE tries to camp on the PLMN (usually VPLMN) which is not allowed for the UE. When it recieves, UE has to do following steps.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE has to store this PLMN in forbidden PLMN list in USIM</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE has to remove this PLMN&nbsp;from 'forbidden LPLMN' list in the following cases.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE is switched off</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) USIM is removed</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) User select the PLMN in Manual Selection Mode and it gets accepted by the network.</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Cause #12 - LA not allowed’ &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When a&nbsp;UE have a ‘regionally restricted service’ where it can only obtain service on certain LAs and it&nbsp;attempts to camp on a cell of an LA for which it does not have service entitlement, it recieves the Location Update Reject with Cause #12. When it recieves, UE has to do following steps.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE has to store this LAI in the 'forbidden LAs for regional provision of service' list&nbsp;in UE so that it would not keep retrying the location updating process.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE gets into 'Limited Service' state.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) UE initiate Cell Selection Process</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE has to remove this LAI from 'forbidden LAs for regional provision of service' list in the following cases.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE is switched off</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) USIM is removed</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Cause #13 - ‘roaming not allowed in this LA’ &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When a UE recieves the Location Update Reject with Cause #13, UE has to do following steps.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE has to store this LAI in the 'forbidden LAs for roaming' list&nbsp;in UE so that it would not keep retrying the location updating process.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE has to initiate PLMN selection process (not Cell Selection Process). </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Cause #15 - ‘No Suitable Cells In LA’ &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When a UE recieves the Location Update Reject with Cause #15, UE has to do following steps.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE has to store this LAI in the 'forbidden LAs for roaming' list&nbsp;in UE so that it would not keep retrying the location updating process.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE has to searches for a suitable cell in the same PLMN but belonging to an LA which is not in the ‘forbidden LAs for roaming’ list</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Measurement_Control_and_Handover">Measurement Control and Handover</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I got a question long time ago, saying &quot;Why we see measurement control/measurement report almost always in Handover procedure ?&quot;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In real live network, it would be common to perform 'Measurement Control' both for SHO and HHO. But purely in terms of technology, 'Measurement Control' and 'Measurement Report' is not a mandatory part for any Handover process. If I explain these two procedure in a very simplified (a little bit over simplified) manner, I would say</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Handover - Changing a communication cell from one to another, or changing the number of communication cell to one to another.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Measurement Control - Ordering UE to perform a specific measurement (e.g, the signal quality of the current cell or the signal quality of another cell).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Basically these two procedures are independent. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But in reality, most of network operator combine these two process mainly to improve the successbility of the handover. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, let's suppose that there are two cells (let's call them Cell A, Cell B respectively) and a UE is now communicating to cell A and now your network is trying to let UE change the communication cell from Cell A to Cell B. The simplest way would be to send UE a handover command, saying &quot;change Cell from A to B&quot;. But what if the cell B is not ready to communicate with your UE. For example, the signal quality between Cell A and UE is so bad and it will almost for sure that the call would drop as soon as the UE changes the cell ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you still want to change the cell ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer would be No. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Main for this kind of reason, the network try to make it sure that the target cell (the UE is handed over to) is good enough condition before trying handover. That's why in most live network log, you would see measurement control/measurement report message before the handover.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="P_CCPCH_RSCP_MeasurementReportMapping">P-CCPCH RSCP measurement report mapping</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following Table is from 3GPP 25.331</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_133_Table_9_32.PNG" width="548" height="197" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="PRACH_Power">PRACH Power</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Initial PRACH (The first PRACH that UE transmit) is determined by the following formula. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Initial RACH Preamble Power = Primary CPICH TX Power – CPICH_RSCP + UL_Interference + Constant Value </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CPICH_RSCP is the power directly measured by UE and all other parameters are calculated (obtained) from system information. The related parameter and system information is as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <table border="1" width="611" cellspacing="0" bordercolordark="white" bordercolorlight="black" align="center">
+                <tr>
+                    <td width="199" bgcolor="#CCCC99">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">System Information</span></font></p>
+                    </td>
+                    <td width="248" bgcolor="#CCCC99">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Information Element</span></font></p>
+                    </td>
+                    <td width="150" bgcolor="#CCCC99">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Example Value</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SIB3</span></font></p>
+                    </td>
+                    <td width="248">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Maximum Allowed UL Tx Power</span></font></p>
+                    </td>
+                    <td width="150">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">21 dBm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="199" rowspan="5">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SIB5</span></font></p>
+                    </td>
+                    <td width="248">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Primary CPICH Power</span></font></p>
+                    </td>
+                    <td width="150">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">-8 dBm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="248">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Power Ramp Step</span></font></p>
+                    </td>
+                    <td width="150">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3 dB</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="248">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Mmax</span></font></p>
+                    </td>
+                    <td width="150">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="248">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">NB01min</span></font></p>
+                    </td>
+                    <td width="150">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">10</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="248">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">NB02max</span></font></p>
+                    </td>
+                    <td width="150">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">10</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="199">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SIB7</span></font></p>
+                    </td>
+                    <td width="248">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">UL Interference</span></font></p>
+                    </td>
+                    <td width="150">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">-92</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If UE fail to get AICH for the PRACH, it increment the PRACH power by Power Ramp Step (SIB5) and transmit the PRACH again. UE repeat this process until it gets AICH or it retried the specific number specified in SIB5.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following screenshot is an example of PRACH transmission and retransmission. This is from a test resultl of 34.121 8.4.2.1. In this test case, Network intentionally does not send AICH so that UE keep sending PRACH with specified power increment in the specified number of times. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/UMTS_PRACH_Power.PNG" width="729" height="485" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="RRC_Establishment_Cause">RRC Establishment Cause</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Every RRC Connection Request message has its own establishmentCause and understanding the exact meaning of each of these establishment cause would help you with troubleshooting in many cases. In ASN definition, it has a long list of establishmentcause as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/24_008_RRC_EstablishmentCause_ASN.PNG" width="591" height="480" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You would have to surf through many different specification to find the descriptions for all of these causes, but you would find a list of the most commonly used establishmentcause from the following table defined in 24.008.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/24_008_RRC_EstablishmentCause_L1_1.PNG" width="572" height="191" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/24_008_RRC_EstablishmentCause_L1_2.PNG" width="572" height="696" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RSSI_MeasurementReportMapping">RSSI measurement report mapping</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Following table comes from 25.133.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_133_Table_9_12.PNG" width="616" height="176" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="TFI_TFCI">TFI and TFCI</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TFI stands for Transport Format Indicator TFCI stands for Transport Format Combination Indicator. As you see in the following diagram each Transport Block has one TFI attached to it. In physical layer, multiple transport blocks are combined into a large 'transmission frame'. This combined transmission frame is called Coded Composite Transport Channel (CCTrCh). Each CCTrCH&nbsp;</span></font><font face="Verdana"><span style="font-size:10pt;">frame gets its own indicator which is called TFCI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/WCDMA_TransportChannelFlow.PNG" width="782" height="383" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TFI plays roles as follows. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The TFI is a label for a specific transport format within a transport format set.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is used in the inter-layer communication between MAC and L1 each time a transport block set is exchanged between the two layers on a transport channel.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When the DSCH is associated with a DCH, the TFI of the DSCH also indicates the physical channel (i.e. the channelisation code) of the DSCH that has to be listened by a UE</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">TFCI plays roles as follows.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is a representation of the current Transport Format Combination.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The TFCI is used in order to inform the receiving side of the currently valid Transport Format Combination, and hence how to decode, de-multiplex and deliver the received data on the appropriate Transport Channels.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There is a one-to-one correspondence between a certain value of the TFCI and a certain Transport Format Combination.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC indicates the TFI to Layer 1 at each delivery of Transport Block Sets on each Transport Channel. Layer 1 then builds the TFCI from the TFIs of all parallel transport channels of the UE, processes the Transport Blocks appropriately and appends the TFCI to the physical control signalling.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Through the detection of the TFCI the receiving side is able to identify the Transport Format Combination.</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="ScramblingCode">Scrambling Code</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Let's suppose you are a NodeB. You will getting various signals from many different users (UEs) all at the same time. Then how would you differentiate the incoming signals into separate users at the very low level of your hardware ?. Of course you can figure out exactly which user you are dealing with at higher layer with various type of user ID (UE ID), but my question is how to figure out each user at PHY layer ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Now let's assume that you are a UE. You may be hearing many signals from multiple NodeBs simultaneously. Then how would you differentiate the incoming signals into separate NodeB&nbsp;at the very low level of your hardware ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">The answer to both of the question is same. It is &quot;Scrambling Code&quot;. By using the scrambling code, NodeB can separate signals coming simultaneously from many different UEs and UE can separate signals coming simultaneously from many different NodeB. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into how/where the scrambling code works. Following illustration shows the procedure about the data processing in physical layer. &nbsp;As you see in the following diagram, &quot;Scrambling&quot; happens at the chip rate of the signal processing. Since the chip rate of the scrambling code is the same as the chip rate of the chanelization code scrambling does not change the signal data rate.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/WCDMA_ChannelProcessing.PNG" width="641" height="417" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A specific bit sequence which is used for scrambling is called 'Scrambling code'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two types of scrambling codes : long scrambling code and short scrambling code. Long scrambling code(38400 chips) derived from Gold codes and short codes (256 chips) derived from S(2) codes. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then which type of scrambling code we use ?. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In downlink, only long codes are used.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In uplink direction long codes are used for node B using Rake reciever and short codes are used for NodeB using multiuser detection or interference cancellation recievers. With short codes the implementation of cyclic processing structure is simpler. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even though main role of the scrambling code is to separate multiple signals into the one from each transmitter, it has several additional side effect (I mean 'good side effect'). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It can improve Synchronization. The scrambling code is designed to have relatively high auto-correlation property and you can use the result of high-auto correlation to tune the synchronization timing. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It enables you to reuse the spreading code. Spreading code is used to match the bit rate data into chip rate (3.84 Mcps) signal and also for separating one specific channel from another. For this separation,&nbsp;&nbsp;it uses a special set&nbsp;of spreading code which has the orthogonal to each member of the set. This set of spreading code being used in WCDMA is called VLSF (Variable Length Spreading Factor). But the number of VLSF is not infinite. We only have a finite number of VLSF codes which may put us in short of those codes. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If two different data stream&nbsp;uses the same VLSF codes, the receive cannot differentiate these two. But if the two channels are using different scrambling&nbsp;codes even though&nbsp;they are using the same spreading code, the two data can be separated. The two data stream will go to different reciever path by scrambling process (unscrambling process more accurately speaking). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into the further details of how the scrambling process is really implemented. Here, I will just give you the diagram for each case and the 3GPP specification where you can have further details.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First, let's look into PRACH scrambling part. The overall flow is as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Fig2_PRACH_Spreading.PNG" width="524" height="243" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">For the details of PRACH Preamble part of scrambling code, refer to 25.213, section </span><span style="font-size:10pt;">4.3.3.2 Preamble scrambling code. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For the details of </span><span style="font-size:10pt; line-height:100%;">PRACH message&nbsp;part of scrambling code, refer to 25.213, section </span><span style="font-size:10pt;">, 4.3.2.5 PRACH message part scrambling code</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">How UE would know which scrambling code it has to use for PRACH ? That information is carried by SIB5 as follows (see the IE marked in red)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">SysInfoType5 ::= SEQUENCE [000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-sib6indicator ::= BOOLEAN [FALSE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-pich-PowerOffset ::= INTEGER (-10..5) [-5]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-modeSpecificInfo ::= CHOICE [fdd]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-fdd ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-aich-PowerOffset ::= INTEGER (-22..5) [5]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-primaryCCPCH-Info ::= CHOICE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-prach-SystemInformationList ::= SEQUENCE OF SIZE(1..maxPRACH[16]) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-PRACH-SystemInformation ::= SEQUENCE [11101]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;+-prach-RACH-Info ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;| +-modeSpecificInfo ::= CHOICE [fdd]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-fdd ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-availableSignatures ::= BIT STRING &nbsp;[1111111111111111]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-availableSF ::= ENUMERATED [sfpr64]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-preambleScramblingCodeWordNumber ::= INTEGER (0..15) [0]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-puncturingLimit ::= ENUMERATED [pl1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-availableSubChannelNumbers ::= BIT STRING &nbsp;[111111111111]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First, let's look into scrambling process of all other UL channels except PRACH. The overall flow is as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Fig1_UL_DPCH_Spreading.PNG" width="490" height="267" border="0"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">For the details of UL DPCH&nbsp;part of scrambling code, refer to 25.213, section </span><span style="font-size:10pt;">4.3.2.4 Dedicated physical channels scrambling code.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">How UE would know which scrambling code it has to use for PRACH ? </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">This code is determined by the network and informed to UE by rrc Connection Setup and Radio Bearer Setup message as follows.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console"><font face="Lucida Console">&nbsp;</font></font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">DL-CCCH-Message ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-integrityCheckInfo ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [rrcConnectionSetup]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionSetup ::= CHOICE [r3]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-r3 ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionSetup-r3 ::= SEQUENCE [0011100111]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-ul-ChannelRequirement ::= CHOICE [ul-DPCH-Info] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-ul-DPCH-Info ::= SEQUENCE [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-ul-DPCH-PowerControlInfo ::= CHOICE [fdd] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| +-fdd ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-dpcch-PowerOffset ::= INTEGER (-82..-3) [-30]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-pc-Preamble ::= INTEGER (0..7) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-sRB-delay ::= INTEGER (0..7) [7]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-powerControlAlgorithm ::= CHOICE [algorithm1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-algorithm1 ::= INTEGER (0..1) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-modeSpecificInfo ::= CHOICE [fdd]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;+-fdd ::= SEQUENCE [00]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-scramblingCodeType ::= ENUMERATED [longSC]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-scramblingCode ::= INTEGER (0..16777215) [0]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-numberOfDPDCH ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-spreadingFactor ::= ENUMERATED [sf64]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tfci-Existence ::= BOOLEAN [TRUE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-numberOfFBI-Bits ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-puncturingLimit ::= ENUMERATED [pl1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console"><font face="Lucida Console">&nbsp;</font></font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">RRC:DL-DCCH-Message</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">DL-DCCH-Message ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-integrityCheckInfo ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [radioBearerSetup]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-radioBearerSetup ::= CHOICE [r3]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-r3 ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-radioBearerSetup-r3 ::= SEQUENCE [001001000100101010100111]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-ul-ChannelRequirement ::= CHOICE [ul-DPCH-Info] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-ul-DPCH-Info ::= SEQUENCE [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-ul-DPCH-PowerControlInfo ::= CHOICE [fdd] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| +-fdd ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-dpcch-PowerOffset ::= INTEGER (-82..-3) [-30]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-pc-Preamble ::= INTEGER (0..7) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-sRB-delay ::= INTEGER (0..7) [7]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-powerControlAlgorithm ::= CHOICE [algorithm1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-algorithm1 ::= INTEGER (0..1) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-modeSpecificInfo ::= CHOICE [fdd]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;+-fdd ::= SEQUENCE [10]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-scramblingCodeType ::= ENUMERATED [longSC]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-scramblingCode ::= INTEGER (0..16777215) [0]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-numberOfDPDCH ::= INTEGER (1..maxDPDCH-UL[6]) [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-spreadingFactor ::= ENUMERATED [sf64]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-tfci-Existence ::= BOOLEAN [TRUE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-numberOfFBI-Bits ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-puncturingLimit ::= ENUMERATED [pl0-84]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First, let's look into scrambling process of all DL channels. The overall flow is as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Fig8_DL_Spreading.PNG" width="662" height="266" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">For the details of DL channels&nbsp;of scrambling code, </span><span style="font-size:10pt;">&nbsp;</span><span style="font-size:10pt; line-height:100%;">refer to 25.213, section </span><span style="font-size:10pt;">5.1.4 Scrambling</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console"><font face="Lucida Console">&nbsp;</font></font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">DL-CCCH-Message ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-integrityCheckInfo ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [rrcConnectionSetup]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionSetup ::= CHOICE [r3]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-r3 ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-rrcConnectionSetup-r3 ::= SEQUENCE [0011100111]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-dl-InformationPerRL-List ::= SEQUENCE OF SIZE(1..maxRL[8]) [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-DL-InformationPerRL ::= SEQUENCE [10]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-modeSpecificInfo ::= CHOICE [fdd]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-fdd ::= SEQUENCE [00]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-primaryCPICH-Info ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">| +-primaryScramblingCode ::= INTEGER (0..511) [9]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dummy1 ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dummy2 ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-dl-DPCH-InfoPerRL ::= CHOICE [fdd] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-fdd ::= SEQUENCE [000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-pCPICH-UsageForChannelEst ::= ENUMERATED [mayBeUsed]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dpch-FrameOffset ::= INTEGER (0..149) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-secondaryCPICH-Info ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dl-ChannelisationCodeList ::= SEQUENCE OF SIZE(1..maxDPCH-DLchan[8]) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| +-DL-ChannelisationCode ::= SEQUENCE [00]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">| &nbsp;&nbsp;+-secondaryScramblingCode ::= INTEGER OPTIONAL:Omit</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-sf-AndCodeNumber ::= CHOICE [sf128]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;| +-sf128 ::= INTEGER (0..127) [30]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-scramblingCodeChange ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-tpc-CombinationIndex ::= INTEGER (0..5) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dummy ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-closedLoopTimingAdjMode ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-dummy ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-laterNonCriticalExtensions ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">RRC:DL-DCCH-Message</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">DL-DCCH-Message ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-integrityCheckInfo ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-message ::= CHOICE [radioBearerSetup]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;+-radioBearerSetup ::= CHOICE [r3]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-r3 ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-radioBearerSetup-r3 ::= SEQUENCE [001001000100101010100111]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-dl-InformationPerRL-List ::= SEQUENCE OF SIZE(1..maxRL[8]) [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-DL-InformationPerRL ::= SEQUENCE [10]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-modeSpecificInfo ::= CHOICE [fdd]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-fdd ::= SEQUENCE [00]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-primaryCPICH-Info ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">| +-primaryScramblingCode ::= INTEGER (0..511) [9]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dummy1 ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dummy2 ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-dl-DPCH-InfoPerRL ::= CHOICE [fdd] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-fdd ::= SEQUENCE [000]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-pCPICH-UsageForChannelEst ::= ENUMERATED [mayBeUsed]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dpch-FrameOffset ::= INTEGER (0..149) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-secondaryCPICH-Info ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dl-ChannelisationCodeList ::= SEQUENCE OF SIZE(1..maxDPCH-DLchan[8]) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| +-DL-ChannelisationCode ::= SEQUENCE [00]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-secondaryScramblingCode ::= INTEGER OPTIONAL:Omit</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-sf-AndCodeNumber ::= CHOICE [sf128]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;| +-sf128 ::= INTEGER (0..127) [5]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;| &nbsp;&nbsp;+-scramblingCodeChange ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-tpc-CombinationIndex ::= INTEGER (0..5) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-dummy ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;+-closedLoopTimingAdjMode ::= ENUMERATED OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-dummy ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Uplink_Frame_Timing">Uplink Frame Timing</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In R99 (WCDMA) case, the only Uplink channel you have is PRACH and DPDCH/DPCCH, but PRACH is special case which will be described in detail in 'RACH Process' section. Here we only think about DPDCH/DPCCH. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Uplink DPDCH/DPCCH timing is 1024 chips after DPDCH/DPCCH timing.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

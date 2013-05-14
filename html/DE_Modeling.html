@@ -1,0 +1,741 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="Differential Equation,Spring,Pendulum,Mixing Tank,Introduction,Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">DE - Representation</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_DifferentialEq_01 */
+google_ad_slot = "3063480776";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Modeling_Overview">Modeling Overview</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Governing_Equation">How to get a Governing Equation ?</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Modeling_Building_Block">Modeling Building Blocks</a></span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_Spring">Mechanical Building Block : Spring</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_Damper">Mechanical Building Block : Damper</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_Mass">Mechanical Building Block : Mass</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_Spring_Mass">Mechanical Building Block : Spring-Mass</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_Spring_Damper">Mechanical Building Block : Spring-Damper</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_Spring_Mass_Damper">Mechanical Building Block : Spring-Mass-Damper</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_RotationalBar">Mechanical Building Block : Rotational Bar</a> </span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_RotationalDamper">Mechanical Building Block : Rotational Damper</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Mechanical_Building_Block_RotationalMass">Mechanical Building Block : Rotational Mass (Rotational Inertia)</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Modeling Examples :</span></font></li>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="#Mixing_Problem_1"><font face="Verdana"><span style="font-size:10pt;">Mixing Problem</span></font><font face="Verdana"><span style="font-size:10pt;">(Single Tank)</span></font></a></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Mixing_Problem_2">Mixing Problem(Two Tank)</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Mixing_Problem_3">Mixing Problem (Three Tank)</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PBPK_Oxytetracycline_Sheep">Physiologically Based Pharmacokinetic Model (Oxytetracycline Residues in Sheep)</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Velocity_Freefall_Body">Velocity of Freefall Body</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Simple_Pendulum">Simple Pendulum - Newtonian</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Simple_Pendulum_Lagrangian">Simple Pendulum - Lagrangian</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Single_Spring">Single Spring</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Inverted Single Spring</span></font></li>
+                    <ul>
+                        <li><font face="Verdana"><span style="font-size:10pt;"><a href="#InvertedSpring_Damp">Inverted Spring-Mass with Damping</a></span></font></li>
+                        <li><font face="Verdana"><span style="font-size:10pt;"><a href="#InvertedSpring_Damp_Base">Inverted Spring-Mass with Damping and Moving Base Line</a></span></font></li>
+                        <li><font face="Verdana"><span style="font-size:10pt;"><a href="#InvertedSpring_Damp_Base_Force">Inverted Spring-Mass with Damping and Moving Base Line and External Force</a></span></font></li>
+                    </ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Vibration_Modeling_MultiSpring_1">Coupled Springs&nbsp;(Multi Spring)</a></span></font></li>
+                    <ul>
+                        <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Two_coupled_spring_without_damping">Two coupled spring without Damping</a></span></font></li>
+                    </ul>
+                    <ul>
+                        <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Two_coupled_spring_with_damping">Two coupled spring with Damping</a></span></font></li>
+                        <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Coupled_spring_Vehicle_Suspension_1">Vehicle Suspension System</a></span></font></li>
+                    </ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Electric_Circuit_Analysis_1">Electric Circuit Analysis</a></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Electro_Mechanical_System">Electro Mechanical System</a></span></font></li>
+                    <ul>
+                        <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#DC_Motor_1">DC Motor</a></span></font></li>
+                    </ul>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Modeling_Overview">Modeling Overview</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Most of the mathematical methods are designed to express a realife problems into a mathematical language. This is called 'modeling', at least in engineering Mathematical Modeling is the most important reason why we have to study math. </span></font>&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">With Matrix, Differential Equation is one of the most usefull tool for mathematical modeling and following illustration would show you a several different format of Mathematical Models derived from differential equation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_ModelingOverview.png" width="656" height="436" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Usually (at least, in most of University Courses), the first step is to describe a system into a set of differential equations and convert those equations into Transfer Function (by Laplace Transform) and State Space Equations. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">So it is very important to know the concept of differential equations, but as you repeat this kind of modeling process or work in a specific field for a long time, you would get the tricks to directly construct Transfer Function or State Space Equation without getting into the steps of building up the differential equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are many engineering softwares out there to solve various engineering problems. Some of the tools requires you to input your problem in the form of differential equation, some others requires the input as Transfer Function and some others requires the input as State Space Equation. To utilize these tools as much as possible, you need to understand the concept of all these mathematical
+variations.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Governing_Equation">How to get Governing Equation </a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You will notice from the sample models&nbsp;in later sections that the most important step for modeling is to figure out 'Governing Equation' for the system. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then you may ask &quot;How can I get the governing equation for the system ?&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The simplest answer would be &quot;use your common sense or intuition and try to make your own question about the system&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, let's suppose&nbsp;that you have a&nbsp;mass tied to the end of a spring in vertical direction and pulled the mass down and released it. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Possible questions for this case would be</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Where the mass will be at 2 seconds from now ?</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What would be the speed of the mass at 2 seconds from now ?</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is a good starting point, but these question by themselves&nbsp;does not generate the governing equations. You&nbsp;need some formal knowledge to figure out the governing equation that will give you the answers to your questions. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are several useful rules that can lead you to a geverning equation. In case of mechanical system/dynamic system&nbsp;(system dealing with moving object), followings can be the most frequently used rules. Don't try just blindly memorize these rules and it would not help much. Just try to understand the meaning of these rules. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I would not explain any further about these equation. Try yourself to find materials from internet or text book. Try reading different sources as diverse as possible. Everybody would give you a little bit different aspect and insight. As you read through those sources, your brain would reorgnaize it by itself and you will get your own understanding of these rules. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you have solid understanding of these rules, you would be able to follow through the example models in this post without any difficulties.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_GoverningEquation_Mechanic.png" width="590" height="377" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you are dealing with any electrical/ectronic system, following rules can be a good source that lead you to a proper governing equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_GoverningEquation_Electric.png" width="617" height="208" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Modeling_Building_Block">Modeling Building Block</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As I said in <a href="EngMath_Introduction.html" target="_blank">Introduction of Engineering Math</a> page, Mathematics is a kind of language. In any kind of language learning, the first step is to learn the vacabularies/words and the rules to combine those words into a sentence. The intention of this section is to provide you a handy dictionary of words for a language called 'Differential
+Equation'. But don't try to blindly read through this section from the beginning to the ends. You may have not seen any person who is trying to bindly remember every words in a dictionary from the first page to the last page. Normally you would try to speak a simple sentence or you would hear somebody say some sentences and then you would look into a dictionary when you come accross any word that you don't know. You can use this section in the same manner. See 'Modeling Example' section first (these are kinds
+of sentences written in differential equation and get back to this section when you have difficulties in understanding how the sentence is derived)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I will start out with very short list of dictionary but I will keep updading this section to make it thicker and thicker.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Mechanical_Building_Block_Spring">&lt; Mechanical Building Block : Spring &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Spring_01.PNG" width="663" height="169" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Spring_02.PNG" width="176" height="48" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a name="Mechanical_Building_Block_Damper">&lt; Mechanical Building Block : Damper &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Damper_01.PNG" width="671" height="167" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Damper_02.PNG" width="194" height="76" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Mechanical_Building_Block_Mass">&lt; Mechanical Building Block : Mass&gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Mass_01.PNG" width="673" height="163" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Mass_02.PNG" width="207" height="74" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Mechanical_Building_Block_Spring_Mass">&lt; Mechanical Building Block : Spring-Mass&nbsp;&gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Spring_Mass_01.PNG" width="453" height="233" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Spring_Mass_02.PNG" width="410" height="176" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Mechanical_Building_Block_Spring_Damper">&lt; Mechanical Building Block : Spring-Damper &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Spring_Damper_01.PNG" width="566" height="243" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Spring_Damper_02.PNG" width="369" height="177" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Mechanical_Building_Block_Spring_Mass_Damper">&lt; Mechanical Building Block : Spring-Mass-Damper &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Spring_Mass_Damper_01.PNG" width="579" height="272" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_Spring_Mass_Damper_02.PNG" width="541" height="197" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Mechanical_Building_Block_RotationalBar">&lt; Mechanical Building Block : Rotational Bar&nbsp;&gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_RotationalBar_01.PNG" width="468" height="289" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_RotationalBar_02.PNG" width="170" height="45" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Mechanical_Building_Block_RotationalDamper">&lt; Mechanical Building Block : Rotational Damper &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_RotationalDamper_01.PNG" width="470" height="301" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_RotationalDamper_02.PNG" width="202" height="79" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Mechanical_Building_Block_RotationalMass">&lt; Mechanical Building Block : Rotational Mass (Rotational Inertia)&nbsp;&gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_RotationalMass_01.PNG" width="485" height="309" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Mechanical_RotationalMass_02.PNG" width="193" height="83" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a name="Electrical_Building_Block_Resister">&lt; Electrical Building Block - Reister &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Electrical_R_01.png" width="458" height="222" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Electrical_R_02.png" width="154" height="41" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a name="Electrical_Building_Block_Inductor">&lt; Electrical Building Block - Inductor &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Electrical_L_01.png" width="458" height="222" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Electrical_L_02.png" width="180" height="82" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Electrical_Building_Block_Capacitor">&lt; Electrical Building Block - Capacitor &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Electrical_C_01.png" width="458" height="222" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/EngMath_DifferentialEq_BuildingBlock_Electrical_C_02.png" width="207" height="82" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Mixing_Problem_1">Example : Mixing Problem</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is one of the most common problems for differential equation course. You will see the same or similar type of examples from almost any books on differential equations under the title/label of &quot;Tank problem&quot;, &quot;Mixing Problem&quot; or &quot;Compartment Problem&quot;. But I think (hope) I will be providing the most detailed / step-by-step explanation -:) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To be honest I was not so good at solving this kind of problems when I first studying the problem even though it is only simple first order differential equation. Come to think of it, the reason why I was not so good at this was because I didn't clearly understand the steps through which we generate a differential equation from the description of the problem. That is, I was not so good at
+the modeling process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One example for this kind of problems is as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) There is a tank which has a mixture of Water and Alcohole. (Total volume of the mixture(solution) is 1000 liter).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The initial concentration of Alcohol is 10 % (it means that Water is solvent and Alcohol is solute)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) There is an outlet through which the solution is going out at the rate of 50 liter/min.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) There is an inlet through which a solution (mixture of water and alcohol) is coming in at the rate of 50 liter/min. The concentration of the alcohol in the incoming solution is 50%. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The question is what will be the concentration of the alcohol of the solution in the tank after 10 mins ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_1_01.PNG" width="457" height="333" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The process of deducing the differential equation (modeling) is as follows. I think you have already went through a couple of examples of this kind in your Differential equation course (or you can search several tutorials of this kind in the internet) and see if the following process that I put down makes any sense to you. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_1_02.PNG" width="645" height="454" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : Don't you have any question at this point ? If you have the question saying &quot;In the description of the problem, I see the statement 'the initial concentration of alcohol in the tank is 10%', but I don't see this condition is being used in the derivation of the equation. Does this mean that this initial condition is useless&nbsp;?&quot; </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">We don't need the initial condition at least for modeling process (the process of deriving the differential equation), but we need the initial condition when we solve the equation to get a specific values from the solution. (In this problem, the initial condition <u>y(0) = 1000 liter of solution x 0.1 (10 % of concentration of alcohol) = 100</u>).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Mixing_Problem_2">Example : Mixing Problem (Two Tank)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you haven't read the previous example (One Tank example), please go through it first and get back to this example and try to find what is the difference and what is common. and more importantly try to find some pattern of extending the logic of thinking on modeling. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now we have another tank (the second tank) get connected to the first tank that I used in previous example. First, just take brief look at the diagrame espectiall the direction of arrows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_01.PNG" width="690" height="266" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) There are two tanks which has a mixture of Water and Alcohole. (Total volume of the mixture(solution) of Tank A&nbsp;is 500 liter and the volume of Tank B is 1000 litter).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The initial concentration of Alcohol for Tank A&nbsp;is 0 % (it means that pure Water)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) The initial concentration of Alcohol for Tank B&nbsp;is 90 % </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) There is an outlet for Tank A through which the solution is going out at the rate of 15&nbsp;liter/min.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) There are&nbsp;two outlets for Tank B&nbsp;and the solution is going out at the rate of 5&nbsp;liter/min through one outlet and the solution is going out at the rate of 10 liter/min through the other outlet.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) There are&nbsp;two inlets for Tank A. A&nbsp;solution (mixture of water and alcohol) is coming in at the rate of 10 liter/min with the concentration of 10 % through one inlet and solution (mixture of water and alcohol) is coming in at the rate of 5&nbsp;liter/min with the yet unknown concentration&nbsp;through one inlet. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vii) There are&nbsp;one inlet for Tank B. A&nbsp;solution (mixture of water and alcohol) is coming in at the rate of 15 liter/min with the yet unknown concentration&nbsp;through the&nbsp;inlet. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The question is what will be the concentration of the alcohol of the solution in the tank A and Tank B after 10 mins ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Before jumping into the modeling process, let me give you a couple of questions that can easily be overlooked but important. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Would the volume of solution for each tank change over time ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer is NO, the volume does not change over time. Most of this kind of problem from the text book are carefully designed so that the volum of tank does not change over time. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Why do they set the problem so that the volum of the solution in the tank does not change ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is because the mathematical equation will simpler under that condition. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's summarize some of the initial conditions and define some of the variables for modeling. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_02.PNG" width="608" height="208" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into the governing law of this problem. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The rule is as follows and you will notice that this law is exactly same as what you saw in previous example (Single Tank case). The only difference is that Tank A has one more inlet. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_03.PNG" width="705" height="315" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next step is to describe the amount of alcohol coming in and out of the tank A in mathmatical terms as follows. Overall the expressions are simple. The only thing you have to think a little bit is the expression for the concentration of alcohol for each tank. They are expressed as x/500 and y/1000. These can be expressed in this kind of simple manner because we set the problem so that the
+total amount of solution for each tank does not change over time. If the total volume of each tank changes, you cannot express it as a simple number like '500' or '1000'. You would need the functions (a function of t) describing the volume of each tank over time.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_04.PNG" width="645" height="146" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_05.PNG" width="645" height="146" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_06.PNG" width="645" height="138" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into governing law for Tank B. Overall process is as follows and you will notice that the process (logic) is exactly same as you did for Tank A. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_07.PNG" width="713" height="315" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mathematical expression of each terms of governing law (governing equation) are as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_08.PNG" width="632" height="142" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_09.PNG" width="632" height="142" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_10.PNG" width="645" height="135" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now we have each terms (components) of governing law for Tank A and Tank B. If you just combine those components according to the governing law you will get the following two differential equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_11.PNG" width="655" height="413" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Writing again the two equations into a simultaneous equation (system equation), we get the following. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_12.PNG" width="300" height="133" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is done with modeling and you can solve the equations as it is, but some software require the system equations to be input in matrix format as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_2_13.PNG" width="352" height="114" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Mixing_Problem_3">Example : Mixing Problem (Three Tanks)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is one-step further extention of the previous example. (Make it sure that you have gone through the previous two examples - single tank, two tank problems before you start this example). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now we have another tank (the third&nbsp;tank) get connected to the second&nbsp;tank that I used in previous example. First, just take brief look at the diagrame espectiall the direction of arrows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_01.PNG" width="740" height="303" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) There are three&nbsp;tanks which has a mixture of Water and Alcohole. (Total volume of the mixture(solution) of Tank A&nbsp;is 500 liter and the volume of Tank B is 1000 litter and the volume of Tank C is 400 litter).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The initial concentration of Alcohol for Tank A&nbsp;is 0 % (it means that pure Water)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) The initial concentration of Alcohol for Tank B&nbsp;is 0 % (it means that pure Water)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) The initial concentration of Alcohol for Tank C&nbsp;is 0 % (it means that pure Water)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) There is an outlet for Tank A through which the solution is going out at the rate of 15&nbsp;liter/min.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) There are&nbsp;two outlets for Tank B&nbsp;and the solution is going out at the rate of 5&nbsp;liter/min through one outlet and the solution is going out at the rate of 13 liter/min through the other outlet.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vii) There are&nbsp;two outlets for Tank C&nbsp;and the solution is going out at the rate of 3&nbsp;liter/min through one outlet and the solution is going out at the rate of 10 liter/min through the other outlet.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">viii) There are&nbsp;two inlets for Tank A. A&nbsp;solution (mixture of water and alcohol) is coming in at the rate of 10 liter/min with the concentration of 10 % through one inlet and solution (mixture of water and alcohol) is coming in at the rate of 5&nbsp;liter/min with the yet unknown concentration&nbsp;through one inlet. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ix) There are&nbsp;two inlet for Tank B. A&nbsp;solution (mixture of water and alcohol) is coming in at the rate of 15 liter/min with the yet unknown concentration&nbsp;through the&nbsp;inlet and solution (mixture of water and alcohol) is coming in at the rate of 3&nbsp;liter/min with the yet unknown concentration&nbsp;through one inlet.. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x) There is&nbsp;one inlet for Tank C. A&nbsp;solution (mixture of water and alcohol) is coming in at the rate of 13 liter/min with the yet unknown concentration&nbsp;through the&nbsp;inlet</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The question is what will be the concentration of the alcohol of the solution in the tank A,Tank B and Tank C&nbsp;after 10 mins ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Before jumping into the modeling process, let me give you a couple of questions that can easily be overlooked but important. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Would the volume of solution for each tank change over time ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer is NO, the volume does not change over time. Most of this kind of problem from the text book are carefully designed so that the volum of tank does not change over time. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Why do they set the problem so that the volum of the solution in the tank does not change ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is because the mathematical equation will simpler under that condition. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's summarize some of the initial conditions and define some of the variables for modeling. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_02.PNG" width="491" height="243" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into the governing law of this problem. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The rule is as follows and you will notice that this law is exactly same as what you saw in previous example (Two Tank case). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_03.PNG" width="703" height="320" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next step is to describe the amount of alcohol coming in and out of the tank A in mathmatical terms as follows. Overall the expressions are simple. The only thing you have to think a little bit is the expression for the concentration of alcohol for each tank. They are expressed as x/500 and y/1000. These can be expressed in this kind of simple manner because we set the problem so that the
+total amount of solution for each tank does not change over time. If the total volume of each tank changes, you cannot express it as a simple number like '500' or '1000'. You would need the functions (a function of t) describing the volume of each tank over time.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_04.PNG" width="641" height="147" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_05.PNG" width="641" height="152" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_06.PNG" width="641" height="133" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><FONT face=Verdana><SPAN style="FONT-SIZE: 10pt">Now let's look into governing 
+law for Tank B. Overall process is as follows and you will notice that the 
+process (logic) is exactly same as you did for Tank A. </SPAN></FONT></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_07.PNG" width="715" height="323" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><FONT face=Verdana><SPAN style="FONT-SIZE: 10pt">Mathematical expression of each 
+terms of governing law (governing equation) are as follows.</SPAN></FONT></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_08.PNG" width="651" height="136" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_09.PNG" width="651" height="136" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_10.PNG" width="651" height="131" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_11.PNG" width="652" height="133" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><FONT face=Verdana><SPAN style="FONT-SIZE: 10pt">Now let's look into governing 
+law for Tank C. Overall process is as follows and you will notice that the 
+process (logic) is exactly same as you did for Tank A. </SPAN></FONT></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_12.PNG" width="711" height="321" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><FONT face=Verdana><SPAN style="FONT-SIZE: 10pt">Mathematical expression of each 
+terms of governing law (governing equation) are as follows.</SPAN></FONT></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_13.PNG" width="650" height="152" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_14.PNG" width="650" height="135" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_15.PNG" width="650" height="135" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <P style="LINE-HEIGHT: 100%; MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px"><FONT 
+face=Verdana><SPAN style="FONT-SIZE: 10pt">Now we have each terms (components) 
+of governing law for Tank A,Tank B and Tank C. If you just combine those components 
+according to the governing law you will get the following three&nbsp;differential 
+equation.</SPAN></FONT></P>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_16.PNG" width="652" height="174" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_17.PNG" width="652" height="174" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_18.PNG" width="652" height="174" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><FONT face=Verdana><SPAN style="FONT-SIZE: 10pt">Writing again the three equations 
+into a simultaneous equation (system equation), we get the following. 
+</SPAN></FONT></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_19.PNG" width="344" height="181" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><FONT face=Verdana><SPAN style="FONT-SIZE: 10pt">This is done with modeling and 
+you can solve the equations as it is, but some software require the system 
+equations to be input in matrix format as follows.</SPAN></FONT></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_MixingProblem_3_20.PNG" width="429" height="169" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PBPK_Oxytetracycline_Sheep">Physiologically Based Pharmacokinetic Model (Oxytetracycline Residues in Sheep)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">This is a typical real life problem that can be extended from the mixing problems (tank problems) that we saw in previous examples. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">This example came from the following reference. If you want to get further details, refer to following source. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">J. vet. Pharmacol. Therap. 26, 55–63, 2003.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">A physiologically based pharmacokinetic model for oxytetracycline</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">residues in sheep</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">A. L. CRAIGMILL</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Food Animal Residue Avoidance Databank, </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Environmental Toxicology Extension,</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">University of California, Davis, CA 95616,USA</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is to model to see how a chemical injected into a body of an animal spread into all the organs and how the concentration of the chemical changes over time in each organs.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The diagram for the model is shown below. It would look complicated... it is. But this is real life problem and most of real life problems are much more complicated than the one you see in the textbook. But point is that even such a complicated model like this are based on the same logic that you learned from the text book. Of course it is not easy to recognize the direct relationship between
+the real life problem and the text book examples. However, don't get disappointed if you don't recognize the relationship within 5 mins or even within a couple of hours. For the realife problem like this, it would take a least several months just to understand the details and reach the point where you can draw mathematical formula. So very important characteristics that you should have in addition to mathematical skills is to have 'persistence', 'perseverance'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Anyway... if you consider each organs of the following diagram to be a tank of mixing problem that we covered in previous examples, this model can be just a mixing problem with 7 tanks. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font><span style="font-size:10pt;"></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/PBPK_OTC_01.PNG" width="716" height="542" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I would not want to describe each and every steps to draw out the differential equations from this model. I would just show the final outcome of the model from the reference. Just look at the equation and see if you can understand overal logics. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/PBPK_OTC_02.PNG" width="782" height="414" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Velocity_Freefall_Body">Example : Velocity of Freefall Body</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Direction : Derive a differential equation that tells you the velocity of a falling body at any given time.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(Assume the condition where you should not ignore the air resistance)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What is the governing rule ? </span></font></p>
+            <div v:shape="_x0000_s1026" class=O style='mso-char-wrap:1;mso-kinsoku-overflow:
+1'>
+                <p align="center"><font face="Verdana"><span style="font-size:10pt;">Total Force applied to a body = Motion of the body</span></font></p>
+            </div>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_FreeFall_01.PNG" width="722" height="434" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_FreeFall_02.PNG" width="523" height="63" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : This can be one of the simplest modeling example, but it doesn't mean that you should be able to understand everything here in 5 minutes and you are dumb if you don't understand this so quickly. I hope you would have a lot of questions that has not clearly been&nbsp;explained in my explanation above and that has not been treated in your math course. For example, my own questions are
+like this. The explanation said the air resistance can be expressed as -kv, but how did you know that ? Juding from the expression, it seems that the air resistance is determined only by the velocity ? How did you guarantee that the resistance is not influenced by other factors like acceleration, mass of the falling body ? &nbsp;How about the shape of the falling body or paraschute ? Doesn't this influence the resistance force ? Judging from our common sense, the shape/size of the paraschute definately influence
+the resistance force. How come this term is not shown in the mathematical expression, -kv ? &nbsp;what does 'k' mean ? How can we determine this value ? what kind of factors are involved in determining k value (Actually, the shape of paraschute or falling body can be a very important factors to determine the k value). Like this, we can have an endless list of questions boggling in your mind if you are really doing the mathematical modeling in stead of rotely memorizing whatever your textbook or teach tells. I
+am not saying that you always have to raise your hand in your math class and argue with your math teacher until you get the answers to all of these kind of questions. These are the questions you continue to investigate to expand this kind of basic model to a better/real life models. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Simple_Pendulum">Example : Simple Pendulum</a></b></span></font><font face="Verdana"><span style="font-size:10pt;"><b> - Newtonian</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look at another famous example, 'Simple Pendulum (Single Pendulum)'. Governing Law is same as other dynamic system saying &quot;Total Force being applied to a moving body represents the motion of the body&quot;. Basic format is derived from F = ma. The only difference is that Pendulum is for rotational motion whereas F=ma is for linear movement, but the basic concept is same. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is each components of the government equation for the simple pendulum. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_01.png" width="554" height="364" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As shown above, the key factor in the governing equation is Torque and you may ask &quot;Where does this Torque come from ?&quot;. In another word, what is the source of the torque. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The source of the torque comes from the gravity from the Earth since we don't apply any additional force to the pendulum. You just lifted&nbsp;up the pendulum and just let it go. You didn't push the pendulum and just let it go. So the only source of the driving force is gravitational force. The gravitational force is applied in the direction as shown on the right side of illustration below.
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_02.png" width="671" height="319" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then how can I derive the torque from the gravitational force ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you just draw a couple of additional arrows as shown below, you would easily figure out the Torque from high school trigonometry. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_03.png" width="350" height="224" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">With this understanding and the first illustration, you would get a differential equation as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_04.png" width="228" height="70" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">With a little bit of methematical touch, you would get much simpler equation as show below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_04_1.png" width="242" height="249" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The equation shown above is the pendulum with no damping (e.g, no resistence by air and any other frictions). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look at the case where the damping gets involved. You would the differential equation with damping just by adding an additional arrow show in red below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_05.png" width="350" height="231" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you just 'READ' the illustration shown above, you would get the following differential equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_06.png" width="317" height="66" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Simple_Pendulum_Lagrangian">Example : Simple Pendulum - Lagrangian</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_Lagrangian_01.png" width="703" height="509" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_Lagrangian_02.png" width="283" height="66" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_Lagrangian_03.png" width="151" height="64" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_Lagrangian_04.png" width="676" height="71" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_Lagrangian_06.png" width="325" height="171" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SimplePendulum_Lagrangian_07.png" width="169" height="68" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Single_Spring">Example : Single Spring</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is one of the most famous example of differential equation. Probably you may already learned about general behavior of this kind of spring mass system in high school physics&nbsp;in relation to Hook's Law or Harmonic Motion. Of course, you may not heard anything about 'Differential Equation' in the high school physics. (As for the general introduction of this system, see this excelent
+video and get some intuitive idea on the system: <a href="https://www.youtube.com/watch?v=CnwDJFYqbVg" target="_blank">Mechanical Universe 16 - Harmonic Motion</a>. If this link does not work, try searching in YouTube with the keyword 'Mechanical Universe 16 - Harmonic Motion'). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SingleSpring_01.PNG" width="738" height="491" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SingleSpring_02.PNG" width="708" height="557" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_SingleSpring_03.PNG" width="529" height="76" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this example, you have learned how to model the motion of a mass tied to a vertical spring. From this very simple example, you can extend to more and more complicated situation which is closer to real engineering example. Following would be general steps on how to extend this simple spring model to more complicated situation (There are no detailed explanation about the modeling process.
+It would just give you the differential equation and show how the solution of the equation look like, but I hope you would not have much difficulties understand the equations). First two are the one you saw in this example, but I listed here to show you how the solution look like.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="Octave_Matlab_DifferentialEquation.html#ode45_SingleSpringMass_Undamped" target="_blank">Undamped</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="Octave_Matlab_DifferentialEquation.html#ode45_SingleSpringMass_Damped" target="_blank">Damped</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="Octave_Matlab_DifferentialEquation.html#ode45_SingleSpringMass_DampedForce" target="_blank">Damped with External Force</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="Octave_Matlab_DifferentialEquation.html" target="_blank">Vander Pol Oscillator (This is the case where the damping coefficient is a function of x(t), not a constant)</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Vibration_Modeling_MultiSpring_1">Example : Coupled Spring&nbsp;(Multi Spring)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The examples in this section will be very usefull to model various mechanical system. You would say &quot;This is just two springs or three springs connected to each other.. doesn't look like very useful&quot;. But there are many mechanical problems that can be described in the form of multiple masses connected to each other with springs. For example, you can model an entire automobiles with
+several hundreds masses connected to each other by several undreds springs and can analyze how the each parts of the whole car vibrate when you drive it along a bumpy road. </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may think this kind of simple two or three spring model is not related to such a complicated model for the entire car, but in reality the logic and process of modeling is exactly same. You would just have several dozens of differential equations in stead of two or three equeations,&nbsp;which is very similar to what you see here.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Don't worry about solving a system differential equation which is made up of several hundred equations. Nobody do it by hand. There is a lot of computer tools to do this. Your job is to fill in the parameters or sometimes mathmatical equations to such tools and to do that you have to understand the meaning/logics of the mathematical model.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Two_coupled_spring_without_damping">&lt; Example : Two coupled spring without damping &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into a little bit more complex spring model as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_A_01.PNG" width="453" height="179" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">At the first look, you may be overwhelmed by the complexity of the situation. But don't be scared, there is an easy way to do the modeling for this kind. The trick is to split the problem into multiple single spring situation. Then you can use the logic that you have learned in the single spring model. (Note : This is a model which may be simpler than the real life system. First, you don't
+see any external forces applied to any of the mass. Also, you don't see any friction (or damping) is applied to the mass. It means the movement of the mass is only determined by spring force).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this example, we can split the whole system into following two single spring model. As you see, the governing rule is same as the one we saw in the single spring model. (If you get familiar with this kind of splitting method, you can easily do the modeling for a system with even 100 mass/springs. Logic would be the same. You would get 100 differential equations of single spring-mass. that's
+it). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_A_02.PNG" width="624" height="278" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you can draw a diagram as shown above and express the behavior of each component in a mathmatical form, it is the end of modeling. You already complete the modeling of this system. But to convert the model into a set of differential equations that is familiar to us, let's rearrange the each of the mathematical components. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's start with the model for the first mass-spring component. Actually the first line can express the physical meaning of the model the best, but for mathematical convinience or for applying other analytic method, we often do this kind of rearrangement, but there is no single best expression. if you see various textbooks, you would notice that everybody would use a little bit different
+format. So just pick one of this form and trying to memorize it would not have any practical use.. try to understand the meaning of each component in stead of memorizing the equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_A_03.PNG" width="500" height="409" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's start with the model for the second&nbsp;mass-spring component. A</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_A_04.PNG" width="540" height="396" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Through the process described above, now we got two differential equations and the solution of this two-spring (couple spring) problem is to figure out x1(t), x2(t) out of the following simultaneous differential equations (system equation).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_A_05.PNG" width="563" height="154" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is the end of modeling. But some textbook likes to express this kind of simultaneous equations into a matrix form as follows. This is just a different ways of expression but sometimes looks very intimidating. (This is just a <a href="EngMath_Introduction.html#Psychological_Factors_in_Math" target="_blank">psychological issues</a> that I mentioned the <a href="EngMath_Introduction.html"
+target="_blank">introduction page</a>).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_A_06.PNG" width="563" height="219" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Two_coupled_spring_with_damping">&lt; Example : Two coupled spring with Damping &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This example is just half step extension of previous example. It is made up of two mass and three springs which is the same as in previous example. The only difference is that damping factors are introduced as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_B_01.PNG" width="443" height="180" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you have followed through the previous examples, you may know what to do by now. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Split the given model into each component</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Define the governing rules for each component. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is the procedure for any kind of mathemtical modeling. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The governing rule of the first component is as follows. Overall logic is</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Define all the forces being applied to the object</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Draw arrows represending the direction of the force (Be very careful of determining the direction of arrows since it determines the sign of the mathematical term)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Write the mathematical formula to each of the forces (arrows) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_B_02.PNG" width="630" height="484" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next step is to combine all the mathematical components of each arrow and the motion of the movement into a single equation as follows. The first line is the orginal form. All the other lines are just rearrangement of the first line, so mathematically they are all same. You can just pick whatever you want for your needs/preference, but the last one and the second-to-the-last one are the most
+common forms. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_B_03.PNG" width="645" height="427" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do the same thing for the second component as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_B_04.PNG" width="636" height="442" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now we have two differential equations for two mass (component of the system) and let's just combine the two equations into a system equations (simultaenous equations) as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_B_05.PNG" width="558" height="150" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In most cases and in purely mathematical terms, this system equation is all you need and this is the end of the modeling. But in some case you may want to convert&nbsp;these system equations into a set of the first order equations as follows. (If you are not familiar with this kind of conversion process, refer to <a href="#HigherOrderToFirstOrder" target="_blank">Converting High Order Differential
+Equation into First Order Simultaneous Differential Equation</a>)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_B_06.PNG" width="558" height="290" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once you have a set of differential equation which are all first order, you can easily convert it in the form of Matrix equation as shown below. (If you are not familiar with this kind of conversion, refer to <a href="EngMath_DifferentialEquation.html">Differential Equation meeting Matrix</a>)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_Vibration_B_07.PNG" width="635" height="269" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="InvertedSpring_Damp">&lt; Example : Inverted Spring-Mass with Damping &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look at a simple, but realistic case. Let's assume that a car is moving on the perfactly smooth road. This can be illustrated as follows. The body of the car is represented as m, and the suspension system is represented as a damper and spring as shown below. (Note: You may ask why the gravitational force being applied to the mass is not considered here. It is because of the assupmtion
+that the equilibrium point is set so that the gravitational force is cancelled out. See the <a href="#Single_Spring">Simple Spring example</a> about the equilibrim point)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_InvertedSpring_Damp_01.png" width="309" height="231" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The differential equation can be represented as shown below. I will not describe the steps to come up with this equation. Try yourself to figure out how to derive this equation based on previous examples. You would not have much difficulties for it. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_InvertedSpring_Damp_02.png" width="197" height="64" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="InvertedSpring_Damp_Base">&lt; Example : Inverted Spring-Mass with Damping and Moving Base Line &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This example is similar to previous example, but has one additional&nbsp;factor. In this example, the car is not moving along a smooth road. it is moving a long a bumpy road as illustrated on the left side. This can be modeled in a similar way to the previous example except that the base line is moving as illustrated on the right side. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_InvertedSpring_Damp_Base_01.png" width="565" height="298" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The differential equation can be represented as shown below. I will not describe the steps to come up with this equation. Try yourself to figure out how to derive this equation based on previous examples. You would not have much difficulties for it. You would notice that another displace variable y2 is introduced in this equation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_InvertedSpring_Damp_Base_02.png" width="335" height="65" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If the car is moving on perfectly harmonic surface, the y2 can be expressed as a trigonometric function (e.g, cos(w t)) and the w can be determined by the speed of the car. So with this equation, you can figure out how the body of the car will move up and down when the car is moving on a bumpy road with a certain velocity. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="InvertedSpring_Damp_Base_Force">&lt; Example : Inverted Spring-Mass with Damping and Moving Base Line and External Force&gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This example is similar to previous example, but has one additional&nbsp;factor. In this example, the car is&nbsp;moving along a bumpy&nbsp;road and it also is under some external force. (In most case, the car is experencing various internal vibration and the vibration can be a kind of external force). This can be modeled in a similar way to the previous example except that the base line
+is moving as illustrated on the right side. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_InvertedSpring_Damp_Base_Force_01.png" width="625" height="411" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The differential equation can be represented as shown below. I will not describe the steps to come up with this equation. Try yourself to figure out how to derive this equation based on previous examples. You would not have much difficulties for it. You would notice that another displace variable y2 is introduced in this equation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_InvertedSpring_Damp_Base_Force_02.png" width="340" height="64" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If the car is vibrating in a harmonic function with a certain frequency and the F&nbsp;can be expressed as a trigonometric function (e.g, cos(f t)). So with this equation, you can figure out how the body of the car will move up and down when the car is moving on a bumpy road with a certain velocity and the body is also expericing vibration.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Coupled_spring_Vehicle_Suspension_1">&lt; Example : Coupled spring - Vehicle Suspension System&nbsp;&gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can practice what you learned from the previous two examples and this is the one that can be easily extended for a real life problem. You can easily apply this example to model a suspension system of a vehicle. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It may look a little bit scary, but the logic of the modeling is always the same however complex system it is. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you remember the logic (process)&nbsp;? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Break down the system into each component. (When you see this kind of spring-mass system, each Mass is the building block of the system).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Draw the arrows (vectors)&nbsp;to represent the direction of Forces being applied to each component.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Write down mathematical formula for each of the arrows (vectors).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Combine all the component formula into a single differential equation</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_01.PNG" width="595" height="282" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now Let's start with the first component. Can you identify the component ? M1 is the first component. Mark&nbsp;all the springs, damper and applied force for the component as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_02.PNG" width="432" height="189" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now draw arrows (vectors) to represent forces being aplied to the component (Mass) as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_03.PNG" width="377" height="154" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now combine each component formula into single differential equation as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_04.PNG" width="679" height="79" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now Let's start with the second&nbsp;component. Can you identify the component ? M2 is the first component. Mark&nbsp;all the springs, damper and applied force for the component as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_05.PNG" width="429" height="187" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now draw arrows (vectors) to represent forces being aplied to the component (Mass) as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_06.PNG" width="646" height="216" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now combine each component formula into single differential equation as shown below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_07.PNG" width="636" height="136" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">With a little bit of operation, you can simplify the equation into the one as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_08.PNG" width="619" height="73" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you combine the equation for component 1 and component 2, you would get a system equation as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_VehicleSuspension1_09.PNG" width="698" height="163" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I wouldn't do this here, but I recommend you to try to convert this into a matrix form. It will be a good practice for <a href="#HigherOrderToFirstOrder" target="_blank">first order conversion</a> and <a href="#Differential_Equation_Matrix" target="_blank">matrix form conversion</a>.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Electric_Circuit_Analysis_1">Example : Electric Circuit Analysis</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_ElectricCircuit1_01.PNG" width="632" height="501" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_ElectricCircuit1_02.PNG" width="654" height="550" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Electro_Mechanical_System">Example : Electro Mechanical System</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="DC_Motor_1">&lt; Example : DC Motor &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_DC_Motor_1_01.PNG" width="648" height="471" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_DC_Motor_1_02.PNG" width="547" height="270" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_DC_Motor_1_03.PNG" width="222" height="83" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_DC_Motor_1_04.PNG" width="654" height="374" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_DC_Motor_1_05.PNG" width="243" height="141" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_Ex_DC_Motor_1_06.PNG" width="286" height="162" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

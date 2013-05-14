@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;"><a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="PUCCHFormat"><b>PUCCH Format</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PUCCH (Physical Uplink Control Channel) carries a set of information called &quot;UCI(Uplink Control Information)&quot;. (This is similar to PDCCH which carries DCI (Downlink control information)&quot;. Depending on what kind of information the UCI in PDCCH carries, PDCCH is classified into various formation as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="809" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="202" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">PUCCH Format</span></font></p>
+                    </td>
+                    <td width="597" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UCI information</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="202"><font face="Verdana"><span style="font-size:10pt;">Format 1</span></font></td>
+                    <td width="597"><font face="Verdana"><span style="font-size:10pt;">Scheduling Request (SR)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="202"><font face="Verdana"><span style="font-size:10pt;">Format 1a</span></font></td>
+                    <td width="597"><font face="Verdana"><span style="font-size:10pt;">1-bit HARQ ACK/NACK with/without SR</span></font></td>
+                </tr>
+                <tr>
+                    <td width="202"><font face="Verdana"><span style="font-size:10pt;">Format 1b</span></font></td>
+                    <td width="597">
+                        <p><font face="Verdana"><span style="font-size:10pt;">2-bit HARQ ACK/NACK with/without SR (This is for MIMO, 1 bit for each transport block)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="202"><font face="Verdana"><span style="font-size:10pt;">Format 2</span></font></td>
+                    <td width="597"><font face="Verdana"><span style="font-size:10pt;">CQI (20 coded bits)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="202"><font face="Verdana"><span style="font-size:10pt;">Format 2</span></font></td>
+                    <td width="597">
+                        <p><font face="Verdana"><span style="font-size:10pt;">CQI and 1 or 2 bit HARQ ACK/NACK - 20 bits - Extended CP only</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="202"><font face="Verdana"><span style="font-size:10pt;">Format 2a</span></font></td>
+                    <td width="597">
+                        <p><font face="Verdana"><span style="font-size:10pt;">CQI and 1 &nbsp;bit HARQ ACK/NACK - (20 + 1 coded&nbsp;bits)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="202"><font face="Verdana"><span style="font-size:10pt;">Format 2b</span></font></td>
+                    <td width="597">
+                        <p><font face="Verdana"><span style="font-size:10pt;">CQI and 2&nbsp;&nbsp;bit HARQ ACK/NACK - (20 + 2&nbsp;coded&nbsp;bits)</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In 3GPP 36.213, section&nbsp;10.1 UE procedure for determining physical uplink control channel assignment. The PUCCH format is summarized as follows.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HARQ-ACK using PUCCH format 1a or 1b</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HARQ-ACK using PUCCH format 1b with channel selection</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Scheduling request (SR) using PUCCH format 1</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HARQ-ACK and SR using PUCCH format 1a or 1b</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI using PUCCH format 2</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI and HARQ-ACK using PUCCH format</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2a or 2b for normal cyclic prefix</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2 for extended cyclic prefix</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

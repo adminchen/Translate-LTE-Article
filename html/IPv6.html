@@ -1,0 +1,1135 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897"><b><font face="Verdana"><span style="font-size:14pt;">IPv6</span></font></b></td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_10 */
+google_ad_slot = "8184805979";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+		   </span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">IPv6 is not a small topics at all and I am not the expert on this area to explain all the details of it. But I would like to share a couple of basic things on IPv6 which I think is important in mobile phone testing. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#IPv6_AddressingScheme">Addressing Scheme</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Assigning_PDN_IE">Assigning PDN IE</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#IPv6_Header_ICMP">IPv6 Header and ICMP</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Initial_Transactions_IPv6_Connectivity">Initial Transaction for IPv6 Connectivity</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Router_Discovery">Router Discovery</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Neighbor_Discovery">Neighbour Discovery</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Multicast_Listener_Discovery">Multicast Listener Discovery</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#PC_to_PC_Connection">PC to PC Connection Test</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#FollowingDataPath">Following the Data Path</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#IPv6_Testing_NetworkSimulator">Testing with Network Simulator</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#IPv6_Testing_NetworkSimulator_Router">IPv6 Testing with Network Simulator and Router</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Configuring_WindowsXP_Router">Configuring Windows XP to simulate IPv6 Router</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Configuring_Windows7_Router">Configuring Windows 7 to simulate IPv6 Router</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#netsh">netsh</a></span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Assigning_New_IP_Address">Assigning a new IP address</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Removing_IPv6_Address">Removing the existing IPv6 address</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Reseting_TCP_IP">Reseting TCP/IP Config</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Getting_IP_Address_from_DHCP_Server">Getting IP Address from DHCP server</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Getting_DNS_from_DHCP_Server">Getting DNS from DHCP Server</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Setting_DNS_Server_Manually">Setting DNS Server Manually</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Setting_Default_Gateway_Address">Setting the Default Gateway Address</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Setting_Subnet_Mask">Setting the Subnet Mask</a></span></font></li>
+                </ul>
+                <li><font face="Verdana"><span style="font-size:10pt;">Network Basic</span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#NetworkBasics_DefaultGateway">Default Gateway</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#NetworkBasics_ARP">ARP (Address Resolution Protocol)</a></span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="IPv6_AddressingScheme">Addressing Scheme</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Anybody who is interested in IPv6 and read any IPv6 material would know IPv6 has 128 bits address space whereas IPv4 has 32 bit address space. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There is one more thing you have to keep in mind expecially in relation to LTE. It is the fact that the IPv6 address is made up of two big chunks as follows. One of the chunk (the first 64 bits of address space) is called Site Local or Global address depending on the situation. The second chunk(the second 64 bits of the address space) is called 'Link Local&quot; address. (Regarding the meaning
+of Site Local and Link Local adress, refer to the first two link at the end of this section. At least to me, they are the ones which explains the IPv6 address scheme in the easiest and the most intuitive manner).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Address.PNG" width="472" height="183" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Following shows the most frequently used Prefix.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <table border="1" width="802" align="center" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="200" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Prefix Description</span></font></p>
+                    </td>
+                    <td width="230" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Prefix</span></font></p>
+                    </td>
+                    <td width="118" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Bit Fields</span></font></p>
+                    </td>
+                    <td width="236" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Functions</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Link Local address (Private)</span></font></p>
+                    </td>
+                    <td width="230">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">FE80::/10 (</span><span class="boldo" style="font-size:10pt;">FE8:: through FEB::)</span></font></p>
+                    </td>
+                    <td width="118">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="red"><b>1111 1110 10</b></font></span></p>
+                    </td>
+                    <td width="236">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Mandatory address for communication between two IPv6 device</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Automatically assigned when IPv6 is enabled</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Used for next hop calculation in routing protocol</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Only link specific scope</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) Remaining 54 bits can be 0 or any manualy configured value</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Site Local address</span></font></p>
+                    </td>
+                    <td width="230">
+                        <p align="left"><font face="Verdana"><span class="boldo" style="font-size:10pt;">FEC:: through FFF::</span></font></p>
+                    </td>
+                    <td width="118">&nbsp;</td>
+                    <td width="236">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="200" height="77" rowspan="3">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Unique Local Unicast </span></font></p>
+                    </td>
+                    <td width="230" height="27">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">FC00::/7</span></font></p>
+                    </td>
+                    <td width="118" height="27">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="red"><b>1111 110</b></font></span><font face="Verdana"><span style="font-size:10pt;">0</span></font></p>
+                    </td>
+                    <td width="236" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Local Communication</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Inter-site VPN</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Not routable on the internet</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="230" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">FC00::/8 (Registry)</span></font></p>
+                    </td>
+                    <td width="118" height="27">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="red"><b>1111 1100</b></font></span></p>
+                    </td>
+                    <td width="236" height="27">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="230" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">FD00::/8 (No Registry)</span></font></p>
+                    </td>
+                    <td width="118" height="27">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="red"><b>1111 1101</b></font></span></p>
+                    </td>
+                    <td width="236" height="27">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="200">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Global Unicast</span></font></p>
+                    </td>
+                    <td width="230">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">2000::/3</span></font></p>
+                    </td>
+                    <td width="118">&nbsp;</td>
+                    <td width="236">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="200">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">Loopback</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="230">
+                        <p align="left"><font face="Verdana"><span style="font-size:10pt;">::1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="118">&nbsp;</td>
+                    <td width="236">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="200" height="7"><font face="Verdana"><span style="font-size:10pt;">Unspecified</span></font></td>
+                    <td width="230" height="23"><font face="Verdana"><span style="font-size:10pt;">::</span></font></td>
+                    <td width="118" height="23">&nbsp;</td>
+                    <td width="236" height="23">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td width="200" height="7"><font face="Verdana"><span style="font-size:10pt;">Multicast</span></font></td>
+                    <td width="230" height="23"><font face="Verdana"><span style="font-size:10pt;">FF::</span></font></td>
+                    <td width="118" height="23">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="red"><b>1111 1111</b></font></span></p>
+                    </td>
+                    <td width="236" height="23">&nbsp;</td>
+                </tr>
+            </table>
+            <P><font face="Verdana"><span style="font-size:10pt;">If you capture the wireshark log during the test, you will see many different types of multicast address and this table would help you understand the meaning of those addresses.</span></font></P>
+            <DIV class=tablediv>
+                <TABLE class=dtTABLE border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black" width="809">
+                    <TBODY>
+                    <TR vAlign=top>
+                        <TH width="24%" bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;"><b>IPv6 multicast address</b></span></font></TH>
+                        <TH width="75%" bgcolor="#99CCFF"><font face="Verdana"><span style="font-size:10pt;">Description</span></font></TH>
+                    </TR>
+                    <TR vAlign=top>
+                        <TD width="24%"><font face="Verdana"><span style="font-size:10pt;">FF02::1</span></font></TD>
+                        <TD width="75%"><font face="Verdana"><span style="font-size:10pt;">The all-nodes address used to reach all nodes on the same 
+link.</span></font></TD>
+                    </TR>
+                    <TR vAlign=top>
+                        <TD width="24%"><font face="Verdana"><span style="font-size:10pt;">FF02::2</span></font></TD>
+                        <TD width="75%"><font face="Verdana"><span style="font-size:10pt;">The all-routers address used to reach all routers on the same 
+link.</span></font></TD>
+                    </TR>
+                    <TR vAlign=top>
+                        <TD width="24%"><font face="Verdana"><span style="font-size:10pt;">FF02::4</span></font></TD>
+                        <TD width="75%"><font face="Verdana"><span style="font-size:10pt;">The all-Distance Vector Multicast Routing Protocol (DVMRP) 
+routers address used to reach all DVMRP multicast routers on the same 
+link.</span></font></TD>
+                    </TR>
+                    <TR vAlign=top>
+                        <TD width="24%"><font face="Verdana"><span style="font-size:10pt;">FF02::5</span></font></TD>
+                        <TD width="75%"><font face="Verdana"><span style="font-size:10pt;">The all-Open Shortest Path First (OSPF) routers address used to 
+reach all OSPF routers on the same link.</span></font></TD>
+                    </TR>
+                    <TR vAlign=top>
+                        <TD width="24%"><font face="Verdana"><span style="font-size:10pt;">FF02::6</span></font></TD>
+                        <TD width="75%"><font face="Verdana"><span style="font-size:10pt;">The all-OSPF designated routers address used to reach all OSPF 
+designated routers on the same link.</span></font></TD>
+                    </TR>
+                    <TR vAlign=top>
+                        <TD width="24%"><font face="Verdana"><span style="font-size:10pt;">FF02::1:FF<I>XX:XXXX</I> </span></font></TD>
+                        <TD width="75%"><font face="Verdana"><span style="font-size:10pt;">The solicited-node address used in the address resolution 
+process to resolve the IPv6 address of a link-local node to its link-layer 
+address. The last 24 bits (<I>XX:XXXX</I>) of the solicited-node address are the 
+last 24 bits of an IPv6 unicast address.</span></font></TD>
+                    </TR>
+                    </TBODY>
+                </TABLE>
+            </DIV>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : More details on Multicase prefix (Following description is quoted&nbsp;from <a href="http://computernetworkingnotes.com/ccna_certifications/ipv6_address_types_and_formats.htm">http://computernetworkingnotes.com/ccna_certifications/ipv6_address_types_and_formats.htm</a>)</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The first 8 bits are set to FF. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The next 4 bits are the lifetime of the address: 0 is permanent and 1 is temporary. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The next 4 bits indicate the scope of the multicast address (how far the packet can travel):</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1 is for a node, 2 is for a link, 5 is for the site, 8 is for the organization, and E is global (the Internet). </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, a multicast address that begins with FF02::/16 is a permanent link address, whereas an address of FF15::/16 is a temporary address for a site.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Assigning_PDN_IE">Assigning PDN IE</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Getting into LTE. You would know that Network allocate a UE IP in the PDN address IE of Activate Default EPS Bearer Request or Activate Dedicated EPS Bearer Request. Then the question would be &quot;how do I specify IPv6 or IPv4v6 in this information element&quot;. Do I have to put in the whole 128 bits ? or only part of 128 bits ? If I am supposed to put in only parts of the address, which
+part do I have to specify ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer is &quot;specify Interface Identifier&quot; in PDN information element. </span></font><span style="font-size:10pt;"><font face="Verdana">(Refer to 3GPP 24.301 section 9.9.4.9 PDN address)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">For example, if the interface indentifier&nbsp;that you want to allocate the UE is 0000:0000:0102:0002, the PDN value would be as follows.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-PDN address ::= LV</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">+-Length of PDN address contents ::= LEN (0..255) [9]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">+-PDN type value ::= CHOICE [IPv6]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet3-14 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;+-PDN address information ::= OCTETARRAY SIZE(0..12) [0000000001010002]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if the IP type is IPv4v6 dual stack ? The answer is &quot;you have to concatenate IPv6 and IPv4 in such a manner that IPv6 comes first and IPv4 comes after&quot;. If the interface identifier&nbsp;of UE is </span></font><span style="font-size:10pt;"><font face="Verdana">0000:0000:0102:0002 and IPv4 address is 10.10.10.10, the address you have to specify in PDN is as follows.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-PDN address ::= LV</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">+-Length of PDN address contents ::= LEN (0..255) [13]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">+-PDN type value ::= CHOICE [IPv4v6]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet3-14 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;+-PDN address information ::= OCTETARRAY SIZE(0..12) [00000000010100020A0A0A0A]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regardless of whether it is IPv6 or IPv4v6, once UE received Activate Default/Dedicated Bearer Request and respond it with Activate Default/Dedicated Bearer Accept message, UE initiate the IPv6 auto configuration process which is known as &quot;Router Solicitation&quot;/&quot;Router Advertisement&quot; process. UE send &quot;Router Solicitation&quot; to the router&nbsp;and router should reply
+with &quot;Router Advertisement&quot;. One example process that I captured using Wireshark is as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_RS_RA_Wireshark.PNG" width="773" height="69" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now the question is &quot;What would happen if UE failed to get the reply (Router Advertisement) from the router ?&quot;. &nbsp;To be honest, I haven't confirmed on this behavior from any specification, but as far as I experienced with sever devices that I have tried, &nbsp;UE retries two or three times and send &quot;EMM Detach Request&quot; if it still fail to get Router Advertisement.
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="IPv6_Header_ICMP">IPv6 Header and ICMP</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is a generic description of IPv6 with the focus on the application to LTE. If everything goes well with this, just understanding overall procedure would be enough. But if you are in a position to do some troubleshooting or want to dig into the packet structure of IPv6, following illustration would be helpful. This is an example of IPv6 packet showing Ipv6 header and ICMPv6.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Ipv6_ICMP.PNG" width="708" height="359" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Whenever you want to understand any form of packet structure, you would never understand it clearly unless you try to decode those packets by hand.Try decode the following examples of IPv6 packets according to the stucture as illustrated above.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Note : &quot;Type&quot; field in the structure shown above is showing &quot;134&quot; which means that this is for Router Advertisement. You will have different values in this field depending on the types of ICMP messages.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Example : Router Solicitation (the HEX 85, Dec 134 at the array index 40 indicates it is Router Solicitation)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">60 00 00 00 00 08 3A FF FE 80 00 00 00 00 00 00 00 00 00 00 01 01 00 02 FF 02 00 00 00 00 00 00 00 00 00 00 00 00 00 02 </span></font><span style="font-size:10pt;"><font face="Verdana" color="red"><b>85</b></font></span><font face="Verdana"><span style="font-size:10pt;"> 00 7C 34 00 00 00 00</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Example : Router Advertisement(the HEX 86, Dec 135 at the array index 40 indicates it is Router Solicitation)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">60 00 00 00 00 40 3A FF FE 80 00 00 00 00 00 00 02 1C 58 FF FE 7E 16 C9 FF 02 00 00 00 00 00 00 00 00 00 00 00 00 00 01 </span></font><span style="font-size:10pt;"><font face="Verdana" color="red"><b>86</b></font></span><font face="Verdana"><span style="font-size:10pt;"> 00 68 08 40 00 00 C8 00 00 00 00 00 00 00 00 01 01 00 1C 58 7E 16 C9 05 01 00 00 00 00 05 DC 03 04 40 C0 00 00 70 80 00
+00 62 70 00 00 00 00 FD D3 C0 61 8C D7 85 C8 00 00 00 00 00 00 00 00</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In most cases especially when there is no problem, you can do most of IP layer traffic analysis with Wireshark. But there are some cases where you cannot use Wireshark. On server side, there would be no problem to use Wireshark and capture all the packet. But on UE side, Wireshark would be able to capture any Packet unless UE completes the IP setup and in many case UE does not exposure it's
+interface unless it completes some specified procedure (like Router Solicitation / Router Advertisement). So if something happens in such early stages of IP transaction on UE side, you would not be able to analyze those IP packet with Wireshark on UE PC. In this case, you may have to turn to Network (Network Simulator) log &nbsp;or UE log and analyze the raw data of the IP packets manually. In this case, following table will help you a lot to identify what kind of packet it is. This is the table showing the meaning
+of the value in &quot;Type&quot; field of the IP packet structure shown above.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For more details, please refer to http://en.wikipedia.org/wiki/ICMPv6</span></font></p>
+            <table border="1" width="809" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="173" bgcolor="#99CCFF">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Value in Type field</span></font></p>
+                    </td>
+                    <td width="626" bgcolor="#99CCFF">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Meaning</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1 (HEX : 01)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Destination Unreachable</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2 (HEX : 02)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Packet Too Big</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3 (HEX : 03)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Time Exceeded</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4 (HEX : 04)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Parameter Problem</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">100 (HEX : 64)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Private experimentation</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">101 (HEX : 65)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Private experimentation</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">127 (HEX : 7F)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Reserved for expansion of ICMPv6 error messages</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">128 (HEX : 80)</font></span></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Echo Request</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">129 (HEX : 81)</font></span></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Echo Reply</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">133 (HEX : 85)</font></span></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Router Solicitation (NDP)</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">134 (HEX : 86)</font></span></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Router Advertisement (NDP)</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">135 (HEX : 87)</font></span></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Neighbor Solicitation (NDP)</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">136 (HEX : 88)</font></span></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Neighbor Advertisement (NDP)</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">138 (HEX : 8A)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Redirect Message (NDP)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">139 (HEX : 8B)</span></font></p>
+                    </td>
+                    <td width="626">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ICMP Node Information Query</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">140 (HEX : 8C)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ICMP Node Information Response</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">141 (HEX : 8D)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Inverse Neighbor Discovery Solicitation Message</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">142 (HEX : 8E)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Inverse Neighbor Discovery Advertisement Message</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">144 (HEX : 8F)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Home Agent Address Discovery Request Message</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">145 (HEX : 90)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Home Agent Address Discovery Reply Message</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">146 (HEX : 91)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mobile Prefix Solicitation</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">147 (HEX : 92)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Mobile Prefix Advertisement</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">148 (HEX : 93)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Certification Path Solicitation (SEND)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">149 (HEX : 94)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Certification Path Advertisement (SEND)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">151 (HEX : 97)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Multicast Router Advertisement (MRD)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">152 (HEX : 98)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Multicast Router Solicitation (MRD)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="1">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">153 (HEX : 99)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Multicast Router Termination (MRD)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">200 (HEX : C8)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Private experimentation</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">201 (HEX : C9)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Private experimentation</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="173" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">255 (HEX : FF)</span></font></p>
+                    </td>
+                    <td width="626" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Reserved for expansion of ICMPv6 informational messages</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Followings are the link where you can get some basic understaqnding of IPv6.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="http://blogs.cisco.com/security/ipv6-addressing/" target="_blank"><font face="Verdana"><span style="font-size:10pt;">http://blogs.cisco.com/security/ipv6-addressing/</span></font></a></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="http://www.cisco.com/web/about/ac123/ac147/archived_issues/ipj_7-2/ipv6_autoconfig.html" target="_blank"><font face="Verdana"><span style="font-size:10pt;">http://www.cisco.com/web/about/ac123/ac147/archived_issues/ipj_7-2/ipv6_autoconfig.html</span></font></a></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="http://www.cisco.com/web/solutions/netsys/ipv6/vds_transit_pt01.html" target="_blank"><font face="Verdana"><span style="font-size:10pt;">http://www.cisco.com/web/solutions/netsys/ipv6/vds_transit_pt01.html</span></font></a></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="http://www.cisco.com/web/solutions/netsys/ipv6/vds_transit_pt02.html" target="_blank"><font face="Verdana"><span style="font-size:10pt;">http://www.cisco.com/web/solutions/netsys/ipv6/vds_transit_pt02.html</span></font></a></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="http://www.cisco.com/web/solutions/netsys/ipv6/vds_transit_pt03.html" target="_blank"><font face="Verdana"><span style="font-size:10pt;">http://www.cisco.com/web/solutions/netsys/ipv6/vds_transit_pt03.html</span></font></a></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.cisco.com/web/solutions/netsys/ipv6/vds_transit_pt04.html">http://www.cisco.com/web/solutions/netsys/ipv6/vds_transit_pt04.html</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.slideshare.net/feb_989/cisco-i-pv6-laband-techtorial-workshop-v0" target="_blank">http://www.slideshare.net/feb_989/cisco-i-pv6-laband-techtorial-workshop-v0</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Initial_Transactions_IPv6_Connectivity">Initial Transactions for IPv6 Connectivity</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the most common initial transactions for IPv6 connectivity. Router Discovery is performed whenever your IPv6 interface card boots up (refere to next section for details) and Neibour discovery would happen when you start the first data traffic (e.g, ping or UDP/TCP).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_InitialTransaction.PNG" width="681" height="550" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Router_Discovery">Router Discovery</a></b></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When you test your device with network simulator and a server PC directly connected to the network simulator, you may not have to care about this IPv6 process. But in some UE (in most of Verizon UEs as far as I experienced), UE would automatically send 'EMM : Detatch' request if it does not recieve&nbsp;any Router Advertisement within a certain time frame. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">So it would be good to understanding the basics of this Router Discovery process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In IPv6, the user device (network interface card) automatically finds the router it is connected by using a special process called 'Router Discovery' process. You may think this is pretty similar to DHCP in IPv4. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The basic idea of the process is simple.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) a Network device (user device) sends &quot;Router Solicitation&quot; packet to every body saying &quot;I am a network interface device, please identify yourself if there is any router who is listening to me&quot;.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Router sends &quot;Router Advertisement&quot; packet saying &quot;I am the router you are connected to and use this 'prefix' for any packets which should be delivered to outside networks&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Actually you can configure your router to send 'Router Advertisement' with a certain periodicity. But this periodicity (normally 10 seconds) can be too long in some case, in this case the host device (user device) can explicitely send 'Router Solicitation' and Router send 'Router Advertisement' .</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/IPv6_RS_RA_Wireshark.PNG" width="773" height="69" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_RouterSolicitation_01.PNG" width="774" height="363" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_RouterAdvertisement_01.PNG" width="774" height="484" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Neighbor_Discovery"><b>Neighbor Discovery</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When you test your device with network simulator and a server PC directly connected to the network simulator, you may not have to care about this IPv6 process. As far as I experienced, there has been no problem even if I do nothing about this. But you will keep seeing those packets realted to this process (Neighbor solicitation, Neighbor Advertisement) from the wireshark log. Due to the intrinsic
+curiosity of an engineer, I decided to figure out the rough picture of this process at least.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Neighbor Discovery process has several different usages and depending on who (Router? or Host PC?) initiate the process, the purpose of the process can be different. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">I found a good description of the purpose of ND(Neighbor Discovery) from msdn (</span><span style="font-size:10pt;"><a href="http://msdn.microsoft.com/en-us/library/ms883129.aspx">http://msdn.microsoft.com/en-us/library/ms883129.aspx</a>) as follows.</span></font></p>
+            <UL type=disc>
+                <LI style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hosts use ND to discover neighboring routers, addresses, address prefixes, 
+and other parameters. </span></font>
+<LI style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Routers use ND to advertise their presence, host parameters, and on-link 
+prefixes. Routers also use ND to inform hosts of a better next-hop address to 
+forward packets for a specific destination. </span></font>
+<LI style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Nodes use ND to resolve the link-layer address of a neighboring node to 
+which an IPv6 packet is being forwarded. Nodes also use ND to determine when the 
+link-layer address of a neighboring node has changed, and whether IPv6 packets 
+can be sent to and received from a neighbor. </span></font></LI>
+            </UL>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you noticed, Neighbor Solicitation and Neighbor Adverdisement is used in several different situation and analyzing the packet log can be a little tricky. Making the practice of analyzing the various packet log (Wireshark log) would be a good way to understand this in detail. </span></font><span style="font-size:10pt;"></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%; margin-top:0; margin-bottom:0;">&lt; Neighbor Solicitation &gt;</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">These messages have 3 main purposes. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">i) The first is to discover the link layer address of a neighbour as part of the address resolution process. This process replaces the use of ARP requests and replies in IPv4. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">ii) The second purpose is to determine the reachability of a neighbour. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">iii) The last is to detect the presence of duplicate IPv6 addresses during the address autoconfiguration process which is detailed later in this report.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Neighbour Advertisement &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">These messages are either in response to Neighbour Solicitations, or sent by a neighbour to announce a change in its link layer address. Upon receipt of a Neighbour Advertisement, a node will update its neighbour cache which contains mappings between IPv6 and link layer addresses of neighbours.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/IPv6_NeighDiscovery_01.PNG" width="763" height="354" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_NeighDiscovery_02_1.PNG" width="762" height="416" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_NeighDiscovery_02_2.PNG" width="762" height="422" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><b><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><a name="Multicast_Listener_Discovery">Multicast Listener Discovery</a></span></font></b></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Multicast is &quot;to send a packet from a single source to multiple destination simultaneosuly&quot;. For this, the group of the multiple destination which will receive the packet should be defined. Multicast Listener Discovery (MLD) is a specific IPv6 procedure to find and define the destination group that will receive the multicast packet. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_MulticastListenerReport_01.PNG" width="775" height="364" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="PC_to_PC_Connection">PC to PC Connection Test</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">As in IPv4 test, the easiest way to learn and the best way for troubleshooting for IPv6 is to connect two PCs directly and try basic things. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Disclaimer : This tutorial may not work with your PC depending on the configuration and operating system that you are using. (For example, in Windows7 it seems that ping6 command is not supported and you have to use &quot;ping -6&quot;. there may be some other differences that I haven't noticed). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I used the two PCs as follows and connect them directly each other using a Cat 6 ethernet cable.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">PC A : Windows XP Professional Service Pack 3</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PC B : </span><span style="font-size:10pt; line-height:100%;">&nbsp;Windows XP Professional Service Pack 2</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Following is the ipconfig result of my PC A. I have multile Ethernet cards in PC A and I will use the card labeled &quot;Local Area Connection 3&quot;. I haven't specified any IPv4 address for this interface, but IPv4 address was automatically generated by IPv6 address allocation mechanism. (You may have 0.0.0.0 for Autoconfiguration IP Address and Subnet mask when you first connected the
+two PCs if you haven't specified it manually. But this IP would be configured automatically once you ping to other PC with IPv6. If you haven't set these IPv4 manually, the IP is set automatically to belong to the same subnet as the other PC).</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Ipconfig_PCA.PNG" width="744" height="523" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In IPv6 case, Inferface ID (Interface Index) of each ethernet card is important. You can figure out the interface ID for each network card using the command &quot;netsh int ipv6 show int&quot;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_ShowInt_PCA.PNG" width="669" height="242" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the ipconfig result for PC B. I will use the ethernet card named MD8480C. I haven't specified any IPv4 address for this interface, but IPv4 address was automatically generated by IPv6 address allocation mechanism. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Ipconfig_PCB.PNG" width="636" height="371" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you have all the information ready for basic connection test, ping. Notice that I used the command &quot;ping6&quot; and specify the source address as well. The most difficult part of IPv6 ping test would be memorize and type the IP address -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/IPv6_Ping_AtoB.PNG" width="752" height="337" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : It is important to append interface ID to the source address especially when you have multiple ethernet inferface on the source PC. If you don't specify the interface ID, you may get the following errors.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Pinging fe80::baac:6fff:fe1c:9e60</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">from fe80::250:b6ff:fe05:f719 with 32 bytes of data:</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Invalid source route specified.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;Problem with source address or scope-id.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Invalid source route specified.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;Problem with source address or scope-id.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Invalid source route specified.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;Problem with source address or scope-id.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Invalid source route specified.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;Problem with source address or scope-id.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ping statistics for fe80::baac:6fff:fe1c:9e60:</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;Packets: Sent = 4, Received = 0, Lost = 4 (100% loss),</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you don't have any error and capture Wireshark log, you will see a transaction as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/IPv6_Ping_AtoB_Wireshark.PNG" width="809" height="549" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For the complete connection test, I always recommend you to try the other direction as well (ping from PC B to PC A), but I will not explain about it since the procedure is exactly same as above.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NOTE : If ping request (Echo Request) goes out from the source PC (verify with Wireshark on source PC) and comes into the target PC(verify with Wireshark on target PC), but Echo Reply (ping reply) does not issued by the target PC. A high possibility would be that target PC firewall is not allowing ICMP reply. I saw a lot of PCs configured this way.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <DIV class=indent>
+                <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="FollowingDataPath">Following the Data Path</a></b></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            </DIV>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Before we get into the test procedure using a Network Simulator (UE tester), let's briefly look into the data path from the source&nbsp;to the destination. If you are in a position to test or troubleshoot IP related test, you'd better have logging tools to check the data flow of all these nodes. (High qualaty UE protocol log, Wireshark, High Quality Network Simulator logging tool would be
+a minimum requirement. Otherwise, you have to leave all those troubleshooting as a matter of luck).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) IP Client (e.g, ICMP-Ping) on UE PC</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE Packet Driver</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) UE LTE Protocol Stack</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) RF Channel</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) LTE Network Simulator&nbsp;Radio Protocol Stack</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) TE port of Network Simulator</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vii) LAN Cable</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">viii) LAN Card (NIC) on Server PC</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ix) IP Server(e.g, ICMP-Ping) on Server PC</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you do ping from UE PC to Server PC, the data path would be </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) --&gt; ii) --&gt; iii) --&gt; iv) --&gt; v) --&gt; vi) --&gt; vii) --&gt; viii) --&gt; ix) : Echo Request</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ix) --&gt; viii) --&gt; vii) --&gt; vi) --&gt; v) --&gt; iv) --&gt; iii) --&gt; ii) --&gt; i) : Echo Reply</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">We do ping (ping6) using the UE's IPv6 allocated by PC operating system (The one you get from 'ipconfig'). The ICMP client create a &nbsp;Echo Request ICMP packet with this IPv6 address.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(I am not sure about this, but this is my observation) UE Packet Driver changes the source IP address that ICMP client assigned into the one the UE got from the NAS message (PDN Information). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The remaining path is as you already know. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you see the Wireshark log on Server PC, you will see the IP address specified in the NAS message on Wireshark log. (This is different from what you typed in for ping6 command).</span></font> </p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="IPv6_Testing_NetworkSimulator">IPv6 Testing with Network Simulator</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The configuration that I have used for this tutorial is as follows. Note that a server PC is directly connected to the equipment without using any router in the middle. So if a UE mandate to have Routing Advertisement as soon as it establishes EPS bearer, this test would not work. UE would disconnect EPS just a couple of seconds after it establishes EPS bearer in that case. But there would
+be such a UE which would not disconnect EPS even though it does not get Router Advertisement because there is possibility for direct/local connection. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For this tutorial, I used IPv4v6 dual stack. In this case, UE tend to remain connected even though it would not get Router Advertisement after EPS bearer setup. (But this also depends on UE implmentation).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_TestSetup.PNG" width="538" height="416" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">In this test configuration, there are many different IP addresses you have to take into account. This is one of the biggest difficulties of IPv6 test. Followings are the list of IPv6 address involved in this setup. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">i) Link Local address assigned by UE PC to the UE (You can get this from Ipconfig)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">ii) Link Local address created based on interface id in PDN address info</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Destination IP address that the server PC is using when it reply to the packet from UE.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) IP address to configure the TFT (Traffic Flow Template) of the TE port. (This would be the most tricky part).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You have to consider all of these IP addresses and have clear idea on how/when to use each of these IP addresses.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's try an example to show the complete process of this test.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; IP Config for UE PC &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is the ipconfig result for UE PC and &quot;Ethernet Local Area Connection 17&quot; is for&nbsp;the LTE UE when it is in Default EPS Bearer Connection with my LTE Network Simulator.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Equipment_IpConfig_UE.PNG" width="669" height="518" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; IP Config for Server&nbsp;PC &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is the ipconfig result for Server&nbsp;PC and &quot;Ethernet adapter MD8480C&quot; is the one that I will use. For now, disregard all IPv4 address and IPv6 address starting with 200. I will use the IP starting with fe80:: in this section.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Equipment_ipconfig_Server.PNG" width="628" height="407" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Interface ID on PDN - Activate Default EPS Bearer Context Request &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the PDN address information that I set in Activate Default EPS Bearer Context Request. </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">0000000000000001</font></span><font face="Verdana"><span style="font-size:10pt;">&nbsp;is the interface id for IPv6 and </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">C0A891E7</font></span><font
+face="Verdana"><span style="font-size:10pt;">&nbsp;is for IPv4.&nbsp;&nbsp;&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-PDN address ::= LV</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet1 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">+-Length of PDN address contents ::= LEN (0..255) [13]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet2 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-spare ::= FIX [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">+-PDN type value ::= CHOICE [IPv4v6]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-Octet3-14 ::= DIVISION</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| &nbsp;</span></font><span style="font-size:10pt;"><font face="Lucida Console" color="blue">&nbsp;+-PDN address information ::= OCTETARRAY SIZE(0..12) [0000000000000001C0A891E7]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; TE Port filter Setting &gt; </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I configure the TFT (Traffic Flow Template) of the TE port of my BTS Emulator in such a way to allow the all incoming IP packet which has the destination address to be FE80::1 (FE80:0000:0000:0000:0000:0000:0000:0001). Exact way on how to configure this would vary with the equipment (BTS simulator). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may need to go through some troubleshooting process to figure out which IP address you have to set for this TFT. Since this address may be different depending on the operating system and any IPv6 tools running the PC etc. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The way that I figure out this address is to capture Wireshark Log between the equipment TE port and Server PC and check the IP address for echo reply from the server. (If this TFT filter setting is wrong, the packet would not get into the equipment and reach the UE, but you can still get the packet from Wireshark running on the server PC). For example, following is the wireshark log captured
+on the server PC when I ping from UE PC to Server PC. The &quot;echo reply&quot; may not reach the UE depending on TFT settings, but you would get the destination address from this log. Configure your TFT filter so that I can allow the packets headed for the destination address.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_UE_Test_DirectConnection_Wireshark.PNG" width="686" height="143" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Ping from UE to Server PC &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now we are ready for the ping. I did the ping from UE to Server PC as follows. Note that I used the UE's link local address that I got from ipconfig as a source address, not the address that I set in PDN address information. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Equipment_ping6_UE.PNG" width="669" height="254" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into Wireshark log for this transaction. There is no problem with Echo Request and Echo Reply. But don't you find any strage thing here ? If you see the source address of 'Echo request', it is different from the address that you specified in your ping command. It is the 'fe80:0000:0000:0000' (Network prefix for Link Local)&nbsp;&nbsp;+ '0000:0000:0000:0001' (the interface ID
+you specified in PDN address info)'. It seems that the UE network driver translate the IP address you specified from ping command to this address. It imply that you would have different result for this depending on UE implementation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_UE_Test_DirectConnection_Wireshark.PNG" width="686" height="143" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Ping from Server PC&nbsp;to UE&nbsp;&gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's ping from Server PC to UE to make it sure it works for both direction. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Equipment_ping6_Server.PNG" width="564" height="239" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the Wireshark log for this ping transaction. If you see 'Echo Request', Server PC does not do any IP translation for UE, but you would see UE is translating the IP in 'Echo Reply'&nbsp;to the one specified by PDN address information. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Equipment_ping6_Server_Wireshark.PNG" width="748" height="246" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="IPv6_Testing_NetworkSimulator_Router">IPv6 Testing with Network Simulator and Router</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are some cases where UE must recieve&nbsp;Router Advertisement, otherwise it send EMM detach within a couple of seconds. In this case, you need to add proper tools to send the Router advertisement in response to the Router Solicitation from UE.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are two ways to do this, one is to use a real IPv6 router and the other way is to use a special software which can send Router Advertisement.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As the first method, you can add an IPv6 router to the test equipment and connect the server PC to the router as follows. If you connect the test equipment to your company network. The configuration will be the most likely as follows. In this case, you have to know the details of Router configuration or have one of your IT people as a close friend -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Equipment_ExtRouter.PNG" width="556" height="414" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Another way to do this is to use special software (program) simulating the IPv6 router and send 'Router Advertisement'. You can download such a software at </span></font><a href="http://sourceforge.net/projects/wradvs/"><font face="Verdana"><span style="font-size:10pt;">http://sourceforge.net/projects/wradvs/</span></font></a><span style="font-size:10pt;"><font face="Verdana"> for windows
+XP and at </font><a href="http://www.litech.org/radvd/"><font face="Verdana">http://www.litech.org/radvd/</font></a></span><font face="Verdana"><span style="font-size:10pt;"> for linux.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Equipment_RA_Software.PNG" width="547" height="463" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Overall test flow is similar to the case of direct connection, but there will some additional details you have to consider router setup/router software setup. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the biggest problem is to configure TFT filter on network (network emulator) side. Usually the network emulator would get through&nbsp;any packet from UE to out of the equipment, but they tend to apply very strict rule to incoming packets (Packets coming into the equipment). In case of Router Solicitation and Router Advertisement process, usually Router Solicitation would go through
+freely, but Router Advertisement would not get into the box unless you configure the IP filters at TE port. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then why don't we simply set the IP filter for it ? Unfortunately the answer is not easy mainly because there can be so many different combination of IP address for a same network interface. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is a Wireshark capture of IP packing captured at the TE port of an equipment. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_Prefix_RA_Wireshark.PNG" width="768" height="505" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's assume that we want to confiture the TE port (TFT filter) so that it allow Router Advertisement packet destined to the UE IP. What we have to do is simple and clear. Just to specify the proper UE IP address to TFT filter. But &quot;How&quot; part of this step is not so easy because there are too many different way of defining the UE IP address in this case. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <DIV dir=ltr>
+                <ul>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) The IP address that UE used for Router 
+Solicitation as source address. In this example, it is 
+fe80:0000:0000:0000:0000:0000:0101:0002.</span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The IP address that Router use as the 
+destination address in Router Advertisement. In this example, it is 
+ff02:0000:0000:0000:0000:0000:0000:0001</span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) </span><span class="388193501-25082011" style="font-size:10pt;">&quot;Network prefix&quot;&nbsp;value informed by &quot;Router 
+Advertisement&quot; + UE interface Identifier in PDN Address Information&nbsp;: In this 
+example, it is fde0:0000:0000:0001:0000:000:0101:0002</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) The UE IP address that I get from UE PC 
+by using ipconfig : it is not shown in wireshark, but let's assume that it is 
+fe80:0000:0000:0000:0280:98ff:fe40:a9fb</span></font></li>
+                    <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) </span><span class="388193501-25082011" style="font-size:10pt;">&quot;Network prefix&quot;&nbsp;value informed by &quot;Router 
+Advertisement&quot; +&nbsp; UE interface Identifier from IP config on UE PC : In this 
+example, it is 
+fde0:0000:0000:0001</span><span style="font-size:10pt;">:0280:98ff:fe40:a9fb</span></font></li>
+                </ul>
+            </DIV>
+            <DIV dir=ltr>
+            </DIV>
+            <DIV dir=ltr>
+            </DIV>
+            <DIV dir=ltr>
+            </DIV>
+            <DIV dir=ltr>
+            </DIV>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What should be the one I have to use ? It is totally upto the network (network simulator) TE port implementation. so there would be no clear answer for it. (In case of the network simulator that I am using, I am supposed to use the type iii), but the answer would be different for your equipment).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There is even trickier case. In some equipment, the TFT filer works differently depending on whether the incomming packet is for Router Advertisement or it is for other generic packets (e.g, ping or ftp/udp etc). If the equipment support multiple TFT filter criteria you can simply set those multiple criteria, but if it is not the case you have to change TFT filter configuration after you
+complete Router Solicitation / Router Advertisement. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Configuring_WindowsXP_Router"><b>Configuring Windows XP to simulate IPv6 Router</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As I mentioned above, you can make WindowsXP to work as IPv6 router. By doing this, you can do the basic IPv6 testing without using any hardware IPv6 router. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The &nbsp;way to do this is to use special software (program) simulating the IPv6 router and send 'Router Advertisement'. You can download such a software at </span></font><a href="http://sourceforge.net/projects/wradvs/"><font face="Verdana"><span style="font-size:10pt;">http://sourceforge.net/projects/wradvs/</span></font></a><span style="font-size:10pt;"><font face="Verdana"> for windows
+XP and at </font><a href="http://www.litech.org/radvd/"><font face="Verdana">http://www.litech.org/radvd/</font></a></span><font face="Verdana"><span style="font-size:10pt;"> for linux.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Configuring_Windows7_Router">Configuring Windows 7 to simulate IPv6 Router</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">In Windows 7, you can make the operating system to act as IPv6 router without installing any additional software. You only have to execute the following three netsh command. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) netsh interface ipv6 set interface [Interface ID] advertise=enabled </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;Ex&gt; netsh interface ipv6 set interface 11 advertise=enabled</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) netsh interface ipv6 add route [Prefix/64] [Interface ID] publish=yes </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;Ex&gt; netsh interface ipv6&nbsp;add route 2001:0:0:2::/64 11 publish=yes</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) netsh interface ipv6 set interface [Interface ID] currenthoplimit=64 </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;Ex&gt; netsh interface ipv6&nbsp;set interface 11 currenthoplimit=64</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="netsh">netsh</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is just an appedix of this section. You already noticed that I often used special command 'netsh'. This is a command supported by Windows by defaul and following is the dump of help for this command. This would give you overall capability of this command but you would never get the real meaning unless you try yourself.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">C:\&gt;netsh -?</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">Usage: netsh [-a AliasFile] [-c Context] [-r RemoteMachine] [Command | -f ScriptFile]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">The following commands are available:</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">Commands in this context:</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Displays a list of commands.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">add &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Adds a configuration entry to a list of entries.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">bridge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh bridge' context.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">delete &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Deletes a configuration entry from a list of entries.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">diag &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh diag' context.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">dump &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Displays a configuration script.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">exec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Runs a script file.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">firewall &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh firewall' context.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">help &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Displays a list of commands.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">interface &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh interface' context.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">lan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh lan' context.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">ras &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh ras' context.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">routing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh routing' context.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">set &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Updates configuration settings.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">show &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Displays information.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">winsock &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh winsock' context.</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">C:\&gt;netsh</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">netsh&gt;help</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">The following commands are available:</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">Commands in this context:</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">.. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Goes up one context level.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">? &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Displays a list of commands.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">abort &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Discards changes made while in offline mode.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">add &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Adds a configuration entry to a list of entries.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">alias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Adds an alias.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">bridge &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh bridge' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">bye &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Exits the program.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">commit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Commits changes made while in offline mode.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">delete &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Deletes a configuration entry from a list of entries.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">diag &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh diag' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">dump &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Displays a configuration script.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">exec &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Runs a script file.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">exit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Exits the program.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">firewall &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh firewall' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">help &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Displays a list of commands.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">interface &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh interface' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">lan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh lan' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">nap &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh nap' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">offline &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sets the current mode to offline.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">online &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sets the current mode to online.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">popd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Pops a context from the stack.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">pushd &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Pushes current context on stack.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">quit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Exits the program.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">ras &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh ras' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">routing &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh routing' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">set &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Updates configuration settings.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">show &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Displays information.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">unalias &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Deletes an alias.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">winsock &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Changes to the `netsh winsock' context.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">The following sub-contexts are available:</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;bridge diag firewall interface lan nap ras routing winsock</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">To view help for a command, type the command, followed by a space, and then</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;type ?.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">netsh&gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Assigning_New_IP_Address">Assigning a new IP address</a></b> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There would be some cases you want to allocate an arbitrary IPv6 IP to your network interface (LAN card). You can change the existing IP address or you can add a new IP for the interface (one of important difference in IPv6 in comparison to IPv4 would be that you can allocate more than one IP to the single interface card).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Why you want to change the IP ? Why you want to add a new address ? The answer would vary. For me, I wanted to change it to a simple address since my brain is not good enough to memorize such a long random number-like digits -:). Of course, there will be more technical reasons for this which may different for everybody. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One example I will go through in this section is to change the IPv6 address to a specific address to the two PCs directly connected each other and try ping if the change works as expected. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In Windows system (Windows XP Professional in my case), a special command called 'netsh' is provided and you can configure almost every details of your interface using this command. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The command format to add a new IPv6 address is as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">netsh int ipv6 set address &lt;interface Number&gt; IPv6_address</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Do you know how to get the inferface number for your network card ? If you don't remember, read <a href="IPv6.html#PC_to_PC_Connection">PC to PC Connection</a> Test part again.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One example of this command is as follows. If the command has no problem, it will return 'OK' when you press Enter as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_netsh_set_ipv6_address.PNG" width="669" height="98" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Confirm if the IP address is properly set to your network interface by using ipconfig.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_netsh_set_ipv6_address_ipconfig.PNG" width="669" height="374" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now add a new IP address to the other PC as well. In my example case, I set the IP address 2001::1 for the other PC. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">And then try ping if it is working as expected.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_netsh_set_ipv6_address_ping.PNG" width="669" height="218" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Until you are very familiar with this kind of testing and have strong confidence about the operation, try always to confirm the result with Wireshark on both source and destination site. This is wireshark log captured on source PC.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IPv6_netsh_set_ipv6_address_wireshark.PNG" width="782" height="499" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Removing_IPv6_Address">Removing the existing IPv6 address</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can remove an existing IP if you want by using the following command. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">netsh int ipv6 delete&nbsp;address &lt;interface Number&gt; IPv6_address</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">An example would be</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">netsh int ipv6 delete address 7 2001::2</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Confirm the result with ipconfig.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Reseting_TCP_IP">Reseting TCP/IP</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sometimes you may come across with the error message saying &quot;A device attached to the system is not functioning.&quot;. In this case, you can reset the IP settings for the all network interface on your PC by the following command. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <DIV class=indent>
+                <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span class="userInput" style="font-size:10pt;">netsh int ip reset c:\resetlog.txt</span></font></p>
+            </DIV>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">And reboot the PC and then try check with IP config. (All the details which happened during the resetting process are stored in </span><span class="userInput" style="font-size:10pt;">c:\resetlog.txt for your reference and for any possible recovery)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Getting_IP_Address_from_DHCP_Server">Getting IP Address from DHCP server</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">netsh interface ip set address &quot;Local Area Connection&quot; dhcp</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Getting_DNS_from_DHCP_Server"><b>Getting DNS from DHCP Server</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">netsh interface ip set dns &quot;Local Area Connection&quot; dhcp</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Setting_DNS_Server_Manually">Setting DNS Server Manually</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">netsh interface ipv6 add dnsserver &quot;Interface Name&quot; DNS_Server_address</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Example : c:\&gt; netsh interface ipv6 add dnsserver &quot;Local Area Connection&quot; 2001:db8:99:4acd::8</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Setting_Default_Gateway_Address">Setting the Default Gateway Address</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">netsh interface ipv6 add route &nbsp;::/0 &nbsp;&lt;Interface Number&gt; &lt;Default Gateway address &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Example : c:\&gt; netsh int ipv6&nbsp;add route &nbsp;::/0 4 FE80::2</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : Don't copy the number &quot;4&quot; from this example. Your &lt;interface Number&gt; may be different. So make it sure you specified the correct interface number. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Or you can use &quot;Interface Name&quot; in stead of &lt; Interface Number &gt; as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">netsh interface ipv6 add route &quot;Interface Name&quot; Default_GateWay_Address</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Example : c:\&gt; netsh interface ipv6 add route ::/0 &quot;Local Area Connection&quot; fe80::2aa:ff:fe9a:21b8</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Setting_Subnet_Mask">Setting the Subnet Mask</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">netsh int ipv6&nbsp;add route &lt;subnet mask&gt; &lt;interface number&gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Example : c:\&gt; netsh int ipv6&nbsp;add route FD00:0:0:1::/64 4</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="NetworkBasics_DefaultGateway">Network Basics - Default Gateway</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Default Gateway is a kind of Gateway you specify on your PC (or any host) by which any packet goes through to reach another PC (or another host) which is not in the same subnet as your PC. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Definition would sound simple, but it would be difficult to understand the concept without trying yourself or some simple examples. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's assume that we have very simple networks as illustrated below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/IP_DefaultGateWay_01.png" width="718" height="410" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 &gt;</span></font> </p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PC (A) tries to send a packet to PC (C). The overall procedure for this traffic would be as follows.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) The source (PC (A)) checks the destination IP (PC (C))&nbsp;and find out that the destination IP belong to the same subnet. (It means it does not need to consult to 'Default Gateway' to reach the destination).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The source checks its ARP table to figure out the MAC address of the destination. </span></font></p>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a) If the destination IP and MAC address mapping is already stored in the ARP table, the source send the packet directly to the destination</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b) If the destination IP and MAC address mapping is already not stored in the ARP table, the source performs ARP procedure and figure out the destination MAC address and then send the packet to the destination. </span></font></p>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case B&nbsp;&gt;</span></font> </p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PC (A) tries to send a packet to PC (E). The overall procedure for this traffic would be as follows.</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) The source (PC (A)) checks the destination IP (PC (E))&nbsp;and find out that the destination IP does not belong to the same subnet. (It means it need the help of&nbsp;'Default Gateway' to reach the destination).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The source send the packet to the default Gateway (GW1 in this case) and the default Gateway handles all the remaining procedure to deliver&nbsp;the packet to the destination. (In terms of the default Gateway, it may have to go through several additional steps to deliver the data to the next node, but in terms of host. It is so simple as explained here. Just send the packet to Default Gateway). </span></font></p>
+            </ul>
+&nbsp;
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="NetworkBasics_ARP">Network Basics - ARP (Address Resolution Protocol)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even though we specify the source and destination of a packet in the form of IP address, when the packets move along the physical infrastructure of a network, it just jumps from one node to another neghbouring node using link layer address (MAC address), not the IP address. So when a node (e.g, a PC) send a packet to another neighbouring, the source node has to figure out the MAC address (Link Layer address) of the neighbouring node. (Note : Neigbouring node means a node which belongs to the same subnet). ARP is a kind of protocol that enable a node (source node, e.g, a source PC) to find MAC address of another neiboursing node. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">An example would give you more clear idea on how this works. Following is a wireshark log for an ARP request and ARP response. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Step 1 : The source Node (e.g, a PC which wants to send a packet) broadcast&nbsp;a 'ARP request' message as shown below. This example is saying &quot;Hey.. Listen everybody, I want to talk to 192.168.0.1. If any of you has this IP address, let me know your the MAC address. My IP address is 192.168.0.13 and my MAC address is 68:5d:43:8b:f9:de&quot;</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's look into details of the message(ARP request packet). </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(1)(a) : This field carries the MAC address of the source Node</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(2)(e) : This field carries the destination address of the packet. In this case, the address is 'Broadcast' address, it means that all the nodes which recieves this frame has to decode it and check if it has to do any action for it or not. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(3) : This field carries the IP address of the source node.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(4): This field carries the IP address of the node which&nbsp;the source wants to deliver the packet to. &nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(5) : This field is for the MAC address of the destination node(192.168.0.13), but this is set to be all 0 because the MAC address is not known yet. </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/IP_ARP_01.png" width="829" height="369" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Step 2 : All the nodes (PCs, Routers etc) connected to the PC 192.168.0.13 decode the ARP Request frame and check if the packet is destined for it. If the packet is not for it, just discard the frame and do nothing and if the frame is for it (the reciever), it has to move to step 3.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Step 3 : Generate ARP reply frame(Packet) and send it back to the node (the PC which sent ARP Request). This ARP reply packet is saying &quot;Hey.. I am the node (PC) you are looking for and here goes my MAC address&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The detailed contents of the message is as follows : </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(5)(f)(8) : This field carries the MAC address of the node 192.168.0.1. This is exactly what the PC 192.168.0.13 wants to get through this ARP process.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(6)(h) : This field carries the MAC address of the reciever (the PC 192.168.0.13 in this example). Note that this is the unit cast address, not the broadcast address as in ARP request. This is because the MAC address of the reciever is already known from ARP request packet. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(7)(g) : This field carries the IP address of the sender. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(i) : This field carries the IP address of the reciever.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/IP_ARP_02.png" width="830" height="369" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font><span style="font-size:10pt;"></span></p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

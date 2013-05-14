@@ -1,0 +1,160 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;"><a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Timer_RRC">Timer (RRC)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following table is from 36.331 7.3 Timers (Informative)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 width=197 style='height:12.75pt;width:148pt' x:str="Timer " bgcolor="teal">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Timer&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></p>
+                    </td>
+                    <td width=248 style='width:186pt' x:str="Start " bgcolor="teal">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Start&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></p>
+                    </td>
+                    <td width=213 style='width:160pt' x:str="Stop " bgcolor="teal">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Stop&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></p>
+                    </td>
+                    <td width=193 style='width:145pt' bgcolor="teal">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">At expiry</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt' x:str="T300 "><font face="Verdana"><span style="font-size:10pt;"><a href="Handbook_LTE_T300.html">T300</a>&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Transmission of RRCConnectionRequest</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Reception of RRCConnectionSetup or RRCConnectionReject message, cell
+  re-selection and upon abortion of connection establishment by upper layers</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Perform the actions as specified in 5.3.3.6</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">T301</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Transmission of RRCConnectionReestabilshmentRequest</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Reception of RRCConnectionReestablishment or
+  RRCConnectionReestablishmentReject message as well as when the selected cell
+  becomes unsuitable</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Go to RRC_IDLE</span></font></td>
+                </tr>
+                <tr height=18 style='mso-height-source:userset;height:13.5pt' align="left" valign="top">
+                    <td height=18 style='height:13.5pt' x:str="T302 "><font face="Verdana"><span style="font-size:10pt;">T302&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Reception of RRCConnectionReject while performing RRC connection
+  establishment</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon entering RRC_CONNECTED and upon cell re-selection</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Inform upper layers about barring alleviation as specified in 5.3.3.7</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">T303</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Access barred while performing RRC connection establishment for mobile
+  originating calls</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon entering RRC_CONNECTED and upon cell re-selection</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Inform upper layers about barring alleviation as specified in 5.3.3.7</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;"><a href="Handbook_LTE_T304.html">T304</a></span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Reception of RRCConnectionReconfiguration message including the
+  MobilityControl Info or reception of MobilityFromEUTRACommand message
+  including CellChangeOrder</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Criterion for successful completion of handover to EUTRA or cell change
+  order is met (the criterion is specified in the target RAT in case of
+  inter-RAT)</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">In case of cell change order from E-UTRA or intra E-UTRA handover,
+  initiate the RRCconnection re-establishment procedure; In case of handover to
+  E-UTRA, perform the actions defined in the specifications applicable for the
+  source RAT.</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">T305</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Access barred while performing RRCconnection establishment for mobile
+  originating signalling</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon entering RRC_CONNECTED and upon cell re-selection</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Inform upper layers about barring alleviation as specified in 5.3.3.7</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;"><a href="Handbook_LTE_T310.html">T310</a></span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon detecting physical layer problems i.e. upon receiving N310
+  consecutive out-of-sync indications from lower layers</span></font></td>
+                    <td
+  x:str="Upon receiving N311 consecutive in-sync indications from lower layers, upon triggering the handover procedure and upon initiating the connection re-establishment procedure "><font face="Verdana"><span style="font-size:10pt;">Upon
+  receiving N311 consecutive in-sync indications from lower layers, upon
+  triggering the handover procedure and upon initiating the connection
+  re-establishment procedure&nbsp;</span></font><span style='mso-spacerun:yes'></span></td>
+                    <td>
+                        <p><font face="Verdana"><span style="font-size:10pt;">If security is not activated: go to RRC_IDLE </span></font></p>
+                        <p><font face="Verdana"><span style="font-size:10pt;">else: initiate the  connection re-establishment procedure</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">T311</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon initiating the RRCconnection reestablishmentmprocedure</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Selection of a suitable E-UTRA cell or a cell using another RAT.</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Enter RRC_IDLE</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt' x:str="T320 "><font face="Verdana"><span style="font-size:10pt;">T320&nbsp;</span></font><span
+  style='mso-spacerun:yes'></span></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon receiving t320 or upon cell (re)selection to E-UTRA from another RAT
+  with validity time configured for dedicated priorities (in which case the
+  remaining validity time is applied).</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon entering RRC_CONNECTED, when PLMN selection is performed on request
+  by NAS, or upon cell (re)selection to another RAT (in which case the timer is
+  carried on to the other RAT).</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Discard the cell reselection priority information provided by dedicated
+  signalling.</span></font></td>
+                </tr>
+                <tr height=17 style='height:12.75pt' align="left" valign="top">
+                    <td height=17 style='height:12.75pt'><font face="Verdana"><span style="font-size:10pt;">T321</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon receiving measConfig including a reportConfig with the purpose set
+  to reportCGI</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Upon acquiring the information needed to set all fields of cellGlobalId
+  for the requested cell, upon receiving measConfig that includes removal of
+  the reportConfig with the purpose set to reportCGI</span></font></td>
+                    <td><font face="Verdana"><span style="font-size:10pt;">Initiate the measurement reporting procedure, stop performing the related
+  measurements and remove the corresponding measId</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

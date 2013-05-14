@@ -1,0 +1,167 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Basic Procedure - Cell Search&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="BasicProcedures_LTE_Index.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LTE_BasicProcedure_01 */
+google_ad_slot = "1058697172";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : See &quot;<a href="Handbook_LTE_IdleModeProcedure.html">Idle Mode Procedure</a>&quot; section first for the big picture. (I wrote this section with more focus on LTE, but it is similar logic in UMTS as well). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Cell Search (Measurement, Evaluate, Detect)</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&quot;Cell Search&quot; in this page means the collective term representing the combined procedure of Measurement, Evaluation, Detection process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">This is very tightly related to Cell Selection process because UE goes through this search process first before it goes through the cell selection. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Also this process influence greatly on engergy consumption of UE during the idle mode.</span></font> </p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b>Basic Terminology</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">
+                    <div align="left"><span style="font-size:10pt;"><font face="Verdana">DRX Cycle : This is a kind of clock(Timer). Measurement/Evaluate/Detect process is performed in a specific interval specified in number of DRX cycles. (In Idle mode case, this DRX cycle is determined by network via SIB1)</font></span></div>
+                                </li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">
+                    <div align="left"><font face="Verdana"><span style="font-size:10pt;">Scan : This term is not frequency used in any specification, but most of UE (I think all the UE) performs this process. This is a process of tuning to a specific frequency and just measuring the simplest signal quality (e.g, RSSI). Usually before Measurement, Evaluation process UE performs the scan first and select 'small number of candidate' to go through next step (e.g, measurement, evaluate). If UE directly goes into the measurement, Evaluation step for all the possible frequency and band, it is too time consuming and more seriously energy consuming. </span></font></div>
+                                </li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Measurement : The process of measuring RSRP, RSRQ (For non-serving cell measurement, this is done according to T_measure_xxxxx cycle in 36.133. Also refer to <a href="#NonServingCellMeasurement">following section</a>). </font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Evaluate : The processing of checking Cell Selection Criteria based on the result of 'Measurement' step(For non-serving cell measurement, this is done according to T_evaluate_xxxxx cycle in 36.133 Also refer to <a href="BasicProcedure_LTE_Cell_Search.html#NonServingCellMeasurement">following section</a>). </font></span><span style="font-size:10pt;"><font face="Verdana"></font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Detect : The process of tuning to a specific frequency and going through synchronization process and decoding basic information of the cell (e.g, Physicall Cell ID and basic MIB/SIB information). (For non-serving cell measurement, this is done according to T_detact_xxxxx cycle in 36.133 Also refer to <a href="BasicProcedure_LTE_Cell_Search.html#NonServingCellMeasurement">following section</a>). </font></span></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Overall Sequence of &nbsp;Scan, Measurement, Evaluate, Detect, Select</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Scan_Measurement_UMTS.png" width="578" height="306" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/HPLMN_Scan.png" width="720" height="485" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>When these process is performed ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Overall logic would be as follows :</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) When UE is turned on</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE tries to find the serving cell at every DRX cycle during Idle mode</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) if UE does not find the serving cell withing a certain number of trials, it would start neighbour cell search (This neighbour cell search can be intra or inter. The interval between these neighbour cell search varies with DRX cycle and intra/inter frequency mode. Normally this search happen with N x DRX and 'N' varies with the situation. Refer to 36.304, 36.133 for the details). </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) When UE is in Limited Service (e.g, SOS/Emergency Call only) : UE periodically try to search a suitable cells for normal service. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) When UE is in OOC (Out of Coverage) : UE should try to rescan the existing cell to see if it can get back to normal service or try to other cells to see if it get the normal service.</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vii) When UE is in Roaming state (meaning that it is currently camped on to VPLMN cell), it should search HPLMN cell periodically (The period is usually N x 6 min, where N is specified in <a href="Handbook_LTE_USIM_Parameters.html#EF_HPPLMN" target="_blank">HPPLMN field in the USIM</a>)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><b><font face="Verdana">Serving Cell Measurement/Evaluation</font></b><font face="Verdana" color="blue"> &nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">UE peforms the measurement for serving cell at every DRX cycle and check if it satisfy the cell selection criteria. If it successfully finds a cell meeting the criteria within a certain amount of trial, it stays at the cell but if it does not find the serving cell within a certain amount of trials (see the table shown below), it should initiate the measurement/evaluation for all the neighbour cells which is specified by the serving cell system information. (</font></span><font face="Verdana"><span style="font-size:10pt;">Refer to 36.133 section 4.2.2.1 for details)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_133_Table_4_2_2_1_1.png" width="494" height="229" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><b><font face="Verdana"><a name="NonServingCellMeasurement">Intra/Inter Frequency and InterRAT&nbsp;Measurement/Evaluation/Detection</a>&nbsp;</font></b></span><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana" color="blue">36.304</font></span><font face="Verdana"><span style="font-size:10pt; line-height:100%;"> section 5.2.4.2 &nbsp;(V8.10.0) describes the rule for measurement of non-serving cell as follows (depending on the version of this document, you would see a little bit different parameter name and way of description):</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding Intra Frequency Measurement : SIB3 and SIB4 are involved in this process</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If S_intrasearch (SIB3) is sent in the serving cell and S_servingCell (Srxlev) &gt; S_instrasearch, UE may choose to not perform intra-frequency measurement</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If S_servingCell (Srxlev) &lt;=&nbsp;S_instrasearch or S_intrasearch is not sent in the serving cell, UE shall perform intra-frequency measurement. --&gt; This means 'If you omit S_intrasearch IE in SIB3, UE has to perform instra-frequency measurement all the time regardless of Srxlev value. </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding Inter Frequency Measurement : SIB3 and SIB5 are involved in this process</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : When the reselection priority of a&nbsp;neighbour cell is higher than the current cell, </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE shall perform measurements of higher priority neighbour cell</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 2&nbsp;: When the reselection priority of a&nbsp;neighbour cell is equal or lower&nbsp;than the current cell, </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If S_nonintrasearch(SIB3) is sent in the serving cell and S_servingCell(Srxlev) &gt; S_nonintrasearch, UE may choose not to perform the neighbor cell measurement</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If S_servingCell (Srxlev) &lt;=&nbsp;S_noninstrasearch or S_nonintrasearch is not sent in the serving cell, UE shall perform inter-frequency measurement. --&gt; This means 'If you omit S_nonintrasearch IE in SIB3, UE has to perform inter-frequency measurement all the time regardless of Srxlev value. Measurement Interval is defined by 36.133 as shown below.</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding Inter RAT UTRA&nbsp;Measurement : SIB3 and SIB6 are involved in this process</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Rule is same as &quot;Regarding Inter Frequency Measurement&quot;</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding Inter RAT GERAN&nbsp;Measurement : SIB3 and SIB6 are involved in this process</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Rule is same as &quot;Regarding Inter Frequency Measurement&quot;</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">36.133</font></span><font face="Verdana"><span style="font-size:10pt;"> section 4.2.2.3 defines the intra frequency EUTRAN Measurement as follows : </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding Intra Frequency Measurement : ---------------</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The UE shall be able to identify new intra-frequency cells and perform RSRP and RSRQ measurements of indentified intra-frequency cells without an explicit intra-frequency neighbour list containing physical layer cell identities. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The UE shall be able to evaluate whether a newly detactable intra frequency cell meets the reselection criteria (36.304) within [T_detect,EUTRAN_Intra] when Treselection = 0 (i.e, T-ReselectionEUTRA in SIB3 = 0).</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The UE shall measure RSRP and RSRQ at least every [T_measure,EUTRAN_Intra] for intra-frequency cells that are identified and measured according to the measurement rules. </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The major parameters mentioned in above statements came from SIB3 and 36.133 Table 4.2.2.3-1 as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_SIB3_IntraFrequencyMeasurement.png" width="334" height="341" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_133_Table_4_2_2_3_1.png" width="580" height="452" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding Inter Frequency Measurement : --------------</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Refer to 36.133 section 4.2.2.4 for the details.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_133_Table_4_2_2_4_1.png" width="530" height="193" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding Inter RAT UTRA_FDD&nbsp;Measurement : --------------</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Refer to 36.133 section 4.2.2.5.1 for the details.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_133_Table_4_2_2_5_1_1.png" width="484" height="177" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regarding Inter RAT GSM&nbsp;Measurement : --------------</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Refer to 36.133 section 4.2.2.5.3 for the details.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_133_Table_4_2_2_5_3_1.png" width="220" height="176" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

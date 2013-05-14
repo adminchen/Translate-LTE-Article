@@ -1,0 +1,228 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897"><b><font face="Verdana"><span style="font-size:14pt;">Power Control - WCDMA, HSPA</span></font></b></td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+<font face="Verdana"><span style="font-size:10pt;">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_UMTS_PowerControl_01 */
+google_ad_slot = "8030233972";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Topics I will discuss in this post is a follows. </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a href="#Overview">Overview</a></font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a href="#Specification_and_Parameters">Specification and Parameters</a></font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a href="#List_Channel_Power_that_does_not_change">List of Channel Power that does not change dynamically</a></font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a href="#R99_Downlink_Power_Control">R99 Downlink Power Control</a></font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a href="#R99_Uplink_Power_Control">R99 Uplink Power Control</a></font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Downlink Power Control in HSPA</font></span></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><a href="#Uplink_Power_Control_HSPA">Uplink Power Control in HSPA</a></font></span></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Overview">Overview</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you are totally new to this topic, I recommend you to read &quot;Overview&quot; section of LTE Power Control page first. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One thing I want to add in this section is that power of most of the channels changes very dynamically throughout the call setup and data communication. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is one example showing the power of each of Uplink physical channels for HSUPA. Again this is only one example and detailed power profile would vary depending on data rate and parameter settings related to power control. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Focusing on the stage where packet communication occurs, you will see various physical channels and the channel power changes dynamically. This is the power changes for the communication using the network simulator with direct RF connector (by RF cable), so the range of power change is not so huge but if you collect the same data in live network you would see more dynamic changes and if it
+is while you are moving around a cell, you would see even more dynamic changes. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Power_UL_AllChannel.PNG" width="582" height="330" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The result shown above is shows the power changes of each channels along the timeline. There is another common way of showing the power changes is to show the power in code domain as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/Power_DL_AllChannel_CDP.PNG" width="610" height="497" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Before you jump into the detailed power control process, I would give you a list of questions to which you have to find answer (on your own -:) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Why each of the channel power should changes like this ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) There are many channels, each of the channel power is controlled separately ? or there is a master (reference channel) being directly controled and all the other channels changes according to the master channel ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) How often this kind of power control (power changes) happens ? (every 1 seconds? every 1 ms seconds ? every frame ? every slot ?)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Specification_and_Parameters">Specification and Parameters</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you pick up any books about mobile communication, there would be at least one section or chapter dealing with the power control process and in many cases you will see a lot of parameters (e.g, Beta c, Beta d, Beta hs etc) without being explained. In fact, it is not easy to explain those parameters in simple/clear way. So I would just give you some reference points of those parameters which
+is critical to power control process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Whenever you come across any power control parameters from textbook or internet, you can use this section as a quick reference for those parameters.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">25.213 - 4.2.1.1 DPCCH/DPDCH</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">25.213 - 4.2.1.2 HS-DPCCH</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">25.213 - 4.2.1.3 E-DPDCH/E-DPCCH</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">25.213 - 4.2.2.2 PRACH message part</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Figure1A_UL_DPCCH_DPDCH.PNG" width="479" height="497" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Table1_BetaC_BetaD.PNG" width="470" height="338" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Figure1B_UL_HS_DPCCH.PNG" width="387" height="255" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Table1A_Beta_hs.PNG" width="417" height="240" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Figure1C_UL_E_EPDCH_DPCCH.PNG" width="413" height="355" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Table1B_Delta_E_DPCCH.PNG" width="438" height="227" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RRC_E_DCH_Delta_E_DPCCH.PNG" width="402" height="415" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/25_213_Table1B_1_Delta_E_DPDCH.PNG" width="659" height="583" border="0"></p>
+            <ul>
+                <ul>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Table 1B.2: Quantization for &beta;ed,k/&beta;c for E-TFCI &le; E-TFCIec,boost</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Table 1B.2A: Quantization for &Delta;E-DPDCH for E-TFCI &gt; E-TFCIec,boost</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Table 1B.2B: Quantization for &beta;ed,k/&beta; c for E-TFCI &gt; E-TFCIec,boost</span></font></p>
+                    <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Table 1B.3: HARQ offset &Delta;harq</span></font></p>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="List_Channel_Power_that_does_not_change">List of Channel Power that does not change</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are a set of channels, the power of which is normally fixed during the cell planning and does not change dynamically. It means that these channels are not the target of power control, but I thought I'd better make list of these because they are still a part of total channel power. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="794" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="265" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Channel</span></font></p>
+                    </td>
+                    <td width="519" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Main Function</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="265"><font face="Verdana"><span style="font-size:10pt;">PCPICH (Primary Common Pilot Channel)</span></font></td>
+                    <td width="519"><font face="Verdana"><span style="font-size:10pt;">Carries Common Pilot that all UE uses as a reference power of a cell</span></font></td>
+                </tr>
+                <tr>
+                    <td width="265"><font face="Verdana"><span style="font-size:10pt;">P-SCH(Primary Sync Channel)</span></font></td>
+                    <td width="519"><font face="Verdana"><span style="font-size:10pt;">Carries the primary synchronization code</span></font></td>
+                </tr>
+                <tr>
+                    <td width="265"><font face="Verdana"><span style="font-size:10pt;">S-SCH(Secondary Sync Channel)</span></font></td>
+                    <td width="519"><font face="Verdana"><span style="font-size:10pt;">Carries the secondary&nbsp;synchronization code</span></font></td>
+                </tr>
+                <tr>
+                    <td width="265"><font face="Verdana"><span style="font-size:10pt;">AICH (Aquisition Indicator Channel)</span></font></td>
+                    <td width="519"><font face="Verdana"><span style="font-size:10pt;">Carries the Aquisision Indicator which is a response for PRACH Preamble</span></font></td>
+                </tr>
+                <tr>
+                    <td width="265"><font face="Verdana"><span style="font-size:10pt;">PICH (Paging Indicator Channel)</span></font></td>
+                    <td width="519"><font face="Verdana"><span style="font-size:10pt;">Carries Paging Indicator</span></font></td>
+                </tr>
+                <tr>
+                    <td width="265"><font face="Verdana"><span style="font-size:10pt;">P-CCPCH (Primary Common Control Physical Channel)</span></font></td>
+                    <td width="519"><font face="Verdana"><span style="font-size:10pt;">Carries BCH (Broadcast Channel) data</span></font></td>
+                </tr>
+                <tr>
+                    <td width="265">
+                        <p><font face="Verdana"><span style="font-size:10pt;">S-CCPCH(Secondary Common Control Physical Channel)</span></font></p>
+                    </td>
+                    <td width="519"><font face="Verdana"><span style="font-size:10pt;">Carries FACH or PCH data</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="R99_Downlink_Power_Control">R99 Downlink Power Control </a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&quot;Downlink Power Control&quot; means &quot;change of downlink&nbsp;power based on TPC command carried by uplink control channel(UL DPCCH)&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Overall Procedure is as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE measures DL DPCCH SIR at each slot which is 10/15 ms, 0.667ms. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) It compares the measured SIR with the specified SIR target. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If the measured SIR is greater than the target SIR, UE put the TPC command 0 into TPC field of UL DPCCH which tells Network to decrease the downlink power. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) If the measured SIR is poorer&nbsp;than the target SIR, UE put the TPC command 1&nbsp;into TPC field of UL DPCCH which tells Network to increase&nbsp;the downlink power.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="R99_Uplink_Power_Control">R99 Uplink Power Control</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&quot;Uplink Power Control&quot; means &quot;change of uplink power based on TPC command carried by downlink control channel(DL DPCCH)&quot;. As you see in the figures below, both downlink DPCCH and uplink DPCCH slot has a special field called 'TPC (Transmission Power Control)' field. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Since every slot has this field, you may easily infer that the power control in R99 would happen once in every slot (10/15 ms). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/R99_PHY_Network.PNG" width="733" height="451" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Overall Uplink Power control Procedure is as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Network detect and evaluate uplink transmission power at each slot.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Compare the measured power with the specified&nbsp;SIR target.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If the measured power is less than SIR target, Network put a &quot;Power Up&quot; command in TPC field on downlink DPCCH and the measured power is much higher than SIR target, Network may put a &quot;Power Down&quot; command in the TPC field.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) UE decode the downlink DPCCH and figure out TPC field.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) UE increase it's transmission power if the TPC field has &quot;Power Up&quot; command and vice versa.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Quick question : Why UE have to send &quot;Power Down&quot; command when the measured power is too much better than the target SIR ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Uplink_Power_Control_HSPA"><b>Uplink Power Control in HSPA</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Uplink Power Control in HSUPA is very complicated because there are so many different physical channels coming into play. As you see in the following illustration, five&nbsp;different physical channels are working simultaneously in Uplink side and we have to think of the power control of each of these channel. When we are talking about UE's total output power in HSUPA, it
+means all of these physical channel power summed together (= </span><span style="font-size:10pt;">DPCCH + DPDCH + HS-DPCCH + E-DPCCH + E-DPDCH)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/HSUPA_PHY_Network.PNG" width="748" height="516" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Overall UL power control logic is as follows (You may think that UL Power control of HSUPA is one of the most complicated process of any kind of power controls since too many factors are get involved):</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">i) DL (DPDCP+DPCCH) slot carries TPC bits (Power Control bits) to UE.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">ii) UE decode the TPC bits and changes it's UL DPCCH power accordingly.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">iii) UL DPDCH Power is adjusted accordingly based on UL DPCCH Power. (The mapping between this RRC value and real gain factor in physical layer are defined in 25.213 Table 1).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RRC_HSUPA_ul_CommonTransChInfo.PNG" width="534" height="484" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">iv) UL E-DPCCH Power is adjusted based on UL DPCCH Power. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">v) UL E-DPDCH Power is adjused based on UL E-DPCCH Power. (The offset between E-DPDCH and E-DPCCH is defined by RRC message as follows). </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RRC_E_DCH_Delta_E_DPCCH.PNG" width="402" height="415" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">vi) Now the remaining channel is HS-DPCCH. This channel power is also determined based on UL DPCCH according to following RRC Information elements.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RRC_HSUPA_ul_DPCH_Info_DeltaACK_NACK.PNG" width="507" height="216" border="0"></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RRC_HSUPA_dl_HSPDSCH_Information_deltaCQI.PNG" width="506" height="251" border="0"></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/HSUPA_PowerControl_Overall.PNG" width="439" height="307" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When on an HSPA connection, you must set UE Target Power as follows:</span></font></P>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></P>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE Target Power = (<EM class=Emphasis>
+Desired Total UE Power</EM> ) - (<EM class=Emphasis> Power Change Due to 
+HS-DPCCH, E-DPCCH and E-DPDCH</EM> )</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></P>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</P>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Where</span></font></P>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</P>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><EM class=Emphasis>Desired Total UE Power </EM>is the total output power level you desire from the UE, including 
+DPCCH, DPDCH, HS-DPCCH, E-DPCCH and E-DPDCH.</span></font></P>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</P>
+            <P class=Para style="line-height:100%; margin-top:0; margin-bottom:0;"><img src="../image/Eqn_HSUPA_PowerControl.PNG" width="423" height="59" border="0"></P>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

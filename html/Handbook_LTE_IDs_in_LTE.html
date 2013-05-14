@@ -1,0 +1,454 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp; <a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="IDinLTE">IDs in LTE</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : Following table is based on the document from MNC Group (</span></font><span style="font-size:10pt;"><a href="http://www.nmcgroups.com/files/download/NMC.LTE%20Identifiers.v1.0.pdf" target="_blank"><font face="Verdana">LTE-Identifier</font></a></span><font face="Verdana"><span style="font-size:10pt;">)</span></font></p>
+            <table border="1" width="811" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="89" bgcolor="#336600">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">ID</font></span></p>
+                    </td>
+                    <td width="187" bgcolor="#336600">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">Meaning</font></span></p>
+                    </td>
+                    <td width="318" bgcolor="#336600">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">Description</font></span></p>
+                    </td>
+                    <td width="199" bgcolor="#336600">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana" color="white">Structure</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IMSI</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">International Mobile Subscriber Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Unique identification of mobile (LTE) subscriber Network (MME) gets the PLMN of the subscriber</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IMSI (not more than 15 digits) = PLMN ID + MSIN = MCC + MNC + MSIN</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;"><a href="#PLMN_CellID_SIB1">PLMN ID</a></span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Public Land Mobile Network Identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Unique identification of PLMN</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PLMN ID (not more than 6 digits) = MCC + MNC</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">MCC</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Mobile Country Code</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">assigned by ITU</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">3 digits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">MNC</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Mobile Network Code</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">assigned by National Authority</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">2 or 3 digits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">MSIN</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Mobile Subscriber Identification Number</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">assigned by operator</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">9 or 10&nbsp;digits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">GUTI</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Globally Unique Temporary UE Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify a UE between the UE and the MME on behalf of IMSI for security reason</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">GUTI (not more than 80 bits) = GUMMEI + M-TMSI</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">TIN</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Temporary Identity used in Next Update</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">GUTI is stored in TIN parameter of UE’s MM context. TIN indicates which temporary ID will be used in the next update.</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">TIN = GUTI</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">S-TMSI</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SAE Temporary Mobile Subscriber Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To locally identify a UE in short within a MME group (Unique within a MME Pool)</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">S-TMSI (40 bits) = MMEC + M-TMSI</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;"><a href="#M_TMSI">M-TMSI</a></span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">MME Mobile Subscriber Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Unique within a MME</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">32 bits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">GUMMEI</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Globally Unique MME Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To identify a MME uniquely in global </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">GUTI contains GUMMEI</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">GUMMEI (not more than 48 bits)= PLMN ID + MMEI</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">MMEI</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">MME Identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To identify a MME uniquely within a PLMN</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Operator commissions at eNBMMEI</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">MMEI (24 bits) = MMEGI + MMEC</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;"><a href="#MME_ID">MMEGI</a></span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">MME Group Identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Unique&nbsp;within a PLMN</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">16 bits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;"><a href="#MME_ID">MMEC</a></span></font></p>
+                    </td>
+                    <td width="187" height="27"><font face="Verdana"><span style="font-size:10pt;">MME Code</span></font></td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify a MME uniquely within a MME Group. S-TMSI contains MMEC8</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">8 bits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">C-RNTI</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Cell- Radio Network Temporary Identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify an UE uniquely in a cell</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">0x0001 ~ 0xFFF3 (16 bits)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IMEI</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">International Mobile Equipment Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify a ME (Mobile Equipment) uniquely</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IMEI (15 digits) = TAC + SNR + CD</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IMEI/SV</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IMEI/Software Version</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify a ME (Mobile Equipment) uniquely</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IMEI/SV (16 digits) = TAC + SNR + SVN</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">ECGI</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN Cell Global Identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To identify a Cell in global (Globally Unique)</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">EPC can know UE location based of ECGI</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">ECGI (not more than 52 bits) = PLMN I D+ ECI</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">ECI</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN Cell Identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify a Cell within a PLMN</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">ECI (28 Bits) = eNB ID + Cell ID</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">PGW ID</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDN GW Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To identify a specific PDN GW (P-GW)</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HSS assigns P-GW for PDN (IP network) connection of each UE</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IP address (4 bytes) or FQDN (variable length)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">TAI</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Tracking Area Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To identify Tracking Area</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Globally uniqueTAI</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">TAI (not more than 32 bits) = PLMN ID + TAC P-GW</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">TAC</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Tracking Area Code</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To indicate eNB to which Tracking Area the eNB belongs (per Cell)</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Unique within a PLMN16</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">16 bits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">TAI List</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Tracking Area Identity List</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE can move into the cells included in TAL list without location update (TA update)</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Globally unique</span></font></p>
+                    </td>
+                    <td width="199" height="27"><font face="Verdana"><span style="font-size:10pt;">Variable length</span></font></td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">PDN ID</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Data Network Identity</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To identify an PDN (IP network), that mobile data user wants to communicate with</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDN Identity (APN) is used to determine the P-GW and point of interconnection with a PDN</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">With APN as query parameter to the DNS procedures, the MME will receive a list of candidate P-GWs, and then a P-GW is selected by MME with policy</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDN Identify = APN = APN.NI + APN.OI (variable length)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">EPS Bearer ID</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Evolved Packet System Bearer Identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify an EPS bearer (Default or Dedicated) per an UE4</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">4 bits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89">
+                        <p><font face="Verdana"><span style="font-size:10pt;">E-RAB ID</span></font></p>
+                    </td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN Radio Access Bearer Identifier•</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify an E-RAB per an UE</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">4 bits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">DRB ID</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Data Radio Bearer Identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify a DRB per an UE4</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">4 bits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">LBI</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Linked EPS Bearer ID</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify the default bearer associated with a dedicated EPS bearer4</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">4 bits</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="89"><font face="Verdana"><span style="font-size:10pt;">TEID</span></font></td>
+                    <td width="187" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Tunnel End Point identifier</span></font></p>
+                    </td>
+                    <td width="318" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">To identify the end point of a GTP tunnel when the tunnel is established</span></font></p>
+                    </td>
+                    <td width="199" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">32 bits</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><b><a name="PLMN_CellID_SIB1">PLMN/CellID in SIB1</a></b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_SIB1_CellID.png" width="594" height="362" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="MME_ID">MME IDs</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/ID_in_LTE_MME_FromUE.png" width="461" height="395" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/ID_in_LTE_MME_FromNW.png" width="474" height="398" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="M_TMSI">M-TMSI</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/ID_in_LTE_M_TMSI_FromUE.png" width="483" height="411" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/ID_in_LTE_M_TMSI_FromNW.png" width="445" height="495" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

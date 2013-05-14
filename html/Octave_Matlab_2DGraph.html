@@ -1,0 +1,603 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="MatLab, Octave, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Octave/Matlab</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;</span><span style="font-size:14pt;"><b>- 2D Graph</b></span><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_Matlab_01 */
+google_ad_slot = "1704498775";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this page, I would post a quick reference for Matlab and Octave. (Octave is a GNU program which is designed to provide a free tool that work like Matlab. I don't think it has 100% compatability between Octave and Matlab, but I noticed that most of basic commands are compatible. I would try to list those commands that can work both with Matlab and Octave). All the sample code listed here,
+I tried with Octave, not with Matlab. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are huge number of functions which has not been explained here, but I would try to list those functions which are most commonly used in most of matlab sample script you can get. My purpose is to provide you the set of basic commands with examples so that you can at least read the most of sample script you can get from here and there (e.g, internet) without overwhelming you. If you get
+familiar with these minimal set of functionality, you would get some 'feeling' about the tool and then you would make sense out of the official document from Mathworks or GNU Octave&nbsp;which explains all the functions but not so many examples. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I haven't completed 'what I think is the minimum set' yet and I hope I can complete within a couple of weeks. Stay tuned !!!</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Menu_2DGraph">2D Graph</a></b></span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Single_x">Plot only one data set (y axis data only)</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Single_x_y">Plot a set of data ((x,y) sequence)</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Single_xyRange">x,y Axis Range</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Single_Title_Label">Graph Title, Axis Label</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_GraphFormat_Color">Graph Format and Color</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Single_FilledMarker">Graph with Filled Marker</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_AspectRatio">AspectRatio</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Multiple_plot">Multiple Plots in a single graph area using&nbsp;plot</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Multiple_holdon">Multiple Plots in a single graph area using&nbsp;hold on</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Multiple_subplot">Multiple Plots in a single graph area using&nbsp;subplot</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Legend">Placing Legend</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TickMark/TickLabel</span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Tick">Turning On/Off</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Tick_UserDefined">User Defined Tick</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Plot_Ticklabel_UserDefined">User Defined Ticklabel</a></span></font></li>
+                </ul>
+                <li><font face="Verdana"><span style="font-size:10pt;">Grid</span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Grid_On_Off">Turning On/Off</a></span></font></li>
+                </ul>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_Single_x"><b>&lt; Plot only one data set (y axis data only) &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : plot(y); // specify y (independent variable) only</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">plot(y);</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_x.PNG" width="450" height="302" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_Single_x_y"><b>&lt; Plot a set of data ((x,y) sequence) &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">plot(x,y);</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_x_y.PNG" width="464" height="332" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_Single_xyRange"><b>&lt; x,y Axis Range &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : xlim([xmin xmax]); ylim([ymin ymax]);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y); </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">xlim([-8 8]); ylim([-1.5 1.5]);</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_xy_Range_01.PNG" width="523" height="352" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 2 : axis([xmin xmax ymin ymax]);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y); </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">axis([-8 8 -1.5 1.5]);</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_xy_Range_02.PNG" width="522" height="349" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_Single_Title_Label"><b>&lt; Graph Title, Axis&nbsp;Label &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : title('text'); </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xlabel('text');</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ylabel('text');</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y); xlim([-8 8]); ylim([-1.5 1.5]);</span></font><span style="font-size:10pt;"><font face="Verdana" color="red">title('y=sin(x)'); xlabel('x');ylabel('sin(x)');</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_Title_Label.PNG" width="576" height="412" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_GraphFormat_Color"><b>&lt; Graph Format and Color &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : plot(x,y,'format');</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">`-' &nbsp;: solid line.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">`.' &nbsp;: dotted line.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">`--' : dashed line</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">`^' &nbsp;: triangular mark</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">`+' &nbsp;: + mark</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">`*' &nbsp;: * mark</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">`o' &nbsp;: o (circle) mark</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">`x' &nbsp;: x mark</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y,</span></font><span style="font-size:10pt;"><font face="Verdana" color="red">'r--'</font></span><font face="Verdana"><span style="font-size:10pt;">); xlim([-8 8]); ylim([-1.5 1.5])</span></font><span style="font-size:10pt;"><font face="Verdana">;title('y=sin(x)'); xlabel('x');ylabel('sin(x)');</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_Color_Format.PNG" width="539" height="418" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y,</span></font><span style="font-size:10pt;"><font face="Verdana" color="red">'ro'</font></span><font face="Verdana"><span style="font-size:10pt;">); xlim([-8 8]); ylim([-1.5 1.5])</span></font><span style="font-size:10pt;"><font face="Verdana">;title('y=sin(x)'); xlabel('x');ylabel('sin(x)');</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_Color_Format_01.PNG" width="544" height="354" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y,</span></font><span style="font-size:10pt;"><font face="Verdana" color="red">'ro-'</font></span><font face="Verdana"><span style="font-size:10pt;">); xlim([-8 8]); ylim([-1.5 1.5])</span></font><span style="font-size:10pt;"><font face="Verdana">;title('y=sin(x)'); xlabel('x');ylabel('sin(x)');</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_Color_Format_02.PNG" width="552" height="357" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_Single_FilledMarker"><b>&lt; Graph with Filled Marker &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : MarkerFaceColor,[r g b] &nbsp;// r,g,b value is range between 0 and 1. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y,'ro',</span></font><span style="font-size:10pt;"><font face="Verdana" color="red">'MarkerFaceColor',[0 0 1])</font></span><font face="Verdana"><span style="font-size:10pt;">;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">axis([-8 8 -1.5 1.5]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">title('y=sin(x)'); xlabel('x');ylabel('sin(x&gt;&lt; 0 1]);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_single_FilledMarker_01.PNG" width="552" height="357" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_AspectRatio"><b>&lt; Aspect Ratio &gt;</b> </a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : daspect([xratio yratio])</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t=0:2*pi/40:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">e1 = exp(t*j);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(real(e1),imag(e1),'ro','MarkerFaceColor',[1 0 0]); axis([-1.2 1.2 -1.2 1.2]);daspect([1 1]);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_AspectRatio.PNG" width="390" height="389" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_Multiple_plot"><b>&lt; Multiple Plots in a single graph area using&nbsp;plot &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : plot(x1,y1,'format1',x2,y2,'format2',...)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y1=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y2=0.1 .* x .^2;</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y1,'r-',x,y2,'b-');axis([-8 8 -1.5 1.5]);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_Multiple_plot_01.PNG" width="434" height="350" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_Multiple_holdon"><b>&lt; Multiple Plots in a single graph area using&nbsp;hold on &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y1=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y2=cos(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y3=0.1.*x.^2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y4=sin(x).*cos(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y1,'r-');axis([-8 8 -1.5 1.5]);hold on;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y2,'g-');axis([-8 8 -1.5 1.5]);hold on;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y3,'b-');axis([-8 8 -1.5 1.5]);hold on;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,y4,'m-');axis([-8 8 -1.5 1.5]);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_Multiple_holdon_01.PNG" width="420" height="293" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Plot_Multiple_subplot"><b>&lt; Multiple Plots in a single graph area using&nbsp;subplot &gt;</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : Subplot(M, N, 1); plot()</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subplot(M, N, 2); plot()</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subplot(M, N, 3); plot()</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subplot(M, N, M x N); plot()</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_Multiple_subplot.PNG" width="570" height="483" border="0"></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y1=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y2=cos(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y3=0.1.*x.^2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y4=sin(x).*cos(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,1); plot(x,y1,'r-');axis([-8 8 -1.5 1.5]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,2); plot(x,y2,'g-');axis([-8 8 -1.5 1.5]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,3); plot(x,y3,'b-');axis([-8 8 -1.5 1.5]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">subplot(2,2,4); plot(x,y4,'m-');axis([-8 8 -1.5 1.5]);</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_Multiple_subplot_01.PNG" width="567" height="382" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Plot_Legend">&lt; Placing Legend &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : legend('string1','string2',...)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2*pi:1/10*pi:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y1=sin(x);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">y2=0.1 .* x .^2;</span></font><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">plot(x,y1,'r-',x,y2,'b-');axis([-8 8 -1.5 1.5]);</font></span><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">legend('y1=sin(x)','y2=0.1 .* x .^2');</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_Legend_01.png" width="469" height="333" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Plot_Tick">&lt; Tick/Ticklabel - Turning On/Off&nbsp;&gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : By default, Tickmark and Ticklabel is set to be ON. You can turn OFF them with set().</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set(gca,'xticklabel',[]);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set(gca,'yticklabel',[]);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set(gca,'xtick',[]);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set(gca,'ytick',[]);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2:0.1:2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,x .^ 2); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">set(gca,'xticklabel',[]);set(gca,'yticklabel',[]);</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">set(gca,'xtick',[]);set(gca,'ytick',[]);</font></span><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_tick_01.png" width="370" height="264" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Plot_Tick_UserDefined">&lt; Tick/Ticklabel - User Defined Tick &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : set(gca,'xtick',[-2 -1.5 -1 0 1 1.5 2]);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set(gca,'ytick',[0 1 2 3 4]);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x = -2:0.1:2;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(x,x .^ 2); </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">set(gca,'xtick',[-2 -1.5 -1 0 1 1.5 2]);</font></span><span style="font-size:10pt;"><font face="Verdana" color="red"></font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">set(gca,'ytick',[0 1 2 3 4]);</font></span><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_tick_userdefined_01.png" width="364" height="268" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Plot_Ticklabel_UserDefined">&lt; Tick/Ticklabel - User Defined Ticklabel &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : </span></font><span style="font-size:10pt;"><font face="Verdana">set(gca,'xticklabel',{Ticklabel List});</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t = 0:pi/20:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(t,sin(t)); axis([0 2*pi -1 1]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">set(gca,'xtick',[0 pi/2 pi 1.5*pi 2*pi]);set(gca,'ytick',[-1 0 1]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">set(gca,'xticklabel',{'0','0.5 pi','pi','1.5 pi','2*pi'});</font></span><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_ticklabel_userdefined_01.png" width="396" height="256" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Grid_On_Off">&lt; Grid - Turning On/Off &gt;</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Case 1 : By default, grid is Off. grid() is toggling grid on/off.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid()</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ex) </span></font></p>
+            <table border="1" width="789" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Input</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t = 0:pi/20:2*pi;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">plot(t,sin(t)); axis([0 2*pi -1 1]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">set(gca,'xtick',[0 pi/2 pi 1.5*pi 2*pi]);set(gca,'ytick',[-1 -0.5 0 0.5 1]);</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">set(gca,'xticklabel',{'0','0.5 pi','pi','1.5 pi','2*pi'});</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">grid();</font></span><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"></span></font><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="113" align="left" valign="top">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Output</span></font></p>
+                    </td>
+                    <td width="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Matlab_plot_grid_on_off_01.png" width="449" height="240" border="0"><span style="font-size:10pt;"><font face="Verdana"></font></span></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

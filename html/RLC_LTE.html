@@ -1,0 +1,1070 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897" height="26">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">RLC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span
+style="font-size:8pt;">Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LTE_RLC_01 */
+google_ad_slot = "9426241978";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Personally to me, RLC layer is one of the trickest area to understand in very detail. At the beginning it seems to be simple, but as I getting deeper and deeper into this layer I get more and more confused. Another difficulties is that I don't find any books or other training material explaining very detail on this area, whereas you would find a lot of books and materials digging very deeplyinto
+other layer. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Overview">Overview</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#OverallDataFlow_TM">Overall Data Flow for TM RLC</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#OverallDataFlow_UM">Overall Data Flow for UM RLC</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#OverallDataFlow_AM">Overall Data Flow for AM RLC</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RLC_Data_Structure">RLC Data Structure</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Examples_RLC_AMD_PDU">Examples for RLC AMD PDU</a></span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#DL_AMD_A0_00">Data PDU : A0 00 ...</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#UL_AMD_A0_01">Data PDU : A0 01 ...</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#UL_AMD_00_04">Control PDU : 00 04</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#DL_AMD_00_08">Control PDU : 00 08</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#DL_AMD_00_22_00_40_0C_01_C0_20">Control PDU : 00 22 00 40 0C 01 C0 20</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Examples_RLC_UMD_PDU">Examples for RLC UMD PDU</a></span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#DL_UMD_1C_E1">UMD PDU : 1C E1 ...</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#DL_UMD_18_E2">UMD PDU : 18 E2 ...</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#DL_UMD_18_E3">UMD PDU : 18 E3 ...</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#DL_UMD_1C_E4">UMD PDU : 1C E4 ...</a></span></font></li>
+                </ul>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Examples_from_real_life">Examples from&nbsp;real life (Live Network)</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Variables_Constants_Timers">Variables, constants and timers for RLC</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Process_RLC_UM_Transmission">Process of RLC UM Transmission</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Process_RLC_UM_Reception">Process of RLC UM Reception</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Process_RLC_AM_Transmission">Process of RLC AM Transmission</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#Process_RLC_AM_Reception">Process of RLC AM Reception</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#RLC_Verification_Validation">Some issues for RLC layer verification</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Overview">Overview</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">As far as I experienced, there are three main topics we have to master on this layer to make our knowledge practical enough to the development or troubleshooting. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">i) Understanding three types of RLC Mode : TM, UM, AM</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">ii) Segmentation (Splitting) and Concatenation (Combining) mechanism</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">iii) RLC Timers</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">I will not explain on these topics right now. It will be explained as you go along with this section.. but this part will be updated forever as I get more and more insight on this layer. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">As in the section for other layer, let's start by &quot;Reading (Verbalizing)&quot; the pictures from the specification. The first diagram you will see in LTE RLC specification(TS 36.322) is as follows:</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/36_322_Fig4_2_1-1_RLC_Overview.PNG" width="693" height="454" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">What do you read from the diagram above ? First you will see the layers labeled 'upper layer' and 'lower layer' ? What does these layer specifically mean ? 'Upper layer' in this case would mean 'RRC layer' or 'PDCP Layer' or in some case (especially in the simulation or testing environment' it can be a TE port ( a kind of data Input/Output port).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Then, in which case the upper layer should be RRC Layer and in which case it should be PDCP or TE port ? These are what you have to figure out as you go along this document. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">And then.. you see another layer labelled 'lower layer'. What is the lower layer in this case ? It is simple. It means 'MAC' layer in most case. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">There are another small issues that scared me.. it was the term 'entity' which sounded too abstract to me. (it may not be the case for others). I just take the term 'entity' as a kind of 'thread' or 'task' in software terminology. It may not be a perfect analogy but this terminology change made me much more comfortable when I am reading the specs.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">What else you can read from the diagram above ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">One thing I notice is.. &nbsp;There are separate entity (thread or task) for Uplink and Downlink RLC for TM and UM. But in AM, both Uplink and Downlink path&nbsp;are merged into a single entity. Why ? This is also what you have to figure out later. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Another picture that I want you to keep in mind is shown below. Most of signaling message is using RLC and each of the message is a specific types of RLC mode, TM/UM/AM. Unlike the channel mapping, the association between each message and RLC type is not so tight meaning that network can allocate RLC types a little bit different from what is shown below, but I would say the following
+mapping would be a kind of 'Textbook' mapping.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">As we go through this section, you will see the detailed behavior of each RLC mode. If you try to associate this diagram and the RLC description you will have more practical understanding of RLC and will help you greatly for protocol stack implementation and troubleshooting.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/Message_RLC_Map.PNG" width="416" height="428" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b><a name="OverallDataFlow_TM">Overall Data Flow for TM</a></b></span></font><font face="Verdana"><span style="font-size:10pt;"><b> RLC</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">For this section as well, let's start reading diagram from the specification. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Let's begin with TM mode. As you see in the following diagram, TM is the simplest RLC mode. TM stands for 'Transparent Mode'. The term 'Transparent' may have many different meaning. In this case, it would mean 'the contents goes through this layer without any modification'. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">What does it mean by 'modification' ? In this context, it would mean </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">i) It does not add or remove any header to the input data </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">ii) It does not split the input data into multiple segment</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">iii) It does not combine the multiple input data into a single big chunk</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The only operation operation being done in this mode is a buffering operation, but even this buffering operation is also very simple. It just keeps the input data for a certain amount of time or until next input data come in, it just discard it if it does not get transmitted within a certain time frame. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you see in the diagram, BCCH, PCCH, CCCH goes through this type of RLC process. In WCDMA, Voice call traffic used this RLC mode as well. It means that even some type of DTCH (voice traffic) uses this mode in WCDMA. However it is technically possible to use TM mode for DTCH as well. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig4_2_1_1_1-1_TM_Flow.PNG" width="602" height="420" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="OverallDataFlow_UM">Overall Data Flow for UM RLC</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Next, let's look into UM mode. UM stands for 'Unacknowledged Mode'. 'Unacknowledged Mode' means 'it does not require any reception response from the other party'. 'Reception response' simply mean 'ACK' or 'NACK' from the other party. (UM mode is similar to TM mode in that it does not require any ACK/NACK from the other party, but it is different from TM in that I has it's own header)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What is the difference between UM mode and TM mode we saw above ? It seems that UM mode is doing more operation than TM mode. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What kind of operation UM mode do ? You can just 'read' diagram for the answer. The answer would be a little bit different with transmitter side and reciever side. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's read the operation on transmitter side first. If you just read (vervalize) the diagram</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Buffering</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Segmetation (Split a big chunk into a multiple small chunk)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Concatenation (Combine a multiple small chunk into a large single chunk)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Add RLC header (If you combine or split something, you have to be able to re-split or re-combine them into orignal chunk on the reciever side. For this, you have to put some tag(header) to those chunk)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's read the operation on transmitter side first. If you just read (vervalize) the diagram</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Buffering</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Reordering (Sometimes the chunks transmitted earlier from transmitter may arrive late at the reciever. In this case you have to reorder the incoming chunks into proper order for reassembly). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Remove the RLC header (you would remember that the transmitter put the header to each of the chunk. So you have to remove this before you reassemble the data).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Reassembly</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you see, DTCH, MTCH. MCCH use this type of RLC process. Again, this is also a matter of choice. You can use AM or TM mode for DTCH.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig4_2_1_2_1-1_UM_Flow.PNG" width="604" height="555" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Summary of RLC UM Data Flow - Transmission </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Receive an Higher Layer Data (SDU) from PDCH or RRC</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Put the SDU into the transmission Buffer</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Segment or Concatenate&nbsp;the SDU into RLC PDU when MAC permit transmission</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Add a RLC header to the RLC PDU</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) Send the RLC PDU to the next layer (MAC)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Summary of RLC UM Data Flow - Reception</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) The MAC layer passes the received RLC PDU to the RLC layer.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The RLC layer removes the RLC header from the PDU.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii). The RLC layer assembles the PDUs into a upper layer SDU</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv). Pass the assembled SDUs to the PDCP or RRC layers.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="OverallDataFlow_AM">Overall Data Flow for AM RLC</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look at AM mode which is the most complicated RLC type. 'AM' stands for 'Acknowledge Mode'. As it's name implies it requires ACK/NACK from the other party. It is more like TCP packet in IP world, whereas RLC UM is more like UDP in IP world. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Is it expecting the ACK/NACK for every transmission ? If it is the case, isn't it too much overhead ? Good question. Yes.. it is too much overhead. That's why we have RLC window concept (like TCP Window in IP traffic) and Polling bit concept&nbsp;and all sorts of ACK/NACK scheduling mechanism which makes it extremely difficult to understand full details of RLC AM operation. (This kind of
+detailed procedure would not be explained now.. but not sure by when I can get to the level of details -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now just look into the diagram from the specification. If you go through the left column and the right colum, you will see the same procedures you saw in UM mode. so I don't want to verbalize that part again. What is different from UM mode lies in the middle column, namely 'Retransmission buffer' and 'RLC control' procedure. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's just follow the arrrows. What is coming into the retransmission buffer ? i.e, what is the input to the retransmission buffer ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">After RLC transmitter do the segmentation/concatenation process, it adds RLC header and then it creates two identical copies and transmit the one copy of the data out to lower layer (MAC) and send another copy to Retransmission buffer. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If the RLC get Nack or does not get any response from the other party for a certain period of time, the RLC packet (we call this RLC PDU) in the retransmission buffer gets transmitted again. If the RLC get ACK, the ones in retransmission buffer would be discarded.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig4_2_1_3_1-1_AM_Flow.PNG" width="592" height="627" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Summary of RLC AM Data Flow - Transmission </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Receive an Higher Layer Data (SDU) from PDCH or RRC</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Put the SDU into the transmission Buffer</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Segment or Concatenate&nbsp;the SDU into RLC PDU when MAC permit transmission</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Make a copy of the transmission buffer&nbsp;for a possible retransmission</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) Add a RLC header to the RLC PDU</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) Send the RLC PDU to the next layer (MAC)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Summary of RLC AM Data Flow - Reception</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) The MAC layer passes the received RLC PDU to the RLC layer.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The RLC layer removes the RLC header from the PDU.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If the received RLC PDU </span></font><font face="Verdana"><span style="font-size:10pt;">does not have any problem, mark it as positive ACK (but whether the ACK is sent now or sometime later or omitted is determined by some other RLC parameters). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv). The RLC layer assembles the PDUs into a upper layer SDU</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v). Pass the assembled SDUs to the PDCP or RRC layers.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Major Functions of RLC AM &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I think this list can give you another aspect of reading Figure 4.2.1.3.1-1 shown above. This is one way to learn new things. Try to describe it from many different perspective. There will be many things overlapped by multiple perspectives and there will be many things that looks different depending on the perspectives. It will help you to learn it in either ways. In some case, you will learn
+many things because they are similar and in other case you will learn things because they are different.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Segmentation, concatenation, and reassembly: RLC service data units (SDUs) coming from the upper layer are segmented or concatenated to RLC protocol data units (PDUs) which has a predefined size. Each PDU is assigned its own sequence number (SN). RLC AM on reciever side will reassemble these PDUs into SDUs using the sequence number. So allocating the proper Sequence Number is very important
+in RLC operation. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Error correction by ARQ: In AM RLC, if the sender does not receive ACK from the reciever it automatically send the same data again and if the sender recieves the ACK in a predefined time frame it sends the next data. This process is called ARQ. But if RLC is using this ARQ for every transmission, it would create a lot of overhead for the data transmission. So in reality AM RLC is applying
+ARQ based on a special rules and this rule is defined by various factors like some special timers, polling request etc. These factors will be explained below. </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Flow control: By changing the window size, RLC can do a kind of flow control. </span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">&lt; Polling for RLC AM ARQ &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">As I mentioned above, one of the most important feature for RLC AM is ARQ which is designed for reliable data traffic and the key factors for RLC ARQ are various Polling mechanism.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This mechanism involves two main part as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Transmitter side : Poll Request</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Receiver side : Status Report carrying ACK, NACK etc</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now the question is to figure out the best timing/situation for Poll Request and the best timing/situation for Satus Report. Following is the list of several important factors to trigger for Poll Request and Satus Report. Following table is based on UMTS RLC AM operation and this triggering mechanism seems to get simpler in LTE. However I would list up more complicated case (UMTS case) to
+give you more detailed picture. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="796" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="241" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Trigger for Poll</span></font></p>
+                    </td>
+                    <td width="545" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Description</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Timer-based polling </span></font><span style="font-size:10pt;"><font face="Verdana">(</font><font face="Lucida Console">timerPollPeriodic)</font></span></p>
+                    </td>
+                    <td width="545"><font face="Verdana"><span style="font-size:10pt;">This configure the sender to transmit Poll&nbsp;periodically (once in a predefined time period)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Poll timer (timerPoll)</span></font></p>
+                    </td>
+                    <td width="545"><font face="Verdana"><span style="font-size:10pt;">This is the maximum waiting time for Status Report from the other party after it sent a Poll. If Status Report does not arrive until this timer expires after the transmission of a polling request, the sender send Polling Request again.</span></font></td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Last PDU in buffer</font></span><font face="Verdana"></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">(lastTransmissionPDU-Poll)</font></span></p>
+                    </td>
+                    <td width="545">
+                        <p><font face="Verdana"><span style="font-size:10pt;">If this is configured, the poll should be sent with the last PDU in the RLC sender’s transmission buffer</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Last PDU in retransmission buffer</font></span><font face="Verdana"></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">(lastRetransmissionPDU-Poll)</font></span></p>
+                    </td>
+                    <td width="545">
+                        <p><font face="Verdana"><span style="font-size:10pt;">If this is configured, the poll should be sent with the last PDU in the RLC sender’s retransmission buffer</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Poll every N PDU (poll-PDU)</span></font></p>
+                    </td>
+                    <td width="545">
+                        <p><font face="Verdana"><span style="font-size:10pt;">This triggers the poll for every N PDU sent</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Poll every N SDU (poll-SDU)</span></font></p>
+                    </td>
+                    <td width="545">
+                        <p><font face="Verdana"><span style="font-size:10pt;">This triggers the poll for every N SDU sent</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Window-based polling</span></font></p>
+                    </td>
+                    <td width="545">
+                        <p><font face="Verdana"><span style="font-size:10pt;">This sets the polling bit when a certain percentage of the transmission window is sent</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="796" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="241" bgcolor="#99CCFF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">Trigger for Status Report</font></span></p>
+                    </td>
+                    <td width="545" bgcolor="#99CCFF">
+                        <p align="center"><span style="font-size:10pt;"><font face="Verdana">Description</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p><span style="font-size:10pt;"><font face="Verdana">Polling bit</font></span></p>
+                    </td>
+                    <td width="545"><span style="font-size:10pt;"><font face="Verdana">The RLC reciever should send Status Report whenever it recieves AMD PDU with Poll bit = 1 except when it is within timerStatusProhibit</font></span></td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Missing PDU indicator</font></span><font face="Verdana"></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">(missingPDU-Indicator)</font></span></p>
+                    </td>
+                    <td width="545">
+                        <p><span style="font-size:10pt;"><font face="Verdana">If this flag is set to be TRUE, RLC reciever should send Status Report whenever it finds any missing RLC sequence number except when it is within timerStatusProhibit.</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">timer-based STATUS transfer</font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">(timerStatusPeriodic)</font></span></p>
+                    </td>
+                    <td width="545">
+                        <p><span style="font-size:10pt;"><font face="Verdana">If this parameter is configured, RLC sender send Status Report with a predefined interval except when it is within timerStatusProhibit</font></span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="241">
+                        <p><span style="font-size:10pt;"><font face="Verdana">MAC-hs reset</font></span></p>
+                    </td>
+                    <td width="545"><span style="font-size:10pt;"><font face="Verdana">This is trigger from MAC layer (not from RLC) which let RLC to send Status Report whenver MAC-hs resets. This is not influenced by timerStatusProhibit.</font></span></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Major RLC AM Parameters &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console"><font face="Lucida Console">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I think it will be helpful to look into some of high level RLC AM parameters (RRC parameters) and correlate these parameters with RLC AM operation process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font><span style="font-size:10pt;"></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">+-rrcConnectionSetup-r8 ::= SEQUENCE [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;+-radioResourceConfigDedicated ::= SEQUENCE [100101]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-srb-ToAddModList ::= SEQUENCE OF SIZE(1..2) [1] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | +-SRB-ToAddMod ::= SEQUENCE [11]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | &nbsp;&nbsp;+-srb-Identity ::= INTEGER (1..2) [1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | &nbsp;&nbsp;+-rlc-Config ::= CHOICE [explicitValue] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | &nbsp;&nbsp;| +-explicitValue ::= CHOICE [am]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;+-am ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-ul-AM-RLC ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-t-PollRetransmit ::= ENUMERATED [ms5]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-pollPDU ::= ENUMERATED [p4]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-pollByte ::= ENUMERATED [kB25]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;| +-maxRetxThreshold ::= ENUMERATED [t1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-dl-AM-RLC ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-t-Reordering ::= ENUMERATED [ms35]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+-t-StatusProhibit ::= ENUMERATED [ms35]</font></span><font face="Lucida Console"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| | &nbsp;&nbsp;+-logicalChannelConfig ::= CHOICE [defaultValue] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-drb-ToAddModList ::= SEQUENCE OF OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-drb-ToReleaseList ::= SEQUENCE OF OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-mac-MainConfig ::= CHOICE [explicitValue] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-sps-Config ::= SEQUENCE OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;| +-physicalConfigDedicated ::= SEQUENCE [1111001011] OPTIONAL:Exist</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Just for your reference, I put WCDMA RLC parameters in Radio Bearer Setup message as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">+-SRB-InformationSetup-r7 ::= SEQUENCE [1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">| +-rb-Identity ::= INTEGER (1..32) [2] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">| +-rlc-InfoChoice ::= CHOICE [rlc-Info]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">| | +-rlc-Info ::= SEQUENCE [1100]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console">| | &nbsp;&nbsp;+-ul-RLC-Mode ::= CHOICE [ul-AM-RLC-Mode] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| +-ul-AM-RLC-Mode ::= SEQUENCE [1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-transmissionRLC-Discard ::= CHOICE [noDiscard]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;| +-noDiscard ::= ENUMERATED [dat10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-transmissionWindowSize ::= ENUMERATED [tw128]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-timerRST ::= ENUMERATED [tr550]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-max-RST ::= ENUMERATED [rst1]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-pollingInfo ::= SEQUENCE [010110] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-timerPollProhibit ::= ENUMERATED OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-timerPoll ::= ENUMERATED [tp500] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-poll-PDU ::= ENUMERATED OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-poll-SDU ::= ENUMERATED [sdu1] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-lastTransmissionPDU-Poll ::= BOOLEAN [TRUE]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-lastRetransmissionPDU-Poll ::= BOOLEAN [TRUE]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-pollWindow ::= ENUMERATED [pw50] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-timerPollPeriodic ::= ENUMERATED OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;+-dl-RLC-Mode ::= CHOICE [dl-AM-RLC-Mode] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| +-dl-AM-RLC-Mode ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-dl-RLC-PDU-size ::= CHOICE [fixedSize]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-inSequenceDelivery ::= BOOLEAN [TRUE]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-receivingWindowSize ::= ENUMERATED [rw128]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;+-dl-RLC-StatusInfo ::= SEQUENCE [100]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-timerStatusProhibit ::= ENUMERATED [tsp120] OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-dummy ::= ENUMERATED OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-missingPDU-Indicator ::= BOOLEAN [TRUE]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">| | &nbsp;&nbsp;| &nbsp;&nbsp;&nbsp;&nbsp;+-timerStatusPeriodic ::= ENUMERATED OPTIONAL:Omit</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RLC_Data_Structure">RLC Data Structure </a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Like any data structure, you would not completely understand this structure until you really construct this structure or analyze the structure with real data either in programming or in manually. Of course my recommendation is to analyze manually.. I will put some of real RLC data example later, but for now let's just review the diagram from 3GPP specification and just try to be familiar
+with them.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The first structure is as follows. It is data structure for TMD (TM mode data) structure. What kind of structure you see from the following diagram ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is Data only structure, not even with Header. Most of the data structure for any data communication has it's own header. IP packet has IP header. UDP packet has UDP header. TCP header has TCP header. ICMP packet has ICMP header, etc. But this packet does not have any header. As you know, the most important role of header is to carry the information as follows :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Who is the sender ? (sender address, sender id etc)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Who is the reciepient (reciepient address, id etc)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) What is the size of the data ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) etc..</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But this data structure has none of these information. It means that the TMD packet does not add any additional (header) to the input data and does not split or combine the data coming into the RLC entity. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then how the size of this TMD PDU is determined ? It is automatically set to be the same size as MAC PDU size. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if the incoming data is bigger than the RLC PDU size ? It just take the initial part of data that can fit into its size and discard the rest of the data. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if the incoming data is smaller than the RLC PDU size ? It just take the whole data and pass it to MAC layer and MAC layer add padding data at the end. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_2-1_TM_PDU.PNG" width="463" height="174" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is a data structure for UMD (UM mode data) structure. What are the meaning of Fl, E, SN ? You should refer to other sets of diagrams later. If you remember the diagram in previous section (Fig 4.2.1.2.1-1), RLC UM entity has capability of segmentation/concatenation. It means ... if the incoming data is greater than the RLC size, it segment the data into multiple chunks and pass
+them one by one. In this case, you have to put some tag (number) to each of the chunks.. otherwise the receiving side cannot combine them in proper sequence. This tag (number) is SN (Sequence Number). As you see in the following diagram, there are two different types of SN. One is 5 bits and the other one is 10 bits.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_3-1_UM_PDU.PNG" width="463" height="201" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_3-2_UM_PDU.PNG" width="468" height="225" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What if the data coming into the RLC entity ? The simplest way is to pack the small chunk as it is (as in TM mode), but it is waste of space. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then what do we have to do in this case ? The simplest way is to put the multiple small chunk into a single RLC packet. In this case, you need special information for each of the small chunk within the RLC packet. LI (Length Indicator) is the length value for each of the small chunks within a RLC PDU. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_3-3_UM_PDU.PNG" width="662" height="409" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_3-5_UM_PDU.PNG" width="668" height="434" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_3-6_UM_PDU.PNG" width="674" height="389" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The last type of RLC packet type is AMD (AM mode data) structure. Overall structure is very similar to UMD structure except that it has a couple of additional field D/C, RF, P. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_4-1_AM_PDU.PNG" width="458" height="225" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_4-2_AM_PDU.PNG" width="660" height="436" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_4-3_AM_PDU.PNG" width="554" height="388" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_1_6-1_Satus_PDU.PNG" width="413" height="308" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">We saw many of small fields in RLC header and now let's try understanding the meaning of each of these fields. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_4-1_E_field.PNG" width="687" height="204" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">FI Field </font></span><font face="Verdana"><span style="font-size:10pt;">: This field indicate the relative location of the RLC PDU within a RLC SDU. For example, '01' indicate the PDU is the first segment of the SDU and '10' indicates the PDU is the last segment of the SDU, and '11' indicate the PDU is in between the first and last segment. In a SDU, there is only one '01'
+type PDU and only one '10' type PDU. There can be one or more '11' type PDU. If FI is 00, it means the RLC PDU is same as RLC SDU. When RLC recieves '01' type, the layer start buffering the PDU within RLC memory and only when it recieves '10' PDU, RLC reassembles all the recieved PDU and transfer it to PDCP. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_6-1_FI_field.PNG" width="598" height="172" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_8-1_LSF_field.PNG" width="662" height="85" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">D/C Field </font></span><font face="Verdana"><span style="font-size:10pt;">: This field indicate whether the PDU is for RLC control or Data&nbsp;.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_9-1_DC_field.PNG" width="272" height="83" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">RF Field </font></span><font face="Verdana"><span style="font-size:10pt;">: This field indicate tye type of the AMD PDU. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_10-1_RF_field.PNG" width="274" height="86" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana" color="blue">P Field </font></span><font face="Verdana"><span style="font-size:10pt;">: This field indicate the PDU requires a status report (RLC ACK or NACK) from the other party or not. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_11-1_P_field.PNG" width="292" height="86" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_13-1_CPT_field.PNG" width="667" height="101" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_15-1_E1_field.PNG" width="517" height="86" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig6_2_2_17-1_E2_field.PNG" width="579" height="76" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">SOstart and SOend fields indicated the corresponding&nbsp;NACK_SN stands for 'detected as lost' which means a portion or the whole RLC PDU is lost. According to 36.322, section 6.2.2.18, 6.2.2.19 descrbes these fields as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">SOstart (15 bits) : The SOstart field (together with the SOend field) indicates the portion of the AMD PDU with SN = NACK_SN (the NACK_SN for which the SOstart is related to) that has been detected as lost at the receiving side of the AM RLC entity.</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Specifically, the SOstart field indicates the position of the first byte of the portion of the AMD PDU in bytes within the Data field of the AMD PDU. The first byte in the Data field of the original AMD PDU is referred by the SOstart field value &quot;000000000000000&quot;, i.e., numbering starts at zero</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">SOend (15 bits) : </span></font><font face="Verdana"><span style="font-size:10pt;">The SOend field (together with the SOstart field) indicates the portion of the AMD PDU with SN = NACK_SN (the NACK_SN for which the SOend is related to) that has been detected as lost at the receiving side of the AM RLC entity.</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Specifically, the SOend field indicates the position of the last byte of the portion of the AMD PDU in bytes within the Data field of the AMD PDU. The first byte in the Data field of the original AMD PDU is referred by the SOend field value &quot;000000000000000&quot;, i.e., numbering starts at zero. The special SOend value &quot;111111111111111&quot; is used to indicate that
+the missing portion of the AMD PDU includes all bytes to the last byte of the AMD PDU</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Examples_RLC_AMD_PDU">Examples for RLC&nbsp;AMD PDU</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Followings are a couple of RLC PDU example. In RLC PDU case, especially AMD PDU case, you should anlayze several consecutive PDUs in both direction for you to get overal picture. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">With these examples, you would learn and get familiar to how to utilize all the tables/diagrams shown above.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="DL_AMD_A0_00">DL AMD : A0 00</a> 00 08 01 20 3A 90 05 1E F0 63 69 B1 F1 86 1B 25 20 3C 78 DF C6 AB B8 82 F3 93 5A B5 A7 64 80 0D 1E 79 72 F3 93 5E 35 A8 00 00 00 00</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A0 00 = 10100000 00000000</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 = Data PDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF &nbsp;= 0 = AMD PDU </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P &nbsp;&nbsp;= 1 = Status PDU is requested</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">FI &nbsp;= 00 = First byte of the Data field corresponds to the first byte of a RLC SDU, </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last byte of the Data field corresponds to the last byte of a RLC SDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E &nbsp;&nbsp;= 0 &nbsp;= Data field follows from the octet following the LI field following this E field</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN &nbsp;= 0000000000 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC PDU = A0 00 00 08 01 20 3A 90 05 1E F0 63 69 B1 F1 86 1B 25 20 3C 78 DF C6 AB B8 82 F3 93 5A B5 A7 64 80 0D 1E 79 72 F3 93 5E 35 A8 00 00 00 00</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="UL_AMD_00_04">UL AMD &nbsp;: 00 04</a> = 00000000 00000100</font></span></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 0 &nbsp;&nbsp;= Control PDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CPT = 000 = Status PDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ACN_SN = 0000000001 (This is ACK for DL RLC SN 0)</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="UL_AMD_A0_01">UL AMD : A0 01</a> 01 48 01 60 EA 61 14 79 E5 CB CE 4D 6A D6 80 00 00 00 00</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A0 00 = 10100000 00000001</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 = Data PDU</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF &nbsp;= 0 = AMD PDU </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P &nbsp;&nbsp;= 1 = Status PDU is requested</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">FI &nbsp;= 00 = First byte of the Data field corresponds to the first byte of a RLC SDU, </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last byte of the Data field corresponds to the last byte of a RLC SDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E &nbsp;&nbsp;= 0 &nbsp;= Data field follows from the octet following the LI field following this E field</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN &nbsp;= 0000000001 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC PDU =</span></font><span style="font-size:10pt;"><font face="Verdana"> A0 01 01 48 01 60 EA 61 14 79 E5 CB CE 4D 6A D6 80 00 00 00 00</font></span></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="DL_AMD_00_08">DL AMD&nbsp;: 00 08</a> = 00000000 00001000</font></span></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 0 &nbsp;&nbsp;= Control PDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CPT = 000 = Status PDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ACN_SN = 0000000010 (This is ACK for UL RLC SN 1)</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E1 &nbsp;= 0 (It means that Octat 2 is the last Octat for this RLC PDU).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="DL_AMD_00_22_00_40_0C_01_C0_20">DL AMD&nbsp;: 00 22 00 40 0C 01 C0 20</a>&nbsp;= 00000000 00100010 00000000 01000000 00001100 00000001 11000000 00100000</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 0 &nbsp;&nbsp;= Control PDU (1 bit)</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CPT = 000 = Status PDU (3 bits)</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ACN_SN = 0000001000 (10 bits, This is ACK for UL RLC SN 7)</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E1 &nbsp;= 1&nbsp;(1 bit, It means that this is not the end of RLC PDU).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">NACK_SN = 0000000000 = 0 (10 bits)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">E1 = 1 (1 bit, </font></span><font face="Verdana"><span style="font-size:10pt;">It means that this is not the end of RLC PDU)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">E2 = 0 (1 bit, a set of SOstart and SOend does not follow for this NACK_SN)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">NACK_SN = 0000000001 = 1 (10 bits)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">E1 = 1 (1 bit, </font></span><font face="Verdana"><span style="font-size:10pt;">It means that this is not the end of RLC PDU)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">E2 = 0 (1 bit, a set of SOstart and SOend does not follow for this NACK_SN)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">NACK_SN = 0000000011 = 3&nbsp;(10 bits)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">E1 = 1 (1 bit, </font></span><font face="Verdana"><span style="font-size:10pt;">It means that this is not the end of RLC PDU)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">E2 = 0 (1 bit, a set of SOstart and SOend does not follow for this NACK_SN)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">NACK_SN = 0000000100 = 4&nbsp;(10 bits)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana">E1 = 0&nbsp;(1 bit, </font></span><font face="Verdana"><span style="font-size:10pt;">It means that this is the end of RLC PDU)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">E2 = 0 (1 bit, a set of SOstart and SOend does not follow for this NACK_SN)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Examples_RLC_UMD_PDU">Examples for RLC&nbsp;UMD PDU</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">This example data are captured from a RLCs for IP throughput test (in this case, video streaming test)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="DL_UMD_1C_E1">DL UMD PDU 1: 1C E1</a> 06 8F CC 48 23 E9 90 DA 18 D2 2B 1B A3 D9 5C 72 E8 D7 71 A9 51 A9 82 78 17 80 DC 9B 18 76 17 99 18 48 7F 77 22 B9 8E 79 DA A9 58 5A C8 6E 1C 93 F9 1D 64 C4 58 56 46 0C B5 A3 0C 5E B3 24 49 8F F0 51 FC D7 A0 F6 29 A3 51 73 C2 31 9E F8 4B 0F 07 34 B1 06 A8 E1 79 E0 E0 DD C7 C8 FC 23 52 08 D8 F4 48 ED 9A 70 10 EF DD 1C
+80 54 45 00 02 50 0E 62 00
+00 80 11 95 C9 01 01 C9 37 01 01 C9 38 04 E7 04 D2 02 3C 9B 62 47 00 44 11 E6 F0 B0 1C 80 33 A5 2C 12 C2 C8 35 16 92 61 68 12 07 0D 81 CC C7 29 C9 21 A1 B9 94 6C 25 22 E3 28 78 1A 6A E3 5A 50 1B 13 83 33 C6 57 11 4D 5B 19 55 08 31 26 75 FA 4B 42 FB 84 FF 2B 1B E2 22 B3 9C 67 07 20 AC 24 07 0D 89 6B 4D 07 24 57 BC 94 CF</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1C E1 = 00011100 11100001</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">FI &nbsp;= 11 = First byte of the Data field does not correspond to the first byte of a RLC SDU, </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last byte of the Data field does not correspond to the last byte of a RLC SDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E &nbsp;&nbsp;= 1 &nbsp;= A set of E field and LI field follows from the octet following the fixed part of the header</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN &nbsp;= 0011100001 = 225</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">06 8F = 00000110 10001111</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LI = 0000110 1000 = 104</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Padding = 1111</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SDU 1: </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CC 48 23 E9 90 DA 18 D2 2B 1B A3 D9 5C 72 E8 D7 71 A9 51 A9 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">82 78 17 80 DC 9B 18 76 17 99 18 48 7F 77 22 B9 8E 79 DA A9 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">58 5A C8 6E 1C 93 F9 1D 64 C4 58 56 46 0C B5 A3 0C 5E B3 24 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">49 8F F0 51 FC D7 A0 F6 29 A3 51 73 C2 31 9E F8 4B 0F 07 34 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">B1 06 A8 E1 79 E0 E0 DD C7 C8 FC 23 52 08 D8 F4 48 ED 9A 70 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10 EF DD 1C </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SDU 2: (The part in color is IP address of the data going through this RLC. This IP is nothing to do with RLC itself, but it will be a good example that multiple IP packets are distributed among multiple RLC PDUs)</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">80 54 45 00 02 50 0E 62 00 00 80 11 95 C9 </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><b>01 01 C9 37</b></font></span><b><font face="Verdana"><span style="font-size:10pt;"> </span></font></b><span style="font-size:10pt;"><b><font face="Verdana" color="blue">01 01 </font></b></span></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><b><font face="Verdana" color="blue">C9 38</font></b><font face="Verdana" color="#009900"> </font></span><font face="Verdana"><span style="font-size:10pt;">04 E7 04 D2 02 3C 9B 62 47 00 44 11 E6 F0 B0 1C 80 33 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A5 2C 12 C2 C8 35 16 92 61 68 12 07 0D 81 CC C7 29 C9 21 A1 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">B9 94 6C 25 22 E3 28 78 1A 6A E3 5A 50 1B 13 83 33 C6 57 11 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4D 5B 19 55 08 31 26 75 FA 4B 42 FB 84 FF 2B 1B E2 22 B3 9C </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">67 07 20 AC 24 07 0D 89 6B 4D 07 24 57 BC 94 CF</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="DL_UMD_18_E2">DL UMD PDU 2 : 18 E2</a> 05 D2 2D 55 82 D9 82 51 91 A9 B8 BE C0 42 23 87 1B B6 1B CA B1 B6 3A 09 0E B9 64 6C B0 72 BA 74 53 A4 9D 8D 23 5C 9B 18 23 78 87 55 02 F4 07 E4 48 27 F0 8D 4A 3A 7E 09 80 8B 29 13 1A B2 7E 3C 8C 2B 9F 7F 0C AD E0 38 7E ED 40 B1 E8 73 46 62 4F 12 C8 FB 17 FC 70 FC A2 CF 85 52 A6 C3 40 4A 92 79 42 DC FE B0 47 00 44 12
+E4 2A 94 21 8B DF 37 69 2F
+5E D9 8A 3F 65 E8 73 D4 9A 00 EE 49 D0 AC 8E 39 7E 23 F0 F9 43 F8 1B 1E FF 0A F4 5E 7C 8C B0 F2 B3 C3 80 29 E1 3A 9E 2E A0 38 DF 3C EE 1D DF 06 BE FD 82 37 62 13 A5 F1 40 F2 D5 17 6D 99 9E 5A BF D6 AB 1D 7B 96 31 1F 31 0A 1C 24 AA 35 3D 13 00 D5 B1 97 1A BC C4 7C 7A A3 C0 9E AB AC A3 75 1D 3B 2D D5 04 AA 3F 73 73 36 1F</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">18 E2 = 00011000 11100010</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">FI &nbsp;= 11 = First byte of the Data field does not correspond to the first byte of a RLC SDU, </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last byte of the Data field does not correspond to the last byte of a RLC SDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E &nbsp;&nbsp;= 0 &nbsp;= Data field follows from the octet following the fixed part of the header</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN &nbsp;= 0011100010 = 226 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="DL_UMD_18_E3">DL UMD PDU 3: 18 E3</a> 4B 8B 6C 04 16 7B A4 DA 64 E7 D5 39 A3 2A 97 15 B0 E2 4E A5 3F 1E 38 50 2E 71 B7 18 F8 D8 F6 B1 E1 39 1C 44 80 F7 E0 F8 1D 21 2E 50 BA 80 84 A2 7F 52 BF 0F 57 3A FE 42 18 E8 2C 89 8C 75 FF 28 3A 98 02 4C 47 00 44 13 3C 11 81 25 A3 1A 5E 5B F7 1A E2 F0 57 F8 A7 D1 3A 4B 82 41 B0 E4 07 D0 A3 55 2C B7 F0 F4 C1 C5 28 90
+7E 15 D7 82 CC 07 FE A0 17
+0E 7C AD 49 2C 48 A0 1C 23 52 A5 71 A3 D7 5E 7E 3D 1B 8B E0 CE BC 86 8E DA FA 0B F0 B9 2F 6D 3A 0F FF 64 16 EB 53 B6 9D A9 10 4B 69 25 DF 93 30 B6 F1 A4 2E 36 CF 7C F2 92 7D E3 CB 48 AB 5E AC 4F A2 00 01 18 0D 2F 28 D0 F3 A6 04 2A 8B 6A 52 B7 A1 71 A1 C7 EF C0 B0 F2 A5 C9 16 18 30 71 6A FF 47 D2 C2 C0 0D 02 50 FB 2A 87</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">18 E3 = 00011000 11100011</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">FI &nbsp;= 11 = First byte of the Data field does not correspond to the first byte of a RLC SDU, </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last byte of the Data field does not correspond to the last byte of a RLC SDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E &nbsp;&nbsp;= 0 &nbsp;= Data field follows from the octet following the fixed part of the header</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN &nbsp;= 0011100011 = 227</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="DL_UMD_1C_E4">DL UMD PDU 4: 1C E4</a> 02 2F 92 F1 62 09 15 25 34 19 DC E4 3D 46 DE 9A 44 A9 2B 3F CF 44 1A 36 BA B9 89 D6 14 54 F0 B5 F0 60 7C 7F 80 55 45 00 02 50 0E 63 00 00 80 11 95 C8 01 01 C9 37 01 01 C9 38 04 E7 04 D2 02 3C 6C 19 47 00 44 14 29 50 78 3D EE C9 0C 23 9E CF A4 41 4E F1 E5 6B 81 72 B2 1A 57 CD FC 39 55 29 4F 84 CF 52 79 CC A5 03 5A 1A
+34 E6 30 39 C2 3F B1 E3 BE
+13 99 B8 50 63 4D 45 4E 69 F8 5B 9A 46 4B A6 23 9C 8E 12 99 CD 4C B0 73 49 78 33 C6 8C 6B C1 94 9C D2 20 F3 87 61 0B EC D1 E3 FD CC 0E D1 9D 2D 20 EE 60 34 6E F6 4E 5E 41 C1 3B 06 B9 72 20 32 B2 35 30 6B 63 E8 BC 3B 27 AB D6 F5 70 B2 0D 4F 09 34 06 69 96 59 1B 37 0D C3 5B D8 2C D4 6A FA 9F 3D 5E E3 5B AF AF F0 D8 43 0B</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1C E4 = 00011100 11100100</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R1 &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">FI &nbsp;= 11 = First byte of the Data field does not correspond to the first byte of a RLC SDU, </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last byte of the Data field does not correspond to the last byte of a RLC SDU</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E &nbsp;&nbsp;= 1 &nbsp;= A set of E field and LI field follows from the octet following the fixed part of the header</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN &nbsp;= 0011100100 = 228</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">02 2F = 00000010 00101111</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E &nbsp;= 0</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LI = 0000010 0010 = 34</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Padding = 1111</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SDU 1:</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">92 F1 62 09 15 25 34 19 DC E4 3D 46 DE 9A 44 A9 2B 3F CF 44 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1A 36 BA B9 89 D6 14 54 F0 B5 F0 60 7C 7F </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SDU 2: (The part in color is IP address of the data going through this RLC. This IP is nothing to do with RLC itself, but it will be a good example that multiple IP packets are distributed among multiple RLC PDUs)</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">80 55 45 00 02 50 0E 63 00 00 80 11 95 C8 </span></font><span style="font-size:10pt;"><font face="Verdana" color="#00CC00"><b>01 01 C9 37</b></font></span><font face="Verdana"><span style="font-size:10pt;"> </span></font><span style="font-size:10pt;"><font face="Verdana" color="blue"><b>01 01 </b></font></span></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><b>C9 38</b></font></span><font face="Verdana"><span style="font-size:10pt;"> 04 E7 04 D2 02 3C 6C 19 47 00 44 14 29 50 78 3D EE C9 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">0C 23 9E CF A4 41 4E F1 E5 6B 81 72 B2 1A 57 CD FC 39 55 29 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4F 84 CF 52 79 CC A5 03 5A 1A 34 E6 30 39 C2 3F B1 E3 BE 13 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">99 B8 50 63 4D 45 4E 69 F8 5B 9A 46 4B A6 23 9C 8E 12 99 CD </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4C B0 73 49 78 33 C6 8C 6B C1 94 9C D2 20 F3 87 61 0B EC D1 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E3 FD CC 0E D1 9D 2D 20 EE 60 34 6E F6 4E 5E 41 C1 3B 06 B9 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">72 20 32 B2 35 30 6B 63 E8 BC 3B 27 AB D6 F5 70 B2 0D 4F 09 </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">34 06 69 96 59 1B 37 0D C3 5B D8 2C D4 6A FA 9F 3D 5E E3 5B </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">AF AF F0 D8 43 0B</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><b><a name="Examples_from_real_life">Examples from&nbsp;real life (Live Network)</a></b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Refer to <a href="FullStack_LTE.html#Live_Network_Examples_FullStack" target="_blank">Live Network Examples in Fullstack</a>. You may need to put some more effort to find out RLC layer log from this example, but you will see more diverse RLC PDU/SDU structure and see the relationship between RLC and other layers.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;">&nbsp;</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><b><font face="Verdana"><span style="font-size:10pt;"><a name="Variables_Constants_Timers"><span style="font-size:10pt;">Variables, constants and timers for RLC</span></a></span></font></b><span style="font-size:10pt;"></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">You may noticed that the overall data flow of RLC sounds relatively easy to understand. But understanding the RLC layer mechanism in such a detail that would help you with troubleshooting and RLC performance optimization would not be a simple task. For the level of understanding like this, you need to understand the details of 3GPP 36.322 section 7 &nbsp;(Variables, constants
+and timers) and 3GPP 36.322 section 5 (Procedures). I would suggest to study section 7 first and then the section 5. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <table border="1" width="794" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="115" bgcolor="#99CCFF">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Variable Name</span></font></p>
+                    </td>
+                    <td width="110" bgcolor="#99CCFF">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Category</span></font></p>
+                    </td>
+                    <td width="555" bgcolor="#99CCFF">
+                        <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Description</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VT(A)</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Acknowledgement state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN of the next AMD PDU for which a positive acknowledgment is to be received in-sequence, and it serves as the lower edge of the transmitting window.</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is initially set to 0, and is updated whenever the AM RLC entity receives a positive acknowledgment for an AMD PDU with SN = VT(A).</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VT(MS)</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Maximum send state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VT(MS) = VT(A) + AM_Window_Size</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">it serves as the higher edge of the transmitting window</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VT(S)</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Send state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN to be assigned for the next newly generated AMD PDU. </span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is initially set to 0, and is updated whenever the AM RLC entity delivers an AMD PDU with SN = VT(S)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="4">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(R)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Receive state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN following the last in-sequence completely received AMD PDU</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">it serves as the lower edge of the receiving window. It is initially set to 0, and is updated whenever the AM RLC entity receives an AMD PDU with SN = VR(R).</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="4">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(MR)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Maximum acceptable receive state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(MR)=VR(R) + AM_Window_Size</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">it holds the value of the SN of the first AMD PDU that is beyond the receiving window and serves as the higher edge of the receiving window.</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="4">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(X)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t-Reordering state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN following the SN of the RLC data PDU which triggered t-Reordering</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="4">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(MS)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Maximum STATUS transmit state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the highest possible value of the SN which can be indicated by 'ACK_SN' when a STATUS PDU needs to be constructed. It is initially set to 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="2">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(H)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Highest received state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN following the SN of the RLC data PDU with the highest SN among received RLC data PDUs. It is initially set to 0.</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="2">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VT(US)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN to be assigned for the next newly generated UMD PDU. </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is initially set to 0, and is updated whenever the UM RLC entity delivers an UMD PDU with SN = VT(US).</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="2">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(UR)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UM receive state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN of the earliest UMD PDU that is still considered for reordering. It is initially set to 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="2">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(UX)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UM t-Reordering state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN following the SN of the UMD PDU which triggered t-Reordering</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115" height="2">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">VR(UH)</span></font></p>
+                    </td>
+                    <td width="110" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UM highest received state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of the SN following the SN of the UMD PDU with the highest SN among received UMD PDUs, and it serves as the higher edge of the reordering window. It is initially set to 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">POLL_SN</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Variable</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Poll send state variable</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This state variable holds the value of VT(S)-1 upon the most recent transmission of a RLC data PDU with the poll bit set to '1'. It is initially set to 0.</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDU_WITHOUT_POLL</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Counter</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This counter is initially set to 0. It counts the number of AMD PDUs sent since the most recent poll bit was transmitted</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">BYTE_WITHOUT_POLL</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Counter</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This counter is initially set to 0. It counts the number of data bytes sent since the most recent poll bit was transmitted</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RETX_COUNT</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Counter</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This counter counts the number of retransmissions of an AMD PDU. There is one RETX_COUNT counter per PDU that needs to be retransmitted.</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">AM_Window_Size</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Constant</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">AM_Window_Size = 512</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UM_Window_Size</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Constant</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UM_Window_Size = 16 when SN size = 5 bits</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UM_Window_Size = 512&nbsp;when SN size = 10&nbsp;bits</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UM_Window_Size = 0&nbsp;when UM RLC is for MTCH or MCCH</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t-PollRetransmit</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Timer</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">used by the transmitting side of an AM RLC entity in order to retransmit a poll</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t-Reordering</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Timer</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This timer is used by the receiving side of an AM RLC entity and receiving UM RLC entity in order to detect loss of RLC PDUs at lower layer. only one t-Reordering per RLC entity is running at a given time.</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">t-StatusProhibit</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Timer</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This timer is used by the receiving side of an AM RLC entity in order to prohibit transmission of a STATUS PDU</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">maxRetxThreshold</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Configurable parameters</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This parameter is used by the transmitting side of each AM RLC entity to limit the number of retransmissions of an AMD PDU</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">pollPDU</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Configurable parameters</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This parameter is used by the transmitting side of each AM RLC entity to trigger a poll for every pollPDU PDUs</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">pollByte</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Configurable parameters</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This parameter is used by the transmitting side of each AM RLC entity to trigger a poll for every pollByte bytes</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="115">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">sn-FieldLength</span></font></p>
+                    </td>
+                    <td width="110">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Configurable parameters</span></font></p>
+                    </td>
+                    <td width="555">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This parameter gives the UM SN field size in bits</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Process_RLC_UM_Transmission">Process of RLC UM Transmission</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">This section is about the RLC UM transmission procedure marked in yellow below. You can see the overall description from</span><a href="#OverallDataFlow_UM"><span style="font-size:10pt; line-height:100%;"> </span><span style="font-size:10pt;">Overall Data Flow for UM RLC</span></a></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig4_2_1_2_1-1_UM_Flow_Tx.PNG" width="604" height="555" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">The detailed procedure is described in </span><span style="font-size:10pt;">36.322 5.1.2.1 Transmit operations. (To understand this description, you have all of the variable description from <a href="#Variables_Constants_Timers">Variables, constants and timers for RLC</a>)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The process is simple. If I describe it in a psuedo code, it will be as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">i) VT(US) = SN (Sequence Number of the current PDU)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">ii) VT(US) = VT(US) + 1</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="Process_RLC_UM_Reception">Process of RLC UM Reception</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">This section is about the RLC UM reception&nbsp;procedure marked in yellow below. You can see the overall description from</span><a href="RLC_LTE.html#OverallDataFlow_UM"><span style="font-size:10pt; line-height:100%;"> </span><span style="font-size:10pt;">Overall Data Flow for UM RLC</span></a></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_322_Fig4_2_1_2_1-1_UM_Flow_Rx.PNG" width="604" height="555" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">The reception process described in </span><span style="font-size:10pt;">36.322 5.1.2.2 Receive operations has three&nbsp;different steps. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&lt; Step 1 : Actions when an UMD PDU is received from lower layer &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">This process is described in 36.322 5.1.2.2.2 Actions when an UMD PDU is received from lower layer. I will summarise the process as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">if ( ( VR(UR) &lt; x &lt; VR(UH) ) AND (SN is overlapping with any one of previous PDUs) )</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OR ((VR(UH) – UM_Window_Size) &lt;= x &lt; VR(UR) )</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">{</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;discard the received UMD PDU;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">} else {</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;place the received UMD PDU in the reception buffer;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">};</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&lt; Step 2 : Actions when an UMD PDU is placed in the reception buffer &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">This process is described in 36.322 5.1.2.2.3 Actions when an UMD PDU is placed in the reception buffer. I will summarise the process as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">if ( SN is Not within the reordering window) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">{</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">i) VR(UH) = SN + 1;</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">ii) reassemble RLC SDUs from any UMD PDUs with SN that falls outside of the reordering window, remove RLC headers when doing so and deliver the reassembled RLC SDUs to upper layer in ascending order of the RLC SN if not delivered before</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;if (VR(UR) is Not within the reordering window) {</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VR(UR) =&nbsp;(VR(UH) – UM_Window_Size);</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">}</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">if (the reception buffer contains an UMD PDU with SN = VR(UR) )</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">{</span></font></p>
+            <ul>
+                <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) VR(UR) =&nbsp;(the SN of the first UMD PDU with SN &gt; current VR(UR) that has not been received);</span></font></p>
+                <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) reassemble RLC SDUs from any UMD PDUs with SN &lt; updated VR(UR), remove RLC headers when doing</span></font></p>
+                <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">so and deliver the reassembled RLC SDUs to upper layer in ascending order of the RLC SN if not delivered</span></font></p>
+                <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">before;</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">}</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">if(t-Reordering is running) {</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (VR(UX) &lt;= VR(UR) ) OR (VR(UX) falls outside of the reordering window) AND&nbsp;(VR(UX) !=&nbsp;VR(UH) ) {</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop and reset t-Reordering;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt; line-height:100%;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">} else { </span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (VR(UH) &gt; VR(UR) ) {</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i) start t-Reordering;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ii) VR(UX) =&nbsp;VR(UH).</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;}</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">}</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Process_RLC_AM_Transmission">Process of RLC AM Transmission</a></b></span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">:: Coming soon</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Process_RLC_AM_Reception">Process of RLC AM Reception</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p align="left" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">:: Coming soon</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="RLC_Verification_Validation">Some issues with RLC Verification/Validation</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">I think&nbsp;one of the biggest issues with RLC test would be that most of the test equipt does not provide much flexibility in terms of RLC layer testing. Most of the equipment seems to think of RLC as just an intermediate blocks between PHY/MAC and RRC/NAS and think that just providing a normal RLC functionality as a big chunk with very limited user configuration would be good
+enough, and most of the customer of those equipment vendor does not put many strong requests for it. It may be OK and I haven't seen many cases where RLC layer is causing any serious issues, but sometimes this layer is&nbsp;really causing some problem and once the problem happens in this layer it tend to be really tricky to pin point out the root cause of the problem. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Some of the typical issues which may caused by RLC layer would be</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">i) When a bunch of RLC PDU/SDUs coming into RLC reciever&nbsp;with out-of sequence, the reciever fails to properly reorder it in correct sequence.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">ii) When a bunch of RLC PDU/SDUs coming into RLC reciever&nbsp;with some missing sequence number, the receiver&nbsp;fails to detect the exact missing sequence number and send proper RLC status report to the other party. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">iii) When a RLC sender send a RLC packet with Poll Bit Set, the reciever failed to reply with correct&nbsp;RLC status report or the status report within the specified time frame. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Probably this kind of problem would tend to occur in WCDMA low data rate configuration (e.g, R99) because there would be higher degree of fragmentation for a single C-plane or U-Plane user data packet. In this theory, LTE would have less problems since LTE can have very large data pipe that can carry a whole C-Plane/U-Plane packet with single transmission. But still there would
+be some possibility of RLC layer issues especially related to fragmentation and timing issues due to following reasons :</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">i) In real network (live network), it is not guaranteed that Network would allocate enough resource for the UE so that it can transmit a whole U-plane/C-plane packet without fragmentation. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">ii) Even though the network would allocate the big enough resources for the UE, you cannot guarantee that it would allocate the resources before RLC timer get expired. (this would be less probable, but possible in theory). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font><span style="font-size:10pt;"></span></p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

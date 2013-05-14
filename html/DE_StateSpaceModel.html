@@ -1,0 +1,136 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="Differential Equation,Spring,Pendulum,Mixing Tank,Introduction,Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">DE - State Space Modeling&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+			
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_DifferentialEq_01 */
+google_ad_slot = "3063480776";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+			</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">State Space Modeling is also a kind of way to convert a differential equation into a set of matrix equation. But the way we did in previous section (Differential Equation meeting Matrix) was mainly for mathematical manipulation. It was not easy to extract any practical meaning out of the matrix. However, State Space Modeling is a method to convert a/a set of differential equation(s) into
+a form of matrix equation from which we can extract physical/practical meaning of a system. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The logic behind the State Space Modeling is as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For most of differential equations (especially those equations for engineering system), there would be terms that can be interpreted as an input to a system and terms that can be interpreted as output of the system. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, if you have a system with an input function labeled as u(t) and output function labeled as y(t) as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_Concept_01.png" width="408" height="131" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may be able to mode this system in a differential equation as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_HigherOderToFirstOder_Ex_2ndOrderLinearHomogenous_2_01.PNG" width="426" height="68" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Giving you more practical examples, the very common spring system and spring-damper systems can also be described as single input and single output system and can be described in a form of differential equation shown above. (Actually you can interprete all the examples in <a href="#Modeling_Building_Block" target="_blank">Modeling Building Block</a> section into an input/output relations)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_Modeling_01.png" width="590" height="203" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_Modeling_02.png" width="543" height="260" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can also think of a system with multiple inputs and multiple outputs as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_Concept_02.png" width="497" height="138" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Regardless of how many inputs and outputs you have, there is a certain form of differential equation (linear differential equation) that can be converted into a set of Matrix equation as shown below. &nbsp;The special matrix form as shown below is called 'State Space Model'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The state space mode for a single input and single output can be modeled as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_Concept_03.png" width="365" height="189" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The state space mode for multiple&nbsp;inputs and multiple&nbsp;outputs can be modeled as shown below. Can you notice what is the difference between this equation and previous equation ? In single input/single output equation, you would notice that y(t) is a single function whereas in multiple&nbsp;input/single output equation y(t) is a vector (a set of functions). Similarly you would notice
+that u(t) is a single functionin single input/single output equation whereas &nbsp;y(t) is a vector (a set of functions) in mutiple&nbsp;input/single output equation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_Concept_04.png" width="348" height="190" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One thing you have to be very careful about the state space modeling is the dimension of A, B, C, D matrix/vector which is described as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_Concept_05.png" width="348" height="482" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">How to figure out A,B,C,D matrix/vector out of a differential equation or a set of differential equations ? </font></span><font face="Verdana"><span style="font-size:10pt;">I will put down several samples from the simplest ones to complicated ones later when I have time. For now, just refer to <a href="#HigherOrderToFirstOrder_2ndOrderNonHomogeneous" target="_blank">&lt;Example
+: 2nd Order Non-Homogeneous Lineare Differential Equation - System with Single External Input &gt;</a> as an example. You can easily get A, B from the process explained in <a href="#HigherOrderToFirstOrder" target="_blank">Converting High Order Differential Equation into First Order Simultaneous Differential Equation</a>, but you may put some thought and effort to figure out C and D (especially C).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">Why we want to convert a or a set of differential equations into this form (State Space Model) ?</font></span><font face="Verdana"><span style="font-size:10pt;"> </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It is because </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are many analysis methods developed for this form</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Many of the computer software requires this form as the description of the system (implying that this form is very useful to solve a differential equations with computer in numerical method).</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="StateSpace_Ex_SimpleSpring">&lt; State Space Model Example : Simple Spring-Mass &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's look into a simple example as shown below. It is a spring-mass system with friction. You can think of the friction as a damping.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_SimpleSpring_01.png" width="505" height="228" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now you can derive the two first order differential equations as shown below. (I will not show you each and every steps of how to draw these equations. I just assume that you became familiar enough to draw differetial equations for such a simple system like this).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_SimpleSpring_02.png" width="604" height="238" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If we determine the input, state variables and output as shown below, (these are the ones YOU determine. Depending on how you determine these variables, the state space matrix varies. When you first read text about state space modeling, you may ask &quot;Why they picked &nbsp;as the control variables ?&quot;, &quot;Why they picked this as the input and that as the output ?&quot;. Basically
+it is totally upto the textbook writer. Theoretically you can determine those variables in any way you like as long as you can define proper differential equations using those variables).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_SimpleSpring_05.png" width="516" height="293" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The first matrix equation with A, B matrix is just direct conversion of the set of differential equations into matrix form, so there should be no ambiquity about it. But the second matrix equation with C, D matrix may&nbsp;not look straightforward. Actually the second matrix with C, D matrix become a little different depending on which variable you want to get as the output of the system.
+If you want to take v as the output, it become as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_SimpleSpring_03.png" width="318" height="269" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you want to take x&nbsp;as the output, it become as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_SimpleSpring_04.png" width="320" height="212" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once you build up this kind of state space model, you can get the solution of these system with various software package. (See <a href="Octave_Matlab_DifferentialEquation.html#Lsim_2nd_Order_DampedSpring" target="_blank">Damped Spring-mass example</a> in <a href="Octave_Matlab_DifferentialEquation.html" target="_blank">Matlab/Octave differential equation</a> page)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="StateSpace_Ex_RLC">&lt; State Space Model Example : RLC Circuit &gt;</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's take a RLC circuit as another example as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_RLC_01.png" width="408" height="153" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If we determine the input, state variables and output as shown below, (these are the ones YOU determine. Depending on how you determine these variables, the state space matrix varies. When you first read text about state space modeling, you may ask &quot;Why they picked &nbsp;as the control variables ?&quot;, &quot;Why they picked this as the input and that as the output ?&quot;. Basically
+it is totally upto the textbook writer. Theoretically you can determine those variables in any way you like as long as you can define proper differential equations using those variables).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_RLC_04.png" width="618" height="245" border="0"><font face="Verdana"><span style="font-size:10pt;">these</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_RLC_02.png" width="96" height="122" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The state space model become as shown below. (I will leave it to you to derive this equation or just use this equation -:)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/EngMath_DifferentialEq_StateSpace_RLC_03.png" width="279" height="168" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you are interested in the solution of this equation, see <a href="Octave_Matlab_DifferentialEquation.html#Lsim_RLC_Circuit" target="_blank">State Space Model - RLC</a> in <a href="Octave_Matlab_DifferentialEquation.html" target="_blank">Matlab/Octave Differential Equation</a> page.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

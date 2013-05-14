@@ -1,0 +1,78 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="RF,Sensitivity">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">RF</span></font></b><font face="Verdana"><span style="font-size:14pt;"><b>&nbsp;- Sensitivity</b></span><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_RF_01 */
+google_ad_slot = "7746299577";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            
+            </script>
+</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Sensitivity is an indicator showing how well a device receive the signal and decode it within a 'satisfactory error rate'. (How low the error rate should be for 'satisfactory error rate' is normally defined by a specification of each application). Sensitivity is represented in a power level (e.g, -100 dBm). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">So the interpretation of the sensitivity value goes like this. Let's assume that you (or specification)&nbsp;set BER 1 % to be the level of 'satisfactory error rate'. and assume that the sensitivity of your device is measured to be -100 dBm. This means that the reciever power level down to -100 dBm, BER measured by the device is lower than 1% and if the reciever power gets lower than -100 dBm, the BER gets larger than 1%. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;Here goes another case. Let's assume that you have two device (Device A and B). Device A has the sensitivity of -100 dBm and device B&nbsp;has the sensitivity of -110 dBm. In this case, we can say &quot;Device B has better sensitivity and better reception capability&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Now let's think about how to measure the sensitivity of a device. There are a couple of different ways of measuring the sensitivity, but the most common method is as illustrated below. In both case, we use a specific test equipment which can communicate with the specific DUT with same protocol. For example, if the DUT is a bluetooth device, we use a test equipment which is working in bluetooth protocol (e.g, <a href="Equipment_Bluetooth.html" target="_blank">Anritsu MT8852</a>) and if the DUT is WCDMA device, the test equipment which is supporting WCDMA protocol (e.g, NodeB simulator like <a href="Equipment_Protocol_UMTS.html" target="_blank">Anritsu MT8820 or R&amp;S CMW 500</a>)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">There can be two different setups to measure sensitivity using these equipments. In the setup shown on the left, the test equipment transmit the test signal (a known bit sequence) and DUT compares the received bit sequence with the bit sequence generated internally and calculate BER (Bit Error Rate). In the setup shown on the right, the test equipment transmit a bit sequence and UE recieves and retransmit (loopback) the received sequence to the equipment, and the equipment compares the transmitted bit sequence and loopbacked bit sequence and calculate the BER. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Sensitivity_01.png" width="617" height="256" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Usually we cannot figure out the sensitivity in a single step and have to repeat the measurement procedure described above multiple steps with different power level. For example, you can measure BER as explained above with power level -40 dBm and measure BER and write down the value. Next, do the same measurement at power level -41 dBm. Repeat this process all to way down to -110 dBm. If you plot the test result, you would see a plot as shown on the right. In this plot, you can find a point (Power level) where BER gets greater than the specified criteria. That power is called 'Sensitivity'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Sensitivity_02.png" width="608" height="286" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The method described above would be the most accurate way to do the sensitivity measurement, but to test in this way you must be ready with the following two items</span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">i) Equipment which support protocol stack for the DUT</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">ii) Device should have been fully implemented in terms of baseband, both TX and RX path. </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Is there any other way to figure out the sensitivity without meeting the criteria listed above. It is impossible to do correct measurement, but there is a way to roughly estimate the value using a formula as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">(This equation uses only RF level parameters, like <a href="RF_Handbook_NoiseFigure.html" target="_blank">NF(Noise Figure)</a> and <a href="RF_Handbook_OBW.html" target="_blank">System BW</a> and <a href="RF_Handbook_SNR.html" target="_blank">SNR(Signal To Noise Ratio)</a>, you can apply this equation to not only a system level but also component level (e.g, Amplifier))</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"></span></font><img src="../image/RF_Sensitivity_03.png" width="493" height="155" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

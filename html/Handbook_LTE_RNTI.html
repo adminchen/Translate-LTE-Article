@@ -1,0 +1,133 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;"><a href="Handbook_LTE.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="RNTI">RNTI</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_02 */
+google_ad_slot = "7406076779";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the other numbers which you would very frequently come accross is RNTI. RNTI stands for Radio Network Temporary Identifier.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As the name implies, it is a kind of Identification number. Normally we use indentification number to differntiate one thing from all other similar things. For example, your driver's license number let you identify yourself from all other drivers. Social Security number do the same thing as well. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Getting more specifically into LTE, this RNTI is used to indentify one specific radio channel from other radio channel and one user from another user. As you may recall, in WCDMA is a RNTI concept which is carried as part of MAC header to deferentiate one user to another while in communication state. and in WCDMA case it used special channelization code to deferentiate one radio channel from
+the other. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To my personal perception, RNTI in LTE seems to act as combined role of WCDMA RNTI and WCDMA channelization code (but RNTI has nothing to do with orthogonality.. so this is very superfical analogy. Just take this as an analogy just for understanding high level functionality). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>Types of RNTIs</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What kind of RNTIs are there in LTE ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The answer is A LOT -:). Followings are the brief summary of RNTIs being used in LTE. More detailed explanation will be updated continuously later.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* P-RNTI : It stands for Paging RNTI. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* SI-RNTI : It stands for System Information RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* RA-RNTI : It stands for Random Access RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* C-RNTI : It stands for Cell RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* TC-RNTI : It stands for Temporary C-RNTI </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* SPS-C-RNTI : It stands for Semi persistance Scheduling C-RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* TPC-PUCCH-RNTI : It stands for Transmit Power Control-Physical Uplink Control Channel-RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* TPC-PUSCH-RNTI : It stands for Transmit Power Control-Physical Uplink Shared Channel-RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* M-RNTI : It stands for MBMS RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Who issues these RNTI ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Network issues RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Exactly what does RNTI do for each of those radio channel ? The detailed process differs with the types of RNTIs, but generally speaking all of these RNTI is used to scramble the CRC part of the radio channel messages. It implies that if UE does not know the exact RNTI values for each of the cases, it cannot decode the radio channel messages even though the message reaches the UE intact.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the most common questions that I got about RNTI is &quot;There are a&nbsp;lot of different types of RNTI and I don't see any RNTI information on DCI or Higher layer signaling message. Then how can PHY layer know which RNTI it has to use to decode a data ?&quot;. The answer is &quot;MAC or Layer 1 controller would instruct PHY on which RNTI it has to use&quot;. Then a next questions
+comes out. &quot;How MAC or Layer 1 controller would know which RNTI to be used ?&quot;. There is no explicit algorithm for this, MAC/L1 controller&nbsp;needs to figure it out &quot;based on context&quot;. For example, if it is at the subframe where SIB is transmitted, it would instruct PHY to use SI-RNTI. if UE is in connected mode, it may instruct to use C-RNTI, TPC RNTI etc. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following table from 36.321 shows the range of values which is allocated for each RNTI types. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_321_Table_7_1_1.png" width="641" height="225" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following table from 36.321 shows the types of RNTIs and it's usage. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_321_Table_7_1_2.png" width="751" height="368" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b>How/Who determines each types of RNTI ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">RA-RNTI : UE determines RA-RNTI as explained in <a href="RACH_LTE.html#How_can_we_get_RA_RNTI" target="_blank">here&nbsp;in the RACH page</a>. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">T-CRNTI : Network allocate T-CRNTI via RAR as shown in <a href="RACH_LTE.html#RACH_Procedure_for_Initial_Registration" target="_blank">here in the RACH page.</a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">C-RNTI : T-CRNTI becomes C-RNTI once Contention Resolution gets passed.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b>How each of RNTI is used ?</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the quotes from 3GPP specification showing how RNTI is used for various cases.. for the exact details, you should see the specification but this partial quote would give you a rough idea of the usage of RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">From 36.212 ---</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5.3.3 Downlink control information</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A DCI transports downlink or uplink scheduling information, or uplink power control commands for one RNTI. TheRNTI is implicitly encoded in the CRC.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5.3.3.1.3 Format 1A</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 1A is used for random access procedure initiated by a PDCCH order only if format 1A CRC is scrambledwith C-RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For distributed VRB: .. if the format 1A CRC is scrambled by RA-RNTI, P-RNTI, or SI-RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5.3.3.2 CRC attachment</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This section explain in detail on how CRC is scrambled by RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">From 36.213 ---</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5.1.1.1 UE behaviour</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* &delta;_PUSCH is a UE specific correction value, also referred to as a TPC command and is included in PDCCH withDCI format 0 or jointly coded with other TPC commands in PDCCH with DCI format 3/3A whose CRC paritybits are scrambled with TPC-PUSCH-RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* if the TPC command PUSCH &delta;_PUSCH is included in a PDCCH with DCI format 0 where the CRC is scrambled by the Temporary C-RNTI</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* The UE attempts to decode a PDCCH of DCI format 0 with the UE’s C-RNTI or SPS CRNTI and a PDCCH of DCI format 3/3A with this UE’s TPC-PUSCH-RNTI in everysubframe</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5.1.2.1 UE behaviour</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&delta;_PUCCH is a UE specific correction value, also referred to as a TPC command, included in a PDCCH with DCIformat 1A/1B/1D/1/2A/2 or sent jointly coded with other UE specific PUCCH correction values on a PDCCHwith DCI format 3/3A whose CRC parity bits are scrambled with TPC-PUCCH-RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">o The UE attempts to decode a PDCCH of DCI format 3/3A with the UE’s TPC-PUCCH-RNTI and oneor several PDCCHs of DCI format 1A/1B/1D/1/2A/2 with the UE’s C-RNTI or SPS C-RNTI onevery subframe except when in DRX.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">o If the UE decodes a PDCCH with DCI format 1A/1B/1D/1/2A/2 and the corresponding detectedRNTI equals the C-RNTI or SPS C-RNTI of the UE, the UE shall use the &delta; PUCCH provided in that PDCCH.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6.1 Physical non-synchronized random access procedure</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* A preamble index, a target preamble received power (PREAMBLE_RECEIVED_TARGET_POWER), acorresponding RA-RNTI and a PRACH resource are indicated by higher layers as part of the request.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* Detection of a PDCCH with the indicated RA-RNTI is attempted during a window controlled by higher layers</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">7.1 UE procedure for receiving the physical downlink shared channel</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* If a UE is configured by higher layers to decode PDCCH with CRC scrambled by the SI-RNTI, the UE shall decode thePDCCH and the corresponding PDSCH according to any of the combinations defined in table 7.1-1. The scramblinginitialization of PDSCH corresponding to these PDCCHs is by SI-RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* If a UE is configured by higher layers to decode PDCCH with CRC scrambled by the P-RNTI, the UE shall decode thePDCCH and the corresponding PDSCH according to any of the combinations defined in table 7.1-2. The scramblinginitialization of PDSCH corresponding to these PDCCHs is by P-RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* If a UE is configured by higher layers to decode PDCCH with CRC scrambled by the C-RNTI, the UE shall decode thePDCCH and any corresponding PDSCH according to the respective combinations defined in table 7.1-5. Thescrambling initialization of PDSCH corresponding to these PDCCHs is by C-RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">* If a UE is configured by higher layers to decode PDCCH with CRC scrambled by the Temporary C-RNTI and is notconfigured to decode PDCCH with CRC scrambled by the C-RNTI, the UE shall decode the PDCCH and thecorresponding PDSCH according to the combination defined in table 7.1-7. The scrambling initialization of PDSCHcorresponding to these PDCCHs is by Temporary C-RNTI.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

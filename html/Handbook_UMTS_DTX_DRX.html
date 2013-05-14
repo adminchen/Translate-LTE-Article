@@ -1,0 +1,138 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial, CDD, Cyclic Delay Diversity  " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">UMTS Quick Reference &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;"> <a href="Handbook_UMTS_Index.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>DTX/DRX</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_04 */
+google_ad_slot = "4173408773";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">DRX stands for &quot;Discontinous Reception&quot; and DTX stands for &quot;Discontinous Transmission&quot;. When you are talking about 'Reception' and 'Transmission', you may often get confused with 'direction of data flow'. Is it from 'UE to Network' or 'Network to UE'. At least, I got confused so often with this. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">So let's make it clear about 'who is receiving ?' and 'who is transmitting' when we are talking about DRX and DTX. The answer is 'UE'. Therefore, DRX means 'Discontinous Reception by UE' and DTX means 'Discontinous Transmission by UE'. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Then what does it mean by 'Discontinous' ? To get clear understanding of this word, let's think about 'what does it mean by 'continous' ?'. &nbsp;'Continous' is a ordinary mode &nbsp;of operation in most of the situation where we use mobile phone. Does 'Continous' mean that UE is continously (always) receiving some data and is continously (always) transmitting data ? No, it does not. UE cannot receive any data when Network does not send any data to it and UE cannot transmit any data when it does not have any data to send. 'Continuous transmission/Continuous Reception' in this context mean that 'UE is </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">continuously (always) ready</font></span><font face="Verdana"><span style="font-size:10pt;"> to recieve data and </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">is continously (always) ready</font></span><font face="Verdana"><span style="font-size:10pt;"> to transmit the data. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana">&nbsp;</font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To be ready to recieve/transmit something, UE should be 'ON'. So Continous reception/Continous transmission means that &quot;UE is always ON(Wake-up mode)&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What's wrong with UE being always 'ON'. You many easily figure out that it will cause a lot of battery consumption. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To save this kind of battery consumption, they invented a special mechanism called 'Discontinous Reception/Transmission'. 'Discontinous Transmission' and 'Discontinous Reception' means that UE is in Sleeping Mode most of the time and only periodically 'Wake up' to receive or transmit the data. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Overall concept would sound simple, but you may get confiused again trying to understand the detailed parameter related to DTX and DRX. These parameters are specified in Radio Bearer Message as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First I thought we only need 'Periodicity of DTX/DRX' and 'Duration of ON time', but there are many other parameters are involved. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-dtx-drx-TimingInfo ::= SEQUENCE OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-timing ::= CHOICE [newTiming]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;+-newTiming ::= SEQUENCE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;+-enablingDelay ::= ENUMERATED [radio-frames-0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | &nbsp;&nbsp;&nbsp;&nbsp;+-ue-dtx-drx-Offset ::= INTEGER (0..159) [0]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +-dtx-drx-Info ::= SEQUENCE [11] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-dtx-Info ::= SEQUENCE [01] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-e-dch-TTI-Length ::= CHOICE [dtx-e-dch-TTI-10ms]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | +-dtx-e-dch-TTI-10ms ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-ue-dtx-Cycle1-10ms ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-ue-dtx-Cycle2-10ms ::= ENUMERATED [sub-frames-20]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-mac-dtx-Cycle-10ms ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dtx-cycle2InactivityThreshold ::= ENUMERATED [e-dch-tti-8]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dtx-cycle2DefaultSG ::= INTEGER OPTIONAL:Omit</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dtx-long-preamble-length ::= ENUMERATED [slots-4] OPTIONAL:Exist</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-mac-InactivityThreshold ::= ENUMERATED [e-dch-tti-8]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-cqi-dtx-Timer ::= ENUMERATED [sub-frames-32]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dpcch-Burst1 ::= ENUMERATED [sub-frames-1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-dpcch-Burst2 ::= ENUMERATED [sub-frames-1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-drx-Info ::= SEQUENCE OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-Cycle ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-Cycle-InactivityThreshold ::= ENUMERATED [sub-frames-32]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font face="Lucida Console">| | | +-ue-GrantMonitoring-InactivityThreshold ::= ENUMERATED [e-dch-tti-8]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-GrantMonitoring ::= BOOLEAN [TRUE]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | +-uplink-DPCCHSlotFormatInformation ::= ENUMERATED [slot-format-1]</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into the detailed parameters. Let's think about DTX part first. (I will draw some diagram later when I have more time, but now I will just describe it verbally). The most important parameters for DTX are as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-e-dch-TTI-Length ::= CHOICE [dtx-e-dch-TTI-10ms]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | +-dtx-e-dch-TTI-10ms ::= SEQUENCE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-ue-dtx-Cycle1-10ms ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-ue-dtx-Cycle2-10ms ::= ENUMERATED [sub-frames-20]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | | &nbsp;&nbsp;+-mac-dtx-Cycle-10ms ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">First think about the cycles first. You see three different cycles here. In this example, we have the following three cycles. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">ue-dtx-Cycle1-10ms ::= ENUMERATED [sub-frames-10] = 20 ms (2 ms/subframe x 10 subframe)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">ue-dtx-Cycle2-10ms ::= ENUMERATED [sub-frames-20] = 40 ms (2 ms/subframe x 20 subframe)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">mac-dtx-Cycle-10ms ::= ENUMERATED [sub-frames-10] = 20 ms(2 ms/subframe x 10 subframe)</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The overall procedure of DTX operation goes as follows. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE get's into sleeping mode and ue-dtx-Cycle1-10ms starts</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE wake up when ue-dtx-Cycle1-10ms expires&nbsp;and stay up for a 'ON-duration'.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) If there is no E-DCH frame to be transmitted and ue-dtx-Cycle1-10ms is expired, it will get into sleeping mode and ue-dtx-Cycle2-10ms timer starts.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) UE wake up when ue-dtx-Cycle2-10ms timer expires and stay up for 'ON-duration'. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) If there is no E-DCH frame to be transmitted and ue-dtx-Cycle1-10ms is expired, it will get into sleeping mode and ue-dtx-Cycle1-10ms timer starts.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) repeat the step step ii)~v). </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">The question is when UE wake up, how long it should stay 'up' ? In another words, how the 'ON time' is determined. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">The 'ON time' is determined by e-dch-TTI-Length ::= CHOICE [dtx-e-dch-TTI-10ms]. In this example, the ON time is 10 ms.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One thing you notice is that ue-dtx-Cycle1-10ms and ue-dtx-Cycle2-10ms is alternating here. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In the procedure described above, we only mentioned about </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">ue-dtx-Cycle1</font></span><font face="Verdana"><span style="font-size:10pt;"> and </span></font><span style="font-size:10pt;"><font face="Verdana" color="red">ue-dtx-Cycle2</font></span><font face="Verdana"><span style="font-size:10pt;">. Then what is the '</span></font><span style="font-size:10pt;"><font face="Verdana" color="red">mac-DTX-Cycle</font></span><font face="Verdana"><span style="font-size:10pt;">' ?&nbsp;Simply put this is DTX cycle timer with the highest priority. In other words, even though UE would be in 'sleep mode' according to ue-dtx-Cycle1-10ms and ue-dtx-Cycle2-10ms, if it gets into 'ON period' of </span></font><span style="font-size:10pt;"><font face="Verdana">mac-dtx-Cycle-10ms, it should wake up right away and transmit the data. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Pretty complicated, right ? But it is even more complicated when it is really working on in real environment since we have to consider some additional factors as well. The only way for you to understand this is to collect as much example as possible to show you very diverse situation of DTX. Here goes one example, but I will keep adding more examples later. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UMTS_DTX_Example_01.PNG" width="694" height="445" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into DRX operation. The DRX cycle is specified&nbsp;as shown below. It seems a little bit simpler than DTX cycle configuration. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Lucida Console"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | </span></font><span style="font-size:10pt;"><font face="Lucida Console" color="red">+-drx-Info ::= SEQUENCE OPTIONAL:Exist</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-Cycle ::= ENUMERATED [sub-frames-10]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Lucida Console" color="red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| | | +-ue-drx-Cycle-InactivityThreshold ::= ENUMERATED [sub-frames-32]</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The overall procedure is as follows. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE gets into sleeping mode.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) UE wakes up when ue-drx-Cycle starts and stay up for one HS-PDSCH TTI. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii.a) If there is no HS-PDSCH data for the UE during the 'ON time', it gets into sleeping mode. </span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii.b) If there is HS-PDSCH dat</span></font><span style="font-size:10pt;"><font face="Verdana">a for the UE during the 'ON time', UE continue to stay on for the duration of ue-drx-Cycle-InactivityThreshold</font></span><font face="Verdana"><span style="font-size:10pt;">.</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii.c) if there is another HS-PDSCH data for the duration of </span></font><span style="font-size:10pt;"><font face="Verdana">of ue-drx-Cycle-InactivityThreshold, ON-time get extended for another ue-drx-Cycle-InactivityThreshold from the reception of the data.</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">iii.d) repeat step iii.a)~iii.c)</font></span></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) repeat the steps ii)~iii)</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You may think 'why UE&nbsp;need to go through such a complicated process described in the step iii ?'. &nbsp;Logic is simple. If UE receives a data during the short period of 'ON-time', it is highly probably that there is another data coming right next TTI. So instead of getting into the sleeping mode right away just according to ue-drx-Cycle, it stay awake a little bit more not to cause too much delay for the downlink traffic. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;<font face="Lucida Console"><span style="font-size:10pt;"></span></font><font face="Lucida Console"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+           
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

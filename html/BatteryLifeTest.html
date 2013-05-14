@@ -1,0 +1,1398 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Battery Life &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span>
+			
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_BatteryLife_01 */
+google_ad_slot = "8309435570";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+
+			</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the issue with the battery life test would be that there is very few international test standard. One of the few document would be&nbsp;the one from GSM Association.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.gsm.org/newsroom/document-library/all_documents.html" target="_blank">GSM World </a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.gsm.org/documents/TS09_v7.0.pdf" target="_blank">Batterly Life Measurement and Current Consumption Technique</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">A couple of years ago I saw some movement for many UE makers to strictly follow the description (prescription ?) of these GSMA document, but I noticed that most of them start defining their own test method for the battery consumption. It is understandable because battery consumption is influenced a lot by various application and the mode operation of those applications and these applications
+are different for each of UE makers and UE models. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But I still think the GSMA document can be a good guideline in most cases.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Test_Setup">Test Setup</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Scenario_Parameter_Selection">Scenario/Parameter Selection</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#GSMA_TS09">GSMA TS09</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Test_by_Practice">Test by Practice</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Analysis_Battery_Characteristics">Analysis of Battery Characteristics</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Factors_affecting_Battery_Capacity">Factors affecting Battery Capacity</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Terminology_on_Battery">Terminology on Battery</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Battery_Chemistry">Battery Chemistry</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Links_for_Battery_Life_Test">Links for Battery Life</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Test_Setup">Test Setup</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There can be many different kinds of Test Setup to fullfil the battery life test, but one example of a typical setup would be as follows. (This is the setup I integrated and used a couple of years ago for UMTS battery life test).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/BatterLife_TestSetup.PNG" width="673" height="442" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's think about each components of the setup. I am not saying you have to use the exact same equipment and same configuration, but I hope this can be a useful guideline for you. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(a) Network Simulator</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is the equipment that can simulate Basestation( NodeB or&nbsp;eNodeB) and some additional core network capability that can cover up to RRC, NAS and data transaction. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I haven't seen many company who purchased this kind of expensive equipment only for battery life test. In most case, they are reusing whatever network simulator they already have. So if you have only one kind of Network Emulator, you wouldn't have any choice, you just have to utilize it as much as possible. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you have several different type of network simulator in your company and have choices to select, you have to think of which type of network simulator would be the best fit before you start setting up the test system. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Most of the network simulator is designed to perform various tests for 3GPP conformance (RF or Protocol) test. So if the equipment is too much restricted to conformance test without much possibility of extending the functionality, it may not be best fit for the battery life testing. I would recommend you to chose such an equipment that would give you as much flexibility (possibility of extending
+functionalities) as possible. In many cases, extending functionality of the equipment would mean a lot of extra work(e.g, creating/modifying the protocol stack of the equipment or doing a lot of GPIP programming), but once you do the extrawork and automate the process, it could save a lot of extra work for many other people. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(b) Power Supply</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In battery life testing, the importance of Power Supply is very high. The Power Supply in Battery Life Testing should be able to display both voltage and current being drained by DUT and transfer the values to PC on real time basis. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In some case, UE chipset changes the mode of operation in very short amount of duration and repeat the process (e.g, sleeping mode -&gt; wake up mode -&gt; sleeping mode) in very short time period (e.g, several miliseconds time scale). So following features can be important selection criteria. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) How often the power supply can measure current (or voltage) ? i.e, what is the max sampling rate ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) How quickly it can send the data to control PC ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) How much measurement data can be stored in the power supply ? i.e what is the max data storage ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you want to measure very detailed current consumtion changes (e.g, current changes in every miliseconds or so), you should have very large storage capability within the power supply since it is almost impossible to get these values from the control PC on real time basis. If the total measurement time is short it wouldn't be a problem, but if you want to measure all of these data (data
+per one or a few miliseconds) for a long time (e.g, several minuites to 30, 40 minutes), it would be very tricky. I haven't seen any power supply that can store this amount of data. So you would need some trade off between measurement interval and&nbsp;total measurement time when you select the power supply. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you are interested in measuring the average current consumption over a long period (i.e over several minutes or hours) the sampling rate may not be so important, but if you want to measure the current consumption in very detail (e.g, very detailed power profile during cell scanning or during DTX, DRX period, you may need the power supply with very high sampling rate).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(c) Equipment Control Software</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">There are many test that can be done manually (i.e, manually pressing buttons on the equipment and write down the measured value) but Battery Life Test is not the thing that can be done manually since most of the test involves reading the current value with a fraction of second and do this for a long time. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In many case it would be you who has to do the automation programming unless you purchase a whole system designed and sold for battery life test. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But a good news is that the programming for Battery life testing would be much simpler than other types of test (e.g, RF or Protocol Conformance Test). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">(d) Battery Adaptor</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is a small thing, but it may be a most critical component to enable or disable you to perform the test or not. As you see in the test setup picture, the UE battery port should be directly connected to the power supply. For this, you would need a specially designed adaptor which is fit into UE's battery slot and has a pair of extention cable which can be connected to the power supply.
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you are working at a UE maker and try to test your own UE, it would be easy to get these adaptors, but if you are in the position to test a radomly selected commercial UEs which is not yours, getting this kind of adaptor would be the most tricky part to setup the test system. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Scenario_Parameter_Selection">Scenario/Parameter Selection</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Since there are too many different way or condition to test Battery life, it is all up to you how to configure the Network Simulator and UE application for the test. Sometimes this kind of 'no fixed standard' would make us feel discomfort. Especially if you are not so adventurous in engineering and prefer simple 'button pressing' type of person -:). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">From the GSMA document that I linked above, I found a set of very practical guidelines for the parameter selection and I fully agree with this guide line.</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Representative of real network deployment</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Capable of being produced with a minimum amount of test equipment</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Use only features present on existing test equipment</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Define available options unambiguously</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="GSMA_TS09">GSMA TS09</a></b></span></font> </p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is the whole set of paramters described in GSMA TS09. I merged several tables from the document into a big table as follows. This may not be all the possible parameters you need for the test and you don't need to use all of these parameters either, but can be an excellent guide for your test. I strongly recommend you to go through all of these parameters and think about practical
+meaning of each parameters. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="794" cellspacing="0" bordercolordark="white" bordercolorlight="black" height="774">
+                <tr>
+                    <td width="483" bgcolor="#99CCFF" colspan="2">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Scenario</span></font></p>
+                    </td>
+                    <td width="301" bgcolor="#99CCFF">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Operation Mode</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="140" rowspan="4" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                    <td width="339" rowspan="4" valign="top"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode GSM/WCDMA</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode GPRS/WCDMA</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode WCDMA/(GSM/GPRS)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode Cellular/WLAN</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="140" rowspan="3" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time</span></font></p>
+                    </td>
+                    <td width="339" rowspan="3" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Circuit Switched</span></font></p>
+                    </td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode GSM/WCDMA</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode WCDMA/GSM</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode Cellular / WLAN</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="140" rowspan="7" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Connection Time</span></font></p>
+                    </td>
+                    <td width="339" rowspan="3" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Switched</span></font></p>
+                    </td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode GPRS/WCDMA</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode WCDMA/GPRS</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode Cellular/WLAN</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="339" rowspan="4" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Circuit and Packet Switched Simultaneously</span></font></p>
+                    </td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode GSM/WCDMA</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode GPRS/WCDMA</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode WCDMA/(GSM/GPRS)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Dual mode Cellular/WLAN</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="140" rowspan="4" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Browsing</span></font></p>
+                    </td>
+                    <td width="339" rowspan="4" valign="top"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WAP 1.x</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WAP 2.x</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">iMode</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">HTML</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="140" rowspan="5" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Interface connection</span></font></p>
+                    </td>
+                    <td width="339" rowspan="5" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IrDa (PSD)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Bluetooth (PSD)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Bluetooth (CSD)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301"><font face="Verdana"><span style="font-size:10pt;">USB Cable (PSD)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="301"><font face="Verdana"><span style="font-size:10pt;">USB Cable (CSD)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="140" height="109" rowspan="8" valign="top"><font face="Verdana"><span style="font-size:10pt;">Extra Software</span></font></td>
+                    <td width="339" rowspan="4" valign="top"><font face="Verdana"><span style="font-size:10pt;">Java Use</span></font></td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Download</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Games</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Internal application</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Music player</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="339" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Voice recorder</span></font></p>
+                    </td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Memo function</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="339" height="27" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">MP3 player</span></font></p>
+                    </td>
+                    <td width="301" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Audio playback of previously downloaded file</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="339" height="27" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">FM radio</span></font></p>
+                    </td>
+                    <td width="301" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Reception of standard FM signals</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="339" valign="top">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Multimedia</span></font></p>
+                    </td>
+                    <td width="301">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Camera Usage</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="140" height="52" valign="top" rowspan="2">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Video telephony</span></font></p>
+                    </td>
+                    <td width="339" height="52" valign="top" rowspan="2"><font face="Verdana"><span style="font-size:10pt;">WCDMA</span></font></td>
+                    <td width="301" height="28"><font face="Verdana"><span style="font-size:10pt;">CSD</span></font></td>
+                </tr>
+                <tr>
+                    <td width="301" height="28"><font face="Verdana"><span style="font-size:10pt;">PSD</span></font></td>
+                </tr>
+                <tr>
+                    <td width="140" height="52" valign="top" rowspan="2">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Audio Streaming</span></font></p>
+                    </td>
+                    <td width="339" height="52" valign="top" rowspan="2"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="301" height="28"><font face="Verdana"><span style="font-size:10pt;">CSD</span></font></td>
+                </tr>
+                <tr>
+                    <td width="301" height="28"><font face="Verdana"><span style="font-size:10pt;">PSD</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="796" cellspacing="0" bordercolordark="white" bordercolorlight="black" height="3441">
+                <tr>
+                    <td width="253" height="23" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Standard</span></font></p>
+                    </td>
+                    <td width="325" height="23" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Parameters</span></font></p>
+                    </td>
+                    <td width="204" height="23" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Scope</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="253" height="209" rowspan="8" align="left" valign="top"><font face="Verdana"><span style="font-size:10pt;">Common</span></font></td>
+                    <td width="325">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Ambient Temperature</span></font></p>
+                    </td>
+                    <td width="204"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PLMN</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Backlight</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SIM</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Keypad</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Cell broadcast</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Additional services</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">System Information 13</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="253" height="158" rowspan="6" align="left" valign="top"><font face="Verdana"><span style="font-size:10pt;">GSM</span></font></td>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">BCCH</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">RX level</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Cell Reselection</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Paging interval</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">No of neighbour cells declared in the BA_LIST</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Cell broadcast</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="253" height="590" rowspan="22" align="left" valign="top"><font face="Verdana"><span style="font-size:10pt;">GPRS</span></font></td>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">Most of GSM Parameters</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Network Mode of Operation</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Paging channel</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Paging interval</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Hopping</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Hopping sequence</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Handover</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Rx level</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Handset Tx Level</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Uplink DTX</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Call Mode (=Continuous)</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Codec</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Multi-slot class</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Handset type</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Slots (uplink)</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Slots (downlink)</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Duty cycle</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Coding scheme</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">CS can change</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Transfer mode</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Non Transparent</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Retransmissions</span></font></p>
+                    </td>
+                    <td width="204" height="27"><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></td>
+                </tr>
+                <tr>
+                    <td width="253" height="887" rowspan="33" align="left" valign="top"><font face="Verdana"><span style="font-size:10pt;">WCDMA</span></font></td>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Cell Reselection</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Cell Broadcast</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Additional services</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Serving Cell UARFCN (Downlink)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time, Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Serving Cell UARFCN (Uplink)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Number of neighbours declared in the BA_LIST</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Neighbour cells on different frequency</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Serving Cell Scrambling Code</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time, Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Secondary Scrambling Code (Use, No Use)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Neighbour cell scrambling codes</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">Fixed Channelization Code (Yes, No)</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Paging Interval</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Periodic Location Update (T3212)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Number of Paging Indicator per Frame (Np)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ioc</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Ior/Ioc</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">CPICH_RSCP (Ec)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">PICH Ec/Ior</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">S_IntraSearch</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">S_InterSearch</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">Q_qualmin</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">Q_rxlevlmin</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">SSEARCH_RAT</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Serving cell code power (DPCH_Ec/Ior)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Ec/No</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">Hard Handover</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">Soft/Softer Handover</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27"><font face="Verdana"><span style="font-size:10pt;">Radio Bearer Type</span></font></td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">CPICH_RSCP (Ec)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Serving cell code power (DPCH_Ec/Ior)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Ec/No</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Uplink DTX</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Handset Tx level</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Talk Time Test</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="253" align="left" valign="top" height="899" rowspan="36"><font face="Verdana"><span style="font-size:10pt;">LTE (FDD)</span></font></td>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Serving Cell Downlink EARFCN</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Serving Cell uplink EARFCN</span></font></p>
+                    </td>
+                    <td width="204" height="28"><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Number of neighbours declared in the neighbour cell list</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">DRX Cycle</span></font></p>
+                    </td>
+                    <td width="204" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Periodic TAU (T3412)</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="26">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Reference Signal Energy Per Resource Element (RS EPRE)</span></font></p>
+                    </td>
+                    <td width="204" height="26">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="30">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PBCH EPRE Ratio</span></font></p>
+                    </td>
+                    <td width="204" height="30">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PSS EPRE Ratio</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SSS EPRE Ratio</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PCFICH EPRE Ratio</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="26">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH EPRE Ratio</span></font></p>
+                    </td>
+                    <td width="204" height="26">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDSCH EPRE Ratio</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH EPRE Ratio</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="30">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Serving cell bandwidth</span></font></p>
+                    </td>
+                    <td width="204" height="30">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Number of antenna ports at eNodeB</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Cyclic Prefix Length</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH Duration</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH length</span></font></p>
+                    </td>
+                    <td width="204" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">DCI Aggregation Level</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time,Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Qrxlevmin</span></font></p>
+                    </td>
+                    <td width="204" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Sintrasearch</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Paging and System Information change notification on PDCCH</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="30">
+                        <p><font face="Verdana"><span style="font-size:10pt;">System Information Reception</span></font></p>
+                    </td>
+                    <td width="204" height="30">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">OCNG</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time, Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="30">
+                        <p><font face="Verdana"><span style="font-size:10pt;">RoHC</span></font></p>
+                    </td>
+                    <td width="204" height="30">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">UL TX Power level</span></font></p>
+                    </td>
+                    <td width="204" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">DL Transmission Mode</span></font></p>
+                    </td>
+                    <td width="204" height="28">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Cyclic Prefix Length</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH Duration</span></font></p>
+                    </td>
+                    <td width="204" height="29">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">DCI Aggregation Level</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="3">
+                        <p><font face="Verdana"><span style="font-size:10pt;">DRX Configuration</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="3"><font face="Verdana"><span style="font-size:10pt;">UL/DL Channel Bandwidth</span></font></td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="3">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Allocated resource blocks in DL</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="3">
+                        <p><font face="Verdana"><span style="font-size:10pt;">TBS Index in DL</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="3">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Allocated resource blocks in UL</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="3">
+                        <p><font face="Verdana"><span style="font-size:10pt;">TBS Index in UL</span></font></p>
+                    </td>
+                    <td width="204" height="31">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Packet Comm</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="253" height="185" rowspan="7" align="left" valign="top"><font face="Verdana"><span style="font-size:10pt;">WLAN/AP</span></font></td>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WLAN standards</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WiFi frequency</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Authentication / Ciphering</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">DTIM period</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WMM/UAPSD power save</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WiFi RSSI</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Beacon interval</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="253" height="212" rowspan="8" align="left" valign="top"><font face="Verdana"><span style="font-size:10pt;">WLAN/DUT</span></font></td>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WLAN standards</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Long Retry Limit</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Short Retry Limit</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">RTS threshold</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">TX Power Level</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WiFi Network Scan Period</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">WiFi Device Tx level</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">VoIP</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Audio duty cycle</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">VoIP</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="253" height="156" rowspan="6" align="left" valign="top"><font face="Verdana"><span style="font-size:10pt;">GAN /WLAN,GSM</span></font></td>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Keep alive timer</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">ESP rekeying (IPSec)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">IKE rekeying (IPSec)</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Standby Time</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325">
+                        <p><font face="Verdana"><span style="font-size:10pt;">RTP/UDP packet sample size</span></font></p>
+                    </td>
+                    <td width="204">
+                        <p><font face="Verdana"><span style="font-size:10pt;">VoIP</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Channel mode</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">VoIP</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="325" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">Speech codec rate</span></font></p>
+                    </td>
+                    <td width="204" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">VoIP</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Test_by_Practice">Test by Practice</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">According to my experience and some interview with other customers, the measurement result based on GSMA condition doesn’t make much difference in terms of current consumption, so many engineers start losing appetite of this kind of testing. And they started to investigating other factors with more influence on current consumption (Battery Life). Some of these factors in UMTS case can be
+as follows. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) &nbsp;Sreen On/Off (in case of mobile phone, smart phone)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) &nbsp;DRX cycle (in IDLE mode)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Current consumption during cell selection/reselection</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Current consumption during Handover</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) &nbsp;DRX/DTX in connected mode (UMTS Rel 7 and higher)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) RRC State Changes (Cell DCH -&gt; FACH -&gt; PCH)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Since there can be so many different combination of UE status for the energy consumption, my recommendation is to create a kind of tree diagram for your test plan first. One of my personal example is as follows. This is for WCDMA and is very much simplified one. Basic idea still based on GSMA criteria and with a little modification. You may have your own criteria and different shape of the
+tree. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UE_Status_UMTS.png" width="613" height="440" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Following is a possible example for LTE case. Again, this is only one example and you may come up with your own plan depending on your device implementation.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/UE_Status_LTE.png" width="613" height="440" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But this cannot be the full list of factors and there would be various other types of factors. There may be many factors which are specific to each customer. So it is almost impossible to develop a general purpose battery life testing tools that can meet everybody’s requirement. (One possibility is to develop a customer specific tools (e.g, a tool for a specific system operator) based on
+the requirement from the customer if they can clearly define those requirement). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Here goes an example where you can see what kind of factors can be considered for battery life (energy consumption). </span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><a href="http://www.apple.com/batteries/iphone.html" target="_blank"><font face="Verdana"><span style="font-size:10pt;">http://www.apple.com/batteries/iphone.html</span></font></a><font face="Verdana"><span style="font-size:10pt;"></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><b><a name="Analysis_Battery_Characteristics">Analysis of Battery Characteristics</a></b></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In most better life testing, we use Power supply in stead of real battery as described in <a href="#Test_Setup" target="_blank">Test Setup</a> section. It is very useful to quantify various measurement and see the suptle changes of current consumption (e.g, current consumption changes by paging signal monitoring, current consumption changes between sleeping mode and normal mode etc). But
+there can be some drawback of this method. In real battery, most of battery characteristics changes with various conditions as shown below (especially with temperature and SoC=State of Charge), but it is very difficult to configure this kind of condition with power supply. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In this case, I think old test method would help in some degree. Use real battery, do a lot of operations and how long the batter last. Of course, it would be a little difficult to quantify the test result with this kind of method. So I don't think you can completely replace the power supply method with this method, but I recommend to do this kind of test as a complimentary test. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/BatterLife_BetteryCharacteristics_Chen.PNG" width="490" height="471" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">IEEE TRANSACTIONS ON ENERGY CONVERSION, VOL. 21, NO. 2, JUNE 2006</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Accurate Electrical Battery Model Capable of Predicting Runtime and I–V Performance</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Min Chen, Student Member, IEEE, and Gabriel A. Rinc´on-Mora, Senior Member, IEEE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For the detailed analysis of Battery characteristics, refer to the paper listed above. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Factors_affecting_Battery_Capacity">Factors affecting Battery Capacity</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cutoff Voltage</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Temperature</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Discharge Current</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Shelf life</span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Self Discharge</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Terminology_on_Battery">Terminology on Battery</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Battery Capacity</font></span><font face="Verdana"><span style="font-size:10pt;"> : Battery Capacity is an indicator to show how much engergy is stored in a battery and it is measured in Ampere-Hours (Ahr), mili Ampere-Hours (mAhr)&nbsp;or kilowatt-hours(kWh) or watt-hours(Wh). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, if the capacity of a battery is 1000 mAh. It means that if you use it for the system that is draining the current at 20 mA, it will last 50 hours. (20 mA x 50 Hours&nbsp;= 1000 mAh). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/BatteryLife_Capacity_01.png" width="446" height="277" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Discharge Curve</font></span><font face="Verdana"><span style="font-size:10pt;"> : </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/BatteryLife_DischargeCurve_01.png" width="484" height="299" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">Cutoff Voltage</font></span><font face="Verdana"><span style="font-size:10pt;"> : Cutoff voltage is the specific voltage where you should not discharge any more. It may not the point where there is no remaining capacity meaning it may still have some remaining capacity, but your device may not work properly if the voltage of the battery goes below the cutoff voltage. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In practice, if you see the battery gauage on your laptop or your mobile phone goes to the bottom, it may signal you that your battery voltage reached the cutoff voltage and you should recharge the battery.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Battery_Chemistry">Battery Chemistry</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; Lithium Ion &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/BatteryLife_Chemistry_LiIon.png" width="691" height="486" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/BatteryLife_Chemistry_LiIon_02.png" width="504" height="193" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : </span></font><a href="http://industrial.panasonic.com/www-data/pdf/ACI4000/ACI4000PE5.pdf"><font face="Verdana"><span style="font-size:10pt;">http://industrial.panasonic.com/www-data/pdf/ACI4000/ACI4000PE5.pdf</span></font></a></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Links_for_Battery_Life_Test"><b>Links for Battery Life</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="http://reviews.cnet.com/2719-11288_7-290-1.html?tag=rb_content;contentNav" target="_blank">Cell Phone Battery Life Chart</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="http://reviews.cnet.com/how-we-test/cell-phones/" target="_blank">How we test: Cell phones and smartphones</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.mpoweruk.com/performance.htm" target="_blank">Battery Performance Characteristics</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="http://wireless.agilent.com/rfcomms/news/viewarticle.aspx?hid=8960&aid=40&cid=W-CDMA/HSDPA/HSUPA" target="_blank">Automate Mobile Device Battery Drain Analysis</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="http://www.chinabatterycenter.com/kshow.asp?cid=147" target="_blank">How does the internal battery resistance affect performance?</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="http://trends-in-telecoms.blogspot.ca/2013/03/energy-impact-of-emerging-mobile.html?goback=.gde_995967_member_226029128" target="_blank">Energy Impact of Emerging Mobile Internet Applications on LTE Networks: Issues and Solutions</a> (<a href="../Docs/energy_and _LTE_intel.pdf" target="_blank">pdf</a>)</span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

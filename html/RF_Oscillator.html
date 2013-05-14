@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="RF, Amplifier, NonLinear, IP3, Noise Figure" />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">RF</span></font></b><font face="Verdana"><span style="font-size:14pt;"><b>&nbsp;- Oscillator</b></span><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home
+: <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="font-size:10pt;">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_RF_01 */
+google_ad_slot = "7746299577";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Oscillator is a kind of heart in all RF system and the performance of this component would influence almost every other components in the system and will have crucial effect on the final data accuracy. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The function of Oscillator is very simple (at least in theory). It is just to create a pure sinosoidal wave as shown before. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Oscillator_Concept_01.png" width="438" height="439" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b>Ideal vs Real Oscillator</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">As any other components, there is pretty big gap between the ideal performance and realistic performance in oscillator as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">On the right side, you see three different frequency responses of realistic oscillators. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The first (top) plot shows the most common non-ideal (undesired) issues. The highest center peak is the one that we want to get from the oscillator, but all the other smaller peaks around the center peak is the one that we don't want. In this case, the gap between those small peak seems to be pretty constant which would give us at least some clue for troubleshooting. (I would not go any deeper on this type of small peaks here).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The second (middle) plot shows a lot of small peaks around the center peak, some of the peaks seems to be in similar gaps and some of them are now. Overall.. the frequency response around the center peak is not so symetric. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">The third (bottom) plot shows the center peak magnified along frequency axis (horizontal axis). The center peak of ideal oscillator should show very sharp beak however much you magnify it, but this one shows a kind of widening skirt as it goes down to the bottom of the peak. This is caused by <a href="RF_Handbook_PhaseNoise.html" target="_blank">phase noise</a> of the oscillator and this is what everybody wants to avoid, but impossible to remove completely. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Oscillator_Characteristics_01.png" width="545" height="466" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">There is another important characteristics which makes a big difference between ideal and realistic oscillators. It is about frequency changes of oscillator over temperature. Everybody wants to have an oscillator in which the frequency does not change at all with temperature as shown on the plot to the left. But this kind of oscillator exists only in our idea, not in reality. The oscillators in reality shows the frequency response over temperature as shown on the right plots. it shows the frequency changes over temperature and this kind of frequency change can influence greatly on the performance of a communication system. There are several techniques to compensate this kind of frequency changes (e.g, PLL, Oven Control etc) but it is almost impossible to completely remove these frequency changes.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Oscillator_Characteristics_02.png" width="636" height="453" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;"><b>Types of Oscillators</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">There are many different types of oscillator. you would see the oscillators like (a)~(d) if you break any of your electronic product. If you break some electronic equipment which requires high frequency accuracy, you would see the oscillators like (f)~(g) which is called OCXO(Oven Controled Crystal Oscillator). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">If you see the product like (j)~(l), it would not look like an oscillator, but I categorized these into an oscillator since the function of these is basically same as those oscillators that we commonly see. These are called 'Magnetron' which is usually used in Microwave oven or very high power transmitter like radar system. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_Oscillator_Product_01.png" width="544" height="424" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you want to know more about oscillators in more commercial context, I would recommend&nbsp;Rakon (<a href="http://www.rakon.com">http://www.rakon.com</a>). You will get not only the information on diverse commercial product but also many application notes which will be very helpful.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

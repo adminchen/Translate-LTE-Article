@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+<meta name="keywords" content="LTE, Quick Reference, Handbook, Technote, Introduction, Tutorial " />
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="929">
+    <tr>
+        <td width="794">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">LTE Basic Procedure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">&nbsp;&nbsp;&nbsp; <a href="BasicProcedures_LTE_Index.html" target="_self">Go Back To Index</a>&nbsp;&nbsp;&nbsp;&nbsp;Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+        <td width="125">&nbsp;</td>
+    </tr>
+    <tr>
+        <td width="794">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LTE_BasicProcedure_01 */
+google_ad_slot = "1058697172";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b>MIMO(Multiple Input Multiple Output)</b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I think everybody would know what MIMO is. Simply put, it is a technique to increase the data throughput by using multiple transmitter antenna and multiple reciever antenna. So.. overall concept is simple, but detailed process and implementation is not as simple as you may think. Unfortunately -:), it would be almost impossible to understand the details without going through underlying mathmatics. Actually math itself is not that complicated but interpreting the math and translate the math into real implementation is difficult. I hope my math section in this site would helpful on this. (Please see the Engineering Math - <a href="EngMath_Matrix.html" target="_blank">Matrix</a> as you go along this section). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Try googling &quot;MIMO introduction&quot;, &quot;MIMO Tutorial&quot; for general understanding . I will try to cover the math part here. I will use 2 x 2 MIMO in this section for simplicity. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In case of 2 x 2, &nbsp;overall data transmission process can be illustrated as follows. The red arrow and four blocks (h11,h12,h21,h22) between the two antenna is to illustrate the possible data path between the two Tx and two Rx antenna. &nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/MIMO_Procedure_Math_01.PNG" width="652" height="231" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">h11, h12,h21,h22 are special numbers (coefficient) to show how much of the data is going through each of the possible path. The greater the value is, the larger portions of data is being transmitted in that path. A matrix which is made up of these channel path coefficient is called &quot;Channel Information Matrix&quot;. The reciever and transmitter relationship is represented as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/MIMO_Procedure_Math_02.PNG" width="385" height="303" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As I said the math itself is very simple. It would be like a first example at the first chapter of any linear algebra book. The important this is how to interpret this equation into real implementation. If I interpret it in an illustration, it would be as the path represented in green arrows. By this way, we can mathematically represent the recieved data (data distorted by the air path&nbsp;between transmitter and reciever antenna), but just calculating the recieved is not our goal (not the function of the reciever). Our goal is to extract/figure out the 'transmitted data (original data)'. Mathematically this is also simple and it is represented in green arrows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/MIMO_Procedure_Math_03.PNG" width="679" height="517" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As you see in the process illustrated in green arrow, to recover the transmitted data (original data) from the received data we need to take inverse of the channel information matrix. Unfortunately there are a couple of issues with this method. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Not all matrix is invertable. There are some matrix for which inverse matrix does not exists. (Please refer to Matrix section and see what kind of matrix is the one which is not invertable).</span></font></p>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Calculating the inverse matrix is not the simple process. </span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To workaround these problems, we change the channel information matrix into three matrices by the method called SVD(Singular Value Decomposition). See the <a href="EngMath_Matrix.html#Singular_Value_Decomposition" target="_blank">SVD section</a> in <a href="EngMath_Matrix.html" target="_blank">Marix page</a> and clearly understand the meaning of this process. Probably my page would not be enough to give you full understanding about SVD. Google as much materials about this as possible and try to have some &quot;Intuitive&quot; understanding of the concept. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When we apply any mathematical technique in engineering area, it should be meaningful in the engineering sense and should be implementable. The meaning and implementation of SVD can be illustrated as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/MIMO_Procedure_Math_04.PNG" width="692" height="543" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The important point is that by implementing this method, we can express the channel information matrix as a simple 'diagonal matrix'. &nbsp;That diagonal matrix is expressed as follows and can be illustrated as follows. Isn't it look simple and clear ? -:) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/MIMO_Procedure_Math_05.PNG" width="682" height="467" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For some MIMO implementation (e.g, TM4 in LTE = Closed Loop MIMO), you estimate the channel and select a specific precoding matrix and send it back to the receiver as shown below. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/MIMO_Procedure_Math_06.PNG" width="756" height="310" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The algorithm by which UE select the codebook which is best fit for the channel at specific moment is as follows.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/MIMO_Procedure_Math_07.PNG" width="565" height="149" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Once a specific codebook element (precoding matrix)&nbsp;is selected as shown here, that precoding matrix is used to transform the incoming bits as explained in <a href="BasicProcedure_LTE_PHY_Precoding.html" target="_blank">Precoding</a> section.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            
+        </td>
+        <td width="125" valign="top">            &nbsp;</td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

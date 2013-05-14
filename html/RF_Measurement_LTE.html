@@ -1,0 +1,1398 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">RF Test and Measurement &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">Home : <a href="http://www.sharetechnote.com" target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">
+			
+            <script type="text/javascript">
+<!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LTE_RfMeasurement_01 */
+google_ad_slot = "7949508772";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+            </script>
+            <script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In any wireless communication device, we have to go through two large group of testing. One for testing transmission path and the other for testing recieve path. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For a wireless communication device to work properly, it should meet following hardware requirement</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) The device should transmit the signal which is strong enough power to make it sure it reaches the other party of the communication.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The device should not transmit the signal which is so strong that it interfere the communication between other parties. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) The device should transmit the signal with good enough quality which can be decoded/corrected by the other party.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) The device should transmit the signal in the exact frequency that has been allocated for the communication. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) The device should not generate any noise out side of the frequency area that has been allocated for the device. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If any of these condition deviate too much from the specification, the device cannot communicate with the other party or let some other device to communicate. In terms of measurement equipment, item i) and ii) belong to &quot;power measurement&quot;, item iii) is related to &quot;Modulation Analysis&quot; and item iv) falls into &quot;Frequency Error measurement&quot;. Item v) is also a kind
+of &quot;power measurement&quot;, but the measurement area in frequency domain is different from item i) &amp; item ii). Anyway if you have any equipment that can perform the following three measurement for your communication technology, you can do the most critical part of transmission path.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">a) Power Measurement</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">b) Modulation Analysis</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">c) Frequency Error Measurement</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's think about the recieve path measurement. What would be the most important reciever characteristics for the communication device ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) The reciever must be able to decode successfuly the signal coming from a transmitter even though the signal strength is very low.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) The reciever must be able to decode successfuly the signal coming from a transmitter even when there are a certain level of noise around the signal. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">In terms of measurement logic, item i) and ii) are the same. Equipment sends a pattern of the known signal and let the reciever decode it and compare the original signal from the equipment and the decoded signal by reciever and how much different they are. The more different they are, the poorer reciever quality it is. We call this method &quot;BER(Bit Error Rate) measurement&quot;. Item
+i) measures BER when the input signal to the device is very low and Item ii) measures BER when there are noise to the input signal. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Before we go forward to LTE measurement, pick any technology you are already familiar with and make a list of measurement on your test plan and try to map those items with the measurement principles I described above. Once you are familiar with this mapping, you will understand LTE measurement items more easily. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#LTE_RF_Measurement_Items">LTE RF Measurement Items</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Snapshots_LTE_Uplink_Signals_RF_Testing">Snapshots of LTE Uplink Signals for RF Testing</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Challenges_LTE_RF_Testing">Challenges for LTE RF Testing</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#LTE_Specific_Measurement">LTE Specific Measurement</a></span></font></li>
+                <ul>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#LTE_Specific_IBE">IBE (In-Band Emission)</a> </span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#LTE_Specific_AbsolutePowerTolerance">Power Control - Absolute Power Tolerance</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#LTE_Specific_RelativePowerTolerance">Power Control - Relative Power Tolerance</a></span></font></li>
+                    <li><font face="Verdana"><span style="font-size:10pt;"><a href="#LTE_Specific_AggregatePowerControl">Aggregate Power Control Tolerance</a></span></font></li>
+                </ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RF_Test_Setup_Connection_Diagram">RF Test Equipment/UE Connection Diagram</a></span></font></li>
+                <li><font face="Verdana"><span style="font-size:10pt;"><a href="#ProtocolSequence_RF_Conformance">Protocol Sequence for RF Conformance Test</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RF_Conformance">RF Conformance Test - TRX Conformance (36.521-1)</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#RRM_Conformance">RF Conformance Test - RRM Conformance (36.521-3)</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Overview_on_Performance_Test">Overview on RF/PHY Performance Test</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Thinking_over_a_cup_of_coffee">Thinking over a cup of coffee</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="LTE_RF_Measurement_Items">LTE RF Measurement Items</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look a little bit detail into LTE RF measurement. First thing I have done is to make a list of measurement items from 3GPP 36.521-1 and try to map my measurement principles with each of the measurement items.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Here goes the Transmitter measurement items first. You see a lot of &quot;Power Measurement&quot; and some of &quot;Modulation Analysis&quot;. Why do we have so many different power measurement and so many different Modulation Analysis. How do they differ from each other ? This is the question you have to find answers on your own. The answer itself is described in 3GPP 36.521-1 but the question
+is how much I can understand what is described there just by reading it. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The first step would be to read &quot;Test Purpose&quot;, &quot;Initial Condition&quot;, &quot;Test Procedure&quot; section of each test case as often as possible and try at least to be familiar to each test case. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/LTE_RF_Tx_MeasurementTable.PNG" width="507" height="547" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Here goes the reciever measurement items.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/LTE_RF_Rx_MeasurementTable.PNG" width="507" height="222" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Snapshots_LTE_Uplink_Signals_RF_Testing">Snapshots of LTE Uplink Signals for RF Testing</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">As I mentioned earlier, it is not easy to understand all the details of LTE RF Measurement just by reading the specification. I have read the test case purpose, &quot;Initial Condition&quot;, &quot;Test Procedure&quot; over and over.. but still everything is vague. As I try to get more into details, the first obstacles that blocks me is a lot of complicated tables describing the test condition.
+Of course we saw this kind of tables in other technology specification like CDMA, WCDMA but it seems the tables for LTE measurement looks bigger and more complicated. So I decided to see some of the signal patterns described in the specification on spectrum analyzer so that I can get some intuitive idea of the overall RF characteristics of each condition.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, following table shows the test condition for each of subtests for MPR (Maximum Power Reduction). If you see the column Uplink Configuration - RB allocation. You will see various cases of resource block allocation for the same Ch BW. Some of the sub tests uses 'Max RB number' (FULL RBs) for the specific channel BW, but some of the subtests are using the number of RBs which is
+smaller than the Max number of RB (Partial RBs). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_521_Table_6_2_3_4_1_1_MPR.PNG" width="568" height="600" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; Full RB Signals &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL1_4_QPSK_FullRB.PNG" width="604" height="544" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL5_0_QPSK_FullRB.PNG" width="607" height="527" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL5_0_16QAM_FullRB.PNG" width="590" height="521" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL10_0_QPSK_FullRB.PNG" width="595" height="518" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL20_0_QPSK_FullRB.PNG" width="594" height="526" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">&lt; Partial RB signals &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">In case of allocating the number of RBs less than the max RBs (especially when the number of RB is less than 1/2 Max RBs, there can be so many different cases depending on the location of the signal. For example, the signal can be located at the left most side of the channel&nbsp;or at the center or at the right most side of the channel. Theoretically, it can be located in anywhere
+in the band, but RF conformance specifies only three locations as a test point which is Low range, Mid range, High range. &nbsp;Low range means that the signal start from the left most side of the channel, Mid means the signal is located at the center of the channel, High range means the signal is at the right most side of the channel. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left"><font face="Verdana"><span style="font-size:10pt;">Following sample signals are from a vector signal generator which generate a very good quality signal and the power is also very low, so you see only the signal part without any carrier leakage or in-band image. But in reality, you will see the carrier leakage and in-band image signal in most of the case. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL20_0_QPSK_1RB_Min.PNG" width="580" height="520" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL20_0_QPSK_18RB_Min.PNG" width="601" height="530" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/UL20_0_QPSK_18RB_Max.PNG" width="591" height="526" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even though we have new technology every couple of years and LTE is new to many people, RF test and measurement technology have a lot in common with other wireless communication technology. If you had experience with any wireless technology, eg CDMA, GSM, WCDMA, Bluetooth, WLAN, you may find the common logics in LTE. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Challenges_LTE_RF_Testing">Challenges for LTE RF Testing </a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the biggest challenges in LTE measurement for UE development or test engineer would be that there are too many sub tests with too many different parameter settings.Before I get into details, I want to briefly skim through overall RF measurement from C2K. </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">I don't have much experience with C2K measurement, but with only a little experience I could tell there are much fewer measurement items in this area comparing to WCDMA/HSDPA and even comparing to GSM/GPRS. As far as I remember, following is allmost all that I did for C2K.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Total Channel Power</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) CDP (Code Domain Power)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) Rho</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) Spectrum Emission </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) ACLR </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) OBW (Occupied Bandwidth) </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But the items listed above is more than what I experienced in C2K. For conformance, I think we may have to go through all of these items. But since C2K is very mature technology now, in the RF part developmental stage we wouldn't go through all of these items. In an extreme case that I heard of was &quot;just measure total power, if there is no problem with it. usually no problem with other
+parts&quot;.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into WCDMA. For WCDMA R99 (Non HSPA), If I briefly put the list,</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) Max Power</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Min Power</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) On/Off Power</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) RACH Power</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) EVM</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) Spectrum Emission </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vii) ACLR</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">viii) OBW (Occupied Bandwidth)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Just in terms of list, it doesn't look like much difference from C2K. But practically the engineer would meet various characteristics which may look quite different from C2K. The first thing we can think of is that the channel bandwith get tripled compared to C2K and this would introduce a lot of complication in RF design. Another issue is RACH process in WCDMA is more complicated than probing
+process in C2K and add a couple of important test steps.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look further into HSDPA. You may think HSDPA would not be much different from R99 in terms of Uplink measurement because HSDPA is only for downlink data rate. It is true in terms of high level protocol, but in physical/RF layer an important factor was added to uplink in HSDPA. It is HS-DPCCH. HS-DPCCH is for UE to report CQI and ACK/NACK to BTS. The problem is that even with this
+additional channels the UE has to maitain the total uplink power as before. So the UE recalculate/rearrange each of the physical channel power. So if you look at the RF conformance test case list, you would not find much difference in terms of test case items but you would find quite a many of sub items were added to the existing test case due to the introduction of HSDPCCH. (If you want to go into further detail, open up 3GPP 34.121 and find the test cases with the keyword &quot;HSDPCCH&quot; in the test title).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Going one step further into HSUPA, you also find no such a big difference in terms of measurement items. But as in HSDPA case, a new physical channel was introduced and it is called E-DPCH. Even with this additional channel, UE also have to maintain the total channel power as in R99. So, as you may guess, UE has to recalculate/rearrange each of physical channel powers. As a result, we would
+get a couple of additional sub-items added to RF testing. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Finally.. let's think about LTE. What is the biggest difference between LTE and C2K/WCDMA/HSPA in terms of PHY/RF layer ? It would be OFDM. Yes, it is. What kind of additional measurement items would be introduced to RF testing due to the OFDM ? Since OFDM is made up of a lot of sub carrier with very narrow bandwidth, we have to measure most of the characteristics listed above for each OFDM
+subcarrier. But if we do all of the items for each of the sub carriers, it would take one full day just for one item. Another big difference would be that LTE specification allow many different type of system bandwidth whereas in C2K/WCDMA, the system bandwidth is always same. It means you have to measure the whole set of test items for multiple different system bandwidth which multiplies the measurement time and parameter settings in measurement equipment.Based on the LTE specification, an LTE system bandwidth
+can be any of 1.4 Mhz, 3 Mhz, 5 Mhz, 10 Mhz, 15 Mhz, 20 Mhz whereas C2K can only have single bandwidth of 1.28 and WCDMA can only have single bandwidth of 3.84. Of course, a specific system operator would use only one of the bandwidth in their network but Mobile device manufacturer should design the UE which support all of these bandwidth.On top of this, there is another factors to make LTE test even more complex especially for mobile phone design/test. It is the fact that a real bandwidth being used at a specific
+time can change dinamically. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One intuitive example is shown in the following measurement screen. This the RF signal captured for LTE call connection and data transfer. When you initiate a call, the mobile device would go through the protocol sequence for call setup and then data fraffic would start. If you see at the bottom of the screen (spectrogram) of the measurement screen, you would notice that frequency allocation
+(bandwidth being used) during this period changes. In this screen, the frequence allocation for data traffic does not change, but in live network this bandwidth would change dynamically.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/LTE_Connection_RF_Profile.PNG" width="843" height="492" border="0"></span></font><span style="font-size:10pt;"></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">What is the implication of these multiple system bandwith and dynamic bandwidth change to Mobile phone designer and the test engineer ? For designers, the biggest issues would be how to optimize various kinds of design parameters to be best fit for all of these bands. For test engineers, the biggest issue would be huge number of the test cases they have to go through.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Final outcome of all these considerations on multiple bandwidth and dynamic bandwidth change can be examplified as a table shown below. This is a table for only one test case. See all those different system bandwith you have to cover. Different RB allocations is for dynamic frequency allocation that I mentioned above. In LTE, for every test case you would have this kind of tables and this
+will be huge headache to designers and test engineers. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/36_521_Table_6_2_3_4_1_1_MPR.PNG" width="568" height="600" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="LTE_Specific_Measurement">LTE Specific Measurement</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Even though LTE RF measurement has a lot of common characteristics which is similar to other technology, there are several measurement which is unique to LTE. Can you guess which would be the LTE specific tests ? If you recall unique properties of LTE signal that I described above, you would make a pretty good guess. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="LTE_Specific_IBE">&lt; IBE (In-Band Emission) &gt;</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">One of the most unique feature of LTE would be that in most case UE does not use full system bandwidth, meaning it uses only a portion of RF bandwidth. Just in terms of RF characteristics, this partial usage of RF band would not cause any serious problem, but what if the portion is allocated to only one side around the center frequency ? You would see the spectrum as follows.(I would not
+explain this picture in detail. Just take a close look and try to vervalize what you see in this picture and you would know the meaning and why we need to measure this item). The design goal for UE transmitter is to minimize the emission at the center frequency and the other emission (Image signal). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_InBand_Emission.PNG" width="695" height="371" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana" color="blue"><a name="LTE_Specific_AbsolutePowerTolerance">&lt; Power Control - Absolute Power Tolerance &gt;</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">When UE transmit the first PUSCH, the power is determined&nbsp;by p0-NominalPUSCH and <a href="PowerControl_LTE.html#PUSCH_Power_Control" target="_blank">PUSCH Power Control Algorithm</a>. This test is to check if UE set the accurate initial PUSCH power according to p0-NominalPUSCH and PUSCH Power Control Algorithm&nbsp;(This is different from what we call Open Loop Power Control in 3G. When we say &quot;open loop power control&quot;, it usually mean the initial PRACH power. On the contrary, Absolute Power Tolerance is about the initial PUSCH power ).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_TPC_AbsolutePowerTolerance_01.png" width="695" height="432" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue"><a name="LTE_Specific_RelativePowerTolerance">&lt; Power Control - Relative Power Tolerance &gt;</a></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Another aspect I want to mention is about power control. Overall power control test method is very similar to WCDMA ILPC(Inner Loop Power Control) test. Network (SS) sends a consecutive sequence of TPC command (Transmission Power Control command), like Up, Up, Up, Up... Down, Down, Down, Down,... and check if UE properly decode the command and set UE TX power indicated by each Up/Down command(+1 dB, -1 dB). LTE is using a similar method.. but if you see the following measurement you will see a huge jump in the middle which you didn't see with WCDMA. Does this mean that LTE has special TPC command like +10 dB jump or -10 dB fall ? </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">No. The big jump you see in the measurement is not as a result of big TPC command, but as a result of increase of number of RB. Even though UE transmit the same power at each subcarrier, the total power get larger if UE is using more subcarrier. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_TPC_01.PNG" width="678" height="416" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_TPC_02.PNG" width="664" height="428" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt; line-height:100%;"><font face="Verdana" color="blue"><a name="LTE_Specific_AggregatePowerControl">&lt; Aggregate Power Control Tolerance &gt;</a></font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This test is to check how stably a UL power can maintained without any additional adjustment. This test is imporant because there are many situations during which UE cannot receive any power control command for adjustment like during measurement Gap or Connected Mode DRX. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Since this power stability should be applied both for PUCCH and PUSCH, this test is made up of two sub test, one for PUCCH and another one for PUSCH as illustrated below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following illustration is for PUCCH Aggregate Power Control Tolerance.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_TPC_AggregatePowerTolerance_PUCCH_01.png" width="787" height="469" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following illustration is for PUSCH Aggregate Power Control Tolerance.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/RF_TPC_AggregatePowerTolerance_PDSCH_01.png" width="787" height="469" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="RF_Test_Setup_Connection_Diagram">RF Test Equipment/UE Connection Diagram</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_2.PNG" width="594" height="314" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_3.PNG" width="598" height="253" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_3_Alternative.PNG" width="590" height="244" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_4.PNG" width="601" height="312" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_5_Alternative.PNG" width="599" height="322" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_6.PNG" width="716" height="385" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_7.PNG" width="575" height="321" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_8.PNG" width="612" height="336" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_9.PNG" width="649" height="427" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_10.PNG" width="757" height="432" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_11.PNG" width="735" height="430" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_14.PNG" width="643" height="579" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_15.PNG" width="660" height="567" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="ProtocolSequence_RF_Conformance">Protocol Sequence for RF Conformance Test</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The overall protocol sequence for RF conformance test is defined in 36.508. But most of the equipment vendor put a little variation. I put one example sequence below.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">1) MIB</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">2) SIB 1, 2, 3</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">3) RRC : PRACH Preamble</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4) RRC : RACH Response</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5) RRC : RRC Connection Request</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6) RRC : RRC Connection Setup</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">7) RRC : RRC Connection Setup Complete + NAS : Attach Request</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8) RRC : DL Information Transfer + NAS : Authentication Request</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">9) RRC : UL Information Transfer + NAS : Authentication Response</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">10) RRC : DL Information Transfer + NAS : Security Mode Command</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">11) RRC : UL Information Transfer + NAS : Security Mode Complete</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">12) RRC: DLInformationTransfer + TC: ACTIVATE TEST MODE</font></span><font color="red"></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">13) RRC: ULInformationTransfer + TC: ACTIVATE TEST MODE COMPLETE</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">14) RRC : Security Mode Command</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">15) RRC : Security Mode Complete</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">16) RRC: UECapabilityEnquiry</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">17) RRC: UECapabilityInformation</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">15) RRC : RRC Connection Reconfiguration + NAS : Attach Accept + NAS : Activate Default EPS Bearer Context Req</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">16) RRC : RRC Connection Reconfiguration Complete + NAS : Attach Complete</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">17) RRC : RRC Connection Release</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&lt; MO or MT call &gt; : In MT call, Paging should be sent.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">18) RRC : PRACH Preamble</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">19) RRC : RACH Response</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">20) RRC : RRC Connection Request</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">21) RRC : RRC Connection Setup</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">22) RRC : RRC Connection Setup Complete</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">23) RRC : Security Mode Command</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">24) RRC : Security Mode Complete</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">25) RRC : RRC Connection Reconfiguration</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">26) RRC : RRC Connection Reconfiguration Complete</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="red">&lt; Perform Test Case &gt;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">27) RRC : RRC Connection Release</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">One important step and major different part from the ordinary call processing protocol sequence is &quot;TC: ACTIVATE TEST MODE&quot;. This part is described in detail in the following specifications. </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.509 - 6.5 ACTIVATE TEST MODE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">36.509 - 5.3.2.3 Reception of ACTIVATE TEST MODE message by UE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Unlike the test mode in UMTS, LTE test mode in RF conformance testing does not establish the loopback mode. The main purpose of the test mode in LTE described in the 36.509 - 5.3.2.3 as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana" color="blue">When the UE test mode is active, the UE shall accept any request to establish a data radio bearer with an associated EPS bearer context, both included in the same RRC message, and within the radio access capabilities of the UE.</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="RF_Conformance">RF Conformance Test - TRX Conformance (36.521-1)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">It seems that many people think RF conformance is only for testing the performance/functionality of RF front end part of the mobile phone. It may be true, but eventual purpose of these test is to make sure that UE is functioning without any problem in live network. So each of these test items are related to one or more procedure happening in live network. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Therefore, it is very important to have big picture of live network procedures happenning between UE and the network and to find correlation between these conformance test items and the step/steps of live network process. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Often people ask me &quot;Why we need to test these test items ? What is the purpose of these test ?&quot;. If you see the 3GPP specification (36.521) to find answers to these queston.. the answer is described as follows under 'test purpose' section. </span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following example is for 6.3 Output Power Dynamics. </span></font></p>
+            <ul>
+                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">To verify the UE’s ability to transmit with a broadband output power below the value specified in the test requirement when the power is set to a minimum value</span></font></p>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">Does this make any sense to you ? Not much to me at least. This description is good for test/pass-fail criterial, but does not give me any practical meaning for the test purpose. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">My recommendation is to describe the overall live network procedure at very high level as follows and try to map each of the conformance test cases to the steps of your high level description. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">i) UE is Off</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ii) Power On UE</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iii) &lt; Frequency Search &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">iv) &lt; Cell Search &gt; : Normally a UE would find multiple cells in this process</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">v) &lt; Cell Selection &gt; </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vi) MIB decoding</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">vii) SIB deconding</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">viii) &lt; Initial&nbsp;RACH Process &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ix) &lt; Registration/Authentication/Attach&gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">x) &lt;Default EPS Bearer Setup &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xi) Now UE is in IDLE Mode</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xi) &lt;(If the current cell become weak or UE moves to another cell regisn) Cell Reselection&gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xii) &lt;(When Paging message comes or User make a call) RACH Process&gt; </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xiii) &lt; Setup Dedicated EPS Bearer &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xiv) Receive data </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xv) Transmit data</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xvi) &nbsp;(If UE power is percieved too weak&nbsp;by the network) Network send TPC command to increase UE Tx Power</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xvii) (If UE power is percieved too strong&nbsp;by the network) Network send TPC command to decrease UE Tx Power</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xviii) &lt; (If UE moves to another cell region) Network and UE perform Handover procedure &gt;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">xix) User stop call and UE gets into IDLE mode</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">If you just blindly looking into conformance test specification, you may be overwhelmed by the number of test cases. Would it be possible for me to understand all of these ? Do I have to give up digging into the details and just press button on the test system and take blindly whatver the machine spits out ?</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">But once you get the big pictures of these test cases, you will notice that all of those test cases can be grouped into only handfull of framework. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">My recommendation for you is to try to understand the concept (big picture) of each chapter first rather than directly jumping into each of the test cases. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Let's take look at each chapters of TRX conformance 36.521-1. These four chapters are related to the whole procedure described above except iii), v), xviii). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Chapter 6, 7 is straightforward and they are&nbsp;most widely tested from the development stage even at manufacturing line. You may get a little bit confused by the title of the chapter 8. When we say &quot;Performance&quot;, many people would think of &quot;IP throughput&quot;. But in this case it is not true. &quot;Performance&quot; in this case means &quot;How well a UE can successfully
+decode downlink signal even under various noisy channel condition&quot;. Chapter 9 is to measure &quot;How accurately UE measure various channel condition and report to the network ?&quot;. In short, it is measuring CQI (Channel Quality Indicator), RI (Rank Index)&nbsp;, PMI (Precoding Matrix Index). </span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Test Category</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmitter Characteristics</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Receiver Characteristics</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">8</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Performance Requirement</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">9</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Reporting of Channel State Information</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Now let's look into each test cases in each chapter. Chapter 6 (Transmitter Characteristic) has following test cases. As you see, it is just measuring UE transmission power in various condition and data modulation quality. Most of the test items that is uniq to LTE are in this group, for example, </span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 6</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Transmitter Characteristics - Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">6.2.2</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit power / UE Maximum Output Power</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">6.2.3</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit power / Maximum Power Reduction (MPR)</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">6.2.4</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit power / Additional Maximum Power Reduction (A-MPR)</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">6.2.5</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit power / Configured UE transmitted Output Power</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.3.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output Power Dynamics / Minimum Output Power</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.3.4.1</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output Power Dynamics / ON/OFF time mask / General ON/OFF time mask</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.3.4.2.1</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output Power Dynamics / PRACH and SRS time mask / PRACH time mask</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.3.4.2.2</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output Power Dynamics / PRACH and SRS time mask / SRS time mask</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.3.5.1</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output Power Dynamics / Power Control / Power Control Absolute power tolerance</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.3.5.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output Power Dynamics / Power Control / Power Control Relative power tolerance</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.3.5.3</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output Power Dynamics / Power Control / Aggregate power control tolerance</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.5.1</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit signal quality / Frequency Error</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.5.2.1</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit signal quality / Transmit modulation / Error Vector Magnitude (EVM)</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.5.2.1A</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit signal quality / Transmit modulation / PUSCH-EVM with exclusion period</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.5.2.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit signal quality / Transmit modulation / Carrier leakage</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.5.2.3</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit signal quality / Transmit modulation / &nbsp;In-band emissions for non allocated RB</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.5.2.4</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit signal quality / Transmit modulation / EVM equalizer spectrum flatness</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.6.1</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output RF spectrum emissions / Occupied bandwidth</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.6.2.1</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output RF spectrum emissions / Out of band emission / Spectrum Emission Mask</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.6.2.3</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output RF spectrum emissions / Out of band emission / Adjacent Channel Leakage power Ratio</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.6.3.1</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output RF spectrum emissions / Spurious emissions / Transmitter Spurious emissions</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.6.3.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output RF spectrum emissions / Spurious emissions / Spurious emission band UE co-existence</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.6.3.3</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Output RF spectrum emissions / Spurious emissions / Additional spurious emissions</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">6.7</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Transmit intermodulation</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Chapter 7 is almost identical to WCDMA reciever measurement. Basically all of these test cases measures how much data is properly decoded and how much data get lost under various UE reciever power (network transmission power). </span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 7</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Receiver Characteristics</span></font><font face="Verdana"><span style="font-size:10pt;"> - Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">7.3</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Reference sensitivity level</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">7.4</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Maximum input level</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">7.5</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Adjacent Channel Selectivity (ACS)</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">7.6.1</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Blocking characteristics / In-band blocking</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">7.6.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Blocking characteristics / Out of-band blocking</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">7.6.3</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Blocking characteristics / Narrow band blocking</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">7.7</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Spurious response</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">7.8.1</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Intermodulation characteristics / Wide band Intermodulation</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">7.9</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Spurious emissions</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Chapter 8 test mostly about how well UE can demodulate the important downlink signal (e.g, PDSCH, PCFICH/PDCCH, PHICH) under various noisy/fading channel condition. As you may guess, these test cases is using test system configuration like A9, A10, A11 as shown in previous section (TS 36.508 Annex A).</span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;"><a name="36_521_1_Chapter8">Chapter 8</a></span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Performance Requirement&nbsp;- Measurement Items</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">8.2.1.1.1</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PDSCH (Cell-Specific Reference Symbols) / FDD (Fixed Reference Channel) / FDD PDSCH Single Antenna Port Performance (Cell-Specific Reference Symbols) / FDD PDSCH Single Antenna Port Performance</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">8.2.1.1.2</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PDSCH (Cell-Specific Reference Symbols) / FDD (Fixed Reference Channel) / FDD PDSCH Single Antenna Port Performance (Cell-Specific Reference Symbols) / FDD PDSCH Single Antenna Port Performance with 1PRB</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">8.2.1.2.1</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PDSCH (Cell-Specific Reference Symbols) / FDD (Fixed Reference Channel) / FDD PDSCH Transmit Diversity Performance (Cell-Specific Reference Symbols) / FDD PDSCH Transmit Diversity 2x2</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">8.2.1.3.1</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PDSCH (Cell-Specific Reference Symbols) / FDD (Fixed Reference Channel) / FDD PDSCH Open Loop Spatial Multiplexing Performance (Cell-Specific Reference Symbols) / FDD PDSCH Open Loop Spatial Multiplexing 2x2</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">8.2.1.3.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PDSCH (Cell-Specific Reference Symbols) / FDD (Fixed Reference Channel) / FDD PDSCH Open Loop Spatial Multiplexing Performance (Cell-Specific Reference Symbols) / FDD PDSCH Open Loop Spatial Multiplexing 4x2</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">8.2.1.4.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PDSCH (Cell-Specific Reference Symbols) / FDD (Fixed Reference Channel) / FDD PDSCH Closed Loop Spatial Multiplexing Performance (Cell-Specific Reference Symbols) / FDD PDSCH Closed Loop Single/Multi Layer Spatial Multiplexing 2 x 2</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">8.2.1.4.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PDSCH (Cell-Specific Reference Symbols) / FDD (Fixed Reference Channel) / FDD PDSCH Closed Loop Spatial Multiplexing Performance (Cell-Specific Reference Symbols) / FDD PDSCH Closed Loop Single/Multi Layer Spatial Multiplexing 4 x 2</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">8.4.1.1</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PCFICH/PDCCH / FDD / FDD PCFICH/PDCCH Single-antenna Port Performance</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">8.4.1.2.2</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PCFICH/PDCCH / FDD / FDD PCFICH/PDCCH Transmit Diversity Performance / FDD PCFICH/PDCCH Transmit Diversity 4x2</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">8.5.1.1</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PHICH / FDD / FDD PHICH Single-antenna Port Performance</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">8.5.1.2.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Demodulation of PHICH / FDD / FDD PHICH Transmit Diversity Performance / FDD PHICH Transmit Diversity 4x2</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Chapter 9 is for measuring various feedback from UE regarding the radio channel quality (CQI, RI, PMI). For this measurement, we have to emulate various channel condition, so we need to use test configuration like A9, A10 etc as shown in previous section (TS 36.508 Annex A)</span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 9</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Reporting of Channel State Information - Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">9.2.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">CQI Performance under AWGN conditions / CQI Reporting under AWGN conditions - PUCCH 1-0 / FDD CQI Reporting under AWGN conditions – PUCCH 1-0</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">9.2.2.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">CQI Performance under AWGN conditions / CQI Reporting under AWGN conditions - PUCCH 1-1 / FDD CQI Reporting under AWGN conditions – PUCCH 1-1</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">9.3.1.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">CQI Reporting under fading conditions / Frequency-selective scheduling mode / Frequency-selective scheduling mode - PUSCH 3-0 / FDD Frequency-selective scheduling mode – PUSCH 3-0</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">9.3.2.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">CQI Reporting under fading conditions / Frequency non-selective scheduling mode / Frequency non-selective scheduling mode – PUCCH 1-0 / FDD Frequency non-selective scheduling mode – PUCCH 1-0</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">9.3.3.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">CQI Reporting under fading conditions / Frequency-selective interference / Frequency-selective scheduling mode - PUSCH 3-0 / FDD Frequency-selective scheduling mode – PUSCH 3-0</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">9.4.1.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Reporting of Precoding Matrix Indicator (PMI) / Single PMI / Single PMI – PUSCH 3-1 / FDD Single PMI – PUSCH 3-1</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">9.4.2.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Reporting of Precoding Matrix Indicator (PMI) / Multiple PMI / Multiple PMI – PUSCH 1-2 / FDD Multiple PMI – PUSCH 1-2</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p><font face="Verdana"><span style="font-size:10pt;">9.5.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Reporting of Rank Indicator (RI) / RI Reporting – PUCCH 1-1 / FDD RI Reporting– PUCCH 1-1</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;"><b><a name="RRM_Conformance">RF Conformance Test - RRM&nbsp;Conformance (36.521-3)</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black" style="line-height:100%; margin-top:0; margin-bottom:0;">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Chapter</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Test Category</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-UTRAN RRC_IDLE State Mobility</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E-UTRAN RRC_CONNECTED State Mobility</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">6</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RRC Connection Mobility Control</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">7</span></font></p>
+                        </td>
+                        <td width="631">
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Timing and Signalling Characteristics</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">8</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE Measurements Procedures</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="13">
+                            <p align="center" style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">9</span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Measurement Performance Requirements</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 4</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">E-UTRAN RRC_IDLE State Mobility - Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">4.2.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN Cell Re-Selection / E-UTRAN FDD – FDD cell re-selection intra frequency case</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">4.2.3</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN Cell Re-Selection / E-UTRAN FDD – FDD cell re-selection inter frequency case</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">4.3.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN to UTRAN Cell Re-Selection / E-UTRAN FDD – UTRAN FDD cell re-selection / E-UTRA FDD-UTRAN FDD cell reselection: UTRA FDD is of higher priority</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">4.3.1.2</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN to UTRAN Cell Re-Selection / E-UTRAN FDD – UTRAN FDD cell re-selection / E-UTRA FDD–UTRAN FDD cell re-selection: UTRA FDD is of lower priority</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">4.3.1.3</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN to UTRAN Cell Re-Selection / E-UTRAN FDD – UTRAN FDD cell re-selection / E-UTRAN FDD – UTRAN FDD cell re-selection in fading propagation conditions: UTRA FDD is of lower priority</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">4.4.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN to GSM Cell Re-Selection / E-UTRAN FDD – GSM cell re-selection</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 5</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">E-UTRAN RRC_CONNECTED State Mobility - Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">5.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN Handover / E-UTRAN FDD-FDD Handover intra frequency case</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">5.1.3</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN Handover / E-UTRAN FDD-FDD Handover inter frequency case</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">5.1.5</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN Handover / E-UTRAN FDD-FDD inter frequency Handover: unknown target cell</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">5.2.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Handover from E-UTRAN to other RATs / E-UTRAN FDD – UTRAN FDD handover</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">5.2.3</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">E-UTRAN to UTRAN Cell Re-Selection / E-UTRAN FDD – UTRAN FDD cell re-selection / E-UTRAN FDD – UTRAN FDD cell re-selection in fading propagation conditions: UTRA FDD is of lower priority</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">5.2.7</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Handover from E-UTRAN to other RATs / E-UTRAN FDD – UTRAN FDD handover: unknown target cell</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">5.2.8</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Handover from E-UTRAN to other RATs / E-UTRAN FDD – GSM handover: unknown target cell</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 6</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">RRC Connection Mobility Control - Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">6.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RRC Re-establishment / E-UTRAN FDD Intra-frequency RRC Re-establishment</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">6.1.2</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RRC Re-establishment / E-UTRAN FDD Inter-frequency RRC Re-establishment</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">6.2.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Random Access / E-UTRAN FDD – Contention Based Random Access Test</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">6.2.2</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">Random Access / E-UTRAN FDD – Non-Contention Based Random Access Test</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 7</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Timing and Signalling Characteristics - Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">7.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">UE Transmit Timing / E-UTRAN FDD – UE Transmit Timing Accuracy</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">7.2.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">UE Timing Advance / E-UTRAN FDD – UE Timing Advance Adjustment Accuracy</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">7.3.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">UE Transmit Timing / E-UTRAN FDD Radio Link Monitoring Test for Out-of-sync</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">7.3.2</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">UE Transmit Timing / E-UTRAN FDD Radio Link Monitoring Test for In-sync</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">7.3.5</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">UE Transmit Timing / E-UTRAN FDD Radio Link Monitoring Test for Out-of-sync in DRX</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">7.3.6</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">UE Transmit Timing / E-UTRAN FDD Radio Link Monitoring Test for In-sync in DRX</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 8</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">UE Measurements Procedures- Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><span style="font-size:10pt;"><font face="Verdana">8.1.1</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN intra frequency measurements / E-UTRAN FDD intra frequency measurements / E-UTRAN FDD-FDD intra frequency event triggered reporting under fading propagation conditions in asynchronous cells</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><span style="font-size:10pt;"><font face="Verdana">8.1.2</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN intra frequency measurements / E-UTRAN FDD intra frequency measurements / E-UTRAN FDD-FDD intra frequency event triggered reporting under fading propagation conditions in synchronous cells</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><span style="font-size:10pt;"><font face="Verdana">8.1.3</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN intra frequency measurements / E-UTRAN FDD intra frequency measurements / E-UTRAN FDD-FDD intra frequency event triggered reporting under fading propagation conditions in synchronous cells with DRX</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><span style="font-size:10pt;"><font face="Verdana">8.3.1</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN FDD-FDD Inter-frequency Measurements / E-UTRAN FDD-FDD Inter-frequency event triggered reporting under fading propagation conditions in asynchronous cells</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.3.2</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN FDD-FDD Inter-frequency Measurements / E-UTRAN FDD-FDD Inter-frequency event triggered reporting when DRX is used under fading propagation conditions in asynchronous cells</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.3.3</font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN FDD-FDD Inter-frequency Measurements / E-UTRAN FDD-FDD Inter frequency event triggered reporting under AWGN propagation conditions in asynchronous cells with DRX when L3 filtering is used</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.5.1</font></span></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN FDD – UTRAN measurements / E-UTRAN FDD – UTRAN FDD event triggered reporting under fading propagation conditions</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.5.2</font></span></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN FDD – UTRAN measurements / E-UTRAN FDD - UTRAN FDD SON ANR cell search reporting under AWGN propagation conditions</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.5.3</font></span></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN FDD – UTRAN measurements / E-UTRAN FDD – UTRAN FDD event triggered reporting when DRX is used under fading propagation conditions</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.8.1</font></span></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN FDD – GSM measurements / E-UTRAN FDD – GSM event triggered reporting in AWGN</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.8.2</font></span></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">E-UTRAN FDD – GSM measurements / E-UTRAN FDD – GSM event triggered reporting when DRX is used in AWGN</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.11.1</font></span></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">Monitoring of Multiple Layers / Multiple E-UTRAN FDD-FDD Inter-frequency event triggered reporting under fading propagation conditions</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.11.3</font></span></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">Monitoring of Multiple Layers / E-UTRAN FDD-FDD Inter-frequency and UTRAN FDD event triggered reporting under fading propagation conditions</font></span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="2">
+                            <p><span style="font-size:10pt;"><font face="Verdana">8.11.5</font></span></p>
+                        </td>
+                        <td width="631" height="27">
+                            <p><span style="font-size:10pt;"><font face="Verdana">Monitoring of Multiple Layers / Combined E-UTRAN FDD - E-UTRA FDD and GSM cell search. E-UTRA cells in fading; GSM cell in static propagation conditions</font></span></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <ul>
+                <table border="1" width="750" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                    <tr>
+                        <td width="109" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Chapter 9</span></font></p>
+                        </td>
+                        <td width="631" bgcolor="#66CCFF">
+                            <p align="center"><font face="Verdana"><span style="font-size:10pt;">Measurement Performance Requirements - Measurement Items</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">9.1.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RSRP / FDD Intra frequency RSRP Accuracy / FDD Intra Frequency Absolute RSRP Accuracy</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">9.1.1.2</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RSRP / FDD Intra frequency RSRP Accuracy / FDD Intra Frequency Relative Accuracy of RSRP</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">9.1.3.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RSRP / FDD Inter frequency RSRP Accuracy / FDD - FDD Inter Frequency Absolute RSRP Accuracy</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109">
+                            <p align="left"><font face="Verdana"><span style="font-size:10pt;">9.1.3.2</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RSRP / FDD Inter frequency RSRP Accuracy / FDD - FDD Inter Frequency Relative Accuracy of RSRP</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="1">
+                            <p><font face="Verdana"><span style="font-size:10pt;">9.2.1.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RSRQ / FDD Intra frequency RSRQ Accuracy / FDD Intra Frequency Absolute RSRQ Accuracy</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">9.2.3.1</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RSRQ / FDD – FDD Inter frequency RSRQ Accuracy / FDD – FDD Inter Frequency Absolute RSRQ Accuracy</span></font></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="109" height="11">
+                            <p><font face="Verdana"><span style="font-size:10pt;">9.2.3.2</span></font></p>
+                        </td>
+                        <td width="631" height="23">
+                            <p><font face="Verdana"><span style="font-size:10pt;">RSRQ / FDD – FDD Inter frequency RSRQ Accuracy / FDD – FDD Inter Frequency Relative Accuracy of RSRQ</span></font></p>
+                        </td>
+                    </tr>
+                </table>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Overview_on_Performance_Test">Overview on RF/PHY Performance Test</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Basic Idea of Performance Test for RF/PHY is pretty simple. As you see in the following diagram, a DUT (UE) is connected to SS (Signaling Simulator) with single cell and Fader and AWGN are connected to the downlink path of the connection. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The purpose is to test how well UE can decode various downlink physical channels under harsh channel condition (e.g, in the exisitance of AWGN and/or Fading).</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/35_508_Fig_A_9.PNG" width="649" height="427" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">You can find the details of the performance test from 36.521-1 8 Performance Requirement. There are pretty many test cases under this chapter as in <a href="#36_521_1_Chapter8" target="_blank">the table in previous section</a> but we can simplify the whole set of test in a simple table as follows. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="843" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="336"><font face="Verdana"><span style="font-size:10pt;">Test Channel (Channels UE has to decode)</span></font></td>
+                    <td width="497"><font face="Verdana"><span style="font-size:10pt;"><a href="FrameStructure_DL.html#PDSCH" target="_blank">PDSCH</a>, <a href="FrameStructure_DL.html#PCFICH" target="_blank">PCFICH</a>/<a href="FrameStructure_DL.html#PDCCH" target="_blank">PDCCH</a>,<a href="FrameStructure_DL.html#PBCH" target="_blank">PBCH</a>, <a href="FrameStructure_DL.html#PHICH" target="_blank">PHICH</a></span></font></td>
+                </tr>
+                <tr>
+                    <td width="336"><font face="Verdana"><span style="font-size:10pt;">Test Parameter (Test Condition)</span></font></td>
+                    <td width="497"><font face="Verdana"><span style="font-size:10pt;"><a href="Handbook_LTE_DownlinkPowerAllocation.html" target="_blank">Rho A, Rho B</a>, Noc, Modulation Scheme</span></font></td>
+                </tr>
+                <tr>
+                    <td width="336"><font face="Verdana"><span style="font-size:10pt;">Fading Condition</span></font></td>
+                    <td width="497">
+                        <p><font face="Verdana"><span style="font-size:10pt;"><a href="Handbook_LTE_Fading.html" target="_blank">EVA5, ETU70, ETU300, HST</a></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="336"><font face="Verdana"><span style="font-size:10pt;">SNR</span></font></td>
+                    <td width="497"><font face="Verdana"><span style="font-size:10pt;">-1.0 ~ 19.1</span></font></td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Note : If you are interested in more exhaustive test, refer to <a href="Throughput.html#LTE_Physical_Layer_Throughput" target="_blank">Physical Layer Throughput/Performance Test</a> (My personal test)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Thinking_over_a_cup_of_coffee">Thinking over a cup of coffee</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_RF_ACLR_with_Power_01.png" width="796" height="235" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_RF_IBE_with_Position_01.png" width="715" height="285" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>

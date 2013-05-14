@@ -1,0 +1,2077 @@
+<html>
+
+<head>
+<title> ShareTechnote </title>
+<meta name="generator" content="Namo WebEditor">
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<table border="0" width="800">
+    <tr>
+        <td width="897">
+            <p><b><font face="Verdana"><span style="font-size:14pt;">Full Stack &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></font></b><font face="Verdana"><span style="font-size:8pt;">Home : <a href="http://www.sharetechnote.com"
+target="_blank">www.sharetechnote.com</a></span></font></p>
+        </td>
+    </tr>
+    <tr>
+        <td width="897">
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">
+
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-9961293861045757";
+/* Horiz_Wide_LTE_FullStack_01 */
+google_ad_slot = "8089109575";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Now that we covered each layer of LTE protocol stack, it is time to combine all these layers to a complete protocol stack. </font></span></p>
+            <ul>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Overall_Sequence_Layer_Configuration">Overall Sequence and Layer Configuration</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Downlink_Channel_Map">Downlink Channel Map</a> </span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Uplink_Channel_Map">Uplink Channel Map</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Channel_Mapping_Table_Call_Processing">Channel Mapping Table throughout Call Processing</a></span></font></li>
+                <li style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a href="#Live_Network_Examples_FullStack">Live Network Examples in Fullstack</a></span></font></li>
+            </ul>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Overall_Sequence_Layer_Configuration"><b>Overall Sequence and Layer Configuration</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Try to follow the sequence below and combine all the knowledges you have and try to make practical sense out of it. This kind of integration is something not explanined in 3GPP specification and you have to figure out on your own.</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Couple of bullet points for you to follow up are as follows :</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">i) Which of the sequence requires normal MAC header and which of them does not use any MAC header ? </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">ii) What is the practical meaning of &quot;No MAC Header&quot; and &quot;Normal MAC Header&quot; ?</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">iii) Which process use RLC TM mode ? Which Process use RLC UM mode and Which process use RLC AM mode ? </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">iv) Can you explain the detailed RLC layer behavior of each processes which is using RLC layer ? </font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">v) Which process use PDCP and which does not ?</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">&nbsp;</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><span style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;&nbsp;</span><font face="Verdana"><span style="font-size:10pt;"><img src="../image/FullStack_Sequence01.PNG" width="547" height="423" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;"><img src="../image/FullStack_Sequence02.PNG" width="514" height="472" border="0"></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Downlink_Channel_Map"><b>Downlink Channel Map</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">The diagram you saw above a kind of message flow(event diagram) in time sequence. The diagram shown below is not a time based, but it shows the channel mapping (or data flow across the full protocol stack). Pick one of the message from the diagram shown above and try to find right route for this digram and see how much details you can add. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">For example, if you picked the message &quot;RRC Connection Setup&quot;, the start point would be &quot;RRC Message msg4&quot;. </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_DL_ChannelMap.png" width="790" height="498" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is a tabular presentation of DL Channel Map. (LCID and TrCH Number would be different depending on the network or Network Simulator)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="798" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RB</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Lo CH</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">PDCP</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RLC</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Lo CH</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">LCID</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">MAC Hdr</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">HARQ</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RNTI</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Tr CH</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">PCCH</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">PCCH</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">N/A</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">PCH</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">BCCH 0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">BCCH 0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">N/A</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">BCH 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">BCCH 1</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">BCCH 1</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">N/A</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Broadcast</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SI RNTI</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL SCH&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RA_RES</span></font></p>
+                    </td>
+                    <td width="73"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RA_RES</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">N/A</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RA RNTI</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL SCH&nbsp;1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SRB0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL CCCH</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL CCCH</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">T-CRNTI</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL SCH&nbsp;1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DCCH 0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">AM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DCCH 0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL SCH&nbsp;1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SRB2</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DCCH 1</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">AM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DCCH 0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL SCH&nbsp;1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73" height="7">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DRB 0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DTCH0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;UM/AM</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DTCH0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL SCH&nbsp;1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73" height="7">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DRB 1</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DTCH0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;UM/AM</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DTCH0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL SCH&nbsp;1</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DRB 2</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DTCH0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;UM/AM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL DTCH0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DL SCH&nbsp;1</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><a name="Uplink_Channel_Map"><b>Uplink Channel Map</b></a></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="left">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><img src="../image/LTE_UL_ChannelMap.png" width="669" height="485" border="0"></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Following is a tabular presentation of DL Channel Map. (LCID and TrCH Number would be different depending on the network or Network Simulator)</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="798" cellspacing="0" bordercolordark="white" bordercolorlight="black">
+                <tr>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RB</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Lo CH</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">PDCP</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RLC</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Lo CH</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">LCID</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">MAC Hdr</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">HARQ</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RNTI</span></font></p>
+                    </td>
+                    <td width="73" bgcolor="#99CCFF">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">Tr CH</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RA_PRE</span></font></p>
+                    </td>
+                    <td width="73"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">RA_PRE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">N/A</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL SCH&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SRB0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL CCCH</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">TM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL CCCH</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NONE</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">T-CRNTI</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL SCH&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DCCH 0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">AM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DCCH 0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">1</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL SCH&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">SRB2</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DCCH 1</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">AM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DCCH 0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">2</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL SCH&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73" height="7">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DRB 0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DTCH0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;UM/AM</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DTCH0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">3</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL SCH&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73" height="7">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DRB 1</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DTCH0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;UM/AM</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DTCH0</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">4</span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73" height="23">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL SCH&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">DRB 2</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DTCH0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">USED</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">&nbsp;UM/AM</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL DTCH0</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">5</span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">NORMAL</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">CRNTI</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                    <td width="73">
+                        <p align="center"><font face="Verdana"><span style="font-size:10pt;">UL SCH&nbsp;0</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Channel_Mapping_Table_Call_Processing">Channel Mapping Table throughout Call Processing</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This is only an example case and Mapping (especiall LoCH No) can vary depending on situations. The point is that it will be really helpful for your troubleshooting or test case creation if you create this kind of table for your case.</span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" cellspacing="0" bordercolordark="white" bordercolorlight="black" width="797">
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl25 width="559" style='height:12.75pt;width:507pt' bgcolor="#00CC33">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Message</span></font></p>
+                    </td>
+                    <td class=xl25 width="47" style='width:39pt' bgcolor="#00CC33">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">RB</span></font></p>
+                    </td>
+                    <td class=xl25 width="58" style='width:48pt' bgcolor="#00CC33">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">Lo CH</span></font></p>
+                    </td>
+                    <td class=xl25 width="68" style='width:48pt' bgcolor="#00CC33">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">LoCH No</span></font></p>
+                    </td>
+                    <td class=xl25 width="42" style='width:48pt' bgcolor="#00CC33">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:10pt;">LCID</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">MIB</span></font></p>
+                    </td>
+                    <td class=xl26 width="47">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td class=xl25 width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">BCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">SIB 1</span></font></p>
+                    </td>
+                    <td class=xl26 width="47">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td class=xl25 width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">BCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                    <td width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">SIB 2</span></font></p>
+                    </td>
+                    <td class=xl26 width="47">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td class=xl25 width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">BCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                    <td width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : PRACH Preamble</span></font></p>
+                    </td>
+                    <td class=xl26 width="47">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : RACH Response</span></font></p>
+                    </td>
+                    <td class=xl26 width="47">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                    <td width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">-</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : RRC Connection Request</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB0</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">UL CCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : RRC Connection Setup</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB0</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">DL CCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : RRC Connection Setup
+  Complete + NAS : Attach Request + ESM : PDN Connectivity Request</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">UL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : DL Information Transfer
+  + NAS : Authentication Request</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">DL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : UL Information Transfer
+  + NAS : Authentication Response</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">UL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : DL Information Transfer
+  + NAS : Security Mode Command</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">DL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : UL Information Transfer
+  + NAS : Security Mode Complete</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">UL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : Security Mode Command</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">DL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : Security Mode Complete</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">UL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : RRC Connection
+  Reconfiguration</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">DL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'
+  x:str="RRC : RRC Connection Reconfiguration Complete + NAS : Attach Complete + NAS : Activate Default EPS Bearer " width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC
+  : RRC Connection Reconfiguration Complete</span></font><span style='mso-spacerun:yes'></span></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB1</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">UL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">0</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt'
+  x:str="RRC : UL InformationTransfer + NAS : Attach Complete + NAS : Activate Default EPS Bearer " width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC
+  : UL InformationTransfer + NAS : Attach Complete + NAS : Activate Default EPS
+  Bearer&nbsp;</span></font><span style='mso-spacerun:yes'></span></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB2</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">UL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">2</span></font></p>
+                    </td>
+                </tr>
+                <tr height=17 style='height:12.75pt'>
+                    <td height=17 class=xl24 style='height:12.75pt' width="559">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:8pt;">RRC : UL Information Transfer
+  + ESM : PDN Connectivity Request</span></font></p>
+                    </td>
+                    <td class=xl27 width="47" style='width:39pt'>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">SRB2</span></font></p>
+                    </td>
+                    <td width="58">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">UL DCCH</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="68">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">1</span></font></p>
+                    </td>
+                    <td class=xl25 x:num width="42">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;" align="center"><font face="Verdana"><span style="font-size:8pt;">2</span></font></p>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana">Note : Refer to TS 36.331 - 9.1.1 Logical channel configurations</font></span></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;"><b><a name="Live_Network_Examples_FullStack">Live Network Examples in Full Stack</a></b></span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">This can a good example in which you can practice on very details of MAC to PDCP in detail. This is a segment of logs between a UE and a live network, meaning it shows what's happening in real network. I captured a log using <a href="www.sanjole.com" target="_blank">Intellijudge and Wavejudge from SanJole</a> and reformated so that it is easier to read. (First understand the details of <a
+href="RACH_LTE.html" target="_blank">RACH</a>, <a href="MAC_LTE.html" target="_blank">MAC</a>, <a href="PDCP_LTE.html" target="_blank">PDCP</a> in detail especially about the data structure of each layer and then revisit this and see how much you can make sense out of this). </span></font></p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <table border="1" width="800" cellspacing="0" bordercolordark="white" bordercolorlight="black" height="10205">
+                <tr>
+                    <td width="93" bgcolor="#999900" height="25">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 402.4</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="25">
+                        <p><font face="Verdana"><span style="font-size:10pt;">RACH Preamble</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="183"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="183">
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RNTI = None</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Timing Offset = 2</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Logical Root = 219</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Preamble index = 33</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NC Configuration = 12</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Set Type = Unrestricted</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Logical Root = 215</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Preamble Format = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RbStart = 2</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 402.8</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="27">
+                        <p><font face="Verdana"><span style="font-size:10pt;">MAC RA Response</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="230"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="230">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC : 61 00 B0 C0 4C 2C 09</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0(False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">T = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RAPID = 33</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Timing Advanced = 11</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag 0 = False</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fixed Size Resource Block Assignment = 96 (RB Start = 46, RB Length = 2)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS = 2, I_TBS = 2, rv = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC Command for PUCCH 3 = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UL Delay 0 = False</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Request = False</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">T_CRNTI = 11273</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="16">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 403.4</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="16">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Request</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="189"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="189">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC : 20 06 1F 5C 2C 04 B2 AC F6</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 0&nbsp;(CCCH)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">F = 0 (False)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">L = 6</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 1</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 31 (Padding)</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CCCH-RLC : 5C 2C 04 B2 AC F6 (RRC Connection Request)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="18">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 403.8</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="18">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH-ACK</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="21">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 404.7</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="21"><font face="Verdana"><span style="font-size:10pt;">PDCCH (DCI Format 1)&nbsp;+ PDSCH (RRC Connection Setup)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="586"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="586">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CCE Start = 0</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CCE Length = 8</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 1A (Hex : 47D01E2)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Distributed VRB flag = 0 (Local)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Resource Allocation = 500 (RB Start = 0, RB Length = 11)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS = 0 (I_TBS = 0)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HARQ Process Number = 7</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI (New Data Indicator) = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RV = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC Command for PUCCH = 1</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC : 3C 20 1A 1F 5C 2C 04 B2 AC F6 60 12 98 08 FD 4E .....</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 28 (UE Contention Resolution Identity)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 1</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 1&nbsp;(CCCH)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">F = 0 (False)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">L = 26</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 2</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 31 (Padding)</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UE Contention Resolution Identity</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt; line-height:100%;">UE Contention Resolution Identity</span><span style="font-size:10pt;">= 5C 2C 04 B2 AC F6</span></font></p>
+                            </ul>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="13">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 405.1</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="13">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PUCCH - UCI HARQ ACK</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="31"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="31">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PUCCH Format 1 A</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">n PUCCH = 16</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="16">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 406.2</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="16">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PUCCH - UCI SR</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="6"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="6">
+                        <p><font face="Verdana"><span style="font-size:10pt;">N PUCCH RB = 2</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="17">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 406.6</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="17">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="159"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="159">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCCH DCI Format 0 (Hex : 0180540)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="16">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 406.7</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="16">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="187"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="187">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0180540)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="25">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 406.8</span></font></p>
+</td>
+                    <td width="697" bgcolor="#999900" height="25">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="179"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="179">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0180540)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="15">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 406.9</span></font></p>
+</td>
+                    <td width="697" bgcolor="#999900" height="15">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="171"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="171">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0180540)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="20">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.0</span></font></p>
+</td>
+                    <td width="697" bgcolor="#999900" height="20">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="162"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="162">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0180540)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="18">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.0</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="18"><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (First Segment)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="692"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="692">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 3A 3D 01 22 10 88 00 00 20</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 26 (Power Headroom Report)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 29 (Short Buffer Status Report)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 2</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 1 (identity)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Power Headroom</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Power Headroom --&gt; 11 dB &lt;= PH &lt;= 12 dB</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Short Buffer Status Report</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCG ID = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size 16 --&gt; 91 &lt; BS &lt;= 107</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 88 00 00 20</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0 (Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 1 (First Byte of the Data Field corresponds to the first byte of a RLC SDU. Last byte of Data field does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 0</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 00 20</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="15">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.1</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="15">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Mid Segment)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="324"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="324">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 01 98 01 20 80 01 00 59 17</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 1 (identity)</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 98 01 20 80 01 00 59 17</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0 (Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 3 (First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Last byte of Data field does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 1</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 20 80 01 00 59 17</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" bgcolor="#999900" height="18">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.1</span></font></p>
+                    </td>
+                    <td width="697" bgcolor="#999900" height="18">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="166"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="166">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0180540)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.1</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Mid Segment)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 01 98 02 39 45 E5 34 0B 07</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 1 (identity)</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 98 02 39 45 E5 34 0B 07</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0 (Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 3 (First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. Last byte of Data field does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 2</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 39 45 E5 34 0B 07</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.2</span></font></p>
+</td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0180540)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.3</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Mid Segment)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 01 98 02 41 02 0B F6 03 02</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 1 (identity)</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 98 03 41 02 0B F6 03 02</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0 (Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 3 (First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. Last byte of Data field does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 3</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 41 02 0B F6 03 02</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.3</span></font></p>
+</td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0180540)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 1 (True)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.4</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="7"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23"><font face="Verdana"><span style="font-size:10pt;">....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.4</span></font></p>
+</td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0180440)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 96</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 2, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 0&nbsp;(False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 1</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.4</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Mid Segment)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 01 98 04 27 80 01 00 D0 CC</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 1 (identity)</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 98 04 27 80 01 00 D0 CC</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0 (Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 3 (First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. Last byte of Data field does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 4</span></font></p>
+                        </ul>
+                        <p><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 27 80 01 00 D0 CC</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.5</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Mid Segment)</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 3D 01 0E 98 05 71 51 04 E0</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 29 (Short Buffer Status Report)</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 1</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 1 (identity)</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Short Buffer Status Report</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCG ID = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size 14 --&gt; 67 &lt; BS &lt;= 78</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 98 05 71 51 04 E0</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0 (Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 3 (First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. Last byte of Data field does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 5</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 71 51 04 E0</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.5</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="7">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">........</span></font><font face="Verdana"><span style="font-size:10pt;"></span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="7" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.5</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="7"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 0246280)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 145</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 17, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 0&nbsp;(False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 2</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 0 (False)</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="3" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.6</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Mid Segment)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;">&nbsp;</span></p>
+                    </td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 01 98 06 E0 C0 40 00 21 02</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 1&nbsp;(Identity)</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 98 06 E0 C0 40 00 21 02</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0&nbsp;(Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 3&nbsp;(First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. Last byte of Data field&nbsp;does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 6</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = E0 C0 40 00 21 02</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;">&nbsp;</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="7" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.6</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="7" bgcolor="white"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23" bgcolor="white"><font face="Verdana"><span style="font-size:10pt;">....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="7" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.7</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Mid Segment)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;">&nbsp;</span></p>
+                    </td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 01 98 07 03 D0 11 D1 27 1A</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 1&nbsp;(Identity)</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 98 07 03 D0 11 D1 27 1A</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0&nbsp;(Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 3&nbsp;(First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. Last byte of Data field&nbsp;does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 7</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 03 D0 11 D1 27 1A</span></font></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;">&nbsp;</span></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="4" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.7</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="22" bgcolor="white"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="22" bgcolor="white"><font face="Verdana"><span style="font-size:10pt;">.....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="4" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.8</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="4" bgcolor="white"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="23" bgcolor="white"><font face="Verdana"><span style="font-size:10pt;">.....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="4" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.8</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Mid Segment)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="3">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;">&nbsp;</span></p>
+                    </td>
+                    <td width="697" height="23">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 01 98 08 80 80 21 10 01 00</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 1&nbsp;(Identity)</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = 98 08 80 80 21 10 01 00</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 0&nbsp;(Status Report Not Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 3&nbsp;(First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. Last byte of Data field&nbsp;does not corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 8</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 80 80 21 10 01 00</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="1" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.9</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">PUSCH - RRC Connection Setup Complete (Last Segment)</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="74"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="666">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC = 3E 21 36 1F 00 00 00 B0 09 00 10 81 06 00 00 00 00 83 06 00 00 00 00 ....</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 30&nbsp;(Long Buffer Status Report)</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 1</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 1 (identity)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">F = 0 (False)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">L = 54</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 2</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 31&nbsp;(Padding)</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Long Buffer Status Report</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size #0 = 0 (BS = 0)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size #1 = 0 (BS = 0)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size #2 = 0 (BS = 0)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size #3 = 0 (BS = 0)</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC AMD = B0 09 00 10 81 06 00 00 00 00 83 06 00 00 00 00 ....</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 1 (Data PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RF = 0 (AMD PDU)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">P = 1&nbsp;(Status Report Requested)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Fl = 2&nbsp;(First Byte of the Data Field does not corresponds to the first byte of a RLC SDU. Last byte of Data field&nbsp;corresponds to the last byte of a RLC PDU) </span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">SN = 9</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PDCP-CP-SRB = 00 10 81 06 00 00 00 00 83 06 00 00 00 00 ....</span></font></p>
+                        <p><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="24" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 407.9</span></font></p>
+</td>
+                    <td width="697" height="24" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="22"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="22"><font face="Verdana"><span style="font-size:10pt;">.....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="22" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 408.0</span></font></p>
+</td>
+                    <td width="697" height="22" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="21"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="21"><font face="Verdana"><span style="font-size:10pt;">.....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="21" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 408.1</span></font></p>
+</td>
+                    <td width="697" height="21" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="16"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="16"><font face="Verdana"><span style="font-size:10pt;">.....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="20" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 408.2</span></font></p>
+</td>
+                    <td width="697" height="20" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="18"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="18"><font face="Verdana"><span style="font-size:10pt;">.....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="3" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 408.3</span></font></p>
+</td>
+                    <td width="697" height="27" bgcolor="#999900">                        <p><font face="Verdana"><span style="font-size:10pt;">PHICH ACK</span></font></p>
+</td>
+                </tr>
+                <tr>
+                    <td width="93" height="17"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="17"><font face="Verdana"><span style="font-size:10pt;">.....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="16" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 408.4</span></font></p>
+                    </td>
+                    <td width="697" height="16" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 2A / PDSCH - RLC ACK</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="3">&nbsp;</td>
+                    <td width="697" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 2A (Hex : 080005C0802)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Resource Allocation Type&nbsp;= 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Resource Allocation = 65536</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC Command for PUCCH = 2</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">HARQ Process Number = 7</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Transport block to codeword swap flag = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Transport Block 1 </span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">New Data Indicator = 1</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Redundancy Version = 0</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Transport Block 2</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">New Data Indicator = 1</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Redundancy Version = 0</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Codeword 0 = Transport block 1</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><span style="font-size:10pt;"><font face="Verdana"><font face="Verdana">&nbsp;</font></font></span></p>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MAC : 21 02 1F 00 28 00 00</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 1&nbsp;(Identity)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">F = 0 (False)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">L = 2</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 1</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">R = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LICD = 31&nbsp;(Padding)</span></font></p>
+                            </ul>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RLC-STS-PDU : 00 28</span></font></p>
+                        <ul>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">D/C = 0&nbsp;(Control PDU)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CPT = 0 (Status PDU)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">ACK_SN = 10</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E1 = 0&nbsp;(False)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Padding OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+                            </ul>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="3" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 408.5</span></font></p>
+                    </td>
+                    <td width="697" height="27" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">PDCCH - DCI Format 0</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="3"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">DCI Format 0 (Hex : 023DE84)</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Format 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Hopping Flag = 0 (False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RB Allocation of 1st Slot in UL subframe = 143</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">MCS 15, RV 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">NDI = 0&nbsp;(False)</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">TPC = 2</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Cyclic Shift for DMRS = 0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CQI Requested = 1&nbsp;(True)</span></font></p>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="93" height="23" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 408.8</span></font></p>
+                    </td>
+                    <td width="697" height="23" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">PUCCH - UCI HARQ ACK</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="18"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="18"><font face="Verdana"><span style="font-size:10pt;">....</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="21" bgcolor="#999900">
+                        <p><font face="Verdana"><span style="font-size:10pt;">SFN : 408.9</span></font></p>
+                    </td>
+                    <td width="697" height="21" bgcolor="#999900"><font face="Verdana"><span style="font-size:10pt;">UCI + PUSCH</span></font></td>
+                </tr>
+                <tr>
+                    <td width="93" height="6"><font face="Verdana"><span style="font-size:10pt;">&nbsp;</span></font></td>
+                    <td width="697" height="27">
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">UCI</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">RI = 2</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Higher layer configured subband CQI</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Wideband CQI Codeword = index 10, modulation 64QAM, efficiency = 2.7305</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Subband differential CQI = 0,1,2,1,3,3,3,3,0</span></font></p>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">CRC</span></font></p>
+                        </ul>
+                        <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">PUSCH - MAC : 3E 1F 00 00 00 00 ....</span></font></p>
+                        <ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 0</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Reserved = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 1 (True)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 30 (Long Buffer Status Report)</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Sub Header 1</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Reserved = OK</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">E = 0&nbsp;(False)</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">LCID = 31 (Padding)</span></font></p>
+                            </ul>
+                            <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Long Buffer Status Report</span></font></p>
+                            <ul>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size #0 : 0 --&gt; BS = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size #0 : 1&nbsp;--&gt; BS = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size #0 : 2&nbsp;--&gt; BS = 0</span></font></p>
+                                <p style="line-height:100%; margin-top:0; margin-bottom:0;"><font face="Verdana"><span style="font-size:10pt;">Buffer Size #0 : 3&nbsp;--&gt; BS = 0</span></font></p>
+                            </ul>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p style="line-height:100%; margin-top:0; margin-bottom:0;">&nbsp;</p>
+            <p>&nbsp;</p>
+        </td>
+    </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+
+</html>
